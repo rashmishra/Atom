@@ -1,0 +1,54 @@
+ [
+   {
+    "name": "_id",
+    "type": "INTEGER",
+    "mode": "NULLABLE"
+   },
+   {
+    "name": "_class",
+    "type": "STRING",
+    "mode": "NULLABLE"
+   },
+   {
+    "name": "text",
+    "type": "STRING",
+    "mode": "NULLABLE"
+   },
+   {
+    "name": "categoryId",
+    "type": "STRING",
+    "mode": "REPEATED"
+   },
+   {
+    "name": "fpInputs",
+    "type": "RECORD",
+    "mode": "REPEATED",
+    "fields": [
+     {
+      "name": "index",
+      "type": "INTEGER",
+      "mode": "NULLABLE"
+     },
+     {
+      "name": "type",
+      "type": "STRING",
+      "mode": "NULLABLE"
+     },
+     {
+      "name": "value",
+      "type": "STRING",
+      "mode": "NULLABLE"
+     }
+    ]
+   },
+   {
+    "name": "orderNumber",
+    "type": "INTEGER",
+    "mode": "NULLABLE"
+   },
+   {
+    "name": "isDeleted",
+    "type": "BOOLEAN",
+    "mode": "NULLABLE"
+   }
+  ]

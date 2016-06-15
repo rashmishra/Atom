@@ -1,0 +1,87 @@
+[
+    {
+        "name": "userid",
+        "type": "INTEGER",
+        "mode": "nullable"
+    },
+    {
+        "name": "accountid",
+        "type": "INTEGER",
+        "mode": "nullable"
+    },
+    {
+        "name": "createdat",
+        "type": "INTEGER",
+        "mode": "nullable"
+    },
+    {
+        "name": "createdby",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "designation",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "emailaddress",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "isactive",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "isdeleted",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "lastlogin",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "linkedinurl",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "password",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "resetpasswordtoken",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "updatedat",
+        "type": "INTEGER",
+        "mode": "nullable"
+    },
+    {
+        "name": "updatedby",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "username",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "ismerged",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "legacybusinessacctid",
+        "type": "INTEGER",
+        "mode": "nullable"
+    }
+]

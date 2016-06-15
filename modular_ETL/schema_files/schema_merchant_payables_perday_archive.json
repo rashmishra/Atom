@@ -1,0 +1,78 @@
+[
+      {
+        "mode": "NULLABLE",
+        "name": "sapStatus",
+        "type": "STRING"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "processingDate",
+        "type": "STRING"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "docDate",
+        "type": "STRING"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "type",
+        "type": "STRING"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "dueDate",
+        "type": "STRING"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "merchantId",
+        "type": "STRING"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "offerId",
+        "type": "STRING"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "amount",
+        "type": "STRING"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "amountPaid",
+        "type": "FLOAT"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "numberOfVouchers",
+        "type": "INTEGER"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "payTo",
+        "type": "STRING"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "dtTransactionDate",
+        "type": "STRING"
+      },
+
+    {
+        "mode": "NULLABLE",
+        "name": "pgStatus",
+        "type": "STRING"
+      },
+      {
+        "mode": "REPEATED",
+        "name": "transactionIds",
+        "type": "STRING"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "isDeleted",
+        "type": "BOOLEAN"
+      }
+]

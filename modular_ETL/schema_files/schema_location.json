@@ -1,0 +1,56 @@
+[
+    {
+        "name": "geometry",
+        "type": "RECORD",
+        "mode": "NULLABLE",
+        "fields": [
+            {
+                "name": "type",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            }
+        ]
+    },
+    {
+        "name": "properties",
+        "type": "RECORD",
+        "mode": "NULLABLE",
+        "fields": [
+            {
+                "name": "SUBLOCALIT",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "CITY",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "ID",
+                "type": "INTEGER",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "ID0",
+                "type": "INTEGER",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "LOCALITY",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "STATE",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            }
+        ]
+    },
+    {
+        "name": "type",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    }
+]

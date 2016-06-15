@@ -1,0 +1,112 @@
+[
+    {
+        "name": "id",
+        "type": "INTEGER",
+        "mode": "nullable"
+    },
+    {
+        "name": "createdat",
+        "type": "INTEGER",
+        "mode": "nullable"
+    },
+    {
+        "name": "createdby",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "creditrevokedid",
+        "type": "INTEGER",
+        "mode": "nullable"
+    },
+    {
+        "name": "eventlastmodification",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "eventtype",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "expiredat",
+        "type": "INTEGER",
+        "mode": "nullable"
+    },
+    {
+        "name": "isexpired",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "isrevoked",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "revokedcredits",
+        "type": "INTEGER",
+        "mode": "nullable"
+    },
+    {
+        "name": "lastupdatedat",
+        "type": "INTEGER",
+        "mode": "nullable"
+    },
+    {
+        "name": "lastupdatedby",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "orderid",
+        "type": "INTEGER",
+        "mode": "nullable"
+    },
+    {
+        "name": "credits",
+        "type": "INTEGER",
+        "mode": "nullable"
+    },
+    {
+        "name": "creditsavlbefore",
+        "type": "INTEGER",
+        "mode": "nullable"
+    },
+    {
+        "name": "purpose",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "srceventtriggerby",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "userid",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "usertype",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "department",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "purposecode",
+        "type": "INTEGER",
+        "mode": "nullable"
+    },
+    {
+        "name": "event",
+        "type": "INTEGER",
+        "mode": "nullable"
+    }
+]

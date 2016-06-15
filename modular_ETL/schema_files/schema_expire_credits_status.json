@@ -1,0 +1,22 @@
+[
+    {
+        "name": "id",
+        "type": "INTEGER",
+        "mode": "nullable"
+    },
+    {
+        "name": "executiontime",
+        "type": "INTEGER",
+        "mode": "nullable"
+    },
+    {
+        "name": "status",
+        "type": "INTEGER",
+        "mode": "nullable"
+    },
+    {
+        "name": "mode",
+        "type": "INTEGER",
+        "mode": "nullable"
+    }
+]

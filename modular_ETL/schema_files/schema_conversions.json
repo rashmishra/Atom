@@ -1,0 +1,262 @@
+[
+    {
+        "name": "Customer_provided_id",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "Advertiser_company",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "Stat_status",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "Stat_sale_amount_INR",
+        "type": "FLOAT",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "Stat_net_sale_amount",
+        "type": "FLOAT",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "Stat_country_code",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "Stat_revenue",
+        "type": "FLOAT",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "Stat_affiliate_info3",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "Stat_ip",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "Stat_affiliate_info1",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "Stat_affiliate_info5",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "Stat_currency",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "Stat_approved_payout",
+        "type": "FLOAT",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "Stat_affiliate_id",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "Stat_year",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "Stat_id",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "Stat_payout_type",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "Stat_pending_sale_amount",
+        "type": "FLOAT",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "Stat_net_payout_INR",
+        "type": "FLOAT",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "Stat_pending_revenue",
+        "type": "FLOAT",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "Stat_revenue_INR",
+        "type": "FLOAT",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "Stat_net_revenue",
+        "type": "FLOAT",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "Stat_net_payout",
+        "type": "FLOAT",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "Stat_pending_payout",
+        "type": "FLOAT",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "Stat_source",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "Stat_affiliate_manager_id",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "Stat_status_code",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "Stat_advertiser_manager_id",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "Stat_customer_id",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "Stat_browser_id",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "Stat_refer",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "Stat_week",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "Stat_ad_id",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "Stat_month",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "Stat_advertiser_info",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "Stat_offer_id",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "Stat_revenue_type",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "Stat_affiliate_info2",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "Stat_advertiser_id",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "Stat_affiliate_info4",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "Stat_date",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "Stat_session_date",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "Stat_pixel_refer",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "Stat_payout",
+        "type": "FLOAT",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "Stat_payout_INR",
+        "type": "FLOAT",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "Stat_net_sale_amount_INR",
+        "type": "FLOAT",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "Stat_hour",
+        "type": "FLOAT",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "Stat_sale_amount",
+        "type": "FLOAT",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "Stat_offer_url_id",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "Stat_creative_url_id",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "Stat_goal_id",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "Stat_user_agent",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    }
+]

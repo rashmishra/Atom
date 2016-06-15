@@ -1,0 +1,527 @@
+[
+{
+	"name" : "event",
+	"type" : "string"
+},
+{
+	"name" : "properties",
+	"type" : "RECORD",
+	"fields" : [
+		{
+		"name" : "time",
+		"type" : "INTEGER",
+		"mode" : "NULLABLE"
+	},
+	{
+		"name" : "distinct_id",
+		"type" : "STRING",
+		"mode" : "NULLABLE"
+	},
+	{
+		"name" : "app_version",
+		"type" : "STRING",
+		"mode" : "NULLABLE"
+	},
+	{
+		"name" : "bluetooth_enabled",
+		"type" : "BOOLEAN",
+		"mode" : "NULLABLE"
+	},
+	{
+		"name" : "bluetooth_version",
+		"type" : "STRING",
+		"mode" : "NULLABLE"
+	},
+	{
+		"name" : "brand",
+		"type" : "STRING",
+		"mode" : "NULLABLE"
+	},
+	{
+		"name" : "carrier",
+		"type" : "STRING",
+		"mode" : "NULLABLE"
+	},
+	{
+		"name" : "src_city",
+		"type" : "STRING",
+		"mode" : "NULLABLE"
+	},
+	{
+		"name" : "city",
+		"type" : "STRING",
+		"mode" : "NULLABLE"
+	},
+	{
+		"name" : "google_play_services",
+		"type" : "STRING",
+		"mode" : "NULLABLE"
+	},
+	{
+		"name" : "has_nfc",
+		"type" : "BOOLEAN",
+		"mode" : "NULLABLE"
+	},
+	{
+		"name" : "has_telephone",
+		"type" : "BOOLEAN",
+		"mode" : "NULLABLE"
+	},
+	{
+		"name" : "lib_version",
+		"type" : "STRING",
+		"mode" : "NULLABLE"
+	},
+	{
+		"name" : "manufacturer",
+		"type" : "STRING",
+		"mode" : "NULLABLE"
+	},
+	{
+		"name" : "model",
+		"type" : "STRING",
+		"mode" : "NULLABLE"
+	},
+	{
+		"name" : "os",
+		"type" : "STRING",
+		"mode" : "NULLABLE"
+	},
+	{
+		"name" : "os_version",
+		"type" : "STRING",
+		"mode" : "NULLABLE"
+	},
+	{
+		"name" : "region",
+		"type" : "STRING",
+		"mode" : "NULLABLE"
+	},
+	{
+		"name" : "screen_dpi",
+		"type" : "INTEGER",
+		"mode" : "NULLABLE"
+	},
+	{
+		"name" : "screen_height",
+		"type" : "INTEGER",
+		"mode" : "NULLABLE"
+	},
+	{
+		"name" : "screen_width",
+		"type" : "INTEGER",
+		"mode" : "NULLABLE"
+	},
+	{
+		"name" : "wifi",
+		"type" : "BOOLEAN",
+		"mode" : "NULLABLE"
+	},
+	{
+		"name" : "Is_user_Logged_in",
+		"type" : "STRING",
+		"mode" : "NULLABLE"
+	},
+	{
+		"name" : "first_ever_session",
+		"type" : "STRING",
+		"mode" : "NULLABLE"
+	},
+	{
+		"name" : "launch_type",
+		"type" : "STRING",
+		"mode" : "NULLABLE"
+	},
+	{
+		"name" : "mp_country_code",
+		"type" : "STRING",
+		"mode" : "NULLABLE"
+	},
+	{
+		"name" : "mp_lib",
+		"type" : "STRING",
+		"mode" : "NULLABLE"
+	},
+	{
+		"name" : "session_id",
+		"type" : "STRING",
+		"mode" : "NULLABLE"
+	},
+	{
+		"name" : "last_session_duration",
+		"type" : "STRING",
+		"mode" : "NULLABLE"
+	},
+	{
+		"name" : "page_type",
+		"type" : "STRING",
+		"mode" : "NULLABLE"
+	},
+	{
+		"name" : "page_url",
+		"type" : "STRING",
+		"mode" : "NULLABLE"
+	},
+	{
+		"name" : "duration",
+		"type" : "FLOAT",
+		"mode" : "NULLABLE"
+	},
+	{
+		"name" : "category",
+		"type" : "STRING",
+		"mode" : "NULLABLE"
+	},
+	{
+		"name" : "is_back_pressed",
+		"type" : "STRING",
+		"mode" : "NULLABLE"
+	},
+	{
+		"name" : "landing_page",
+		"type" : "STRING",
+		"mode" : "NULLABLE"
+	},
+	{
+		"name" : "page_type_url",
+		"type" : "STRING",
+		"mode" : "NULLABLE"
+	},
+	{
+		"name" : "source_screen_type",
+		"type" : "STRING",
+		"mode" : "NULLABLE"
+	},
+	{
+		"name" : "source_screen_url",
+		"type" : "STRING",
+		"mode" : "NULLABLE"
+	},
+	{
+		"name" : "timestamp",
+		"type" : "STRING",
+		"mode" : "NULLABLE"
+	},
+	{
+		"name" : "campaign",
+		"type" : "STRING",
+		"mode" : "NULLABLE"
+	},
+	{
+		"name" : "media_source",
+		"type" : "STRING",
+		"mode" : "NULLABLE"
+	},
+	{
+		"name" : "User_Lat",
+		"type" : "STRING",
+		"mode" : "NULLABLE"
+	},
+	{
+		"name" : "User_Lng",
+		"type" : "STRING",
+		"mode" : "NULLABLE"
+	},
+	{
+		"name" : "cat",
+		"type" : "STRING",
+		"mode" : "NULLABLE"
+	},
+	{
+		"name" : "sort_by",
+		"type" : "STRING",
+		"mode" : "NULLABLE"
+	},
+	{
+		"name" : "sub_cat",
+		"type" : "STRING",
+		"mode" : "NULLABLE"
+	},
+	{
+		"name" : "deal_clicked",
+		"type" : "STRING",
+		"mode" : "NULLABLE"
+	},
+	{
+		"name" : "deal_order",
+		"type" : "STRING",
+		"mode" : "NULLABLE"
+	},
+	{
+		"name" : "search_string",
+		"type" : "STRING",
+		"mode" : "NULLABLE"
+	},
+	{
+		"name" : "search_type",
+		"type" : "STRING",
+		"mode" : "NULLABLE"
+	},
+	{
+		"name" : "sub_category",
+		"type" : "STRING",
+		"mode" : "NULLABLE"
+	},
+	{
+		"name" : "app_release",
+		"type" : "STRING",
+		"mode" : "NULLABLE"
+	},
+	{
+		"name" : "ios_ifa",
+		"type" : "STRING",
+		"mode" : "NULLABLE"
+	},
+	{
+		"name" : "radio",
+		"type" : "STRING",
+		"mode" : "NULLABLE"
+	},
+	{
+		"name" : "landing_screen_type",
+		"type" : "STRING",
+		"mode" : "NULLABLE"
+	},
+	{
+		"name" : "landing_screen_value",
+		"type" : "STRING",
+		"mode" : "NULLABLE"
+	},
+	{
+		"name" : "last_screen_type",
+		"type" : "STRING",
+		"mode" : "NULLABLE"
+	},
+	{
+		"name" : "last_screen_value",
+		"type" : "STRING",
+		"mode" : "NULLABLE"
+	},
+	{
+		"name" : "mp_device_model",
+		"type" : "STRING",
+		"mode" : "NULLABLE"
+	},
+	{
+		"name" : "deal_id",
+		"type" : "STRING",
+		"mode" : "NULLABLE"
+	},
+	{
+		"name" : "total_price",
+		"type" : "STRING",
+		"mode" : "NULLABLE"
+	},
+	{
+		"name" : "vouchers",
+		"type" : "STRING",
+		"mode" : "NULLABLE"
+	},
+	{
+		"name" : "changed_location",
+		"type" : "STRING",
+		"mode" : "NULLABLE"
+	},
+	{
+		"name" : "gps_status",
+		"type" : "STRING",
+		"mode" : "NULLABLE"
+	},
+	{
+		"name" : "amount_paid",
+		"type" : "STRING",
+		"mode" : "NULLABLE"
+	},
+	{
+		"name" : "credit_value",
+		"type" : "STRING",
+		"mode" : "NULLABLE"
+	},
+	{
+		"name" : "credits_used",
+		"type" : "STRING",
+		"mode" : "NULLABLE"
+	},
+	{
+		"name" : "payment_method_selected",
+		"type" : "STRING",
+		"mode" : "NULLABLE"
+	},
+	{
+		"name" : "promo_application_status",
+		"type" : "STRING",
+		"mode" : "NULLABLE"
+	},
+	{
+		"name" : "promo_code_name",
+		"type" : "STRING",
+		"mode" : "NULLABLE"
+	},
+	{
+		"name" : "promotion_discount_value",
+		"type" : "STRING",
+		"mode" : "NULLABLE"
+	},
+	{
+		"name" : "transaction_ID",
+		"type" : "STRING",
+		"mode" : "NULLABLE"
+	},
+	{
+		"name" : "transaction_value",
+		"type" : "STRING",
+		"mode" : "NULLABLE"
+	},
+	{
+		"name" : "voucher_Quantity",
+		"type" : "STRING",
+		"mode" : "NULLABLE"
+	},
+	{
+		"name" : "type",
+		"type" : "STRING",
+		"mode" : "NULLABLE"
+	},
+	{
+		"name" : "value",
+		"type" : "STRING",
+		"mode" : "NULLABLE"
+	},
+	{
+		"name" : "sign_in",
+		"type" : "STRING",
+		"mode" : "NULLABLE"
+	},
+	{
+		"name" : "sign_up",
+		"type" : "STRING",
+		"mode" : "NULLABLE"
+	},
+	{
+		"name" : "deal_price",
+		"type" : "STRING",
+		"mode" : "NULLABLE"
+	},
+	{
+		"name" : "order_id",
+		"type" : "STRING",
+		"mode" : "NULLABLE"
+	},
+	{
+		"name" : "transaction_status",
+		"type" : "STRING",
+		"mode" : "NULLABLE"
+	},
+	{
+		"name" : "action",
+		"type" : "STRING",
+		"mode" : "NULLABLE"
+	},
+	{
+		"name" : "deal_name",
+		"type" : "STRING",
+		"mode" : "NULLABLE"
+	},
+	{
+		"name" : "status",
+		"type" : "STRING",
+		"mode" : "NULLABLE"
+	},
+	{
+		"name" : "time_to_redemption",
+		"type" : "STRING",
+		"mode" : "NULLABLE"
+	},
+	{
+		"name" : "action_taken",
+		"type" : "STRING",
+		"mode" : "NULLABLE"
+	},
+	{
+		"name" : "pop_up_message",
+		"type" : "STRING",
+		"mode" : "NULLABLE"
+	},
+	{
+		"name" : "campaign_id",
+		"type" : "STRING",
+		"mode" : "NULLABLE"
+	},
+	{
+		"name" : "screen",
+		"type" : "STRING",
+		"mode" : "NULLABLE"
+	},
+	{
+		"name" : "application_status",
+		"type" : "STRING",
+		"mode" : "NULLABLE"
+	},
+	{
+		"name" : "success_status",
+		"type" : "STRING",
+		"mode" : "NULLABLE"
+	},
+	{
+		"name" : "prompt_message",
+		"type" : "STRING",
+		"mode" : "NULLABLE"
+	},
+	{
+		"name" : "sign_out",
+		"type" : "STRING",
+		"mode" : "NULLABLE"
+	},
+	{
+		"name" : "from_binding",
+		"type" : "BOOLEAN",
+		"mode" : "NULLABLE"
+	},
+	{
+		"name" : "forgot_password",
+		"type" : "STRING",
+		"mode" : "NULLABLE"
+	},
+	{
+		"name" : "message_id",
+		"type" : "INTEGER",
+		"mode" : "NULLABLE"
+	},
+	{
+		"name" : "message_type",
+		"type" : "STRING",
+		"mode" : "NULLABLE"
+	},
+	{
+		"name" : "profile_edited",
+		"type" : "STRING",
+		"mode" : "NULLABLE"
+	},
+	{
+		"name" : "screen_name",
+		"type" : "STRING",
+		"mode" : "NULLABLE"
+	},
+	{
+		"name" : "delivery_id",
+		"type" : "INTEGER",
+		"mode" : "NULLABLE"
+	},
+	{
+		"name" : "NB_IS_USER_LOGGED_IN",
+		"type" : "STRING",
+		"mode" : "NULLABLE"
+	},
+	{
+		"name" : "NB_USER_LAT",
+		"type" : "STRING",
+		"mode" : "NULLABLE"
+	},
+	{
+		"name" : "NB_USER_LNG",
+		"type" : "STRING",
+		"mode" : "NULLABLE"
+	}
+	]
+}
+]

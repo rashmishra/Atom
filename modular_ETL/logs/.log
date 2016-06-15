@@ -1,0 +1,6 @@
+
+------------------------------------------------------------
+------------------------------------------------------------
+extract process started for customer at 2016-06-01 10:21:32 PM UTC 
+Query is {$or:[{"createdAt":{$gte:1464546600000}},{"lastModifiedAt":{$gte:1464546600000}}]}.connected to: 10.2.3.17:27017 exported 0 records 
+Not set yet is the task status

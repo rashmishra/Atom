@@ -1,0 +1,317 @@
+[
+      {
+        "mode": "NULLABLE",
+        "name": "_class",
+        "type": "STRING"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "customerId",
+        "type": "STRING"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "name",
+        "type": "STRING"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "password",
+        "type": "STRING"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "primaryEmailAddress",
+        "type": "STRING"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "primaryPhoneNumber",
+        "type": "STRING"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "referralCode",
+        "type": "STRING"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "isMobileVerified",
+        "type": "BOOLEAN"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "isEmailVerified",
+        "type": "BOOLEAN"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "isDeleted",
+        "type": "BOOLEAN"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "isBlocked",
+        "type": "BOOLEAN"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "isPasswordAdded",
+        "type": "BOOLEAN"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "createdAt",
+        "type": "INTEGER"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "createdBy",
+        "type": "STRING"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "sourceCreatedBy",
+        "type": "STRING"
+      },
+      {
+        "mode": "REPEATED",
+        "name": "deviceIds",
+        "type": "STRING"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "lastModifiedAt",
+        "type": "INTEGER"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "lastModifiedBy",
+        "type": "STRING"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "sourceLastModifiedBy",
+        "type": "STRING"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "lastModificationEvent",
+        "type": "STRING"
+      },
+      {
+        "fields": [
+          {
+            "mode": "NULLABLE",
+            "name": "_id",
+            "type": "STRING"
+          },
+          {
+            "mode": "NULLABLE",
+            "name": "line1",
+            "type": "STRING"
+          },
+          {
+            "mode": "NULLABLE",
+            "name": "line2",
+            "type": "STRING"
+          },
+          {
+            "mode": "NULLABLE",
+            "name": "subLocality",
+            "type": "STRING"
+          },
+          {
+            "mode": "NULLABLE",
+            "name": "locality",
+            "type": "STRING"
+          },
+          {
+            "mode": "NULLABLE",
+            "name": "city",
+            "type": "STRING"
+          },
+          {
+            "mode": "NULLABLE",
+            "name": "state",
+            "type": "STRING"
+          },
+          {
+            "mode": "NULLABLE",
+            "name": "pincode",
+            "type": "STRING"
+          },
+          {
+            "mode": "NULLABLE",
+            "name": "isShippable",
+            "type": "BOOLEAN"
+          },
+          {
+            "mode": "NULLABLE",
+            "name": "isBillable",
+            "type": "BOOLEAN"
+          },
+          {
+            "mode": "NULLABLE",
+            "name": "isDeleted",
+            "type": "BOOLEAN"
+          },
+          {
+            "mode": "NULLABLE",
+            "name": "isPrimary",
+            "type": "BOOLEAN"
+          },
+          {
+            "mode": "NULLABLE",
+            "name": "createdAt",
+            "type": "INTEGER"
+          },
+          {
+            "mode": "NULLABLE",
+            "name": "createdBy",
+            "type": "STRING"
+          },
+          {
+            "mode": "NULLABLE",
+            "name": "sourceCreatedBy",
+            "type": "STRING"
+          }
+        ],
+        "mode": "REPEATED",
+        "name": "addresses",
+        "type": "RECORD"
+      },
+      {
+        "fields": [
+          {
+            "mode": "NULLABLE",
+            "name": "totalCreditsAvailable",
+            "type": "INTEGER"
+          },
+          {
+            "mode": "NULLABLE",
+            "name": "lastRedeemedAt",
+            "type": "INTEGER"
+          },
+          {
+            "mode": "NULLABLE",
+            "name": "creditsLastRedeemed",
+            "type": "INTEGER"
+          },
+          {
+            "mode": "NULLABLE",
+            "name": "lastUpdatedAt",
+            "type": "INTEGER"
+          },
+          {
+            "mode": "NULLABLE",
+            "name": "lastModifiedBy",
+            "type": "STRING"
+          },
+          {
+            "mode": "NULLABLE",
+            "name": "sourceLastModifiedBy",
+            "type": "STRING"
+          }
+        ],
+        "mode": "NULLABLE",
+        "name": "creditSummary",
+        "type": "RECORD"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "isValidated",
+        "type": "BOOLEAN"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "isMigrated",
+        "type": "BOOLEAN"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "migrationKey",
+        "type": "STRING"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "grouponCustomerId",
+        "type": "STRING"
+      },
+      {
+        "fields": [
+          {
+            "mode": "NULLABLE",
+            "name": "totalOrderCount",
+            "type": "INTEGER"
+          },
+          {
+            "mode": "NULLABLE",
+            "name": "totalOrderAmount",
+            "type": "INTEGER"
+          },
+          {
+            "mode": "NULLABLE",
+            "name": "totalVouchersPurchased",
+            "type": "INTEGER"
+          },
+          {
+            "fields": [
+              {
+                "mode": "NULLABLE",
+                "name": "purchaseDate",
+                "type": "INTEGER"
+              },
+              {
+                "mode": "NULLABLE",
+                "name": "orderId",
+                "type": "INTEGER"
+              },
+              {
+                "mode": "NULLABLE",
+                "name": "purchaseSource",
+                "type": "STRING"
+              },
+              {
+                "mode": "NULLABLE",
+                "name": "amount",
+                "type": "INTEGER"
+              }
+            ],
+            "mode": "NULLABLE",
+            "name": "firstPurchaseDetail",
+            "type": "RECORD"
+          },
+          {
+            "fields": [
+              {
+                "mode": "NULLABLE",
+                "name": "purchaseDate",
+                "type": "INTEGER"
+              },
+              {
+                "mode": "NULLABLE",
+                "name": "orderId",
+                "type": "INTEGER"
+              },
+              {
+                "mode": "NULLABLE",
+                "name": "purchaseSource",
+                "type": "STRING"
+              },
+              {
+                "mode": "NULLABLE",
+                "name": "amount",
+                "type": "INTEGER"
+              }
+            ],
+            "mode": "NULLABLE",
+            "name": "lastPurchaseDetail",
+            "type": "RECORD"
+          }
+        ],
+        "mode": "NULLABLE",
+        "name": "orderSummary",
+        "type": "RECORD"
+      }
+    ]

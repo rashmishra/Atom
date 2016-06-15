@@ -1,0 +1,834 @@
+[
+    {
+        "name": "_id",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "createdBy",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "createdTime",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "dCat",
+        "type": "RECORD",
+        "mode": "NULLABLE",
+        "fields": [
+            {
+                "name": "id",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            }
+        ]
+    },
+    {
+        "name": "dealOwner",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "isActive",
+        "type": "BOOLEAN",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "isImagePresent",
+        "type": "BOOLEAN",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "isSoldOut",
+        "type": "BOOLEAN",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "legacyId",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "locations",
+        "type": "RECORD",
+        "mode": "REPEATED",
+        "fields": [
+            {
+                "name": "_id",
+                "type": "INTEGER",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "city",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "lat",
+                "type": "FLOAT",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "lng",
+                "type": "FLOAT",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "name",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "streetAddress1",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "streetAddress2",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "alias",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            }
+        ]
+    },
+    {
+        "name": "updatedTime",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "state",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "madeLiveAt",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "partner_number",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "assignedUsers",
+        "type": "RECORD",
+        "mode": "REPEATED",
+        "fields": [
+            {
+                "name": "userId",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "state",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "Time",
+                "type": "INTEGER",
+                "mode": "NULLABLE"
+            }
+        ]
+    },
+    {
+        "name": "flags",
+        "type": "RECORD",
+        "mode": "NULLABLE",
+        "fields": [
+            {
+                "name": "isDealApproved",
+                "type": "BOOLEAN",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "isDealRejected",
+                "type": "BOOLEAN",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "isImageApprovalRequired",
+                "type": "BOOLEAN",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "isMerchantApproved",
+                "type": "BOOLEAN",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "isImageApproved",
+                "type": "BOOLEAN",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "isSubmitted",
+                "type": "BOOLEAN",
+                "mode": "NULLABLE"
+            }
+        ]
+    },
+    {
+        "name": "updateHistory",
+        "type": "RECORD",
+        "mode": "NULLABLE",
+        "fields": [
+            {
+                "name": "createdBy",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "createdAt",
+                "type": "INTEGER",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "lastUpdatedBy",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "lastUpdatedAt",
+                "type": "INTEGER",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "dealApprovedBy",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "dealApprovedAt",
+                "type": "INTEGER",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "dealRejectedBy",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "dealRejectedAt",
+                "type": "INTEGER",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "imageApprovedBy",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "imageApprovedAt",
+                "type": "INTEGER",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "submittedBy",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "submittedAt",
+                "type": "INTEGER",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "merchantApprovedBy",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "merchantApprovedAt",
+                "type": "INTEGER",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "madeLiveBy",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "madeLiveAt",
+                "type": "INTEGER",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "dealRejectionComments",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            }
+        ]
+    },
+    {
+        "name": "isExpiryNotified",
+        "type": "BOOLEAN",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "units",
+        "type": "RECORD",
+        "mode": "NULLABLE",
+        "fields": [
+            {
+                "name": "au",
+                "type": "RECORD",
+                "mode": "NULLABLE",
+                "fields": [
+                    {
+                        "name": "decisionMaker",
+                        "type": "INTEGER",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "ccTo",
+                        "type": "INTEGER",
+                        "mode": "REPEATED"
+                    }
+                ]
+            },
+            {
+                "name": "bi",
+                "type": "FLOAT",
+                "mode": "REPEATED"
+            },
+            {
+                "name": "dtc",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "dtitle",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "dval",
+                "type": "RECORD",
+                "mode": "NULLABLE",
+                "fields": [
+                    {
+                        "name": "dFrmDt",
+                        "type": "INTEGER",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "dToDt",
+                        "type": "INTEGER",
+                        "mode": "NULLABLE"
+                    }
+                ]
+            },
+            {
+                "name": "glc",
+                "type": "FLOAT",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "iao",
+                "type": "BOOLEAN",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "imd",
+                "type": "BOOLEAN",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "pi",
+                "type": "RECORD",
+                "mode": "NULLABLE",
+                "fields": [
+                    {
+                        "name": "pTerms",
+                        "type": "INTEGER",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "ntToFin",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    }
+                ]
+            },
+            {
+                "name": "seo",
+                "type": "RECORD",
+                "mode": "NULLABLE",
+                "fields": [
+                    {
+                        "name": "browserTitle",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "permaLink",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "seoTags",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    }
+                ]
+            },
+            {
+                "name": "dim",
+                "type": "RECORD",
+                "mode": "NULLABLE",
+                "fields": [
+                    {
+                        "name": "bImg",
+                        "type": "RECORD",
+                        "mode": "NULLABLE",
+                        "fields": [
+                            {
+                                "name": "url",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "title",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "isUploaded",
+                                "type": "BOOLEAN",
+                                "mode": "NULLABLE"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "carImgs",
+                        "type": "RECORD",
+                        "mode": "REPEATED",
+                        "fields": [
+                            {
+                                "name": "url",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "title",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "isUploaded",
+                                "type": "BOOLEAN",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "merchantId",
+                                "type": "INTEGER",
+                                "mode": "NULLABLE"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "ImagesNote",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    }
+                ]
+            },
+            {
+                "name": "fps",
+                "type": "RECORD",
+                "mode": "REPEATED",
+                "fields": [
+                    {
+                        "name": "id",
+                        "type": "INTEGER",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "text",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "fpInputs",
+                        "type": "RECORD",
+                        "mode": "REPEATED",
+                        "fields": [
+                            {
+                                "name": "index",
+                                "type": "INTEGER",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "type",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "value",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "rs",
+                "type": "RECORD",
+                "mode": "NULLABLE",
+                "fields": [
+                    {
+                        "name": "redemptionSteps",
+                        "type": "STRING",
+                        "mode": "REPEATED"
+                    }
+                ]
+            },
+            {
+                "name": "ntat",
+                "type": "RECORD",
+                "mode": "REPEATED",
+                "fields": [
+                    {
+                        "name": "lastModified",
+                        "type": "INTEGER",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "createdBy",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "createdById",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "id",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "type",
+                        "type": "INTEGER",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "imagePath",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "richText",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "title",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "crTime",
+                        "type": "INTEGER",
+                        "mode": "NULLABLE"
+                    }
+                ]
+            },
+            {
+                "name": "cp",
+                "type": "INTEGER",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "nDqa",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "dcd",
+                "type": "RECORD",
+                "mode": "REPEATED",
+                "fields": [
+                    {
+                        "name": "type",
+                        "type": "INTEGER",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "lastMod",
+                        "type": "INTEGER",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "createdBy",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "filePath",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "id",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "origName",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    }
+                ]
+            },
+            {
+                "name": "su",
+                "type": "RECORD",
+                "mode": "REPEATED",
+                "fields": [
+                    {
+                        "name": "skuId",
+                        "type": "INTEGER",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "inventory",
+                        "type": "RECORD",
+                        "mode": "NULLABLE",
+                        "fields": [
+                            {
+                                "name": "cap",
+                                "type": "INTEGER",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "cpc",
+                                "type": "INTEGER",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "doc",
+                                "type": "RECORD",
+                                "mode": "REPEATED",
+                                "fields": [
+                                    {
+                                        "name": "fromDt",
+                                        "type": "INTEGER",
+                                        "mode": "NULLABLE"
+                                    },
+                                    {
+                                        "name": "toDt",
+                                        "type": "INTEGER",
+                                        "mode": "NULLABLE"
+                                    },
+                                    {
+                                        "name": "dynCap",
+                                        "type": "INTEGER",
+                                        "mode": "NULLABLE"
+                                    },
+                                    {
+                                        "name": "dayCap",
+                                        "type": "RECORD",
+                                        "mode": "REPEATED",
+                                        "fields": [
+                                            {
+                                                "name": "cap",
+                                                "type": "INTEGER",
+                                                "mode": "NULLABLE"
+                                            },
+                                            {
+                                                "name": "days",
+                                                "type": "INTEGER",
+                                                "mode": "REPEATED"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "isDayWise",
+                                        "type": "BOOLEAN",
+                                        "mode": "NULLABLE"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "privateLink",
+                "type": "RECORD",
+                "mode": "NULLABLE",
+                "fields": [
+                    {
+                        "name": "isPrivate",
+                        "type": "BOOLEAN",
+                        "mode": "NULLABLE"
+                    }
+                ]
+            },
+            {
+                "name": "del",
+                "type": "STRING",
+                "mode": "REPEATED"
+            },
+            {
+                "name": "dealName",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "reservationNumbers",
+                "type": "RECORD",
+                "mode": "NULLABLE",
+                "fields": [
+                    {
+                        "name": "commonNumbers",
+                        "type": "RECORD",
+                        "mode": "REPEATED",
+                        "fields": [
+                            {
+                                "name": "Type",
+                                "type": "INTEGER",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "countryCode",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "stdCode",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "Number",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "merchantNumbers",
+                        "type": "RECORD",
+                        "mode": "REPEATED",
+                        "fields": [
+                            {
+                                "name": "merchantId",
+                                "type": "INTEGER",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "numbers",
+                                "type": "RECORD",
+                                "mode": "REPEATED",
+                                "fields": [
+                                    {
+                                        "name": "Type",
+                                        "type": "INTEGER",
+                                        "mode": "NULLABLE"
+                                    },
+                                    {
+                                        "name": "countryCode",
+                                        "type": "STRING",
+                                        "mode": "NULLABLE"
+                                    },
+                                    {
+                                        "name": "stdCode",
+                                        "type": "STRING",
+                                        "mode": "NULLABLE"
+                                    },
+                                    {
+                                        "name": "Number",
+                                        "type": "STRING",
+                                        "mode": "NULLABLE"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "merchantTimings",
+                "type": "RECORD",
+                "mode": "REPEATED",
+                "fields": [
+                    {
+                        "name": "merchantId",
+                        "type": "INTEGER",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "checkIn",
+                        "type": "INTEGER",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "checkOut",
+                        "type": "INTEGER",
+                        "mode": "NULLABLE"
+                    }
+                ]
+            },
+            {
+                "name": "inc",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "exc",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "dvr",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "fmenu",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "st",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "sd",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            }
+        ]
+    },
+    {
+        "name": "updateTime",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "updatedBy",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "categoryId",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    }
+]
+

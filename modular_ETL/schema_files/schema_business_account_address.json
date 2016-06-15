@@ -1,0 +1,112 @@
+[
+    {
+        "name": "id",
+        "type": "INTEGER",
+        "mode": "nullable"
+    },
+    {
+        "name": "addressline1",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "addressline2",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "citytown",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "country",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "district",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "division",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "firstname",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "landmark",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "lastname",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "latitude",
+        "type": "FLOAT",
+        "mode": "nullable"
+    },
+    {
+        "name": "longitude",
+        "type": "FLOAT",
+        "mode": "nullable"
+    },
+    {
+        "name": "middlename",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "pincode",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "postoffice",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "salutation",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "state",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "subdivision",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "type",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "attribute_1",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "attribute_2",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "accountid",
+        "type": "INTEGER",
+        "mode": "nullable"
+    }
+]

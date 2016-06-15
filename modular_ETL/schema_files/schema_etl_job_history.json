@@ -1,0 +1,67 @@
+[
+    {
+        "name": "job_id",
+        "type": "INTEGER",
+        "mode": "REQUIRED"
+    },
+    {
+        "name": "etl_job_start_epoch",
+        "type": "INTEGER",
+        "mode": "REQUIRED"
+    },
+    {
+        "name": "etl_job_start_ts",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "etl_job_status",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "etl_job_end_epoch",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "etl_job_end_ts",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "data_object",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "etl_task",
+        "type": "STRING"
+    },
+    {
+        "name": "data_object_task_start_epoch",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "data_object_task_start_ts",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "data_object_task_status",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "data_object_task_end_epoch",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "data_object_task_end_ts",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    }
+]

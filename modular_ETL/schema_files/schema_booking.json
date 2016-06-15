@@ -1,0 +1,134 @@
+[
+    {
+        "name": "checkinDate",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "checkoutDate",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "customerEmailId",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "customerName",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "customerPhone",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "dealId",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "guestEmail",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "guestName",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "guestPhoneNumber",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "merchantComments",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "merchantRemarks",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "nearbuyPayable",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "numberOfRooms",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "offers",
+        "type": "RECORD",
+        "mode": "REPEATED",
+        "fields": [
+            {
+                "name": "dealId",
+                "type": "INTEGER",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "fineprint",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "highlightSection",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "offerId",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "offerTitle",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "whatYouGet",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            }
+        ]
+    },
+    {
+        "name": "orderId",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "payableAtCheckin",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "psComments",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "specialRequest",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "status",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "createdAt",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    }
+]

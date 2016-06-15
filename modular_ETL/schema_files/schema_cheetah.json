@@ -1,0 +1,97 @@
+[
+    {
+        "mode": "REQUIRED",
+        "name": "Event_Type_ID",
+        "type": "INTEGER"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "timestamp",
+        "type": "INTEGER"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "issueid",
+        "type": "STRING"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "uid",
+        "type": "STRING"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "resultcode",
+        "type": "STRING"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "ip",
+        "type": "STRING"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "mimetype",
+        "type": "INTEGER"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "part",
+        "type": "STRING"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "email",
+        "type": "STRING"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "redirect",
+        "type": "STRING"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "sendtime",
+        "type": "INTEGER"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "URL",
+        "type": "STRING"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "eid",
+        "type": "INTEGER"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "clicktime",
+        "type": "INTEGER"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "txid",
+        "type": "STRING"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "amount",
+        "type": "INTEGER"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "items_val2",
+        "type": "STRING"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "val3",
+        "type": "STRING"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "val4",
+        "type": "STRING"
+    }
+]

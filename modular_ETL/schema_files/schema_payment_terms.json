@@ -1,0 +1,57 @@
+[
+    {
+        "mode": "NULLABLE",
+        "name": "_id",
+        "type": "INTEGER"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "_class",
+        "type": "STRING"
+    },
+    {
+        "mode": "REPEATED",
+        "name": "categoryId",
+        "type": "STRING"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "name",
+        "type": "STRING"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "trigger",
+        "type": "STRING"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "freq",
+        "type": "STRING"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "breakage",
+        "type": "STRING"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "payment",
+        "type": "STRING"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "cycle",
+        "type": "INTEGER"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "isApprovalRequired",
+        "type": "BOOLEAN"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "isDeleted",
+        "type": "BOOLEAN"
+    }
+]

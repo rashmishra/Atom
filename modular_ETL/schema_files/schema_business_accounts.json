@@ -1,0 +1,122 @@
+[
+    {
+        "name": "baid",
+        "type": "INTEGER",
+        "mode": "nullable"
+    },
+    {
+        "name": "accountcreatedby",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "accountowner",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "createdat",
+        "type": "INTEGER",
+        "mode": "nullable"
+    },
+    {
+        "name": "createdby",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "dwhid",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "entertainmenttaxnumber",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "form10f",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "isactive",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "isdeleted",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "lastupdatedat",
+        "type": "INTEGER",
+        "mode": "nullable"
+    },
+    {
+        "name": "lastupdatedby",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "legalname",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "name",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "nopedeclaration",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "pannumber",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "partnernumber",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "servicetaxnumber",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "taxresidencycertificate",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "tinnumber",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "phonenumber",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "emailaddress",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "status",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "dealpreviewnullable",
+        "type": "STRING",
+        "mode": "nullable"
+    }
+]

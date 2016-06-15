@@ -1,0 +1,82 @@
+[
+    {
+        "name": "inventory_id",
+        "type": "INTEGER",
+        "mode": "nullable"
+    },
+    {
+        "name": "booked_qty",
+        "type": "INTEGER",
+        "mode": "nullable"
+    },
+    {
+        "name": "date",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "inventory_type_id",
+        "type": "INTEGER",
+        "mode": "nullable"
+    },
+    {
+        "name": "is_active",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "item_key",
+        "type": "INTEGER",
+        "mode": "nullable"
+    },
+    {
+        "name": "quantity",
+        "type": "INTEGER",
+        "mode": "nullable"
+    },
+    {
+        "name": "remaining_qty",
+        "type": "INTEGER",
+        "mode": "nullable"
+    },
+    {
+        "name": "time",
+        "type": "INTEGER",
+        "mode": "nullable"
+    },
+    {
+        "name": "price",
+        "type": "INTEGER",
+        "mode": "nullable"
+    },
+    {
+        "name": "created_at",
+        "type": "INTEGER",
+        "mode": "nullable"
+    },
+    {
+        "name": "created_by",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "updated_by",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "updated_at",
+        "type": "INTEGER",
+        "mode": "nullable"
+    },
+    {
+        "name": "sold_count",
+        "type": "INTEGER",
+        "mode": "nullable"
+    },
+    {
+        "name": "day",
+        "type": "INTEGER",
+        "mode": "nullable"
+    }
+]

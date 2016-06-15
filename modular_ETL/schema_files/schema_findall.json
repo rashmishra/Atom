@@ -1,0 +1,157 @@
+[
+    {
+        "name": "status",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "fraud_profile_score",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "payment_method",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "fraud_activity_score",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "fraud_profile_alert_threshold",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "ref_id",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "affiliate_tier_id",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "id",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "referral_id",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "payment_terms",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "city",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "address2",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "zipcode",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "signup_ip",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "other",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "method_data",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "fraud_profile_block_threshold",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "account_manager_id",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "website",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "fax",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "address1",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "company",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "phone",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "date_added",
+        "type": "TIMESTAMP",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "fraud_activity_block_threshold",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "wants_alerts",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "country",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "region",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "w9_filed",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "modified",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "fraud_activity_alert_threshold",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    }
+]

@@ -1,0 +1,72 @@
+[
+    {
+        "name": "Event_Type_ID",
+        "type": "INTEGER",
+        "mode": "REQUIRED"
+    },
+    {
+        "name": "timestamp",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "issueid",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "uid",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "resultcode_ip",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "mimetype_part",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "email_redirect",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "sendtime_URL",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "eid_clicktime",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "txid",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "amount",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "items_val2",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "val3",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "val4",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    }
+]

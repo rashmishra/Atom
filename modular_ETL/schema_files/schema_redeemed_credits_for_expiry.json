@@ -1,0 +1,32 @@
+[
+    {
+        "name": "id",
+        "type": "INTEGER",
+        "mode": "nullable"
+    },
+    {
+        "name": "userid",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "usertype",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "credits",
+        "type": "INTEGER",
+        "mode": "nullable"
+    },
+    {
+        "name": "createdat",
+        "type": "INTEGER",
+        "mode": "nullable"
+    },
+    {
+        "name": "lastupdatedat",
+        "type": "INTEGER",
+        "mode": "nullable"
+    }
+]

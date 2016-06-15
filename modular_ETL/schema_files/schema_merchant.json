@@ -1,0 +1,494 @@
+[
+    {
+        "name": "_class",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "createdAt",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "lastUpdateAt",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "lastUpdatedBy",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "isActive",
+        "type": "BOOLEAN",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "isDeleted",
+        "type": "BOOLEAN",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "isPublished",
+        "type": "BOOLEAN",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "merchantId",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "name",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "description",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "usp",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "status",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "catInfo",
+        "type": "RECORD",
+        "mode": "REPEATED",
+        "fields": [
+            {
+                "name": "key",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "layout",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "isPrimary",
+                "type": "BOOLEAN",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "fields",
+                "type": "RECORD",
+                "mode": "REPEATED",
+                "fields": [
+                    {
+                        "name": "key",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "multiple",
+                        "type": "BOOLEAN",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "values",
+                        "type": "STRING",
+                        "mode": "REPEATED"
+                    }
+                ]
+            },
+            {
+                "name": "images",
+                "type": "RECORD",
+                "mode": "REPEATED",
+                "fields": [
+                    {
+                        "name": "key",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "max",
+                        "type": "INTEGER",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "min",
+                        "type": "INTEGER",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "values",
+                        "type": "RECORD",
+                        "mode": "REPEATED",
+                        "fields": [
+                            {
+                                "name": "default",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "portrait",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "landscape",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "merchantType",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "nickName",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "reservationNumbers",
+        "type": "RECORD",
+        "mode": "REPEATED",
+        "fields": [
+            {
+                "name": "type",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "contactNo",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "countryCode",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "stdCode",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "_id",
+                "type": "INTEGER",
+                "mode": "NULLABLE"
+            }
+        ]
+    },
+    {
+        "name": "websiteLink",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "phoneNumbers",
+        "type": "RECORD",
+        "mode": "REPEATED",
+        "fields": [
+            {
+                "name": "type",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "contactNo",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "stdCode",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "countryCode",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "_id",
+                "type": "INTEGER",
+                "mode": "NULLABLE"
+            }
+        ]
+    },
+    {
+        "name": "isChain",
+        "type": "BOOLEAN",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "chainMerchantId",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "coverage",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "bannerImagePortrait",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "redemptionAddress",
+        "type": "RECORD",
+        "mode": "NULLABLE",
+        "fields": [
+            {
+                "name": "addressLine1",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "cityTown",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "state",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "country",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "pincode",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "latitude",
+                "type": "FLOAT",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "longitude",
+                "type": "FLOAT",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "landmark",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "attribute_1",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "attribute_2",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "attribute_3",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            }
+        ]
+    },
+    {
+        "name": "businessAddress",
+        "type": "RECORD",
+        "mode": "NULLABLE",
+        "fields": [
+            {
+                "name": "addressLine1",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "cityTown",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "state",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "country",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "pincode",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "latitude",
+                "type": "FLOAT",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "longitude",
+                "type": "FLOAT",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "landmark",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "attribute_1",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "attribute_2",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            }
+        ]
+    },
+    {
+        "name": "sources",
+        "type": "STRING",
+        "mode": "REPEATED"
+    },
+    {
+        "name": "source",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "DWHID",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "geometry",
+        "type": "RECORD",
+        "mode": "NULLABLE",
+        "fields": [
+            {
+                "name": "coordinates",
+                "type": "FLOAT",
+                "mode": "REPEATED"
+            },
+            {
+                "name": "type",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            }
+        ]
+    },
+    {
+        "name": "bannerImage",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "companyLogoId",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "redemptionPolygonId",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "businessPolygonId",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "imageTags",
+        "type": "RECORD",
+        "mode": "REPEATED",
+        "fields": [
+            {
+                "name": "imageId",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "type",
+                "type": "STRING",
+                "mode": "REPEATED"
+            },
+            {
+                "name": "skus",
+                "type": "INTEGER",
+                "mode": "REPEATED"
+            },
+            {
+                "name": "caption",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            }
+        ]
+    },
+    {
+        "name": "skus",
+        "type": "RECORD",
+        "mode": "REPEATED",
+        "fields": [
+            {
+                "name": "category",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "name",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "productId",
+                "type": "INTEGER",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "id",
+                "type": "INTEGER",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "merchantId",
+                "type": "INTEGER",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "isDeleted",
+                "type": "BOOLEAN",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "subCategory",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "validPeople",
+                "type": "INTEGER",
+                "mode": "NULLABLE"
+            }
+        ]
+    }
+]

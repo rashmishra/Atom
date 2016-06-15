@@ -1,0 +1,114 @@
+[
+      {
+        "mode": "NULLABLE",
+        "name": "_class",
+        "type": "STRING"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "merchantPartnerNumber",
+        "type": "STRING"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "orderId",
+        "type": "STRING"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "orderLineId",
+        "type": "STRING"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "voucherId",
+        "type": "STRING"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "voucherCode",
+        "type": "STRING"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "dealId",
+        "type": "STRING"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "offerId",
+        "type": "STRING"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "payable",
+        "type": "BOOLEAN"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "transactionDateStr",
+        "type": "STRING"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "totalOfferAmount",
+        "type": "FLOAT"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "numberOfVoucher",
+        "type": "INTEGER"
+      },
+{
+        "mode": "NULLABLE",
+        "name": "voucherStatus",
+        "type": "STRING"
+      },
+
+    {
+        "mode": "NULLABLE",
+        "name": "paymentType",
+        "type": "STRING"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "payableAtStr",
+        "type": "STRING"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "payableAmount",
+        "type": "FLOAT"
+      },
+{
+        "mode": "NULLABLE",
+        "name": "merchantAccountId",
+        "type": "STRING"
+      },
+{
+        "mode": "NULLABLE",
+        "name": "merchantName",
+        "type": "STRING"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "cda",
+        "type": "STRING"
+      },
+{
+        "mode": "NULLABLE",
+        "name": "paymentTerms",
+        "type": "STRING"
+      },
+{
+        "mode": "NULLABLE",
+        "name": "bankId",
+        "type": "STRING"
+      }
+,
+{
+        "mode": "NULLABLE",
+        "name": "isDeleted",
+        "type": "BOOLEAN"
+      }
+]

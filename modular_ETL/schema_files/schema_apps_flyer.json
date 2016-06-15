@@ -1,0 +1,307 @@
+[
+    {
+        "name": "device_model",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "fb_adgroup_id",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "download_time",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "operator",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "click_time",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "agency",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "ip",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "cost_per_install",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "fb_campaign_id",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "imei",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "is_retargeting",
+        "type": "BOOLEAN",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "app_name",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "re_targeting_conversion_type",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "android_id",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "city",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "af_sub1",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "af_sub2",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "event_value",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "af_sub3",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "fb_adset_name",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "af_sub4",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "customer_user_id",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "mac",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "af_sub5",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "campaign",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "event_name",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "currency",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "install_time",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "fb_adgroup_name",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "event_time",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "platform",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "sdk_version",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "appsflyer_device_id",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "wifi",
+        "type": "BOOLEAN",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "advertising_id",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "media_source",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "country_code",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "http_referrer",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "fb_campaign_name",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "click_url",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "carrier",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "language",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "app_id",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "app_version",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "attribution_type",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "af_siteid",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "os_version",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "fb_adset_id",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "device_brand",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "event_type",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "af_ad",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "af_ad_id",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "af_ad_type",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "af_adset",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "af_adset_id",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "af_c_id",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "af_channel",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "af_cost_currency",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "af_cost_model",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "af_cost_value",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "af_keywords",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    }
+]

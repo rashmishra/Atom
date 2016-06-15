@@ -1,0 +1,57 @@
+[
+    {
+        "name": "id",
+        "type": "INTEGER",
+        "mode": "nullable"
+    },
+    {
+        "name": "userid",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "usertype",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "totalusercreditsbeforeexpiry",
+        "type": "INTEGER",
+        "mode": "nullable"
+    },
+    {
+        "name": "totalusercreditsafterexpiry",
+        "type": "INTEGER",
+        "mode": "nullable"
+    },
+    {
+        "name": "creditsredeemedtilllastexpiry",
+        "type": "INTEGER",
+        "mode": "nullable"
+    },
+    {
+        "name": "creditsredeemedattimeofexpiry",
+        "type": "INTEGER",
+        "mode": "nullable"
+    },
+    {
+        "name": "expirecreditstoremovefromtotalcredits",
+        "type": "INTEGER",
+        "mode": "nullable"
+    },
+    {
+        "name": "creditsactuallyexpire",
+        "type": "INTEGER",
+        "mode": "nullable"
+    },
+    {
+        "name": "recordsidexpiredwithpositivecredits",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "createdat",
+        "type": "INTEGER",
+        "mode": "nullable"
+    }
+]

@@ -1,0 +1,67 @@
+[
+    {
+        "name": "item_key",
+        "type": "INTEGER",
+        "mode": "nullable"
+    },
+    {
+        "name": "is_active",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "item_desc",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "item_id",
+        "type": "INTEGER",
+        "mode": "nullable"
+    },
+    {
+        "name": "item_type",
+        "type": "INTEGER",
+        "mode": "nullable"
+    },
+    {
+        "name": "store_id",
+        "type": "INTEGER",
+        "mode": "nullable"
+    },
+    {
+        "name": "has_codes",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "created_by",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "created_at",
+        "type": "INTEGER",
+        "mode": "nullable"
+    },
+    {
+        "name": "updated_by",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "updated_at",
+        "type": "INTEGER",
+        "mode": "nullable"
+    },
+    {
+        "name": "from_date",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "to_date",
+        "type": "STRING",
+        "mode": "nullable"
+    }
+]

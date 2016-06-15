@@ -1,0 +1,77 @@
+[
+    {
+        "name": "transactionid",
+        "type": "INTEGER",
+        "mode": "nullable"
+    },
+    {
+        "name": "createdat",
+        "type": "INTEGER",
+        "mode": "nullable"
+    },
+    {
+        "name": "orderid",
+        "type": "INTEGER",
+        "mode": "nullable"
+    },
+    {
+        "name": "payableamount",
+        "type": "INTEGER",
+        "mode": "nullable"
+    },
+    {
+        "name": "paymentflag",
+        "type": "INTEGER",
+        "mode": "nullable"
+    },
+    {
+        "name": "paymentreference",
+        "type": "INTEGER",
+        "mode": "nullable"
+    },
+    {
+        "name": "status",
+        "type": "INTEGER",
+        "mode": "nullable"
+    },
+    {
+        "name": "transactiontype",
+        "type": "INTEGER",
+        "mode": "nullable"
+    },
+    {
+        "name": "updatedat",
+        "type": "INTEGER",
+        "mode": "nullable"
+    },
+    {
+        "name": "updatedby",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "paymentgatewayreference",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "failurereason",
+        "type": "INTEGER",
+        "mode": "nullable"
+    },
+    {
+        "name": "eventid",
+        "type": "INTEGER",
+        "mode": "nullable"
+    },
+    {
+        "name": "txnreason",
+        "type": "INTEGER",
+        "mode": "nullable"
+    },
+    {
+        "name": "paymentmode",
+        "type": "INTEGER",
+        "mode": "nullable"
+    }
+]

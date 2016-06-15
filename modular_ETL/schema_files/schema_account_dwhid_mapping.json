@@ -1,0 +1,12 @@
+[
+    {
+        "name": "dwhid",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "baid",
+        "type": "INTEGER",
+        "mode": "nullable"
+    }
+]

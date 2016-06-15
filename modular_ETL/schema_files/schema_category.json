@@ -1,0 +1,62 @@
+[
+    {
+        "name": "_id",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "createdBy",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "displayName",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "isActive",
+        "type": "BOOLEAN",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "isDeleted",
+        "type": "BOOLEAN",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "isMasterData",
+        "type": "BOOLEAN",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "lastUpdatedBy",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "name",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "path",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "showOnHomePage",
+        "type": "BOOLEAN",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "sortOrder",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "vertical",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    }
+]

@@ -1,0 +1,47 @@
+[
+    {
+        "name": "merchant_code_id",
+        "type": "INTEGER",
+        "mode": "nullable"
+    },
+    {
+        "name": "item_key",
+        "type": "INTEGER",
+        "mode": "nullable"
+    },
+    {
+        "name": "order_id",
+        "type": "INTEGER",
+        "mode": "nullable"
+    },
+    {
+        "name": "merchant_code",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "booked_for_key",
+        "type": "INTEGER",
+        "mode": "nullable"
+    },
+    {
+        "name": "created_at",
+        "type": "INTEGER",
+        "mode": "nullable"
+    },
+    {
+        "name": "updated_at",
+        "type": "INTEGER",
+        "mode": "nullable"
+    },
+    {
+        "name": "updated_by",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "created_by",
+        "type": "STRING",
+        "mode": "nullable"
+    }
+]

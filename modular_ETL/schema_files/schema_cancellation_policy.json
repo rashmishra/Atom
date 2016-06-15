@@ -1,0 +1,41 @@
+[
+   {
+    "name": "_id",
+    "type": "INTEGER",
+    "mode": "NULLABLE"
+   },
+   {
+    "name": "_class",
+    "type": "STRING",
+    "mode": "NULLABLE"
+   },{
+    "name": "isDeleted",
+    "type": "BOOLEAN",
+    "mode": "NULLABLE"
+   },
+   {
+    "name": "categoryId",
+    "type": "STRING",
+    "mode": "REPEATED"
+   },
+   {
+    "name": "percentageRefund",
+    "type": "FLOAT",
+    "mode": "NULLABLE"
+   },
+   {
+    "name": "refundType",
+    "type": "STRING",
+    "mode": "NULLABLE"
+   },
+   {
+    "name": "cancellableByCustomer",
+    "type": "BOOLEAN",
+    "mode": "NULLABLE"
+   },
+   {
+    "name": "name",
+    "type": "STRING",
+    "mode": "NULLABLE"
+   }
+]

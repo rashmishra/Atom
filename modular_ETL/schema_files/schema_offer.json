@@ -1,0 +1,484 @@
+[
+   {
+    "name": "_id",
+    "type": "INTEGER",
+    "mode": "NULLABLE"
+   },
+   {
+    "name": "offers",
+    "type": "RECORD",
+    "mode": "REPEATED",
+    "fields": [
+     {
+      "name": "units",
+      "type": "RECORD",
+      "mode": "NULLABLE",
+      "fields": [
+       {
+        "name": "ot",
+        "type": "STRING",
+        "mode": "NULLABLE"
+       },
+       {
+        "name": "odesc",
+        "type": "RECORD",
+        "mode": "NULLABLE",
+        "fields": [
+         {
+          "name": "skus",
+          "type": "RECORD",
+          "mode": "REPEATED",
+          "fields": [
+           {
+            "name": "id",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+           },
+           {
+            "name": "productId",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+           },
+           {
+            "name": "qty",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+           }
+          ]
+         },
+         {
+          "name": "desc",
+          "type": "STRING",
+          "mode": "NULLABLE"
+         }
+        ]
+       },
+       {
+        "name": "br",
+        "type": "BOOLEAN",
+        "mode": "NULLABLE"
+       },
+       {
+        "name": "comm",
+        "type": "RECORD",
+        "mode": "NULLABLE",
+        "fields": [
+         {
+          "name": "percent",
+          "type": "FLOAT",
+          "mode": "NULLABLE"
+         },
+         {
+          "name": "flatComm",
+          "type": "INTEGER",
+          "mode": "NULLABLE"
+         }
+        ]
+       },
+       {
+        "name": "ps",
+        "type": "RECORD",
+        "mode": "NULLABLE",
+        "fields": [
+         {
+          "name": "msp",
+          "type": "INTEGER",
+          "mode": "NULLABLE"
+         },
+         {
+          "name": "csp",
+          "type": "INTEGER",
+          "mode": "NULLABLE"
+         },
+         {
+          "name": "basePrice",
+          "type": "INTEGER",
+          "mode": "NULLABLE"
+         },
+         {
+          "name": "mrp",
+          "type": "INTEGER",
+          "mode": "NULLABLE"
+         },
+         {
+          "name": "isMrpVisible",
+          "type": "BOOLEAN",
+          "mode": "NULLABLE"
+         },
+         {
+          "name": "dynPricing",
+          "type": "RECORD",
+          "mode": "REPEATED",
+          "fields": [
+           {
+            "name": "isDayWise",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+           },
+           {
+            "name": "frmDt",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+           },
+           {
+            "name": "toDt",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+           },
+           {
+            "name": "dayCsp",
+            "type": "RECORD",
+            "mode": "REPEATED",
+            "fields": [
+             {
+              "name": "csp",
+              "type": "INTEGER",
+              "mode": "NULLABLE"
+             },
+             {
+              "name": "days",
+              "type": "INTEGER",
+              "mode": "REPEATED"
+             }
+            ]
+           },
+           {
+            "name": "csp",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+           }
+          ]
+         }
+        ]
+       },
+       {
+        "name": "oc",
+        "type": "RECORD",
+        "mode": "NULLABLE",
+        "fields": [
+         {
+          "name": "cap",
+          "type": "INTEGER",
+          "mode": "NULLABLE"
+         },
+         {
+          "name": "cpc",
+          "type": "INTEGER",
+          "mode": "NULLABLE"
+         },
+         {
+          "name": "minPurchaseQty",
+          "type": "INTEGER",
+          "mode": "NULLABLE"
+         },
+         {
+          "name": "defaultDailyCap",
+          "type": "INTEGER",
+          "mode": "NULLABLE"
+         },
+         {
+          "name": "doc",
+          "type": "RECORD",
+          "mode": "REPEATED",
+          "fields": [
+           {
+            "name": "fromDt",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+           },
+           {
+            "name": "toDt",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+           },
+           {
+            "name": "dynCap",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+           },
+           {
+            "name": "dayCap",
+            "type": "RECORD",
+            "mode": "REPEATED",
+            "fields": [
+             {
+              "name": "cap",
+              "type": "INTEGER",
+              "mode": "NULLABLE"
+             },
+             {
+              "name": "days",
+              "type": "INTEGER",
+              "mode": "REPEATED"
+             },
+             {
+              "name": "isDayWise",
+              "type": "BOOLEAN",
+              "mode": "NULLABLE"
+             }
+            ]
+           }
+          ]
+         }
+        ]
+       },
+       {
+        "name": "rr",
+        "type": "BOOLEAN",
+        "mode": "NULLABLE"
+       },
+       {
+        "name": "visibility",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+       },
+       {
+        "name": "ov",
+        "type": "RECORD",
+        "mode": "NULLABLE",
+        "fields": [
+         {
+          "name": "redemDts",
+          "type": "RECORD",
+          "mode": "REPEATED",
+          "fields": [
+           {
+            "name": "frmDt",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+           },
+           {
+            "name": "toDt",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+           }
+          ]
+         },
+         {
+          "name": "redeemDays",
+          "type": "RECORD",
+          "mode": "REPEATED",
+          "fields": [
+           {
+            "name": "day",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+           },
+           {
+            "name": "timeSlots",
+            "type": "RECORD",
+            "mode": "REPEATED",
+            "fields": [
+             {
+              "name": "frmTime",
+              "type": "INTEGER",
+              "mode": "NULLABLE"
+             },
+             {
+              "name": "toTime",
+              "type": "INTEGER",
+              "mode": "NULLABLE"
+             }
+            ]
+           }
+          ]
+         },
+         {
+          "name": "validFor",
+          "type": "INTEGER",
+          "mode": "NULLABLE"
+         },
+         {
+          "name": "vd",
+          "type": "STRING",
+          "mode": "NULLABLE"
+         },
+         {
+          "name": "validForPeople",
+          "type": "STRING",
+          "mode": "REPEATED"
+         },
+         {
+          "name": "validityTimings",
+          "type": "RECORD",
+          "mode": "REPEATED",
+          "fields": [
+           {
+            "name": "from",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+           },
+           {
+            "name": "to",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+           },
+           {
+            "name": "tags",
+            "type": "STRING",
+            "mode": "REPEATED"
+           }
+          ]
+         },
+         {
+          "name": "blackoutDates",
+          "type": "INTEGER",
+          "mode": "REPEATED"
+         },
+         {
+          "name": "daysOfWeek",
+          "type": "INTEGER",
+          "mode": "REPEATED"
+         }
+        ]
+       },
+       {
+        "name": "tsi",
+        "type": "RECORD",
+        "mode": "NULLABLE",
+        "fields": [
+         {
+          "name": "minNights",
+          "type": "INTEGER",
+          "mode": "NULLABLE"
+         },
+         {
+          "name": "maxNights",
+          "type": "INTEGER",
+          "mode": "NULLABLE"
+         }
+        ]
+       },
+       {
+        "name": "ap",
+        "type": "RECORD",
+        "mode": "NULLABLE",
+        "fields": [
+         {
+          "name": "adultPrice",
+          "type": "INTEGER",
+          "mode": "NULLABLE"
+         },
+         {
+          "name": "isPercntAdltPrice",
+          "type": "BOOLEAN",
+          "mode": "NULLABLE"
+         },
+         {
+          "name": "cPricing",
+          "type": "RECORD",
+          "mode": "REPEATED",
+          "fields": [
+           {
+            "name": "isPercentPrice",
+            "type": "BOOLEAN",
+            "mode": "NULLABLE"
+           },
+           {
+            "name": "price",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+           },
+           {
+            "name": "frmAge",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+           },
+           {
+            "name": "toAge",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+           }
+          ]
+         },
+         {
+          "name": "sameAs",
+          "type": "INTEGER",
+          "mode": "NULLABLE"
+         }
+        ]
+       },
+       {
+        "name": "vg",
+        "type": "RECORD",
+        "mode": "NULLABLE",
+        "fields": [
+         {
+          "name": "isVoucherReqd",
+          "type": "BOOLEAN",
+          "mode": "NULLABLE"
+         },
+         {
+          "name": "merchantCodes",
+          "type": "INTEGER",
+          "mode": "REPEATED"
+         },
+         {
+          "name": "fileId",
+          "type": "STRING",
+          "mode": "NULLABLE"
+         },
+         {
+          "name": "vcdId",
+          "type": "STRING",
+          "mode": "NULLABLE"
+         }
+        ]
+       },
+       {
+        "name": "dr",
+        "type": "BOOLEAN",
+        "mode": "NULLABLE"
+       },
+       {
+        "name": "Isr",
+        "type": "BOOLEAN",
+        "mode": "NULLABLE"
+       },
+       {
+        "name": "obr",
+        "type": "RECORD",
+        "mode": "NULLABLE",
+        "fields": [
+         {
+          "name": "rate",
+          "type": "INTEGER",
+          "mode": "NULLABLE"
+         },
+         {
+          "name": "src",
+          "type": "STRING",
+          "mode": "NULLABLE"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "name": "legacyOptionId",
+      "type": "INTEGER",
+      "mode": "NULLABLE"
+     },
+     {
+      "name": "key",
+      "type": "INTEGER",
+      "mode": "NULLABLE"
+     },
+     {
+      "name": "cda",
+      "type": "STRING",
+      "mode": "NULLABLE"
+     },
+     {
+      "name": "disOrder",
+      "type": "INTEGER",
+      "mode": "NULLABLE"
+     },
+     {
+      "name": "isActive",
+      "type": "BOOLEAN",
+      "mode": "NULLABLE"
+     }
+    ]
+   }
+  ]

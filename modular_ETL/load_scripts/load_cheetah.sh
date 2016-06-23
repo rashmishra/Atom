@@ -162,7 +162,7 @@ echo "Schema File path is: $v_schema_filepath"
 
 # Loading the data into staging table
 v_destination_tbl="$v_metadataset_name.stg_${tableName}";
-bq load --field_delimiter=',' --source_format=CSV --skip_leading_rows=0 --max_bad_records=0  --allow_jagged_rows=1 --allow_quoted_newlines=1 --ignore_unknown_values=1 $v_destination_tbl $v_cloud_storage_path/$v_fileName $v_schema_filepath/$stg_schemaFileName &
+bq load --quiet --field_delimiter=',' --source_format=CSV --skip_leading_rows=0 --max_bad_records=0  --allow_jagged_rows=1 --allow_quoted_newlines=1 --ignore_unknown_values=1 $v_destination_tbl $v_cloud_storage_path/$v_fileName $v_schema_filepath/$stg_schemaFileName &
 #2> "$v_data_object"_final_table_result.txt 
 v_pid=$!
 

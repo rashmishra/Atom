@@ -143,7 +143,7 @@ v_log_obj_txt+=`echo "\n$(date) Cloud Load of $v_fileName into $v_cloud_storage_
 ## Checking if the prior process has failed. If Failed, then exit this task (script). ##
 
 v_subtask="Cloud Upload";
-p_exit_upon_error $v_task_status $v_subtask
+p_exit_upon_error "$v_task_status" "$v_subtask"
 
 #-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#
                      ## Completed: Checking for Process Failure ##
@@ -176,7 +176,7 @@ v_log_obj_txt+=`echo "\n$(date) $v_task_status is the task status"`;
 ## Checking if the prior process has failed. If Failed, then exit this task (script). ##
 
 v_subtask="Incremental Table load";
-p_exit_upon_error $v_task_status $v_subtask
+p_exit_upon_error "$v_task_status" "$v_subtask"
 
 rm "$v_data_object"_inc_table_result.txt
 
@@ -214,7 +214,7 @@ if [[ "`bq ls $v_dataset_name | awk '{print $1}' | grep $tableName`" == "$tableN
         ## Checking if the prior process has failed. If Failed, then exit this task (script). ##
 
         v_subtask="Prior Data table creation";
-        p_exit_upon_error $v_task_status $v_subtask
+        p_exit_upon_error "$v_task_status" "$v_subtask"
 
         #-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#
                              ## Completed: Checking for Process Failure ##
@@ -251,7 +251,7 @@ v_log_obj_txt+=`echo "\n$(date) $v_table_union_result \n$v_task_status is the ta
 ## Checking if the prior process has failed. If Failed, then exit this task (script). ##
 
 v_subtask="Prior n Incr. Table Union";
-p_exit_upon_error $v_task_status $v_subtask
+p_exit_upon_error "$v_task_status" "$v_subtask"
 
 rm "$v_data_object"_table_union_result.txt
 
@@ -330,4 +330,3 @@ echo -e "Log text is: \n"
 echo -e "$v_log_obj_txt";
 
 exit 0
-

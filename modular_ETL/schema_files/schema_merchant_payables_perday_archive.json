@@ -74,5 +74,13 @@
         "mode": "NULLABLE",
         "name": "isDeleted",
         "type": "BOOLEAN"
+      },
+      { "mode": "NULLABLE",
+        "name": "processedDate",
+        "type": "INTEGER"
+      },
+      { "mode": "NULLABLE",
+        "name": "additionalInfo",
+        "type": "STRING"
       }
 ]

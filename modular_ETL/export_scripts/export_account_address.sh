@@ -17,11 +17,6 @@ v_task_start_ts=`echo $(date -d "@$v_task_start_epoch" +"%Y-%m-%d %r %Z")`
 
 v_task_datetime=`echo $(date -d "@$v_task_start_epoch" +"%Y-%m-%d_%H:%M_%Z")`
 
-echo -e "\n------------------------------------------------------------"
-echo -e "\n ************** Entered Account Address script ************ "
-echo -e "\n------------------------------------------------------------"
-
-
 ## Initializing required variables
 v_etl_task='extract'
 v_data_object=$1;
@@ -112,7 +107,7 @@ v_command="\copy merusepro.account_address to $v_extract_filename with DELIMITER
 psql -d $DBNAME -h $DBHOST -p $DBPORT -U $DBUSER -A --field-separator=, -c "$v_command"  &
 v_extract_pid=$!
 
-echo -e "\n\nThe PID for Order Line data export is $v_extract_pid\n\n";
+echo -e "\n\nThe PID for Account Address data export is $v_extract_pid\n\n";
 
 # Waiting for the process to complete
 if wait $v_extract_pid; then

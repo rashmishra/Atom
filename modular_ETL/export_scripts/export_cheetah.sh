@@ -159,10 +159,6 @@ gzip cheetah_data_$v_extract_date.csv
 mv ./data_$v_extract_date.dat.zip $v_arch_dir/
 
 
-# Zipping the exported data file
-gzip -f $v_data_dump_dir/$v_data_object.json
-
-
 ###################################################################################
 ## Storing the status (success/failed) into respective text file. This will be in 
 ## consumed by the main script to determine the status of entire Extract activity

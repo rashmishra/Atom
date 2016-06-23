@@ -86,17 +86,11 @@ query="{\$or:[{\"createdAt\":{\$gte:$v_incremental_epoch}},{\"lastModifiedAt\":{
 #query="{\$or:[{\"createdTime\":{\$gte:$v_incremental_epoch}},{\"updateHistory.lastUpdatedAt\":{\$gte:$v_incremental_epoch} },{\"updateTime\":{\$gte:$v_incremental_epoch} },{\"updateHistory.createdAt\":{\$gte:$v_incremental_epoch} }]}"
 v_log_obj_txt+=`echo "\n$(date) Query is $query."`;
 
-#v_log_obj_txt+=$(`./mongoexport --host 10.2.1.227:27017 --db customerplatform -q "$query" -c customer --out $v_data_dump_dir/$v_data_object.json` | tee /dev/tty )
-#v_log_obj_txt=$(./mongoexport --host 10.2.1.227:27017 --db customerplatform -q "$query" -c customer --out $v_data_dump_dir/$v_data_object.json 2>&1)
-## Correct one
-#v_export_result=`echo $(./mongoexport --host 10.2.1.227:27017 --db customerplatform -q "$query" -c customer --out $v_data_dump_dir/$v_data_object.json 2>&1)`;
-
 cd $v_mongo_dir
 ./mongoexport  --host 10.2.3.17:27017 --db nearbuy_customer_profile -q $query -c customer --out $v_data_dump_dir/$v_data_object.json 2> $v_temp_dir/"$v_data_object"_extract_command_output.txt &
 v_extract_pid=$!
 
-# Waiting for the process to complete
-wait $v_extract_pid
+# Waiting for the process to complete and checking the status
 
 if wait $v_extract_pid; then
     echo "Process $v_extract_pid Status: success";
@@ -106,16 +100,14 @@ else
     v_task_status="failed";
 fi
 
-# Fetching the output text given by the executed command into a variable, for logging purpose
-v_extract_command_output=`cat $v_temp_dir/"$v_data_object"_extract_command_output.txt`;
 
 
-v_log_obj_txt+=`echo "\n$(date) Export Command Output: "`;
-v_log_obj_txt+=`echo "\n$(date) $v_extract_command_output \n"`;
+
+
 v_log_obj_txt+=`echo "\n$(date) $v_task_status is the task status. \n"`;
 
 v_subtask="Mongo export";
-p_exit_upon_error $v_task_status $v_subtask
+p_exit_upon_error "$v_task_status" "$v_subtask"
 
 # Zipping the exported data file
 gzip -f $v_data_dump_dir/$v_data_object.json

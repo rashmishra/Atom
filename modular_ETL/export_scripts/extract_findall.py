@@ -52,4 +52,3 @@ with open(path+ "findall.json", "w") as f:
 
 #os.system("rm input.json")
 
-

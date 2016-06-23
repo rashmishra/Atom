@@ -5,7 +5,7 @@
 ## Purpose: Modular ETL flow of Atom.
 
 ##### $1: Data Object. ####
-##### $2: Data dump findall. ####
+##### $2: Data dump location. ####
 ##### $3: Mongo cp directory. ####
 ##### $4: Incremental Epoch. ####
 ##### $5: ETL Home directory. ####

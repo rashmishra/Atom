@@ -99,7 +99,7 @@ v_log_obj_txt+=`rm $v_data_dump_dir/$v_data_object.*`;
 v_log_obj_txt+=`echo "\nRemoved old $v_data_dump_dir/$v_data_object.csv file"`;
 
 # Storing Query in a separate file to use in psql command
-# echo "select * from oms_data.orderline where createdat>$v_incremental_epoch or updatedat>$v_incremental_epoch" > ./query_$v_data_object.txt
+#echo "select * from oms_data.orderline where createdat>$v_incremental_epoch or updatedat>$v_incremental_epoch" > ./query_$v_data_object.txt
 
 v_extract_filename="$v_data_dump_dir/$v_data_object.csv";
 v_query_logfile=$v_temp_dir/"$v_data_object"_extract_command_output.txt;

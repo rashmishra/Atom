@@ -330,4 +330,3 @@ echo -e "Log text is: \n"
 echo -e "$v_log_obj_txt";
 
 exit 0
-

@@ -245,4 +245,3 @@ echo -e "$v_log_obj_txt";
 
 
 exit 0
-

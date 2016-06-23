@@ -154,7 +154,7 @@ echo "Schema File path for Apps Flyer is: $v_schema_filepath"
 # Loading the data directly
 v_destination_tbl="$v_dataset_name.$tableName";
 echo "Apps Flyer table is: $v_destination_tbl"
-bq load --quiet --replace --source_format=NEWLINE_DELIMITED_JSON --replace --ignore_unknown_values=1 --max_bad_records=$maxBadRecords $v_destination_tbl $v_cloud_storage_path/$v_fileName $v_schema_filepath/$schemaFileName &
+bq load --quiet --source_format=NEWLINE_DELIMITED_JSON --replace --ignore_unknown_values=1 --max_bad_records=$maxBadRecords $v_destination_tbl $v_cloud_storage_path/$v_fileName $v_schema_filepath/$schemaFileName &
 #2> "$v_data_object"_final_table_result.txt 
 v_pid=$!
 
@@ -246,4 +246,3 @@ echo -e "$v_log_obj_txt";
 
 
 exit 0
-

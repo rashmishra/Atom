@@ -41,7 +41,6 @@ v_arch_dir=$6/arch;
 v_transform_dir=$6/data/transform;
 v_incremental_epoch=$7;
 
-
 v_task_status='Not set yet';
 v_log_obj_txt+=`echo "\n------------------------------------------------------------"`;
 v_log_obj_txt+=`echo "\n------------------------------------------------------------"`;
@@ -106,7 +105,6 @@ p_exit_upon_error(){
 
 }
 
-
 # Fetching the data file from Transform Directory to Load Directory
 cd $v_transform_dir;
 pwd
@@ -141,24 +139,25 @@ v_log_obj_txt+=`echo "\n$(date) Cloud Load of $v_fileName into $v_cloud_storage_
 #-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#
 
 ########################################################################################
-## Checking if the prior process has failed. If Failed, then exit this task (script). ##
+## Checking if the Cloud Upload process has failed. If Failed, then exit this task (script). ##
 
 v_subtask="Cloud Upload";
-p_exit_upon_error $v_task_status $v_subtask
+p_exit_upon_error "$v_task_status" "$v_subtask"
+
+rm "$v_data_object"_cloud_result.txt
 
 #-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#
                      ## Completed: Checking for Process Failure ##
 #-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#
 
-## Load into metadata
-
-## Make the diff table, with the uploaded file (for incremental load)
-
 #v_incr_table_result=`echo $(bq load --quiet  --source_format=NEWLINE_DELIMITED_JSON --replace --ignore_unknown_values=1 --max_bad_records=$maxBadRecords $v_metadataset_name.incremental_$tableName $v_cloud_storage_path/$v_fileName $v_schema_filepath/$schemaFileName 2>&1)`
+echo "Etl Home is $6."
+echo "Schema File path is: $v_schema_filepath"
 
-v_destination_tbl="$v_metadataset_name.incremental_$tableName";
+# Loading the data directly
+v_destination_tbl="$v_dataset_name.$tableName";
 bq load --quiet --source_format=NEWLINE_DELIMITED_JSON --replace --ignore_unknown_values=1 --max_bad_records=$maxBadRecords $v_destination_tbl $v_cloud_storage_path/$v_fileName $v_schema_filepath/$schemaFileName &
-# 2> "$v_data_object"_inc_table_result.txt
+#2> "$v_data_object"_final_table_result.txt 
 v_pid=$!
 
 wait $v_pid
@@ -170,102 +169,18 @@ else
     echo "Process $v_pid Status: failed";
     v_task_status="failed";
 fi
-
 
 v_log_obj_txt+=`echo "\n$(date) $v_task_status is the task status"`;
 
 ########################################################################################
-## Checking if the prior process has failed. If Failed, then exit this task (script). ##
+## Checking if the Incremental Table Load process has failed. If Failed, then exit this task (script). ##
 
 v_subtask="Incremental Table load";
-p_exit_upon_error $v_task_status $v_subtask
-
-rm "$v_data_object"_inc_table_result.txt
+p_exit_upon_error "$v_task_status" "$v_subtask"
 
 #-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#
                      ## Completed: Checking for Process Failure ##
 #-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#
-
-if [[ "`bq ls $v_dataset_name | awk '{print $1}' | grep $tableName`" == "$tableName" ]] ; 
-    then 
-
-        ## Make another table with prior (till last run) data 
-        v_query="SELECT * FROM $v_dataset_name.$tableName WHERE _id NOT IN (SELECT _id FROM $v_metadataset_name.incremental_$tableName)";
-        v_destination_tbl="$v_metadataset_name.prior_$tableName";
-        echo "Destination table is $v_destination_tbl and Query is $v_query"
-        bq query  --maximum_billing_tier 10 --allow_large_results=1  --quiet --flatten_results=0 --replace --destination_table=$v_destination_tbl "$v_query" 2> "$v_data_object"_prior_table_result.txt &
-        v_pid=$!
-
-        wait $v_pid
-
-        if wait $v_pid; then
-            echo "Process $v_pid Status: success";
-            v_task_status="success";
-        else 
-            echo "Process $v_pid Status: failed";
-            v_task_status="failed";
-        fi
-
-        v_log_obj_txt+=`echo "\n$(date) $v_task_status is the task status"`;
-
-        ########################################################################################
-        ## Checking if the prior process has failed. If Failed, then exit this task (script). ##
-
-        v_subtask="Prior Data table creation";
-        p_exit_upon_error $v_task_status $v_subtask
-
-        rm "$v_data_object"_prior_table_result.txt
-
-        #-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#
-                             ## Completed: Checking for Process Failure ##
-        #-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#
-    else echo "Table $v_dataset_name.$tableName missing"; 
-fi
-
-## Drop Final (e.g. Atom) table
-#bq query --append=1 --flatten_results=0 --allow_large_results=1 --destination_table=$METADATA_DATASET_NAME.final_customer 'select * from '"$METADATA_DATASET_NAME"'.customer_incremental' > /dev/null
-
-v_destination_tbl="$v_metadataset_name.prior_$tableName";
-v_query="SELECT * FROM $v_metadataset_name.incremental_$tableName";
-bq query --append=1 --flatten_results=0 --allow_large_results=1 --destination_table=$v_destination_tbl "$v_query" 2> "$v_data_object"_table_union_result.txt &
-v_pid=$!
-
-wait $v_pid
-
-if wait $v_pid; then
-    echo "Process $v_pid Status: success";
-    v_task_status="success";
-else 
-    echo "Process $v_pid Status: failed";
-    v_task_status="failed";
-fi
-
-
-v_table_union_result=`cat "$v_data_object"_table_union_result.txt`;
-
-v_log_obj_txt+=`echo "\n$(date) Prior data table creation log: "`;
-v_log_obj_txt+=`echo "\n$(date) $v_table_union_result \n$v_task_status is the task status"`;
-
-########################################################################################
-## Checking if the prior process has failed. If Failed, then exit this task (script). ##
-
-v_subtask="Prior n Incr. Table Union";
-p_exit_upon_error $v_task_status $v_subtask
-
-rm "$v_data_object"_table_union_result.txt
-
-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#
-                     ## Completed: Checking for Process Failure ##
-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#
-
-## Load prior (till last run) data + diff table into final table
-
-bq rm -f $v_dataset_name.$tableName
-bq cp $v_metadataset_name.prior_$tableName $v_dataset_name.$tableName
-# Removing Prior and Incremental tables
-bq rm -f $v_metadataset_name.prior_$tableName
-bq rm -f $v_metadataset_name.incremental_$tableName
-
 
 
 ###################################################################################
@@ -329,5 +244,5 @@ chmod 0777 $v_temp_dir/"$v_data_object"_log.log;
 echo -e "Log text is: \n"
 echo -e "$v_log_obj_txt";
 
-exit 0
 
+exit 0

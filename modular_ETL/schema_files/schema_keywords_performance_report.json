@@ -1,0 +1,265 @@
+[{
+        "name": "AccountDescriptiveName",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "AdGroupId",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "AdGroupName",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "AdGroupStatus",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "ApprovalStatus",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "AverageCost",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "AverageCpc",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "AveragePageviews",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "AveragePosition",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "AverageTimeOnSite",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "BiddingStrategyId",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "BiddingStrategyName",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "BiddingStrategySource",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "BiddingStrategyType",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "BidType",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "BounceRate",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "CampaignId",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "CampaignName",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "CampaignStatus",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "Clicks",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "ConversionRate",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "Conversions",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "ConversionValue",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "Cost",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "CostPerConversion",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "CpcBid",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "CpcBidSource",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "CreativeQualityScore",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "Criteria",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "CriteriaDestinationUrl",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "CrossDeviceConversions",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "Ctr",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "CustomerDescriptiveName",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "FinalAppUrls",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "FinalMobileUrls",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "FinalUrls",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "FirstPageCpc",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "FirstPositionCpc",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "Id",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "Impressions",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "KeywordMatchType",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "PercentNewVisitors",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "PostClickQualityScore",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "QualityScore",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "SearchExactMatchImpressionShare",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "SearchImpressionShare",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "SearchPredictedCtr",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "SearchRankLostImpressionShare",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "Status",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "SystemServingStatus",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "TopOfPageCpc",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "TrackingUrlTemplate",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "UrlCustomParameters",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    }]

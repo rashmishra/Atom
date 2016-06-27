@@ -20,6 +20,38 @@
         "mode": "NULLABLE"
        },
        {
+        "name": "hasMerchantCodes",
+        "type": "BOOLEAN",
+        "mode": "NULLABLE"
+       },
+       {
+        "name": "creditsAllowed",
+        "type": "BOOLEAN",
+        "mode": "NULLABLE"
+       },
+       {
+        "name": "consumptionLocation",
+        "type": "RECORD",
+        "mode": "NULLABLE",
+        "fields": [
+         {
+          "name": "type",
+          "type": "INTEGER",
+          "mode": "NULLABLE"
+         },
+         {
+          "name": "hasPan",
+          "type": "BOOLEAN",
+          "mode": "NULLABLE"
+         },
+         {
+          "name": "Coverage",
+          "type": "FLOAT",
+          "mode": "REPEATED"
+         }
+        ]
+       },
+       {
         "name": "odesc",
         "type": "RECORD",
         "mode": "NULLABLE",
@@ -355,6 +387,16 @@
         "mode": "NULLABLE",
         "fields": [
          {
+          "name": "sameAs",
+          "type": "INTEGER",
+          "mode": "NULLABLE"
+         },
+         {
+          "name": "type",
+          "type": "INTEGER",
+          "mode": "NULLABLE"
+         },
+         {
           "name": "adultPrice",
           "type": "INTEGER",
           "mode": "NULLABLE"
@@ -390,11 +432,6 @@
             "mode": "NULLABLE"
            }
           ]
-         },
-         {
-          "name": "sameAs",
-          "type": "INTEGER",
-          "mode": "NULLABLE"
          }
         ]
        },

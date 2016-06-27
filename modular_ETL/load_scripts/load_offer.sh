@@ -263,8 +263,8 @@ rm "$v_data_object"_table_union_result.txt
 bq rm -f $v_dataset_name.$tableName
 bq cp $v_metadataset_name.prior_$tableName $v_dataset_name.$tableName
 # Removing Prior and Incremental tables
-#bq rm -f $v_metadataset_name.prior_$tableName
-#bq rm -f $v_metadataset_name.incremental_$tableName
+bq rm -f $v_metadataset_name.prior_$tableName
+bq rm -f $v_metadataset_name.incremental_$tableName
 
 
 
@@ -330,4 +330,3 @@ echo -e "Log text is: \n"
 echo -e "$v_log_obj_txt";
 
 exit 0
-

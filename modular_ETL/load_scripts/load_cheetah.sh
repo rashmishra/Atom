@@ -32,7 +32,7 @@ maxBadRecords=50
 
 v_data_object=$1;
 tableName=$1;
-deaclare -a v_fileNames=("cheetah_data_$v_extract_date.csv.gz" "cheetah_iid_keys_$v_extract_date.csv.gz");
+declare -a v_fileNames=("cheetah_data_$v_extract_date.csv.gz" "cheetah_iid_keys_$v_extract_date.csv.gz");
 v_cloud_storage_path=$2;
 v_load_dir=$3;
 v_metadataset_name=$4;
@@ -116,7 +116,7 @@ p_exit_upon_error(){
 
 ## Looping through Cheetah files: Moving files to Load directory and Uploading them into Cloud
 
-for v_filename in "${v_fileNames[@]}"; do 
+for v_fileName in "${v_fileNames[@]}"; do 
 
 # Fetching the data file from Transform Directory to Load Directory
 cd $v_transform_dir;

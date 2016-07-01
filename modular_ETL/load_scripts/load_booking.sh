@@ -120,8 +120,6 @@ v_log_obj_txt+=`echo "\n$(date) In Load directory $v_load_dir"`;
 gsutil cp $v_fileName $v_cloud_storage_path 2> "$v_data_object"_cloud_result.txt &
 v_pid=$!
 
-wait $v_pid
-
 if wait $v_pid; then
     echo "Process $v_pid Status: success";
     v_task_status="success";
@@ -142,7 +140,7 @@ v_log_obj_txt+=`echo "\n$(date) Cloud Load of $v_fileName into $v_cloud_storage_
 ## Checking if the prior process has failed. If Failed, then exit this task (script). ##
 
 v_subtask="Cloud Upload";
-p_exit_upon_error $v_task_status $v_subtask
+p_exit_upon_error "$v_task_status" "$v_subtask"
 
 #-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#
                      ## Completed: Checking for Process Failure ##
@@ -157,11 +155,9 @@ echo "Etl Home is $6."
 echo "Schema File path is: $v_schema_filepath"
 
 v_destination_tbl=$v_metadataset_name.incremental_$tableName
-bq load --quiet --source_format=NEWLINE_DELIMITED_JSON --replace --ignore_unknown_values=1 --max_bad_records=$maxBadRecords "$v_destination_tbl" $v_cloud_storage_path/$v_fileName $v_schema_filepath/$schemaFileName 
+bq load --quiet --source_format=NEWLINE_DELIMITED_JSON --replace --ignore_unknown_values=1 --max_bad_records=$maxBadRecords "$v_destination_tbl" $v_cloud_storage_path/$v_fileName $v_schema_filepath/$schemaFileName &
 #2> "$v_data_object"_inc_table_result.txt &
 v_pid=$!
-
-wait $v_pid
 
 if wait $v_pid; then
     echo "Process $v_pid Status: success";
@@ -177,7 +173,7 @@ v_log_obj_txt+=`echo "\n$(date) $v_task_status is the task status"`;
 ## Checking if the prior process has failed. If Failed, then exit this task (script). ##
 
 v_subtask="Incremental Table load";
-p_exit_upon_error $v_task_status $v_subtask
+p_exit_upon_error "$v_task_status" "$v_subtask"
 
 
 #-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#
@@ -187,15 +183,12 @@ p_exit_upon_error $v_task_status $v_subtask
 
 if [[ "`bq ls $v_dataset_name | awk '{print $1}' | grep $tableName`" == "$tableName" ]] ; 
     then 
-
             ## Make another table with prior (till last run) data 
-            v_query="SELECT * FROM $v_dataset_name.$tableName WHERE createdAt not in (SELECT createdAt FROM $v_metadataset_name.incremental_$tableName)";
+            v_query="SELECT * FROM $v_dataset_name.$tableName WHERE createdAt < $v_incremental_epoch";
             v_destination_tbl="$v_metadataset_name.prior_$tableName";
             echo "Destination table is $v_destination_tbl and Query is $v_query"
             bq query --quiet   --maximum_billing_tier 10 --allow_large_results=1 --flatten_results=0 --replace --destination_table=$v_destination_tbl "$v_query" &
             v_pid=$!
-
-            wait $v_pid
 
             if wait $v_pid; then
                 echo "Process $v_pid Status: success";
@@ -212,7 +205,7 @@ if [[ "`bq ls $v_dataset_name | awk '{print $1}' | grep $tableName`" == "$tableN
             ## Checking if the prior process has failed. If Failed, then exit this task (script). ##
 
             v_subtask="Prior Data table creation";
-            p_exit_upon_error $v_task_status $v_subtask
+            p_exit_upon_error "$v_task_status" "$v_subtask"
 
 
             #-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#
@@ -245,7 +238,7 @@ v_log_obj_txt+=`echo "\n$(date) \n$v_task_status is the task status"`;
 ## Checking if the prior process has failed. If Failed, then exit this task (script). ##
 
 v_subtask="Prior n Incr. Table Union";
-p_exit_upon_error $v_task_status $v_subtask
+p_exit_upon_error "$v_task_status" "$v_subtask"
 
 
 #-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#
@@ -323,4 +316,3 @@ echo -e "Log text is: \n"
 echo -e "$v_log_obj_txt";
 
 exit 0
-

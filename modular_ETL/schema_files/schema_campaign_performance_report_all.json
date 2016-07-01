@@ -1,0 +1,436 @@
+[{
+"name":"AdNetworkType1",
+"type": "STRING",
+"mode": "nullable"
+},
+{
+"name":"AdNetworkType2",
+"type": "STRING",
+"mode": "nullable"
+},
+{
+"name":"AdvertisingChannelSubType",
+"type": "STRING",
+"mode": "nullable"
+},
+{
+"name":"AdvertisingChannelType",
+"type": "STRING",
+"mode": "nullable"
+},
+{
+"name":"AllConversionRate",
+"type": "STRING",
+"mode": "nullable"
+},
+{
+"name":"AllConversions",
+"type": "STRING",
+"mode": "nullable"
+},
+{
+"name":"AllConversionValue",
+"type": "STRING",
+"mode": "nullable"
+},
+{
+"name":"Amount",
+"type": "STRING",
+"mode": "nullable"
+},
+{
+"name":"AverageCost",
+"type": "STRING",
+"mode": "nullable"
+},
+{
+"name":"AverageCpc",
+"type": "STRING",
+"mode": "nullable"
+},
+{
+"name":"AverageCpe",
+"type": "STRING",
+"mode": "nullable"
+},
+{
+"name":"AverageCpm",
+"type": "STRING",
+"mode": "nullable"
+},
+{
+"name":"AverageCpv",
+"type": "STRING",
+"mode": "nullable"
+},
+{
+"name":"AverageFrequency",
+"type": "STRING",
+"mode": "nullable"
+},
+{
+"name":"AveragePageviews",
+"type": "STRING",
+"mode": "nullable"
+},
+{
+"name":"AveragePosition",
+"type": "STRING",
+"mode": "nullable"
+},
+{
+"name":"AverageTimeOnSite",
+"type": "STRING",
+"mode": "nullable"
+},
+{
+"name":"BaseCampaignId",
+"type": "STRING",
+"mode": "nullable"
+},
+{
+"name":"BiddingStrategyId",
+"type": "STRING",
+"mode": "nullable"
+},
+{
+"name":"BiddingStrategyName",
+"type": "STRING",
+"mode": "nullable"
+},
+{
+"name":"BiddingStrategyType",
+"type": "STRING",
+"mode": "nullable"
+},
+{
+"name":"BidType",
+"type": "STRING",
+"mode": "nullable"
+},
+{
+"name":"BounceRate",
+"type": "STRING",
+"mode": "nullable"
+},
+{
+"name":"BudgetId",
+"type": "STRING",
+"mode": "nullable"
+},
+{
+"name":"CampaignId",
+"type": "STRING",
+"mode": "nullable"
+},
+{
+"name":"CampaignMobileBidModifier",
+"type": "STRING",
+"mode": "nullable"
+},
+{
+"name":"CampaignName",
+"type": "STRING",
+"mode": "nullable"
+},
+{
+"name":"CampaignStatus",
+"type": "STRING",
+"mode": "nullable"
+},
+{
+"name":"ClickAssistedConversions",
+"type": "STRING",
+"mode": "nullable"
+},
+{
+"name":"ClickAssistedConversionsOverLastClickConversions",
+"type": "STRING",
+"mode": "nullable"
+},
+{
+"name":"ClickAssistedConversionValue",
+"type": "STRING",
+"mode": "nullable"
+},
+{
+"name":"ClickConversionRate",
+"type": "STRING",
+"mode": "nullable"
+},
+{
+"name":"Clicks",
+"type": "STRING",
+"mode": "nullable"
+},
+{
+"name":"ClickType",
+"type": "STRING",
+"mode": "nullable"
+},
+{
+"name":"ConversionCategoryName",
+"type": "STRING",
+"mode": "nullable"
+},
+{
+"name":"ConversionRate",
+"type": "STRING",
+"mode": "nullable"
+},
+{
+"name":"Conversions",
+"type": "STRING",
+"mode": "nullable"
+},
+{
+"name":"ConversionTrackerId",
+"type": "STRING",
+"mode": "nullable"
+},
+{
+"name":"ConversionTypeName",
+"type": "STRING",
+"mode": "nullable"
+},
+{
+"name":"ConversionValue",
+"type": "STRING",
+"mode": "nullable"
+},
+{
+"name":"ConvertedClicks",
+"type": "STRING",
+"mode": "nullable"
+},
+{
+"name":"Cost",
+"type": "STRING",
+"mode": "nullable"
+},
+{
+"name":"CostPerAllConversion",
+"type": "STRING",
+"mode": "nullable"
+},
+{
+"name":"CostPerConversion",
+"type": "STRING",
+"mode": "nullable"
+},
+{
+"name":"CostPerConvertedClick",
+"type": "STRING",
+"mode": "nullable"
+},
+{
+"name":"CostPerConvertedClickSignificance",
+"type": "STRING",
+"mode": "nullable"
+},
+{
+"name":"CpcSignificance",
+"type": "STRING",
+"mode": "nullable"
+},
+{
+"name":"CpmSignificance",
+"type": "STRING",
+"mode": "nullable"
+},
+{
+"name":"CrossDeviceConversions",
+"type": "STRING",
+"mode": "nullable"
+},
+{
+"name":"Ctr",
+"type": "STRING",
+"mode": "nullable"
+},
+{
+"name":"CustomerDescriptiveName",
+"type": "STRING",
+"mode": "nullable"
+},
+{
+"name":"Date",
+"type": "STRING",
+"mode": "nullable"
+},
+{
+"name":"DayOfWeek",
+"type": "STRING",
+"mode": "nullable"
+},
+{
+"name":"Device",
+"type": "STRING",
+"mode": "nullable"
+},
+{
+"name":"EndDate",
+"type": "STRING",
+"mode": "nullable"
+},
+{
+"name":"EnhancedCpcEnabled",
+"type": "STRING",
+"mode": "nullable"
+},
+{
+"name":"EnhancedCpvEnabled",
+"type": "STRING",
+"mode": "nullable"
+},
+{
+"name":"GmailForwards",
+"type": "STRING",
+"mode": "nullable"
+},
+{
+"name":"GmailSaves",
+"type": "STRING",
+"mode": "nullable"
+},
+{
+"name":"GmailSecondaryClicks",
+"type": "STRING",
+"mode": "nullable"
+},
+{
+"name":"HourOfDay",
+"type": "STRING",
+"mode": "nullable"
+},
+{
+"name":"ImpressionAssistedConversions",
+"type": "STRING",
+"mode": "nullable"
+},
+{
+"name":"ImpressionAssistedConversionsOverLastClickConversions",
+"type": "STRING",
+"mode": "nullable"
+},
+{
+"name":"ImpressionAssistedConversionValue",
+"type": "STRING",
+"mode": "nullable"
+},
+{
+"name":"ImpressionReach",
+"type": "STRING",
+"mode": "nullable"
+},
+{
+"name":"Impressions",
+"type": "STRING",
+"mode": "nullable"
+},
+{
+"name":"LabelIds",
+"type": "STRING",
+"mode": "nullable"
+},
+{
+"name":"Labels",
+"type": "STRING",
+"mode": "nullable"
+},
+{
+"name":"Month",
+"type": "STRING",
+"mode": "nullable"
+},
+{
+"name":"MonthOfYear",
+"type": "STRING",
+"mode": "nullable"
+},
+{
+"name":"PercentNewVisitors",
+"type": "STRING",
+"mode": "nullable"
+},
+{
+"name":"Period",
+"type": "STRING",
+"mode": "nullable"
+},
+{
+"name":"Quarter",
+"type": "STRING",
+"mode": "nullable"
+},
+{
+"name":"RelativeCtr",
+"type": "STRING",
+"mode": "nullable"
+},
+{
+"name":"SearchBudgetLostImpressionShare",
+"type": "STRING",
+"mode": "nullable"
+},
+{
+"name":"SearchExactMatchImpressionShare",
+"type": "STRING",
+"mode": "nullable"
+},
+{
+"name":"SearchImpressionShare",
+"type": "STRING",
+"mode": "nullable"
+},
+{
+"name":"SearchRankLostImpressionShare",
+"type": "STRING",
+"mode": "nullable"
+},
+{
+"name":"ServingStatus",
+"type": "STRING",
+"mode": "nullable"
+},
+{
+"name":"StartDate",
+"type": "STRING",
+"mode": "nullable"
+},
+{
+"name":"TrackingUrlTemplate",
+"type": "STRING",
+"mode": "nullable"
+},
+{
+"name":"UrlCustomParameters",
+"type": "STRING",
+"mode": "nullable"
+},
+{
+"name":"VideoViewRate",
+"type": "STRING",
+"mode": "nullable"
+},
+{
+"name":"VideoViews",
+"type": "STRING",
+"mode": "nullable"
+},
+{
+"name":"ViewThroughConversions",
+"type": "STRING",
+"mode": "nullable"
+},
+{
+"name":"Week",
+"type": "STRING",
+"mode": "nullable"
+},
+{
+"name":"Year",
+"type": "STRING",
+"mode": "nullable"
+}]
+

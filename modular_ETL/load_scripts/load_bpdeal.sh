@@ -142,13 +142,21 @@ v_log_obj_txt+=`echo "\n$(date) Cloud Load of $v_fileName into $v_cloud_storage_
 ## Checking if the Cloud Upload process has failed. If Failed, then exit this task (script). ##
 
 v_subtask="Cloud Upload";
-p_exit_upon_error $v_task_status $v_subtask
+p_exit_upon_error "$v_task_status" "$v_subtask"
 
 rm "$v_data_object"_cloud_result.txt
 
 #-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#
                      ## Completed: Checking for Process Failure ##
 #-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#
+
+# Archiving/ storing existing live deals into hostroy table before refreshing Atom.bpdeal table.
+
+v_query="select STRFTIME_UTC_USEC(now()-39600,\"%Y-%m-%d\") as date ,dealId,soldCount,offers._id as offerId,offers.isSoldOut as isOfferSoldOut,
+        offers.startAt as offerStartAt,offers.endAt as offerEndAt,offers.expiresAt as offerExpiresAt, isDeleted,createdAt,updatedAt, 
+        dealValidityEndDate,isSoldOut,isPublished 
+from FLATTEN($v_dataset_name.$tableName,offers)"
+bq query --append=1 --flatten_results=0 --allow_large_results=1 --destination_table=$v_dataset_name.${tableName}_history  $v_query > /dev/null
 
 #v_incr_table_result=`echo $(bq load --quiet  --source_format=NEWLINE_DELIMITED_JSON --replace --ignore_unknown_values=1 --max_bad_records=$maxBadRecords $v_metadataset_name.incremental_$tableName $v_cloud_storage_path/$v_fileName $v_schema_filepath/$schemaFileName 2>&1)`
 echo "Etl Home is $6."
@@ -175,7 +183,7 @@ v_log_obj_txt+=`echo "\n$(date) $v_task_status is the task status"`;
 ## Checking if the Incremental Table Load process has failed. If Failed, then exit this task (script). ##
 
 v_subtask="Incremental Table load";
-p_exit_upon_error $v_task_status $v_subtask
+p_exit_upon_error "$v_task_status" "$v_subtask"
 
 #-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#
                      ## Completed: Checking for Process Failure ##
@@ -245,4 +253,3 @@ echo -e "$v_log_obj_txt";
 
 
 exit 0
-

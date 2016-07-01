@@ -117,7 +117,8 @@ v_log_obj_txt+=`echo "\n$(date) In Load directory $v_load_dir"`;
 ########################################################################################
                              ## Loading into gcloud ##
 ########################################################################################
-gsutil cp $v_fileName $v_cloud_storage_path 2> "$v_data_object"_cloud_result.txt &
+gsutil cp $v_fileName $v_cloud_storage_path &
+# 2> "$v_data_object"_cloud_result.txt &
 v_pid=$!
 
 wait $v_pid
@@ -144,7 +145,7 @@ v_log_obj_txt+=`echo "\n$(date) Cloud Load of $v_fileName into $v_cloud_storage_
 v_subtask="Cloud Upload";
 p_exit_upon_error "$v_task_status" "$v_subtask"
 
-rm "$v_data_object"_cloud_result.txt
+# rm "$v_data_object"_cloud_result.txt
 
 #-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#
                      ## Completed: Checking for Process Failure ##
@@ -155,8 +156,11 @@ echo "Etl Home is $6."
 echo "Schema File path is: $v_schema_filepath"
 
 # Loading the data directly
-bq load --quiet --field_delimiter=',' --source_format=CSV --skip_leading_rows=1 --max_bad_records=0  --allow_jagged_rows=1 --allow_quoted_newlines=1 --ignore_unknown_values=1 $v_dataset_name.$tableName $v_cloud_storage_path/$v_fileName $v_schema_filepath/$schemaFileName &
-#2> "$v_data_object"_final_table_result.txt 
+
+
+echo "bq load  --field_delimiter=',' --source_format=CSV --replace --skip_leading_rows=1 --max_bad_records=0  --allow_jagged_rows=1 --allow_quoted_newlines=1 --ignore_unknown_values=1 $v_dataset_name.$tableName $v_cloud_storage_path/$v_fileName $v_schema_filepath/$schemaFileName";
+bq load  --field_delimiter=',' --source_format=CSV --replace --skip_leading_rows=1 --max_bad_records=0  --allow_jagged_rows=1 --allow_quoted_newlines=1 --ignore_unknown_values=1 $v_dataset_name.$tableName $v_cloud_storage_path/$v_fileName $v_schema_filepath/$schemaFileName
+# 2> "$v_data_object"_final_table_result.txt &
 v_pid=$!
 
 wait $v_pid
@@ -245,4 +249,3 @@ echo -e "$v_log_obj_txt";
 
 
 exit 0
-

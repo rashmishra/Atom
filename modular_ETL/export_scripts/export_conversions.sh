@@ -1,4 +1,7 @@
-cript Name: export_conversions.sh
+#!/bin/bash
+
+
+## Script Name: export_conversions.sh
 ## Purpose: Modular ETL flow of Atom.
 
 ##### $1: Data Object. ####
@@ -99,7 +102,7 @@ fi
 
 v_log_obj_txt+=`echo "\n$(date) $v_task_status is the task status. \n"`;
 
-v_subtask="Mongo export";
+v_subtask="API export";
 p_exit_upon_error "$v_task_status" "$v_subtask"
 
 # Zipping the exported data file

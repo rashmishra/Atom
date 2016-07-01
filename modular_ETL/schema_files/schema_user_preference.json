@@ -1,0 +1,76 @@
+[
+    {
+        "mode": "NULLABLE",
+        "name": "userId",
+        "type": "INTEGER"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "userType",
+        "type": "STRING"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "isDND",
+        "type": "BOOLEAN"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "lastUpdatedAt",
+        "type": "INTEGER"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "lastUpdatedBy",
+        "type": "STRING"
+    },
+    {
+        "mode": "REPEATED",
+        "name": "events",
+        "type": "RECORD",
+        "fields": [
+            {
+                "mode": "NULLABLE",
+                "name": "eventName",
+                "type": "STRING"
+            },
+            {
+                "mode": "REPEATED",
+                "name": "notificationSettings",
+                "type": "RECORD",
+                "fields": [
+                    {
+                        "mode": "NULLABLE",
+                        "name": "notificationType",
+                        "type": "STRING"
+                    },
+                    {
+                        "mode": "REPEATED",
+                        "name": "frequency",
+                        "type": "STRING"
+                    },
+                    {
+                        "mode": "NULLABLE",
+                        "name": "isApplicable",
+                        "type": "BOOLEAN"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "isDeleted",
+        "type": "BOOLEAN"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "createdBy",
+        "type": "STRING"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "createdAt",
+        "type": "INTEGER"
+    }
+]

@@ -1,11 +1,11 @@
 #!/bin/bash
 
 
-## Script Name: export_merchant_payables.sh
+## Script Name: export_mixpanel.sh
 ## Purpose: Modular ETL flow of Atom.
 
 ##### $1: Data Object. ####
-##### $2: Data dump merchant_payables. ####
+##### $2: Data dump mixpanel. ####
 ##### $3: Mongo cp directory. ####
 ##### $4: Incremental Epoch. ####
 ##### $5: ETL Home directory. ####
@@ -71,7 +71,7 @@ p_exit_upon_error(){
         # Maintaining the log of this run in a separate file in arch folder
         echo -e "$v_log_obj_txt" > $v_arch_dir/logs/"$v_data_object""_extract_"$v_task_datetime.log
 
-        # Creating new file for merchant_payables's ETL run. Content will be appended in further tasks of T and L.
+        # Creating new file for mixpanel's ETL run. Content will be appended in further tasks of T and L.
         echo -e "$v_log_obj_txt" > $v_temp_dir/"$v_data_object"_log.log
         chmod 0777 $v_temp_dir/"$v_data_object"_log.log;
 
@@ -169,7 +169,7 @@ echo -e "$v_log_obj_txt" > $v_arch_dir/logs/"$v_data_object""_extract_"$v_task_d
 # Removing the previous run's file from the directory
 rm $v_temp_dir/"$v_data_object"_log.log
 
-# Creating new file for merchant_payables's ETL run. Content will be appended in further tasks of T and L.
+# Creating new file for mixpanel's ETL run. Content will be appended in further tasks of T and L.
 echo -e "$v_log_obj_txt" > $v_temp_dir/"$v_data_object"_log.log
 chmod 0777 $v_temp_dir/"$v_data_object"_log.log
 #-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
@@ -181,6 +181,6 @@ echo -e "$v_log_obj_txt";
 #  Removing the Command's (mongoexport) output stored in a file
 rm $v_temp_dir/"$v_data_object"_extract_command_output.txt
 
-#echo "merchant_payables mongo export end time is : $taskEndTime "
+#echo "mixpanel mongo export end time is : $taskEndTime "
 
 exit 0

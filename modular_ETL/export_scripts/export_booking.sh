@@ -1,7 +1,7 @@
 #!/bin/bash
 
 
-## Script Name: export_customer.sh
+## Script Name: export_booking.sh
 ## Purpose: Modular ETL flow of Atom.
 
 ##### $1: Data Object. ####
@@ -72,7 +72,7 @@ p_exit_upon_error(){
         # Maintaining the log of this run in a separate file in arch folder
         echo -e "$v_log_obj_txt" > $v_arch_dir/logs/"$v_data_object""_extract_"$v_task_datetime.log
 
-        # Creating new file for customer's ETL run. Content will be appended in further tasks of T and L.
+        # Creating new file for booking's ETL run. Content will be appended in further tasks of T and L.
         echo -e "$v_log_obj_txt" > $v_temp_dir/"$v_data_object"_log.log
         chmod 0777 $v_temp_dir/"$v_data_object"_log.log;
 
@@ -91,8 +91,7 @@ cd $v_mongo_dir
 ./mongoexport --host 10.2.1.104:27017 --db sheild -c booking -q "$query" --out $v_data_dump_dir/$v_data_object.json 2> $v_temp_dir/"$v_data_object"_extract_command_output.txt &
 v_extract_pid=$!
 
-# Waiting for the process to complete
-wait $v_extract_pid
+# Waiting for the process to complete and checking the status
 
 if wait $v_extract_pid; then
     echo "Process $v_extract_pid Status: success";
@@ -102,15 +101,13 @@ else
     v_task_status="failed";
 fi
 
-# Fetching the output text given by the executed command into a variable, for logging purpose
-v_extract_command_output=`cat $v_temp_dir/"$v_data_object"_extract_command_output.txt`;
 
-v_log_obj_txt+=`echo "\n$(date) Export Command Output: "`;
-v_log_obj_txt+=`echo "\n$(date) $v_extract_command_output \n"`;
+
+
 v_log_obj_txt+=`echo "\n$(date) $v_task_status is the task status. \n"`;
 
 v_subtask="Mongo export";
-p_exit_upon_error $v_task_status $v_subtask
+p_exit_upon_error "$v_task_status" "$v_subtask"
 
 # Zipping the exported data file
 gzip -f $v_data_dump_dir/$v_data_object.json
@@ -166,7 +163,7 @@ echo -e "$v_log_obj_txt" > $v_arch_dir/logs/"$v_data_object""_extract_"$v_task_d
 # Removing the previous run's file from the directory
 rm $v_temp_dir/"$v_data_object"_log.log
 
-# Creating new file for customer's ETL run. Content will be appended in further tasks of T and L.
+# Creating new file for booking's ETL run. Content will be appended in further tasks of T and L.
 echo -e "$v_log_obj_txt" > $v_temp_dir/"$v_data_object"_log.log
 
 chmod 0777 $v_temp_dir/"$v_data_object"_log.log
@@ -179,6 +176,6 @@ echo -e "$v_log_obj_txt";
 #  Removing the Command's (mongoexport) output stored in a file
 rm $v_temp_dir/"$v_data_object"_extract_command_output.txt
 
-#echo "customer mongo export end time is : $taskEndTime "
+#echo "booking mongo export end time is : $taskEndTime "
 
 exit 0

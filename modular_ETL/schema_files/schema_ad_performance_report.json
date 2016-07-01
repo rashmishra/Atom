@@ -1,0 +1,325 @@
+[{
+        "name": "AccountDescriptiveName",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "AdGroupAdDisapprovalReasons",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "AdGroupAdTrademarkDisapproved",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "AdGroupId",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "AdGroupName",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "AdGroupStatus",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "AdType",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "AllConversionRate",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "AllConversions",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "AllConversionValue",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "AverageCost",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "AverageCpc",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "AverageCpe",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "AverageCpm",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "AverageCpv",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "AveragePageviews",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "AveragePosition",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "AverageTimeOnSite",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "BounceRate",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "BusinessName",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "CampaignId",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "CampaignName",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "CampaignStatus",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "Clicks",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "ConversionRate",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "Conversions",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "ConversionValue",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "Cost",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "CostPerAllConversion",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "CostPerConversion",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "CreativeApprovalStatus",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "CreativeDestinationUrl",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "CreativeFinalAppUrls",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "CreativeFinalMobileUrls",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "CreativeFinalUrls",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "CreativeTrackingUrlTemplate",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "CreativeUrlCustomParameters",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "CriterionType",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "CrossDeviceConversions",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "Ctr",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "CustomerDescriptiveName",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "Description",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "Description1",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "Description2",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "DevicePreference",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "DisplayUrl",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "Headline",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "HeadlinePart1",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "HeadlinePart2",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "Id",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "ImageAdUrl",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "ImageCreativeImageHeight",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "ImageCreativeImageWidth",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "ImageCreativeName",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "Impressions",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "LabelIds",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "Labels",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "LongHeadline",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "Path1",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "Path2",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "PercentNewVisitors",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "PrimaryCompanyName",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "ShortHeadline",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "Status",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "Trademarks",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    }]

@@ -107,7 +107,7 @@ v_command="\copy merusepro.users to $v_extract_filename with DELIMITER ',' CSV H
 psql -d $DBNAME -h $DBHOST -p $DBPORT -U $DBUSER -A --field-separator=, -c "$v_command"  &
 v_extract_pid=$!
 
-echo -e "\n\nThe PID for Order Line data export is $v_extract_pid\n\n";
+echo -e "\n\nThe PID for account_users data export is $v_extract_pid\n\n";
 
 # Waiting for the process to complete
 if wait $v_extract_pid; then

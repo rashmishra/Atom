@@ -1,0 +1,32 @@
+[
+   {
+    "name": "issueid",
+    "type": "STRING",
+    "mode": "NULLABLE"
+   },
+   {
+    "name": "issuename",
+    "type": "STRING",
+    "mode": "NULLABLE"
+   },
+   {
+    "name": "timesent",
+    "type": "INTEGER",
+    "mode": "NULLABLE"
+   },
+   {
+    "name": "mailing_id",
+    "type": "INTEGER",
+    "mode": "NULLABLE"
+   },
+   {
+    "name": "subject",
+    "type": "STRING",
+    "mode": "NULLABLE"
+   },
+   {
+    "name": "mailing_name",
+    "type": "STRING",
+    "mode": "NULLABLE"
+   }
+]

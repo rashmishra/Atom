@@ -95,7 +95,7 @@ cd $v_data_dump_dir
 # EOF
 
 # Storing the commands to be executed in batch file
-echo -e "cd fromcheetah \nget data_$v_extract_date.dat.zip" > sftp_cheetah.bat 
+echo -e "cd fromcheetah \nget data_$v_extract_date.dat.zip \n get iid_keys_$v_extract_date.dat.zip" > sftp_cheetah.bat 
 # Making the sftp call using the commands stored earlier
 sftp -b sftp_cheetah.bat groupon_exp@tt.cheetahmail.com &
 v_extract_pid=$!
@@ -155,12 +155,48 @@ gzip cheetah_data_$v_extract_date.csv
 
 #rm data_$v_extract_date.dat.zip
 
+## IID Keys (Email Subject Line) files
+
+unzip ./iid_keys_$v_extract_date.dat.zip  &
+v_extract_pid=$!
+
+if wait $v_extract_pid; then
+    echo "Process $v_extract_pid Status: success";
+    v_task_status="success";
+else 
+    echo "Process $v_extract_pid Status: failed";
+    v_task_status="failed";
+fi
+
+
+v_log_obj_txt+=`echo "\n$(date) $v_task_status is the task status for $v_subtask. \n"`;
+
+v_subtask="Unzipping extracted file";
+p_exit_upon_error "$v_task_status" "$v_subtask" ;
+
+# Renaming the extracted (un-zipped) file to its proper syntax
+mv ./- ./cheetah_iid_keys_$v_extract_date.csv  &
+v_extract_pid=$!
+
+if wait $v_extract_pid; then
+    echo "Process $v_extract_pid Status: success";
+    v_task_status="success";
+else 
+    echo "Process $v_extract_pid Status: failed";
+    v_task_status="failed";
+fi
+
+
+v_log_obj_txt+=`echo "\n$(date) $v_task_status is the task status for $v_subtask. \n"`;
+
+v_subtask="Renaming extracted Cheetah file";
+p_exit_upon_error "$v_task_status" "$v_subtask" ;
+
+gzip cheetah_iid_keys_$v_extract_date.csv
+
 # Archiving the extracted file
 mv ./data_$v_extract_date.dat.zip $v_arch_dir/
-
-
-# Zipping the exported data file
-gzip -f $v_data_dump_dir/$v_data_object.json
+mv ./iid_keys_$v_extract_date.dat.zip $v_arch_dir/
 
 
 ###################################################################################

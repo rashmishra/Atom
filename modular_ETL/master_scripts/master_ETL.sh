@@ -161,10 +161,10 @@ p_update_task_status(){
 
 ## Procedure to add the log specific to a data object into its respective file
 p_add_task_log_file(){
-	# $1 v_log_obj_txt 
-	# $2 $TEMP_DIR/${v_arr_data_object[$i]}_log.log
+    # $1 v_log_obj_txt 
+    # $2 $TEMP_DIR/${v_arr_data_object[$i]}_log.log
 
-	echo -e "$1" >> "$2";
+    echo -e "$1" >> "$2";
 
 }
 
@@ -295,12 +295,13 @@ for ((i=0;i<$v_config_line_cnr; i++)); do
                 #             #### $3: Mongo cp directory. ####
                 #             #### $4: Incremental Epoch. ####
                 #             #### $5: ETL Home Directory. ####
+                #             #### $6: ETL Refresh Mode (FULL/ PARTIAL). ####
 
                 echo " Scripts Export path: $EXPORT_SCRIPTS_PATH ."
                 echo "Script Name is: $EXPORT_SCRIPTS_PATH/export_${v_arr_data_object[$i]}.sh "
 
-                #                                                    $1                      $2               $3            $4                  $5     
-                bash $EXPORT_SCRIPTS_PATH/export_${v_arr_data_object[$i]}.sh ${v_arr_data_object[$i]} $DAILY_DUMP_PATH $MONGO_PATH ${v_arr_incremental_epoch[$i]} $ETL_HOME_DIR &
+                #                                                                  $1                      $2               $3               $4                     $5                 $6
+                bash $EXPORT_SCRIPTS_PATH/export_${v_arr_data_object[$i]}.sh ${v_arr_data_object[$i]} $DAILY_DUMP_PATH $MONGO_PATH ${v_arr_incremental_epoch[$i]} $ETL_HOME_DIR  ${v_arr_ETL_mode[$i]} &
                 v_pid=$!
                 v_extract_pids_str="$v_extract_pids_str $v_pid"
                 echo "Current PIDs in queue for completion $v_extract_pids_str";
@@ -421,7 +422,7 @@ for ((i=0;i<$v_config_line_cnr; i++)); do
     v_arr_extract_status[$i]=`cat $TEMP_DIR/${v_arr_data_object[$i]}_extract_status.txt`;
 
     if [[ ${v_arr_extract_status[$i]} == *"failed"* ]]; then
-    	v_all_extracts_status="failed";
+        v_all_extracts_status="failed";
     fi
 
     echo "Extract Status for ${v_arr_data_object[$i]} is ${v_arr_extract_status[$i]}";
@@ -440,7 +441,7 @@ sleep 1;
 # send the email with the overall Extract status
 #mail -a $LOGS_DIR/log_ETL_tasks.csv -s "Atom Refresh: All Extracts status:  $v_all_extracts_status`date` "  sairanganath.v@nearbuy.com < /dev/null
 # cat sample_text.txt | mutt -a $LOGS_DIR/log_ETL_tasks.csv -s "Atom Refresh: All Extracts status:  $v_all_extracts_status`date` "  -- sairanganath.v@nearbuy.com < /dev/null
-mutt -a $LOGS_DIR/log_ETL_tasks.csv -s "Atom Refresh: All Extracts status:  $v_all_extracts_status`date` "  -- sairanganath.v@nearbuy.com < /dev/null
+mutt -a $LOGS_DIR/log_ETL_tasks.csv -s "Atom Refresh: All Extracts status:  $v_all_extracts_status`date` "  -- sairanganath.v@nearbuy.com rahul.sachan@nearbuy.com < /dev/null
 
 #-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
 
@@ -714,7 +715,7 @@ for ((i=0;i<$v_config_line_cnr; i++)); do
     v_arr_transform_status[$i]=`cat $TEMP_DIR/${v_arr_data_object[$i]}_transform_status.txt`;
 
     if [[ ${v_arr_transform_status[$i]} == *"failed"* ]]; then
-    	v_all_transformations_status="failed";
+        v_all_transformations_status="failed";
     fi
 
     echo "Transformation Status for ${v_arr_data_object[$i]} is ${v_arr_transform_status[$i]}";
@@ -729,8 +730,9 @@ sleep 1;
 ## Mailing part
 
 # send the email with the overall Transform status
-#mail -a $LOGS_DIR/log_ETL_tasks.csv -s "Atom Refresh: All Transformations status:  $v_all_transformations_status.`date` "  sairanganath.v@nearbuy.com < /dev/null
-mutt -a $LOGS_DIR/log_ETL_tasks.csv -s "Atom Refresh: All Transformations status:  $v_all_transformations_status`date` "  -- sairanganath.v@nearbuy.com < /dev/null
+#mail -a $LOGS_DIR/log_ETL_tasks.csv -s "Atom Refresh: All Transformations status:  $v_all_transformations_status. `date` "  sairanganath.v@nearbuy.com < /dev/null
+# mutt -a $LOGS_DIR/log_ETL_tasks.csv -s "Atom Refresh: All Transformations status:  $v_all_transformations_status. `date` "  -- sairanganath.v@nearbuy.com < /dev/null
+mutt -a $LOGS_DIR/log_ETL_tasks.csv -s "Atom Refresh: All Transformations status:  $v_all_transformations_status. `date` "  -- sairanganath.v@nearbuy.com rahul.sachan@nearbuy.com < /dev/null
 
 #-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
 
@@ -984,7 +986,7 @@ for ((i=0;i<$v_config_line_cnr; i++)); do
     v_arr_load_status[$i]=`cat $TEMP_DIR/${v_arr_data_object[$i]}_load_status.txt`;
 
     if [[ ${v_arr_load_status[$i]} == *"failed"* ]]; then
-    	v_all_loads_status="failed";
+        v_all_loads_status="failed";
     fi
 
     echo "load Status for ${v_arr_data_object[$i]} is ${v_arr_load_status[$i]}";
@@ -995,8 +997,8 @@ echo "ALL loads status: $v_all_loads_status";
 
 ## Mailing part
 # send the email with the overall load status
-#mail -a $LOGS_DIR/log_ETL_tasks.csv -s "Atom Refresh: All loads status:  $v_all_loads_status.`date` "  sairanganath.v@nearbuy.com < /dev/null
-mutt -a $LOGS_DIR/log_ETL_tasks.csv -s "Atom Refresh: All loads status:  $v_all_loads_status.`date` "  -- sairanganath.v@nearbuy.com < /dev/null
+#mail -a $LOGS_DIR/log_ETL_tasks.csv -s "Atom Refresh: All loads status:  $v_all_loads_status. `date` "  sairanganath.v@nearbuy.com < /dev/null
+mutt -a $LOGS_DIR/log_ETL_tasks.csv -s "Atom Refresh: All loads status:  $v_all_loads_status. `date` "  -- sairanganath.v@nearbuy.com rahul.sachan@nearbuy.com < /dev/null
 
 #-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
 
@@ -1005,10 +1007,10 @@ mutt -a $LOGS_DIR/log_ETL_tasks.csv -s "Atom Refresh: All loads status:  $v_all_
 v_ETL_job_run_status="success";
 
 if [ $v_all_loads_status == "failed" -o  $v_all_extracts_status == "failed" -o  $v_all_transformations_status == "failed" ];
-	then v_ETL_job_run_status="failed";
+    then v_ETL_job_run_status="failed";
 fi
 # Mailing all runs Status
-mutt -a $LOGS_DIR/log_ETL_tasks.csv -s "Atom Refresh: All ETL runs status:  $v_ETL_job_run_status.`date` "  -- sairanganath.v@nearbuy.com < /dev/null
+mutt -a $LOGS_DIR/log_ETL_tasks.csv -s "Atom Refresh: All ETL runs status:  $v_ETL_job_run_status. `date` "  -- sairanganath.v@nearbuy.com rahul.sachan@nearbuy.com bhaskar.vedula@nearbuy.com < /dev/null
 
 
 
@@ -1083,7 +1085,7 @@ done
 # Moving the final (master) log file into archives
 cp "$LOGS_DIR/log_modular_ETL_$v_task_datetime.log" "$ARCHIVES_DIR"
 # Moving the ETL Tasks' CSV Rows file into archives
-cat "$LOGS_DIR/log_ETL_tasks.csv" >> "$ARCHIVES_DIR/log/log_ETL_tasks_$v_task_datetime.log"
+cat "$LOGS_DIR/log_ETL_tasks.csv" >> "$ARCHIVES_DIR/logs/log_ETL_tasks_$v_task_datetime.log"
 
 echo -e "Master Log Text: " $v_masterlog_txt
 

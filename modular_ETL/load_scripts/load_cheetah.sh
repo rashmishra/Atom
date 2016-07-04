@@ -207,7 +207,7 @@ v_fileName="cheetah_data_$v_extract_date.csv.gz";
 
 echo "Dest: $v_destination_tbl . Data File Name : $v_fileName . Schema Filename: $stg_schemaFileName"
 
-bq load --field_delimiter=',' --source_format=CSV --skip_leading_rows=0 --max_bad_records=0  --allow_jagged_rows=1 --allow_quoted_newlines=1 --ignore_unknown_values=1 $v_destination_tbl $v_cloud_storage_path/$v_fileName $v_schema_filepath/$stg_schemaFileName &
+bq load --field_delimiter=',' --source_format=CSV --replace --skip_leading_rows=0 --max_bad_records=0  --allow_jagged_rows=1 --allow_quoted_newlines=1 --ignore_unknown_values=1 $v_destination_tbl $v_cloud_storage_path/$v_fileName $v_schema_filepath/$stg_schemaFileName &
 #2> "$v_data_object"_final_table_result.txt 
 v_pid=$!
 

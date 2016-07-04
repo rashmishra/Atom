@@ -32,7 +32,7 @@ maxBadRecords=50
 
 v_data_object=$1;
 tableName=$1;
-v_fileName="cheetah_data_$v_extract_date.csv.gz";
+declare -a v_fileNames=("cheetah_data_$v_extract_date.csv.gz" "cheetah_iid_keys_$v_extract_date.csv.gz");
 v_cloud_storage_path=$2;
 v_load_dir=$3;
 v_metadataset_name=$4;
@@ -114,9 +114,12 @@ p_exit_upon_error(){
 
 }
 
+## Looping through Cheetah files: Moving files to Load directory and Uploading them into Cloud
+
+for v_fileName in "${v_fileNames[@]}"; do 
+
 # Fetching the data file from Transform Directory to Load Directory
 cd $v_transform_dir;
-
 mv $v_fileName $v_load_dir
 
 cd $v_load_dir;
@@ -155,18 +158,62 @@ rm "$v_data_object"_cloud_result.txt
 #-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#
                      ## Completed: Checking for Process Failure ##
 #-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#
+done
 
-#v_incr_table_result=`echo $(bq load --quiet  --source_format=NEWLINE_DELIMITED_JSON --replace --ignore_unknown_values=1 --max_bad_records=$maxBadRecords $v_metadataset_name.incremental_$tableName $v_cloud_storage_path/$v_fileName $v_schema_filepath/$schemaFileName 2>&1)`
+
+
 echo "Etl Home is $6."
 echo "Schema File path is: $v_schema_filepath"
 
-# Loading the data into staging table
-v_destination_tbl="$v_metadataset_name.stg_${tableName}";
-bq load --quiet --field_delimiter=',' --source_format=CSV --replace --skip_leading_rows=0 --max_bad_records=0  --allow_jagged_rows=1 --allow_quoted_newlines=1 --ignore_unknown_values=1 $v_destination_tbl $v_cloud_storage_path/$v_fileName $v_schema_filepath/$stg_schemaFileName &
-#2> "$v_data_object"_final_table_result.txt 
+
+#### Loading data for cheetah.iid_keys_YYYYMMDD table
+v_destination_tbl="${v_dataset_name}.iid_keys_${v_extract_date}";
+v_fileName="cheetah_iid_keys_$v_extract_date.csv.gz";
+v_iid_keys_schemaFileName="schema_iid_keys.json";
+
+echo "Dest: $v_destination_tbl . Data File Name : $v_fileName . Schema Filename: $v_iid_keys_schemaFileName"
+
+bq load --field_delimiter=',' --source_format=CSV --replace --skip_leading_rows=1 --max_bad_records=0  --allow_jagged_rows=1 --allow_quoted_newlines=1 --ignore_unknown_values=1 $v_destination_tbl $v_cloud_storage_path/$v_fileName $v_schema_filepath/$v_iid_keys_schemaFileName 2> "$v_data_object"_final_table_result.txt &
 v_pid=$!
 
-wait $v_pid
+if wait $v_pid; then
+    echo "Process $v_pid Status: success";
+    v_task_status="success";
+else 
+    echo "Process $v_pid Status: failed";
+    v_task_status="failed";
+fi
+
+v_log_obj_txt+=`echo "\n$(date) $v_task_status is the task status for $v_subtask"`;
+
+########################################################################################
+## Checking if the Incremental Table Load process has failed. If Failed, then exit this task (script). ##
+
+v_subtask="iid Keys Table load";
+p_exit_upon_error "$v_task_status" "$v_subtask"
+
+#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#
+                     ## Completed: Checking for Process Failure ##
+#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#
+
+
+
+##### Loading data for cheetah.cheetah_YYYYMMDD table
+#v_incr_table_result=`echo $(bq load --quiet  --source_format=NEWLINE_DELIMITED_JSON --replace --ignore_unknown_values=1 --max_bad_records=$maxBadRecords $v_metadataset_name.incremental_$tableName $v_cloud_storage_path/$v_fileName $v_schema_filepath/$schemaFileName 2>&1)`
+# Loading the data into staging table
+v_destination_tbl="$v_metadataset_name.stg_${tableName}";
+<<<<<<< HEAD
+bq load --quiet --field_delimiter=',' --source_format=CSV --replace --skip_leading_rows=0 --max_bad_records=0  --allow_jagged_rows=1 --allow_quoted_newlines=1 --ignore_unknown_values=1 $v_destination_tbl $v_cloud_storage_path/$v_fileName $v_schema_filepath/$stg_schemaFileName &
+=======
+v_fileName="cheetah_data_$v_extract_date.csv.gz";
+
+
+echo "Dest: $v_destination_tbl . Data File Name : $v_fileName . Schema Filename: $stg_schemaFileName"
+
+bq load --field_delimiter=',' --source_format=CSV --replace --skip_leading_rows=0 --max_bad_records=0  --allow_jagged_rows=1 --allow_quoted_newlines=1 --ignore_unknown_values=1 $v_destination_tbl $v_cloud_storage_path/$v_fileName $v_schema_filepath/$stg_schemaFileName &
+>>>>>>> ESL
+#2> "$v_data_object"_final_table_result.txt 
+v_pid=$!
 
 if wait $v_pid; then
     echo "Process $v_pid Status: success";

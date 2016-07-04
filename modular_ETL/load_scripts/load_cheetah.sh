@@ -202,16 +202,11 @@ p_exit_upon_error "$v_task_status" "$v_subtask"
 #v_incr_table_result=`echo $(bq load --quiet  --source_format=NEWLINE_DELIMITED_JSON --replace --ignore_unknown_values=1 --max_bad_records=$maxBadRecords $v_metadataset_name.incremental_$tableName $v_cloud_storage_path/$v_fileName $v_schema_filepath/$schemaFileName 2>&1)`
 # Loading the data into staging table
 v_destination_tbl="$v_metadataset_name.stg_${tableName}";
-<<<<<<< HEAD
-bq load --quiet --field_delimiter=',' --source_format=CSV --replace --skip_leading_rows=0 --max_bad_records=0  --allow_jagged_rows=1 --allow_quoted_newlines=1 --ignore_unknown_values=1 $v_destination_tbl $v_cloud_storage_path/$v_fileName $v_schema_filepath/$stg_schemaFileName &
-=======
 v_fileName="cheetah_data_$v_extract_date.csv.gz";
 
 
 echo "Dest: $v_destination_tbl . Data File Name : $v_fileName . Schema Filename: $stg_schemaFileName"
-
-bq load --field_delimiter=',' --source_format=CSV --replace --skip_leading_rows=0 --max_bad_records=0  --allow_jagged_rows=1 --allow_quoted_newlines=1 --ignore_unknown_values=1 $v_destination_tbl $v_cloud_storage_path/$v_fileName $v_schema_filepath/$stg_schemaFileName &
->>>>>>> ESL
+bq load --quiet --field_delimiter=',' --source_format=CSV --replace --skip_leading_rows=0 --max_bad_records=0  --allow_jagged_rows=1 --allow_quoted_newlines=1 --ignore_unknown_values=1 $v_destination_tbl $v_cloud_storage_path/$v_fileName $v_schema_filepath/$stg_schemaFileName &
 #2> "$v_data_object"_final_table_result.txt 
 v_pid=$!
 

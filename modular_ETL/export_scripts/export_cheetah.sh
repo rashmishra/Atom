@@ -160,8 +160,6 @@ gzip cheetah_data_$v_extract_date.csv
 unzip ./iid_keys_$v_extract_date.dat.zip  &
 v_extract_pid=$!
 
-<<<<<<< HEAD
-=======
 if wait $v_extract_pid; then
     echo "Process $v_extract_pid Status: success";
     v_task_status="success";
@@ -201,7 +199,6 @@ mv ./data_$v_extract_date.dat.zip $v_arch_dir/
 mv ./iid_keys_$v_extract_date.dat.zip $v_arch_dir/
 
 
->>>>>>> ESL
 ###################################################################################
 ## Storing the status (success/failed) into respective text file. This will be in 
 ## consumed by the main script to determine the status of entire Extract activity

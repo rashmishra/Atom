@@ -141,6 +141,7 @@ do
     cd $v_extract_dir;
     mv $v_fileName $v_load_dir
     
+    cd $v_load_dir;
 
     v_log_obj_txt+=`echo "\n$(date) Looped for Adwords report $v_fileName"`;
     

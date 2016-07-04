@@ -1,6 +1,6 @@
 #!/bin/bash
 
-## Script Name: load_order_line.sh
+## Script Name: load_transaction.sh
 ## Purpose: Modular ETL flow of Atom.
 
                 # Parameters: 
@@ -19,13 +19,32 @@ v_task_start_epoch=`date +%s`
 v_task_start_ts=`echo $(date -d "@$v_task_start_epoch" +"%Y-%m-%d %r %Z")`;
 v_task_datetime=`echo $(date -d "@$v_task_start_epoch" +"%Y-%m-%d_%H:%M_%Z")`;
 
+## Initializing required variables
+v_etl_task='load'
+
+schemaFileName=schema_transaction.json
+maxBadRecords=0
+
+v_data_object=$1;
+tableName=$1;
+v_fileName="$1.csv.gz";
+v_cloud_storage_path=$2;
+v_load_dir=$3;
+v_metadataset_name=$4;
+v_dataset_name=$5;
+v_schema_filepath=$6/schema_files;
+v_logs_dir=$6/logs;
+v_temp_dir=$6/temp;
+v_transform_dir=$6/data/transform;
+v_arch_dir=$6/arch;
+
 v_task_status='Not set yet';
 v_log_obj_txt+=`echo "\n------------------------------------------------------------"`;
 v_log_obj_txt+=`echo "\n------------------------------------------------------------"`;
 v_log_obj_txt+=`echo "\n$v_etl_task process started for $v_data_object at $v_task_start_ts"`;
 
 
-echo "In order_line Loading script";
+echo "In transaction Loading script";
 
 
 
@@ -72,7 +91,7 @@ p_exit_upon_error(){
         echo -e "$v_log_obj_txt" > $v_arch_dir/logs/"$v_data_object""_load_"$v_task_datetime.log
 
 
-        # Creating new file for Order Line's ETL run. Content will be appended in further tasks of T and L.
+        # Creating new file for deal's ETL run. Content will be appended in further tasks of T and L.
         echo -e "$v_log_obj_txt" >> $v_temp_dir/"$v_data_object"_log.log
 
         chmod 0777 $v_temp_dir/"$v_data_object"_log.log;
@@ -85,24 +104,6 @@ p_exit_upon_error(){
 
 }
 
-## Initializing required variables
-v_etl_task='load'
-
-schemaFileName=schema_order_line.json
-maxBadRecords=0
-
-v_data_object=$1;
-tableName=$1;
-v_fileName="$1.csv.gz";
-v_cloud_storage_path=$2;
-v_load_dir=$3;
-v_metadataset_name=$4;
-v_dataset_name=$5;
-v_schema_filepath=$6/schema_files;
-v_logs_dir=$6/logs;
-v_temp_dir=$6/temp;
-v_transform_dir=$6/data/transform;
-v_arch_dir=$6/arch;
 
 # Fetching the data file from Transform Directory to Load Directory
 cd $v_transform_dir;
@@ -112,6 +113,9 @@ mv "$v_data_object".csv.gz $v_load_dir
 cd $v_load_dir;
 echo "In Load directory $v_load_dir";
 v_log_obj_txt+=`echo "\n In Load directory $v_load_dir"`;
+
+echo "In directory: "`pwd`;
+echo "$v_fileName is the file name for gcloud upload"
 
 ## Loading into gcloud
 gsutil cp $v_fileName $v_cloud_storage_path 2> "$v_data_object"_cloud_result.txt &
@@ -139,7 +143,7 @@ v_log_obj_txt+=`echo "\n$(date) Cloud Load of $v_fileName into $v_cloud_storage_
 ## Checking if the prior process has failed. If Failed, then exit this task (script). ##
 
 v_subtask="Cloud Upload";
-p_exit_upon_error $v_task_status "$v_subtask"
+p_exit_upon_error "$v_task_status" "$v_subtask"
 
 #-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#
                      ## Completed: Checking for Process Failure ##
@@ -149,13 +153,10 @@ p_exit_upon_error $v_task_status "$v_subtask"
 #echo "Etl Home is $6."
 #echo "Schema File path is: $v_schema_filepath"
 
-## Load into metadata
-#asyncFunctionJSON $v_metadataset_name $tableName $v_cloud_storage_path $v_fileName $v_schema_filepath $schemaFileName $maxBadRecords
-
-#v_cloud_result=`echo $(bq load --quiet  --source_format=NEWLINE_DELIMITED_JSON --replace --ignore_unknown_values=1 --max_bad_records=$maxBadRecords $v_metadataset_name.schema_$tableName $v_cloud_storage_path/$v_fileName $v_schema_filepath/$schemaFileName 2>&1)`
+#v_cloud_result=`echo $(bq load   --source_format=NEWLINE_DELIMITED_JSON --replace --ignore_unknown_values=1 --max_bad_records=$maxBadRecords $v_metadataset_name.schema_$tableName $v_cloud_storage_path/$v_fileName $v_schema_filepath/$schemaFileName 2>&1)`
 
 v_destination_tbl="$v_metadataset_name.incremental_$tableName";
-bq load --quiet --field_delimiter=',' --source_format=CSV --skip_leading_rows=1 --max_bad_records=0  --allow_jagged_rows=1 --allow_quoted_newlines=1 --ignore_unknown_values=1   $v_destination_tbl $v_cloud_storage_path/$v_fileName $v_schema_filepath/$schemaFileName 2> "$v_data_object"_inc_table_result.txt &
+bq load --field_delimiter=',' --source_format=CSV --replace --skip_leading_rows=1 --max_bad_records=0  --allow_jagged_rows=1 --allow_quoted_newlines=1 --ignore_unknown_values=1   $v_destination_tbl $v_cloud_storage_path/$v_fileName $v_schema_filepath/$schemaFileName 2> "$v_data_object"_inc_table_result.txt &
 v_pid=$!
 
 
@@ -167,11 +168,7 @@ else
     v_task_status="failed";
 fi
 
-
-v_incr_table_result=`cat "$v_data_object"_inc_table_result.txt`;
-
-v_log_obj_txt+=`echo "\n$(date) Incremental data table log: "`;
-v_log_obj_txt+=`echo "\n$(date) $v_incr_table_result \n$v_task_status is the task status"`;
+v_log_obj_txt+=`echo "\n$(date) $v_task_status is the task status"`;
 
 ########################################################################################
 ## Checking if the prior process has failed. If Failed, then exit this task (script). ##
@@ -184,15 +181,16 @@ rm "$v_data_object"_inc_table_result.txt
 #-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#
                      ## Completed: Checking for Process Failure ##
 #-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#
+
 if [[ "`bq ls $v_dataset_name | awk '{print $1}' | grep $tableName`" == "$tableName" ]] ; 
     then 
 
         ## Make the diff table
         ## Make another table with prior (till last run) data 
-        v_query="SELECT * FROM $v_dataset_name.$tableName WHERE orderlineid NOT IN (SELECT orderlineid FROM $v_metadataset_name.incremental_$tableName)";
+        v_query="SELECT * FROM $v_dataset_name.$tableName WHERE transactionid NOT IN (SELECT transactionid FROM $v_metadataset_name.incremental_$tableName)";
         v_destination_tbl="$v_metadataset_name.prior_$tableName";
         echo "Destination table is $v_destination_tbl and Query is $v_query"
-        bq query  --maximum_billing_tier 10 --allow_large_results=1  --quiet --replace --destination_table=$v_destination_tbl "$v_query" 2> "$v_data_object"_prior_table_result.txt &
+        bq query  --maximum_billing_tier 100 --allow_large_results=1  --replace --destination_table=$v_destination_tbl "$v_query" 2> "$v_data_object"_prior_table_result.txt &
         v_pid=$!
 
         wait $v_pid
@@ -216,19 +214,21 @@ if [[ "`bq ls $v_dataset_name | awk '{print $1}' | grep $tableName`" == "$tableN
 
         v_subtask="Prior Data table creation";
         p_exit_upon_error "$v_task_status" "$v_subtask"
+
+        rm "$v_data_object"_prior_table_result.txt
+
         #-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#
                              ## Completed: Checking for Process Failure ##
         #-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#
     else echo "Table $v_dataset_name.$tableName missing"; 
 fi
 
-
 ## Drop Final (e.g. Atom) table
 #bq query --append=1 --flatten_results=0 --allow_large_results=1 --destination_table=$METADATA_DATASET_NAME.final_customer 'select * from '"$METADATA_DATASET_NAME"'.customer_incremental' > /dev/null
 
 v_destination_tbl="$v_metadataset_name.prior_$tableName";
 v_query="SELECT * FROM $v_metadataset_name.incremental_$tableName";
-bq query --append=1 --flatten_results=0 --allow_large_results=1 --destination_table=$v_destination_tbl "$v_query" 2> "$v_data_object"_table_union_result.txt &
+bq query --append=1 --maximum_billing_tier 100 --flatten_results=0 --allow_large_results=1 --destination_table=$v_destination_tbl "$v_query" 2> "$v_data_object"_table_union_result.txt &
 v_pid=$!
 
 wait $v_pid
@@ -319,7 +319,7 @@ v_log_obj_txt+=`echo "\n--------------------------------------------------------
 echo -e "$v_log_obj_txt" > $v_arch_dir/logs/"$v_data_object""_load_"$v_task_datetime.log
 
 
-# Creating new file for order_line's ETL run. Content will be appended in further tasks of T and L.
+# Creating new file for transaction's ETL run. Content will be appended in further tasks of T and L.
 echo -e "$v_log_obj_txt" >> $v_temp_dir/"$v_data_object"_log.log
 
 chmod 0777 $v_temp_dir/"$v_data_object"_log.log;

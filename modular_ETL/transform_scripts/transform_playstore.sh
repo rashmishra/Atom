@@ -286,13 +286,43 @@ p_exit_upon_error "$v_task_status" "$v_subtask"
 
 
 ## Removing Downloaded files from extract folder
+# Detailed Reports
+v_report_month=$(date +%Y%m);
+v_detailed_rep_pids=""
+for i in $PLAY_TRANSFORM_DETAILED_REPORT_NAMES; do
+    rm ${v_data_dump_dir}/${i}_${v_report_month}.csv 
+done
 
 
 
+## Aggregate Reports
+## Crashes
+v_subtask="Playstore Aggregated Reports"
+v_agg_crash_rep_pids="";
+for i in $PLAY_AGGREGATED_CRASHES_REPORT_NAMES; do
+    rm ${v_data_dump_dir}/${PLAY_AGGREGATED_CRASHES_REPORT_PREFIX}_${v_report_month}_${i}.csv 
+done
 
 
+## GCM
+v_agg_gcm_rep_pids="";
+for i in $PLAY_AGGREGATED_GCM_REPORT_NAMES; do
+    rm ${v_data_dump_dir}/${PLAY_AGGREGATED_GCM_REPORT_PREFIX}_${v_report_month}_${i}.csv 
+done
 
 
+## Installs
+v_agg_installs_rep_pids=""
+for i in $PLAY_AGGREGATED_INSTALLS_REPORT_NAMES; do
+    rm ${v_data_dump_dir}/${PLAY_AGGREGATED_INSTALLS_REPORT_PREFIX}_${v_report_month}_${i}.csv 
+done
+
+
+## Ratings
+v_agg_ratings_rep_pids=""
+for i in $PLAY_AGGREGATED_RATINGS_REPORT_NAMES; do
+    rm ${v_data_dump_dir}/${PLAY_AGGREGATED_RATINGS_REPORT_PREFIX}_${v_report_month}_${i}.csv 
+done
 ###################################################################################
 ## Storing the status (success/failed) into respective text file. This will be in 
 ## consumed by the main script to determine the status of entire Transform activity

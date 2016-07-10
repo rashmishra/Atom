@@ -182,9 +182,10 @@ p_exit_upon_error "$v_task_status" "$v_subtask"
 
 
 if [[ "`bq ls $v_dataset_name | awk '{print $1}' | grep \"\b$tableName\b\"`" == "$tableName" ]] ;
+    then
+    then
 	then bq rm $v_destination_tbl;
 fi 
-    then 
             ## Make another table with prior (till last run) data 
             v_query="SELECT * FROM $v_dataset_name.$tableName WHERE createdAt < $v_incremental_epoch";
             v_destination_tbl="$v_metadataset_name.prior_$tableName";

@@ -183,9 +183,10 @@ rm "$v_data_object"_inc_table_result.txt
 #-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#
 
 if [[ "`bq ls $v_dataset_name | awk '{print $1}' | grep \"\b$tableName\b\"`" == "$tableName" ]] ;
+    then
+    then
 	then bq rm $v_destination_tbl;
 fi 
-    then 
 
         ## Make the diff table
         ## Make another table with prior (till last run) data 

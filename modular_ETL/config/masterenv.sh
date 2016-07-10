@@ -35,6 +35,8 @@ CLOUD_HASOFFER_STORAGE_PATH=gs://$CLOUD_BUCKET_NAME/dailydump
 CLOUD_UNINSTALLIO_STORAGE_PATH=gs://$CLOUD_BUCKET_NAME/dailydump
 CLOUD_CHEETAH_STORAGE_PATH=gs://$CLOUD_BUCKET_NAME/nb_cheetah
 CLOUD_ADWORDS_STORAGE_PATH=gs://$CLOUD_BUCKET_NAME/nb_adwords
+CLOUD_PLAYSTORE_STORAGE_PATH=gs://$CLOUD_BUCKET_NAME/playstore
+
 
 
 # Name of datasets where the tables will be created/refreshed
@@ -47,6 +49,7 @@ UNINSTALLIO_DATASET_NAME=uninstallio
 HASOFFER_DATASET_NAME=hasoffer
 CHEETAH_DATASET_NAME=cheetah
 ADWORDS_DATASET_NAME=adwords
+PLAYSTORE_DATASET_NAME=playstore
 
 ## Directories used in ETL Flow
 LOGS_DIR="$ETL_HOME_DIR/logs";
@@ -68,3 +71,32 @@ LOAD_SCRIPTS_PATH=$ETL_HOME_DIR/load_scripts
 
 # Path to Mongo executables
 MONGO_PATH=/home/ubuntu/mongo_cp/bin
+
+
+## PLaystore Varaibles
+PLAY_BUCKET=gs://pubsite_prod_rev_04054290636169056455
+PLAY_APP_NAME=com.nearbuy.nearbuymobile
+
+PLAY_DETAILED_REPORT_NAMES=( "crashes/crashes_${PLAY_APP_NAME} crashes/anrs_${PLAY_APP_NAME} reviews/reviews_${PLAY_APP_NAME}" )
+
+PLAY_TRANSFORM_DETAILED_REPORT_NAMES=( "crashes_${PLAY_APP_NAME} anrs_${PLAY_APP_NAME} reviews_${PLAY_APP_NAME}" )
+
+PLAY_AGGREGATED_CRASHES_REPORT_NAMES=( "app_version device os_version overview tablets" )
+PLAY_AGGREGATED_CRASHES_REPORT_FOLDER="${PLAY_BUCKET}/stats/crashes"
+PLAY_AGGREGATED_CRASHES_REPORT_PREFIX="crashes_${PLAY_APP_NAME}"
+
+PLAY_AGGREGATED_GCM_REPORT_NAMES=("app_version carrier country device language message_status os_version overview response_code tablets") 
+PLAY_AGGREGATED_GCM_REPORT_FOLDER="${PLAY_BUCKET}/stats/gcm"
+PLAY_AGGREGATED_GCM_REPORT_PREFIX="gcm_${PLAY_APP_NAME}"
+
+PLAY_AGGREGATED_INSTALLS_REPORT_NAMES=("app_version carrier country device language os_version tablets")
+PLAY_AGGREGATED_INSTALLS_REPORT_FOLDER="${PLAY_BUCKET}/stats/installs"
+PLAY_AGGREGATED_INSTALLS_REPORT_PREFIX="installs_${PLAY_APP_NAME}"
+
+PLAY_AGGREGATED_RATINGS_REPORT_NAMES=("app_version carrier country device language os_version tablets")
+PLAY_AGGREGATED_RATINGS_REPORT_FOLDER="${PLAY_BUCKET}/stats/ratings"
+PLAY_AGGREGATED_RATINGS_REPORT_PREFIX="ratings_${PLAY_APP_NAME}"
+
+#<gsutil_report_bucket>/<report_folder>/<report_name>_<chosen_application_name>_YYYYMM.csv
+#<gsutil_report_bucket>/<report_folder>/<report_name>_<chosen_application_name>_YYYYMM[_<subreport_name>].csv
+

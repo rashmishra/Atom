@@ -3,7 +3,7 @@
 #Transform Mix Panel
 #!/bin/bash
 
-## Script Name: transform_category.sh
+## Script Name: transform_mixpanel.sh
 
 
 # Parameters: 
@@ -78,7 +78,7 @@ p_exit_upon_error(){
         # Maintaining the log of this run in a separate file in arch folder
         echo -e "$v_log_obj_txt" > $v_arch_dir/logs/"$v_data_object""_transform_"$v_task_datetime.log
 
-        # Creating new file for category's ETL run. Content will be appended in further tasks of T and L.
+        # Creating new file for mixpanel's ETL run. Content will be appended in further tasks of T and L.
         echo -e "$v_log_obj_txt" > $v_temp_dir/"$v_data_object"_log.log
         chmod 0777 $v_temp_dir/"$v_data_object"_log.log;
 

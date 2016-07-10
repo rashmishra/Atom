@@ -1,0 +1,32 @@
+[
+    {
+        "name": "Dimension_Name",
+        "type": "STRING",
+        "mode": "REQUIRED"
+    },
+    {
+        "name": "date",
+        "type": "DATE",
+        "mode": "REQUIRED"
+    },
+    {
+        "name": "package_name_app_name",
+        "type": "STRING",
+        "mode": "REQUIRED"
+    },
+    {
+        "name": "Dimension_Value",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "daily_crashes",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "daily_ANRs",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    }
+]

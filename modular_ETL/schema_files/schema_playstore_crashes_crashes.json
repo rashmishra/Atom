@@ -1,0 +1,82 @@
+[
+    {
+        "name": "package_name_app_name",
+        "type": "STRING",
+        "mode": "REQUIRED"
+    },
+    {
+        "name": "crash_report_date_and_time",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "crash_report_millis_since_epoch",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "device",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "android_os_version",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "app_version_name",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "app_version_code",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "exception_class_name",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "exception_message",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "throwing_file_name",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "throwing_class_name",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "throwing_method_name",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "throwing_line_number",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "native_crash_library",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "native_crash_location",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "crash_link",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    }
+]

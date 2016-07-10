@@ -1,0 +1,37 @@
+[
+    {
+        "name": "Dimension_Name",
+        "type": "STRING",
+        "mode": "REQUIRED"
+    },
+    {
+        "name": "date",
+        "type": "DATE",
+        "mode": "REQUIRED"
+    },
+    {
+        "name": "package_name_app_name",
+        "type": "STRING",
+        "mode": "REQUIRED"
+    },
+    {
+        "name": "sender_id",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "Dimension_Value",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "gcm_messages",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "gcm_registrations",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    }
+]

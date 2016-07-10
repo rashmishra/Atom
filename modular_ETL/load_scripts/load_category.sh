@@ -185,7 +185,9 @@ rm "$v_data_object"_inc_table_result.txt
 #-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#
 
 
-if [[ "`bq ls $v_dataset_name | awk '{print $1}' | grep $tableName`" == "$tableName" ]] ; 
+if [[ "`bq ls $v_dataset_name | awk '{print $1}' | grep \"\b$tableName\b\"`" == "$tableName" ]] ;
+	then bq rm $v_destination_tbl;
+fi 
     then 
         ## Make another table with prior (till last run) data 
         v_query="SELECT * FROM $v_dataset_name.$tableName WHERE _id not in (SELECT _id FROM $v_metadataset_name.incremental_$tableName)";

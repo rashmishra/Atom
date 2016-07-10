@@ -185,7 +185,9 @@ rm "$v_data_object"_inc_table_result.txt
                      ## Completed: Checking for Process Failure ##
 #-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#
 
-if [[ "`bq ls $v_dataset_name | awk '{print $1}' | grep $tableName`" == "$tableName" ]] ; 
+if [[ "`bq ls $v_dataset_name | awk '{print $1}' | grep \"\b$tableName\b\"`" == "$tableName" ]] ;
+	then bq rm $v_destination_tbl;
+fi 
     then 
 
             ## Make the diff table

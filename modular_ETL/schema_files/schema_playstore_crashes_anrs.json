@@ -1,0 +1,47 @@
+[
+    {
+        "name": "package_name_app_name",
+        "type": "STRING",
+        "mode": "REQUIRED"
+    },
+    {
+        "name": "crash_report_date_and_time",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "crash_report_millis_since_epoch",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "device",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "android_os_version",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "app_version_name",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "activity",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "cause",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "anr_link",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    }
+]

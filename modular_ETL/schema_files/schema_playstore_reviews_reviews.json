@@ -1,0 +1,82 @@
+[
+    {
+        "name": "package_name_app_name",
+        "type": "STRING",
+        "mode": "REQUIRED"
+    },
+    {
+        "name": "app_version_code",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "app_version_name",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "reviewer_language",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "device",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "review_submit_date_and_time",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "review_submit_millis_since_epoch",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "review_last_update_date_and_time",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "review_last_update_millis_since_epoch",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "star_rating",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "review_title",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "review_text",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "developer_reply_date_and_time",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "developer_reply_millis_since_epoch",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "developer_reply_text",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "review_link",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    }
+]

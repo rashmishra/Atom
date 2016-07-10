@@ -1,0 +1,57 @@
+[
+    {
+        "name": "Dimension_Name",
+        "type": "STRING",
+        "mode": "REQUIRED"
+    },
+    {
+        "name": "date",
+        "type": "DATE",
+        "mode": "REQUIRED"
+    },
+    {
+        "name": "package_name_app_name",
+        "type": "STRING",
+        "mode": "REQUIRED"
+    },
+    {
+        "name": "Dimension_Value",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "current_device_installs",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "daily_device_installs",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "daily_device_upgrades",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "current_user_installs",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "total_user_installs",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "daily_user_installs",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "daily_user_uninstalls",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    }
+]

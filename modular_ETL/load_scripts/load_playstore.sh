@@ -49,6 +49,9 @@ v_log_obj_txt+=`echo "\n--------------------------------------------------------
 v_log_obj_txt+=`echo "\n------------------------------------------------------------"`;
 v_log_obj_txt+=`echo "\n$v_etl_task process started for $v_data_object at $v_task_start_ts"`;
 
+echo -e "v_logs_dir, \n v_temp_dir, \n v_arch_dir, \n v_schema_filepath"
+echo -e "$v_logs_dir, \n $v_temp_dir, \n $v_arch_dir, \n $v_schema_filepath"
+echo -e "$1 \n $2 \n $3 \n $4 \n $5 \n $6 \n $7 \n $8"
 
 
 ## Function to check task status and exit if error occurs.
@@ -543,18 +546,16 @@ p_exit_upon_error "$v_task_status" "$v_subtask"
 v_report_month=$(date +%Y%m);
 
 tableName=stats_ratings
-
 v_destination_tbl="$v_metadataset_name.incremental_$tableName";
 schemaFileName=schema_playstore_stats_ratings.json
 v_load_pids=""
 
 if [[ "`bq ls $v_metadataset_name | awk '{print $1}' | grep \"\bincremental_$tableName\b\"`" == "incremental_$tableName" ]] ; 
-	then bq rm $v_destination_tbl;
+    then bq rm $v_destination_tbl;
 fi
 
-
-for i in $PLAY_AGGREGATED_INSTALLS_REPORT_NAMES; do
-    v_fileName=${PLAY_AGGREGATED_INSTALLS_REPORT_PREFIX}_${v_report_month}_${i}.csv
+for i in $PLAY_AGGREGATED_RATINGS_REPORT_NAMES; do
+    v_fileName=${PLAY_AGGREGATED_RATINGS_REPORT_PREFIX}_${v_report_month}_${i}.csv
     # echo "mv $v_transform_dir/$v_fileName $v_load_dir/"
     mv $v_transform_dir/$v_fileName $v_load_dir/
     v_load_pids+=" $!"

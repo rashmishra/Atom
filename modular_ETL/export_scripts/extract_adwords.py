@@ -102,7 +102,7 @@ def main(client):
 
       #outputFileName=  outputFileName.lower()
 
-      with open(outputFileName, 'w') as g:
+      with open(outputFileName, 'a') as g:
         g.write(report_downloader.DownloadReportAsString(
           report, skip_report_header=True, skip_column_header=False,
           skip_report_summary=True)

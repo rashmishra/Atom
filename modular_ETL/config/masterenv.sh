@@ -12,6 +12,8 @@
 # Changing time zone to local
 TZ=Asia/Calcutta
 
+HOME_DIR=/home/ubuntu
+
 ## Home folder of all ETL procedure
 ETL_HOME_DIR=/home/ubuntu/modular_ETL
 
@@ -72,6 +74,8 @@ LOAD_SCRIPTS_PATH=$ETL_HOME_DIR/load_scripts
 # Path to Mongo executables
 MONGO_PATH=/home/ubuntu/mongo_cp/bin
 
+
+ADWORDS_YAML_FILENAMES=( "googleads_1.yaml" "googleads_2.yaml" "googleads_3.yaml" )
 
 ## PLaystore Varaibles
 PLAY_BUCKET=gs://pubsite_prod_rev_04054290636169056455

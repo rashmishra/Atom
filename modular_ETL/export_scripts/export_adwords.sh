@@ -10,6 +10,8 @@
 ##### $4: Incremental Epoch. ####
 ##### $5: ETL Home directory. ####
 
+. /home/ubuntu/modular_ETL/config/masterenv.sh
+
 
 taskStartTime=`date`
 v_task_start_epoch=`date +%s`
@@ -86,18 +88,24 @@ p_exit_upon_error(){
 cd $v_scripts_dir
 
 # python extract_adwords.py "$v_data_dump_dir" &
-python extract_adwords.py &
-v_extract_pid=$!
 
-if wait $v_extract_pid; then
-    echo "Process $v_extract_pid Status: success";
-    v_task_status="success";
-else 
-    echo "Process $v_extract_pid Status: failed";
-    v_task_status="failed";
-fi
+for i in ${ADWORDS_YAML_FILENAMES[@]} ; do 
+   cp $CONFIG_DIR/$i $HOME_DIR/googleads.yaml
+    
+    python extract_adwords.py &
+    v_extract_pid=$!
 
+    if wait $v_extract_pid; then
+        echo "Process $v_extract_pid Status: success";
+        v_task_status="success";
+    else 
+        echo "Process $v_extract_pid Status: failed";
+        v_task_status="failed";
+    fi
 
+    echo "Completed downloading Reports for account associated with $i file"
+
+done
 
 
 

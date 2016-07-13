@@ -183,7 +183,7 @@ do
 
     # Loading the data directly
     v_destination_tbl="${v_dataset_name}.${tableName}";
-    bq load --quiet --replace --field_delimiter=',' --source_format=CSV --skip_leading_rows=1 --max_bad_records=$maxBadRecords  --allow_jagged_rows=1 --allow_quoted_newlines=1 --ignore_unknown_values=1 $v_destination_tbl $v_cloud_storage_path/$v_fileName $v_schema_filepath/$schemaFileName 2> "$v_data_object"_final_table_result.txt &
+    bq load --quiet --replace --field_delimiter=',' --source_format=CSV --skip_leading_rows=0 --max_bad_records=$maxBadRecords  --allow_jagged_rows=1 --allow_quoted_newlines=1 --ignore_unknown_values=1 $v_destination_tbl $v_cloud_storage_path/$v_fileName $v_schema_filepath/$schemaFileName 2> "$v_data_object"_final_table_result.txt &
     v_pid=$!
 
     if wait $v_pid; then

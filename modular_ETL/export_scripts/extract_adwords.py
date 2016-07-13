@@ -104,7 +104,7 @@ def main(client):
 
       with open(outputFileName, 'a') as g:
         g.write(report_downloader.DownloadReportAsString(
-          report, skip_report_header=True, skip_column_header=False,
+          report, skip_report_header=True, skip_column_header=True,
           skip_report_summary=True)
           .encode('utf-8')
         )

@@ -1,0 +1,39 @@
+[
+    {
+        "name": "messageId",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "lifeCycleStatus",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "statusMessage",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "createdAt",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "metadata",
+        "type": "RECORD",
+        "mode": "NULLABLE",
+        "fields": [
+            {
+                "name": "com_miui_home",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "com_nearbuy_nearbuymobile",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            }
+        ]
+    }
+]

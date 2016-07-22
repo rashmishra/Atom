@@ -154,7 +154,7 @@ p_exit_upon_error $v_task_status "$v_subtask"
 
 #v_cloud_result=`echo $(bq load --quiet  --source_format=NEWLINE_DELIMITED_JSON --replace --ignore_unknown_values=1 --max_bad_records=$maxBadRecords $v_metadataset_name.schema_$tableName $v_cloud_storage_path/$v_fileName $v_schema_filepath/$schemaFileName 2>&1)`
 
-v_destination_tbl="$v_metadataset_name.incremental_$tableName";
+v_destination_tl="$v_metadataset_name.incremental_$tableName";
 bq load --quiet --field_delimiter=',' --source_format=CSV --skip_leading_rows=1 --max_bad_records=0  --allow_jagged_rows=1 --allow_quoted_newlines=1 --ignore_unknown_values=1   $v_destination_tbl $v_cloud_storage_path/$v_fileName $v_schema_filepath/$schemaFileName 2> "$v_data_object"_inc_table_result.txt &
 v_pid=$!
 

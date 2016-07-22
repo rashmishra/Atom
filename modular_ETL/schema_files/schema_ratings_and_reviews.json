@@ -1,0 +1,74 @@
+[
+    {
+        "name": "_id",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "fromGroupType",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "fromMemberId",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "toGroupType",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "toMemberId",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "rating",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "review",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "ratingComment",
+        "type": "RECORD",
+        "mode": "NULLABLE",
+        "fields": [
+            {
+                "name": "id",
+                "type": "INTEGER",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "comment",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            }
+        ]
+    },
+    {
+        "name": "createdTime",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "ratedTime",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "isRated",
+        "type": "BOOLEAN",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "isExpired",
+        "type": "BOOLEAN",
+        "mode": "NULLABLE"
+    }
+]

@@ -1,0 +1,353 @@
+[
+    {
+        "name": "_id",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "communicationName",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "communicationType",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "priority",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "waitUntillTime",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "communicationMedium",
+        "type": "INTEGER",
+        "mode": "REPEATED"
+    },
+    {
+        "name": "status",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "lifeCycleStatus",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "createdBy",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "createdAt",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "updatedAt",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "userCommunication",
+        "type": "RECORD",
+        "mode": "NULLABLE",
+        "fields": [
+            {
+                "name": "userType",
+                "type": "INTEGER",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "users",
+                "type": "STRING",
+                "mode": "REPEATED"
+            }
+        ]
+    },
+    {
+        "name": "inAppCommunicationVO",
+        "type": "RECORD",
+        "mode": "NULLABLE",
+        "fields": [
+            {
+                "name": "inAppResponseType",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "htmlString",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "title",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "description",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "images",
+                "type": "STRING",
+                "mode": "REPEATED"
+            },
+            {
+                "name": "ctas",
+                "type": "RECORD",
+                "mode": "REPEATED",
+                "fields": [
+                    {
+                        "name": "title",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "deepLink",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "ctaTypeEnum",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    }
+                ]
+            },
+            {
+                "name": "blocking",
+                "type": "BOOLEAN",
+                "mode": "NULLABLE"
+            }
+        ]
+    },
+    {
+        "name": "inAppGeneratedWrapper",
+        "type": "RECORD",
+        "mode": "NULLABLE",
+        "fields": [
+            {
+                "name": "inAppResponseType",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "title",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "description",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "htmlString",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "images",
+                "type": "STRING",
+                "mode": "REPEATED"
+            },
+            {
+                "name": "ctas",
+                "type": "RECORD",
+                "mode": "REPEATED",
+                "fields": [
+                    {
+                        "name": "title",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "deepLink",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "ctaTypeEnum",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    }
+                ]
+            },
+            {
+                "name": "blocking",
+                "type": "BOOLEAN",
+                "mode": "NULLABLE"
+            }
+        ]
+    },
+    {
+        "name": "blocking",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "pushNotification",
+        "type": "RECORD",
+        "mode": "NULLABLE",
+        "fields": [
+            {
+                "name": "title",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "soundLink",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "cta",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "content",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "collapseKey",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "imageSourceUrl",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "deviceId",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "deviceToken",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "os",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "shareUrl",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            }
+        ]
+    },
+    {
+        "name": "pushNotificationGeneratedWrapper",
+        "type": "RECORD",
+        "mode": "NULLABLE",
+        "fields": [
+            {
+                "name": "title",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "soundLink",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "cta",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "content",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "collapseKey",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "imageSourceUrl",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "deviceId",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "deviceToken",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "os",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "shareUrl",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            }
+        ]
+    },
+    {
+        "name": "utmSource",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "utmTerm",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "expiresAt",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "scheduledTime",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "campaignId",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "updatedBy",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "templateCommunicationVO",
+        "type": "RECORD",
+        "mode": "NULLABLE",
+        "fields": [
+            {
+                "name": "templateId",
+                "type": "INTEGER",
+                "mode": "NULLABLE"
+            }
+        ]
+    }
+]

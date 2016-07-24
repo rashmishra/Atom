@@ -401,7 +401,7 @@ FROM [metadata.stg_cheetah]
 WHERE Event_Type_ID = 50";
 
 # Removing existing table with the day's data being loaded.
-bq rm "$v_dataset_name.${tableName}_$v_extract_date";
+echo "Y" | bq rm "$v_dataset_name.${tableName}_$v_extract_date";
 
 bq query  --append=1 --allow_large_results=1 --maximum_billing_tier 5 --quiet --destination_table=$v_dataset_name.${tableName}_$v_extract_date $v_cheetah_query_50 & 
 v_pid=$!

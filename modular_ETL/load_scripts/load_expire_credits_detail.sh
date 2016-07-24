@@ -155,7 +155,7 @@ echo "Etl Home is $6."
 echo "Schema File path is: $v_schema_filepath"
 
 # Loading the data directly
-bq load --quiet --field_delimiter=',' --source_format=CSV --skip_leading_rows=1 --max_bad_records=0  --allow_jagged_rows=1 --allow_quoted_newlines=1 --ignore_unknown_values=1 $v_dataset_name.$tableName $v_cloud_storage_path/$v_fileName $v_schema_filepath/$schemaFileName &
+bq load --quiet --field_delimiter=',' --source_format=CSV --replace --skip_leading_rows=1 --max_bad_records=0  --allow_jagged_rows=1 --allow_quoted_newlines=1 --ignore_unknown_values=1 $v_dataset_name.$tableName $v_cloud_storage_path/$v_fileName $v_schema_filepath/$schemaFileName &
 #2> "$v_data_object"_final_table_result.txt 
 v_pid=$!
 

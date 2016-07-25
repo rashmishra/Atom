@@ -169,6 +169,16 @@
                 "name": "lastComment",
                 "type": "STRING",
                 "mode": "NULLABLE"
+            },
+            {
+                "name": "refundType",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "enterReason",
+                "type": "STRING",
+                "mode": "NULLABLE"
             }
         ]
     }

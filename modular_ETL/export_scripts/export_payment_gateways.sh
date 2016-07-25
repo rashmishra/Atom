@@ -1,7 +1,7 @@
 #!/bin/bash
 
 
-## Script Name: export_user_preference.sh
+## Script Name: export_payment_gateways.sh
 ## Purpose: Modular ETL flow of Atom.
 
 ##### $1: Data Object. ####
@@ -71,7 +71,7 @@ p_exit_upon_error(){
         # Maintaining the log of this run in a separate file in arch folder
         echo -e "$v_log_obj_txt" > $v_arch_dir/logs/"$v_data_object""_extract_"$v_task_datetime.log
 
-        # Creating new file for user_preference's ETL run. Content will be appended in further tasks of T and L.
+        # Creating new file for payment_gateways's ETL run. Content will be appended in further tasks of T and L.
         echo -e "$v_log_obj_txt" > $v_temp_dir/"$v_data_object"_log.log
         chmod 0777 $v_temp_dir/"$v_data_object"_log.log;
 
@@ -83,11 +83,11 @@ p_exit_upon_error(){
 }
 
 ## Correct one
-#v_export_result=`echo $(./mongoexport --host 10.2.1.227:27017 --db user_preferenceplatform -q "$query" -c user_preference --out $v_data_dump_dir/$v_data_object.json 2>&1)`;
+#v_export_result=`echo $(./mongoexport --host 10.2.1.227:27017 --db payment_gatewaysplatform -q "$query" -c payment_gateways --out $v_data_dump_dir/$v_data_object.json 2>&1)`;
 
 cd $v_mongo_dir
 
-./mongoexport --host 10.2.3.17:27017 --db notification_preference  -c user_preference --out $v_data_dump_dir/$v_data_object.json 2> $v_temp_dir/"$v_data_object"_extract_command_output.txt &
+./mongoexport --host 10.2.3.15:27017 --db paymentinterface  -c gatewayData --out $v_data_dump_dir/$v_data_object.json 2> $v_temp_dir/"$v_data_object"_extract_command_output.txt &
 v_extract_pid=$!
 
 # Waiting for the process to complete
@@ -163,7 +163,7 @@ echo -e "$v_log_obj_txt" > $v_arch_dir/logs/"$v_data_object""_extract_"$v_task_d
 # Removing the previous run's file from the directory
 rm $v_temp_dir/"$v_data_object"_log.log
 
-# Creating new file for user_preference's ETL run. Content will be appended in further tasks of T and L.
+# Creating new file for payment_gateways's ETL run. Content will be appended in further tasks of T and L.
 echo -e "$v_log_obj_txt" > $v_temp_dir/"$v_data_object"_log.log
 
 chmod 0777 $v_temp_dir/"$v_data_object"_log.log
@@ -176,6 +176,6 @@ echo -e "$v_log_obj_txt";
 #  Removing the Command's (mongoexport) output stored in a file
 rm $v_temp_dir/"$v_data_object"_extract_command_output.txt
 
-#echo "user_preference mongo export end time is : $taskEndTime "
+#echo "payment_gateways mongo export end time is : $taskEndTime "
 
 exit 0

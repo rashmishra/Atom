@@ -1,6 +1,6 @@
 #!/bin/bash
 
-## Script Name: load_ratings_and_reviews.sh
+## Script Name: load_payment_gateways.sh
 ## Purpose: Modular ETL flow of Atom.
 
 
@@ -24,7 +24,7 @@ v_task_datetime=`echo $(date -d "@$v_task_start_epoch" +"%Y-%m-%d_%H:%M_%Z")`;
 ## Initializing required variables
 v_etl_task='load'
 
-schemaFileName=schema_ratings_and_reviews.json
+schemaFileName=schema_payment_gateways.json
 maxBadRecords=0
 
 v_data_object=$1;
@@ -47,7 +47,7 @@ v_log_obj_txt+=`echo "\n--------------------------------------------------------
 v_log_obj_txt+=`echo "\n$v_etl_task process started for $v_data_object at $v_task_start_ts"`;
 
 
-echo "In ratings_and_reviews Loading script";
+echo "In payment_gateways Loading script";
 
 ## Function to check task status and exit if error occurs.
 p_exit_upon_error(){
@@ -92,7 +92,7 @@ p_exit_upon_error(){
         echo -e "$v_log_obj_txt" > $v_arch_dir/logs/"$v_data_object""_load_"$v_task_datetime.log
 
 
-        # Creating new file for ratings_and_reviews's ETL run. Content will be appended in further tasks of T and L.
+        # Creating new file for payment_gateways's ETL run. Content will be appended in further tasks of T and L.
         echo -e "$v_log_obj_txt" >> $v_temp_dir/"$v_data_object"_log.log
 
         chmod 0777 $v_temp_dir/"$v_data_object"_log.log;
@@ -235,7 +235,7 @@ v_log_obj_txt+=`echo "\n--------------------------------------------------------
 echo -e "$v_log_obj_txt" > $v_arch_dir/logs/"$v_data_object""_load_"$v_task_datetime.log
 
 
-# Creating new file for ratings_and_reviews's ETL run. Content will be appended in further tasks of T and L.
+# Creating new file for payment_gateways's ETL run. Content will be appended in further tasks of T and L.
 echo -e "$v_log_obj_txt" >> $v_temp_dir/"$v_data_object"_log.log
 
 chmod 0777 $v_temp_dir/"$v_data_object"_log.log;

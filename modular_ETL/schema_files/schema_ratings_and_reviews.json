@@ -70,5 +70,106 @@
         "name": "isExpired",
         "type": "BOOLEAN",
         "mode": "NULLABLE"
+    },
+    {
+        "name": "RatingContext",
+        "type": "RECORD",
+        "mode": "NULLABLE",
+        "fields": [
+            {
+                "name": "productId",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "productName",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "productImageUrl",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "categoryId",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "vouchers",
+                "type": "RECORD",
+                "mode": "REPEATED",
+                "fields": [
+                    {
+                        "name": "voucherId",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "orderId",
+                        "type": "INTEGER",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "categoryId",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "timeStamp",
+                        "type": "INTEGER",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "dealId",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "dealTitle",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "feedbackServiceTicket",
+        "type": "RECORD",
+        "mode": "NULLABLE",
+        "fields": [
+            {
+                "name": "ticketId",
+                "type": "INTEGER",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "ticketStatus",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "createdTime",
+                "type": "INTEGER",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "updatedTime",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "tags",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "lastComment",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            }
+        ]
     }
 ]

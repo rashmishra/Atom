@@ -85,7 +85,7 @@ p_exit_upon_error(){
 
 cd $v_scripts_dir
 
-python extract_conversions.py "$v_data_dump_dir" &
+python extract_conversion.py "$v_data_dump_dir" &
 v_extract_pid=$!
 
 if wait $v_extract_pid; then

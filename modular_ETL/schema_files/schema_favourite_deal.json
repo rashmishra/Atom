@@ -17,7 +17,7 @@
             {
                 "mode": "NULLABLE",
                 "name": "isFavourite",
-                "type": "STRING"
+                "type": "BOOLEAN"
             }
         ]
     }

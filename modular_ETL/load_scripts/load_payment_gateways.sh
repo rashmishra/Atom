@@ -28,7 +28,8 @@ schemaFileName=schema_payment_gateways.json
 maxBadRecords=0
 
 v_data_object=$1;
-tableName=$1;
+# Table name will be payment_gateways.transactions. Earlier, it was payment_gateways.payment_gateways
+tableName=transactions;
 v_fileName="$1.json.gz";
 v_cloud_storage_path=$2;
 v_load_dir=$3;

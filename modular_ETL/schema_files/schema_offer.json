@@ -492,7 +492,14 @@
                     {
                         "mode": "NULLABLE",
                         "name": "fmenu",
-                        "type": "STRING"
+                        "type": "RECORD",
+                        "fields": [
+                            {
+                                "mode": "NULLABLE",
+                                "name": "menu",
+                                "type": "STRING"
+                            }
+                        ]
                     }
                 ]
             },

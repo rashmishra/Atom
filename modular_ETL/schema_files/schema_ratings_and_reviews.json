@@ -157,7 +157,7 @@
             },
             {
                 "name": "updatedTime",
-                "type": "STRING",
+                "type": "INTEGER",
                 "mode": "NULLABLE"
             },
             {

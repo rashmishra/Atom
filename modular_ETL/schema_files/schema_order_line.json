@@ -373,6 +373,21 @@
         "name": "termsandconditions",
         "type": "STRING",
         "mode": "nullable"
+    },
+    {
+        "name": "expiredat",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "acceptedat",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "ispaidtomerchant",
+        "type": "STRING",
+        "mode": "nullable"
     }
 ]
 

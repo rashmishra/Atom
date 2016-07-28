@@ -376,12 +376,12 @@
     },
     {
         "name": "expiredat",
-        "type": "STRING",
+        "type": "INTEGER",
         "mode": "nullable"
     },
     {
         "name": "acceptedat",
-        "type": "STRING",
+        "type": "INTEGER",
         "mode": "nullable"
     },
     {

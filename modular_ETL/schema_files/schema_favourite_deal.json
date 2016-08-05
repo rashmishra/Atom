@@ -18,6 +18,16 @@
                 "mode": "NULLABLE",
                 "name": "isFavourite",
                 "type": "BOOLEAN"
+            },
+            {
+                "mode": "NULLABLE",
+                "name": "timeStamp",
+                "type": "INTEGER"
+            },
+            {
+                "mode": "NULLABLE",
+                "name": "source",
+                "type": "STRING"
             }
         ]
     }

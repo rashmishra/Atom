@@ -1,0 +1,89 @@
+[
+    {
+        "name": "paymentMode",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "gatewayResponse",
+        "type": "RECORD",
+        "mode": "NULLABLE",
+        "fields": [
+            {
+                "name": "ORDERID",
+                "type": "INTEGER",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "TXNDATETIME",
+                "type": "TIMESTAMP",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "TXNAMOUNT",
+                "type": "FLOAT",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "STATUS",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "RESPCODE",
+                "type": "INTEGER",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "TXNID",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "MID",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "TXNDATE",
+                "type": "DATE",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "CUSTID",
+                "type": "INTEGER",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "BANKTXNID",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "CURRENCY",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "GATEWAYNAME",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "RESPMSG",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "BANKNAME",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "PAYMENTMODE",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            }
+        ]
+    }
+]

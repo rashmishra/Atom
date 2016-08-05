@@ -53,6 +53,11 @@ CHEETAH_DATASET_NAME=cheetah
 ADWORDS_DATASET_NAME=adwords
 PLAYSTORE_DATASET_NAME=playstore
 PAYMENT_GATEWAYS_DATASET_NAME=payment_gateways
+PAYU_DATASET_NAME=payu
+PAYTM_DATASET_NAME=paytm
+MOBIKWIK_DATASET_NAME=mobikwik
+
+
 
 ## Directories used in ETL Flow
 LOGS_DIR="$ETL_HOME_DIR/logs";
@@ -105,3 +110,7 @@ PLAY_AGGREGATED_RATINGS_REPORT_PREFIX="ratings_${PLAY_APP_NAME}"
 #<gsutil_report_bucket>/<report_folder>/<report_name>_<chosen_application_name>_YYYYMM.csv
 #<gsutil_report_bucket>/<report_folder>/<report_name>_<chosen_application_name>_YYYYMM[_<subreport_name>].csv
 
+# Payment Gateways Variables
+PAYU_FILE_NAME=payu.json
+PAYTM_FILE_NAME=paytm.json
+MOBIKWIK_FILE_NAME=mobikwik.json

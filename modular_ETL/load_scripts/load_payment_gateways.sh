@@ -14,6 +14,8 @@
                 #             #### $7: Respective incremental epoch. ####
 
 
+. /home/ubuntu/modular_ETL/config/masterenv.sh
+
 
 
 taskStartTime=`date`
@@ -109,25 +111,42 @@ p_exit_upon_error(){
 # Fetching the data file from Transform Directory to Load Directory
 cd $v_transform_dir;
 pwd
-mv "$v_data_object".json.gz $v_load_dir
+# # Raw payment gateways data
+# mv "$v_filename" $v_load_dir
+
+
+# PayU 
+mv "$PAYU_FILE_NAME".gz $v_load_dir
+
+# PayTM
+mv "$PAYTM_FILE_NAME".gz $v_load_dir
+
+# Mobikwik
+mv "$MOBIKWIK_FILE_NAME".gz $v_load_dir
 
 cd $v_load_dir;
-echo "In Load directory $v_load_dir";
-v_log_obj_txt+=`echo "\n$(date) In Load directory $v_load_dir"`;
+echo "In Load directory $v_load_dir for Payment Gateways task";
+v_log_obj_txt+=`echo "\n$(date) In Load directory $v_load_dir for Payment Gateways task"`;
 
 ########################################################################################
                              ## Loading into gcloud ##
 ########################################################################################
-gsutil cp $v_fileName $v_cloud_storage_path 2> "$v_data_object"_cloud_result.txt &
-v_pid=$!
+v_pids="";
 
-wait $v_pid
+# Raw data, PayU, PayTM, Mobikwik
+# gsutil -m cp $v_fileName.gz $PAYU_FILE_NAME.gz $PAYTM_FILE_NAME.gz $MOBIKWIK_FILE_NAME.gz $v_cloud_storage_path 2> "$v_data_object"_cloud_result.txt &
+gsutil -m cp $PAYU_FILE_NAME.gz $PAYTM_FILE_NAME.gz $MOBIKWIK_FILE_NAME.gz $v_cloud_storage_path 2> "$v_data_object"_cloud_result.txt &
+v_pids+=" $!"
 
-if wait $v_pid; then
-    echo "Process $v_pid Status: success";
+
+
+wait $v_pids
+
+if wait $v_pids; then
+    echo "Cloud loading Processes $v_pids Status: success";
     v_task_status="success";
 else 
-    echo "Process $v_pid Status: failed";
+    echo "Cloud loading Processes $v_pids Status: failed";
     v_task_status="failed";
 fi
 
@@ -145,7 +164,7 @@ v_log_obj_txt+=`echo "\n$(date) Cloud Load of $v_fileName into $v_cloud_storage_
 v_subtask="Cloud Upload";
 p_exit_upon_error "$v_task_status" "$v_subtask"
 
-rm "$v_data_object"_cloud_result.txt
+# rm "$v_data_object"_cloud_result.txt
 
 #-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#
                      ## Completed: Checking for Process Failure ##
@@ -155,8 +174,74 @@ rm "$v_data_object"_cloud_result.txt
 echo "Etl Home is $6."
 echo "Schema File path is: $v_schema_filepath"
 
-# Loading the data directly
-v_destination_tbl="$v_dataset_name.$tableName";
+
+# Loading the data directly into a table with all fields for all Payment Gateways
+# v_destination_tbl="$v_dataset_name.$tableName";
+# bq load --quiet --source_format=NEWLINE_DELIMITED_JSON --replace --ignore_unknown_values=1 --max_bad_records=$maxBadRecords $v_destination_tbl $v_cloud_storage_path/$v_fileName $v_schema_filepath/$schemaFileName &
+# #2> "$v_data_object"_final_table_result.txt 
+# v_pid=$!
+
+# wait $v_pid
+
+# if wait $v_pid; then
+#     echo "Process $v_pid Status: success";
+#     v_task_status="success";
+# else 
+#     echo "Process $v_pid Status: failed";
+#     v_task_status="failed";
+# fi
+
+# v_log_obj_txt+=`echo "\n$(date) $v_task_status is the task status"`;
+
+# ########################################################################################
+# ## Checking if the Incremental Table Load process has failed. If Failed, then exit this task (script). ##
+
+# v_subtask="Raw Transactions dump Table load";
+# p_exit_upon_error "$v_task_status" "$v_subtask"
+
+# #-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#
+#                      ## Completed: Checking for Process Failure ##
+# #-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#
+
+
+
+# # Common fields into a new table named all_transactions
+# tableName="all_transactions";
+# v_destination_tbl="$v_dataset_name.$tableName";
+# schemaFileName=schema_pg_all_transactions.json
+# maxBadRecords=0
+
+# bq load --quiet --source_format=NEWLINE_DELIMITED_JSON --replace --ignore_unknown_values=1 --max_bad_records=$maxBadRecords $v_destination_tbl $v_cloud_storage_path/$v_fileName $v_schema_filepath/$schemaFileName &
+# #2> "$v_data_object"_final_table_result.txt 
+# v_pid=$!
+
+# wait $v_pid
+
+# if wait $v_pid; then
+#     echo "Process $v_pid Status: success";
+#     v_task_status="success";
+# else 
+#     echo "Process $v_pid Status: failed";
+#     v_task_status="failed";
+# fi
+
+# v_log_obj_txt+=`echo "\n$(date) $v_task_status is the task status"`;
+
+# ########################################################################################
+# ## Checking if the Incremental Table Load process has failed. If Failed, then exit this task (script). ##
+
+# v_subtask="All Transactions common fields Table load";
+# p_exit_upon_error "$v_task_status" "$v_subtask"
+
+
+# PayU 
+
+tableName="transactions";
+v_destination_tbl="$PAYU_DATASET_NAME.$tableName";
+schemaFileName=schema_payu_transactions.json
+maxBadRecords=0
+v_fileName=$PAYU_FILE_NAME.gz
+
 bq load --quiet --source_format=NEWLINE_DELIMITED_JSON --replace --ignore_unknown_values=1 --max_bad_records=$maxBadRecords $v_destination_tbl $v_cloud_storage_path/$v_fileName $v_schema_filepath/$schemaFileName &
 #2> "$v_data_object"_final_table_result.txt 
 v_pid=$!
@@ -176,7 +261,75 @@ v_log_obj_txt+=`echo "\n$(date) $v_task_status is the task status"`;
 ########################################################################################
 ## Checking if the Incremental Table Load process has failed. If Failed, then exit this task (script). ##
 
-v_subtask="Incremental Table load";
+v_subtask="PayU Table load";
+p_exit_upon_error "$v_task_status" "$v_subtask"
+
+#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#
+                     ## Completed: Checking for Process Failure ##
+#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#
+
+
+# PayTM
+tableName="transactions";
+v_destination_tbl="$PAYTM_DATASET_NAME.$tableName";
+schemaFileName=schema_paytm_transactions.json
+maxBadRecords=0
+v_fileName=$PAYTM_FILE_NAME.gz
+
+bq load --quiet --source_format=NEWLINE_DELIMITED_JSON --replace --ignore_unknown_values=1 --max_bad_records=$maxBadRecords $v_destination_tbl $v_cloud_storage_path/$v_fileName $v_schema_filepath/$schemaFileName &
+#2> "$v_data_object"_final_table_result.txt 
+v_pid=$!
+
+wait $v_pid
+
+if wait $v_pid; then
+    echo "Process $v_pid Status: success";
+    v_task_status="success";
+else 
+    echo "Process $v_pid Status: failed";
+    v_task_status="failed";
+fi
+
+v_log_obj_txt+=`echo "\n$(date) $v_task_status is the task status"`;
+
+########################################################################################
+## Checking if the Incremental Table Load process has failed. If Failed, then exit this task (script). ##
+
+v_subtask="PayTM Table load";
+p_exit_upon_error "$v_task_status" "$v_subtask"
+
+#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#
+                     ## Completed: Checking for Process Failure ##
+#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#
+
+
+# Mobikwik
+tableName="transactions";
+v_destination_tbl="$MOBIKWIK_DATASET_NAME.$tableName";
+schemaFileName=schema_mobikwik_transactions.json
+maxBadRecords=0
+v_fileName=$MOBIKWIK_FILE_NAME.gz
+
+bq load --source_format=NEWLINE_DELIMITED_JSON --replace --ignore_unknown_values=1 --max_bad_records=$maxBadRecords $v_destination_tbl $v_cloud_storage_path/$v_fileName $v_schema_filepath/$schemaFileName &
+#2> "$v_data_object"_final_table_result.txt 
+v_pid=$!
+
+wait $v_pid
+
+if wait $v_pid; then
+    echo "Process $v_pid Status: success";
+    v_task_status="success";
+else 
+    echo "Process $v_pid Status: failed";
+    v_task_status="failed";
+fi
+
+v_log_obj_txt+=`echo "\n$(date) $v_task_status is the task status"`;
+
+########################################################################################
+## Checking if the Incremental Table Load process has failed. If Failed, then exit this task (script). ##
+
+v_subtask="mobikwik Table load";
 p_exit_upon_error "$v_task_status" "$v_subtask"
 
 #-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#

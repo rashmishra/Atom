@@ -98,7 +98,10 @@ echo "Data Extract dump Directory: $v_data_dump_dir";
 v_subtask="Playstore Detailed Reports"
 
 ## Detailed Reports Conversion
-v_report_month=$(date +%Y%m);
+# v_report_month=$(date +%Y%m);
+
+v_report_month=$(date -d '- 5days' +%Y%m);
+
 v_detailed_rep_pids=""
 for i in $PLAY_TRANSFORM_DETAILED_REPORT_NAMES; do
 
@@ -287,7 +290,10 @@ p_exit_upon_error "$v_task_status" "$v_subtask"
 
 ## Removing Downloaded files from extract folder
 # Detailed Reports
-v_report_month=$(date +%Y%m);
+#v_report_month=$(date +%Y%m);
+
+v_report_month=$(date -d '- 5days' +%Y%m);
+
 v_detailed_rep_pids=""
 for i in $PLAY_TRANSFORM_DETAILED_REPORT_NAMES; do
     rm ${v_data_dump_dir}/${i}_${v_report_month}.csv 

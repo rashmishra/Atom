@@ -1,0 +1,59 @@
+[
+    {
+        "name": "paymentMode",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "gatewayResponse",
+        "type": "RECORD",
+        "mode": "NULLABLE",
+        "fields": [
+            {
+                "name": "orderid",
+                "type": "INTEGER",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "amount",
+                "type": "FLOAT",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "statuscode",
+                "type": "INTEGER",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "mid",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "txndate",
+                "type": "TIMESTAMP",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "deviceInfo",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "userEmail",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "userCell",
+                "type": "INTEGER",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "statusdescription",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            }
+        ]
+    }
+]

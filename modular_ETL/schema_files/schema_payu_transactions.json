@@ -1,0 +1,299 @@
+[
+    {
+        "mode": "NULLABLE",
+        "name": "paymentMode",
+        "type": "STRING"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "gatewayResponse",
+        "type": "RECORD",
+        "fields": [
+            {
+                "mode": "NULLABLE",
+                "name": "country",
+                "type": "STRING"
+            },
+            {
+                "mode": "NULLABLE",
+                "name": "curl",
+                "type": "STRING"
+            },
+            {
+                "mode": "NULLABLE",
+                "name": "card_hash",
+                "type": "STRING"
+            },
+            {
+                "mode": "NULLABLE",
+                "name": "udf10",
+                "type": "STRING"
+            },
+            {
+                "mode": "NULLABLE",
+                "name": "discount",
+                "type": "STRING"
+            },
+            {
+                "mode": "NULLABLE",
+                "name": "mode",
+                "type": "STRING"
+            },
+            {
+                "mode": "NULLABLE",
+                "name": "offer",
+                "type": "STRING"
+            },
+            {
+                "mode": "NULLABLE",
+                "name": "error_Message",
+                "type": "STRING"
+            },
+            {
+                "mode": "NULLABLE",
+                "name": "state",
+                "type": "STRING"
+            },
+            {
+                "mode": "NULLABLE",
+                "name": "offer_type",
+                "type": "STRING"
+            },
+            {
+                "mode": "NULLABLE",
+                "name": "bankcode",
+                "type": "STRING"
+            },
+            {
+                "mode": "NULLABLE",
+                "name": "txnid",
+                "type": "STRING"
+            },
+            {
+                "mode": "NULLABLE",
+                "name": "surl",
+                "type": "STRING"
+            },
+            {
+                "mode": "NULLABLE",
+                "name": "net_amount_debit",
+                "type": "STRING"
+            },
+            {
+                "mode": "NULLABLE",
+                "name": "lastname",
+                "type": "STRING"
+            },
+            {
+                "mode": "NULLABLE",
+                "name": "zipcode",
+                "type": "STRING"
+            },
+            {
+                "mode": "NULLABLE",
+                "name": "phone",
+                "type": "STRING"
+            },
+            {
+                "mode": "NULLABLE",
+                "name": "card_token",
+                "type": "STRING"
+            },
+            {
+                "mode": "NULLABLE",
+                "name": "productinfo",
+                "type": "STRING"
+            },
+            {
+                "mode": "NULLABLE",
+                "name": "hash",
+                "type": "STRING"
+            },
+            {
+                "mode": "NULLABLE",
+                "name": "status",
+                "type": "STRING"
+            },
+            {
+                "mode": "NULLABLE",
+                "name": "firstname",
+                "type": "STRING"
+            },
+            {
+                "mode": "NULLABLE",
+                "name": "city",
+                "type": "STRING"
+            },
+            {
+                "mode": "NULLABLE",
+                "name": "error",
+                "type": "STRING"
+            },
+            {
+                "mode": "NULLABLE",
+                "name": "bank_ref_no",
+                "type": "STRING"
+            },
+            {
+                "mode": "NULLABLE",
+                "name": "addedon",
+                "type": "STRING"
+            },
+            {
+                "mode": "NULLABLE",
+                "name": "udf9",
+                "type": "STRING"
+            },
+            {
+                "mode": "NULLABLE",
+                "name": "card_no",
+                "type": "STRING"
+            },
+            {
+                "mode": "NULLABLE",
+                "name": "udf7",
+                "type": "STRING"
+            },
+            {
+                "mode": "NULLABLE",
+                "name": "udf8",
+                "type": "STRING"
+            },
+            {
+                "mode": "NULLABLE",
+                "name": "offer_failure_reason",
+                "type": "STRING"
+            },
+            {
+                "mode": "NULLABLE",
+                "name": "bank_ref_num",
+                "type": "STRING"
+            },
+            {
+                "mode": "NULLABLE",
+                "name": "key",
+                "type": "STRING"
+            },
+            {
+                "mode": "NULLABLE",
+                "name": "email",
+                "type": "STRING"
+            },
+            {
+                "mode": "NULLABLE",
+                "name": "amount",
+                "type": "STRING"
+            },
+            {
+                "mode": "NULLABLE",
+                "name": "unmappedstatus",
+                "type": "STRING"
+            },
+            {
+                "mode": "NULLABLE",
+                "name": "address2",
+                "type": "STRING"
+            },
+            {
+                "mode": "NULLABLE",
+                "name": "address1",
+                "type": "STRING"
+            },
+            {
+                "mode": "NULLABLE",
+                "name": "udf5",
+                "type": "STRING"
+            },
+            {
+                "mode": "NULLABLE",
+                "name": "mihpayid",
+                "type": "STRING"
+            },
+            {
+                "mode": "NULLABLE",
+                "name": "udf6",
+                "type": "STRING"
+            },
+            {
+                "mode": "NULLABLE",
+                "name": "udf3",
+                "type": "STRING"
+            },
+            {
+                "mode": "NULLABLE",
+                "name": "udf4",
+                "type": "STRING"
+            },
+            {
+                "mode": "NULLABLE",
+                "name": "udf1",
+                "type": "STRING"
+            },
+            {
+                "mode": "NULLABLE",
+                "name": "udf2",
+                "type": "STRING"
+            },
+            {
+                "mode": "NULLABLE",
+                "name": "field1",
+                "type": "STRING"
+            },
+            {
+                "mode": "NULLABLE",
+                "name": "field0",
+                "type": "STRING"
+            },
+            {
+                "mode": "NULLABLE",
+                "name": "field7",
+                "type": "STRING"
+            },
+            {
+                "mode": "NULLABLE",
+                "name": "field6",
+                "type": "STRING"
+            },
+            {
+                "mode": "NULLABLE",
+                "name": "furl",
+                "type": "STRING"
+            },
+            {
+                "mode": "NULLABLE",
+                "name": "field9",
+                "type": "STRING"
+            },
+            {
+                "mode": "NULLABLE",
+                "name": "field8",
+                "type": "STRING"
+            },
+            {
+                "mode": "NULLABLE",
+                "name": "field3",
+                "type": "STRING"
+            },
+            {
+                "mode": "NULLABLE",
+                "name": "field2",
+                "type": "STRING"
+            },
+            {
+                "mode": "NULLABLE",
+                "name": "field5",
+                "type": "STRING"
+            },
+            {
+                "mode": "NULLABLE",
+                "name": "PG_TYPE",
+                "type": "STRING"
+            },
+            {
+                "mode": "NULLABLE",
+                "name": "field4",
+                "type": "STRING"
+            }
+        ]
+    }
+]

@@ -137,7 +137,7 @@
             {
                 "mode": "NULLABLE",
                 "name": "addedon",
-                "type": "STRING"
+                "type": "TIMESTAMP"
             },
             {
                 "mode": "NULLABLE",

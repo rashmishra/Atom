@@ -1,0 +1,69 @@
+[
+    {
+        "name": "notificationId",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "customerId",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "time",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "programId",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "metaData",
+        "type": "RECORD",
+        "mode": "NULLABLE",
+        "fields": [
+            {
+                "name": "polygonId",
+                "type": "INTEGER",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "enteredAt",
+                "type": "INTEGER",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "dealId",
+                "type": "INTEGER",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "offerId",
+                "type": "INTEGER",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "expiringAt",
+                "type": "INTEGER",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "type",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "count",
+                "type": "INTEGER",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "clickedAt",
+                "type": "INTEGER",
+                "mode": "NULLABLE"
+            }
+        ]
+    }
+]

@@ -1,0 +1,27 @@
+[
+   {
+    "name": "userType",
+    "type": "INTEGER",
+    "mode": "NULLABLE"
+   },
+   {
+    "name": "deviceId",
+    "type": "STRING",
+    "mode": "NULLABLE"
+   },
+   {
+    "name": "valid",
+    "type": "BOOLEAN",
+    "mode": "NULLABLE"
+   },
+   {
+    "name": "createdAt",
+    "type": "INTEGER",
+    "mode": "NULLABLE"
+   },
+   {
+    "name": "updatedAt",
+    "type": "INTEGER",
+    "mode": "NULLABLE"
+   }
+]

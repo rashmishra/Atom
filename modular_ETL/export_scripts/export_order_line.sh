@@ -83,7 +83,7 @@ p_exit_upon_error(){
 
 
 # Avoiding choking due to Full refresh
-v_incremental_epoch=1465471494000;
+#v_incremental_epoch=1465471494000;
 
 #echo "OMS data export start time is : $taskStartTime "
 DBHOST=nb-prod-oms-db-ugd.c6vqep7kcqpl.ap-southeast-1.rds.amazonaws.com

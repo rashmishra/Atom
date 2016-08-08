@@ -110,6 +110,7 @@ echo "cat $v_filename | grep \"paymentMode\" \: \"1\" > $PAYU_FILE_NAME"
 
 # Transformation commands
 v_transform_pids="";
+
 # PayU 
 cat $v_filename | grep "paymentMode\" \: \"1" > $PAYU_FILE_NAME &
 v_transform_pids+=" $!";
@@ -118,11 +119,16 @@ v_transform_pids+=" $!";
 cat $v_filename | grep "paymentMode\" \: \"2" > $PAYTM_FILE_NAME &
 v_transform_pids+=" $!";
 
+wait $v_transform_pids;
+
+sed -i 's/RESPCODE" : ""/RESPCODE" : null/g' $PAYTM_FILE_NAME &
+v_transform_pids+=" $!";
+
 # Mobikwik
 cat $v_filename | grep "paymentMode\" \: \"3" > $MOBIKWIK_FILE_NAME &
 v_transform_pids+=" $!";
 
-
+echo "Splitting Payment Gateways data"
 # Waiting for the process to complete
 if wait $v_transform_pids; then
     echo "Process $v_transform_pids Status: success";

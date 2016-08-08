@@ -28,7 +28,7 @@ schemaFileName=schema_user_device_token_status.json
 maxBadRecords=0
 
 v_data_object=$1;
-tableName=user_program;
+tableName=$1;
 v_fileName="$1.json.gz";
 v_cloud_storage_path=$2;
 v_load_dir=$3;

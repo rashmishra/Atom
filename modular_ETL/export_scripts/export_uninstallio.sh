@@ -96,7 +96,7 @@ echo $END_DATE
 echo $v_expire
 
 
-curl "https://reportingdiag.blob.core.windows.net/db91f1a77262f8490f88ea882922fec271/R$START_DATE0000_uninstall_report_csv_db91f1a77262f8490f88ea882922fec271_daily.csv.gz" -o uninstallio.csv.gz  &
+curl "https://reportingdiag.blob.core.windows.net/db91f1a77262f8490f88ea882922fec271/R$START_DATE0000_uninstall_report_csv_db91f1a77262f8490f88ea882922fec271_daily.csv.gz" -o $v_data_dump_dir/$v_data_object.csv.gz  &
 v_extract_pid=$!
 
 if wait $v_extract_pid; then

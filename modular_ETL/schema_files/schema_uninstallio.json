@@ -1,0 +1,266 @@
+[
+    {
+        "name": "Deviceid",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "OS",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "OS_Version",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "Device_Model",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "AdvertisingID",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "APPVersion",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "UserID",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "Email",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "Install_Date",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "Uninstall_Date",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "Currently_Installed",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "Days_Inactive",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+
+    {
+        "name": "Install_Country",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "Install_City",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "Uninstall_Country",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "Uninstall_City",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "Retention",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "Source",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "Campaign",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "Carrier",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "Network",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "FreeDiskSpace_inMB",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "Last_Event",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "Event_T1",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "Event_T2",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "Event_T3",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "Event_T4",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "Event_T5",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "Event_T6",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "Event_T7",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "Event_T8",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "Event_T9",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "Event_T10",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "Event_T11",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "Event_T12",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "Event_T13",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "Event_T14",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "Event_T15",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "Event_T16",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "Event_T17",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "Event_T18",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "Event_T19",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "Event_T20",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "Event_T21",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "Event_T22",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "Event_T23",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "Event_T24",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "Event_T25",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "Event_T26",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "Event_T27",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "Event_T28",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "Event_T29",
+        "type": "STRING",
+        "mode": "nullable"
+    }
+]
+
+
+

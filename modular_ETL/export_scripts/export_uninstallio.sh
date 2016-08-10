@@ -86,7 +86,7 @@ p_exit_upon_error(){
 # We always pull 1 days ago data by specifying dates only, no time part is mentioned.
 # So setting the date as 1 day ago. If today is T, then we pull From: (T-1) To: (T-1)
 # E.g. T= 3 Jan, 2016. T-1= 2 Jan, 2016. T-1: 2 Jan, 2016
-START_DATE=$(date --date="-2 days" +%Y-%m-%d)
+START_DATE=$(date --date="-2 days" +%Y%m%d)
 END_DATE=$(date --date="-2 days" +%Y-%m-%d)
 v_expire=$(date -d"+2 days" +%s)
 
@@ -95,8 +95,9 @@ echo $START_DATE
 echo $END_DATE
 echo $v_expire
 
+#echo "curl https://reportingdiag.blob.core.windows.net/db91f1a77262f8490f88ea882922fec271/R$START_DATE0000_uninstall_report_csv_db91f1a77262f8490f88ea882922fec271_daily.csv.gz " &
 
-curl "https://reportingdiag.blob.core.windows.net/db91f1a77262f8490f88ea882922fec271/R$START_DATE0000_uninstall_report_csv_db91f1a77262f8490f88ea882922fec271_daily.csv.gz" -o $v_data_dump_dir/$v_data_object.csv.gz  &
+curl "https://reportingdiag.blob.core.windows.net/db91f1a77262f8490f88ea882922fec271/R""$START_DATE""0000_uninstall_report_csv_db91f1a77262f8490f88ea882922fec271_daily.csv.gz" -o $v_data_dump_dir/$v_data_object.csv.gz  &
 v_extract_pid=$!
 
 if wait $v_extract_pid; then

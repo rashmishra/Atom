@@ -102,6 +102,11 @@
         "name": "hotspotLeft",
         "type": "INTEGER",
         "mode": "NULLABLE"
+    },
+    {
+        "name": "distanceFromHotspot",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
     }
 
 ]

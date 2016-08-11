@@ -88,7 +88,7 @@ v_log_obj_txt+=`echo "\n$(date) Query is $query."`;
 
 
 cd $v_mongo_dir
-./mongoexport --host 10.2.1.227 -vvvv -d nb-promo-platform -c promocode --out $v_data_dump_dir/$v_data_object.json 2> $v_temp_dir/"$v_data_object"_extract_command_output.txt &
+./mongoexport --host 10.2.1.226 -vvvv -d nb-promo-platform -c promocode --out $v_data_dump_dir/$v_data_object.json 2> $v_temp_dir/"$v_data_object"_extract_command_output.txt &
 v_extract_pid=$!
 
 # Waiting for the process to complete and checking the status

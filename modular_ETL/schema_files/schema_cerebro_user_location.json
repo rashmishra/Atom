@@ -1,0 +1,107 @@
+[
+    {
+        "name": "customerId",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "isUsingApp",
+        "type": "BOOLEAN",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "actionType",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "metaInfo",
+        "type": "RECORD",
+        "mode": "NULLABLE",
+        "fields": [
+            {
+                "name": "term",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "optionId",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "catId",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "dashCat",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "phoneNumber",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "hotspotIds",
+                "type": "INTEGER",
+                "mode": "REPEATED"
+            },
+            {
+                "name": "orderId",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "paymentRequest",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "dealId",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "userId",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            }
+        ]
+    },
+    {
+        "name": "location",
+        "type": "RECORD",
+        "mode": "NULLABLE",
+        "fields": [
+            {
+                "name": "type",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "coordinates",
+                "type": "FLOAT",
+                "mode": "REPEATED"
+            }
+        ]
+    },
+    {
+        "name": "time",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "hotspotEntered",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "hotspotLeft",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    }
+
+]

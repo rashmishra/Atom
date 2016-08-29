@@ -259,6 +259,10 @@
         "name": "Event_T29",
         "type": "STRING",
         "mode": "nullable"
+    },
+    {   "name": "Notification_details",
+        "type": "STRING",
+        "mode": "nullable"
     }
 ]
 

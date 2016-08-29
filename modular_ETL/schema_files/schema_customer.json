@@ -75,6 +75,11 @@
         "mode": "NULLABLE"
     },
     {
+        "name": "partnerId",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
         "name": "deviceIds",
         "type": "STRING",
         "mode": "REPEATED"

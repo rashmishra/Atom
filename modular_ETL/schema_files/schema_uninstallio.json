@@ -1,4 +1,4 @@
-[
+[ 
     {
         "name": "Deviceid",
         "type": "STRING",
@@ -260,7 +260,8 @@
         "type": "STRING",
         "mode": "nullable"
     },
-    {   "name": "Notification_details",
+    {
+        "name": "Notification_details",
         "type": "STRING",
         "mode": "nullable"
     }

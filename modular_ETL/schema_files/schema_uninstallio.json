@@ -260,7 +260,12 @@
         "type": "STRING",
         "mode": "nullable"
     },
+<<<<<<< HEAD
     {   "name": "Notification_details",
+=======
+    {
+        "name": "Notification_details",
+>>>>>>> uninstall_io
         "type": "STRING",
         "mode": "nullable"
     }

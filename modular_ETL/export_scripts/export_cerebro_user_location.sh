@@ -1,7 +1,7 @@
 #!/bin/bash
 
 
-## Script Name: export_deal.sh
+## Script Name: export_cerebro_user_location.sh
 ## Purpose: Modular ETL flow of Atom.
 
 ##### $1: Data Object. ####
@@ -71,7 +71,7 @@ p_exit_upon_error(){
         # Maintaining the log of this run in a separate file in arch folder
         echo -e "$v_log_obj_txt" > $v_arch_dir/logs/"$v_data_object""_extract_"$v_task_datetime.log
 
-        # Creating new file for deal's ETL run. Content will be appended in further tasks of T and L.
+        # Creating new file for user_location's ETL run. Content will be appended in further tasks of T and L.
         echo -e "$v_log_obj_txt" > $v_temp_dir/"$v_data_object"_log.log
         chmod 0777 $v_temp_dir/"$v_data_object"_log.log;
 
@@ -83,16 +83,12 @@ p_exit_upon_error(){
 }
 
 #query="{\$or:[{\"createdAt\":{\$gte:$v_incremental_epoch}},{\"lastModifiedAt\":{\$gte:$v_incremental_epoch}}]}"
-query="{\$or:[{\"createdTime\":{\$gte:$v_incremental_epoch}},{\"updateHistory.lastUpdatedAt\":{\$gte:$v_incremental_epoch} },{\"updateTime\":{\$gte:$v_incremental_epoch} },{\"updateHistory.createdAt\":{\$gte:$v_incremental_epoch} }]}"
-v_log_obj_txt+=`echo "\n$(date) Query is $query."`;
+# query="{\$or:[{\"createdTime\":{\$gte:$v_incremental_epoch}},{\"updateHistory.lastUpdatedAt\":{\$gte:$v_incremental_epoch} },{\"updateTime\":{\$gte:$v_incremental_epoch} },{\"updateHistory.createdAt\":{\$gte:$v_incremental_epoch} }]}"
+# v_log_obj_txt+=`echo "\n$(date) Query is $query."`;
 
-#v_log_obj_txt+=$(`./mongoexport --host 10.2.1.227:27017 --db dealplatform -q "$query" -c deal --out $v_data_dump_dir/$v_data_object.json` | tee /dev/tty )
-#v_log_obj_txt=$(./mongoexport --host 10.2.1.227:27017 --db dealplatform -q "$query" -c deal --out $v_data_dump_dir/$v_data_object.json 2>&1)
-## Correct one
-#v_export_result=`echo $(./mongoexport --host 10.2.1.227:27017 --db dealplatform -q "$query" -c deal --out $v_data_dump_dir/$v_data_object.json 2>&1)`;
 
 cd $v_mongo_dir
-./mongoexport --host 10.2.1.226:27017 --db dealplatform -q "$query" -c deal --out $v_data_dump_dir/$v_data_object.json 2> $v_temp_dir/"$v_data_object"_extract_command_output.txt &
+./mongoexport --host 10.2.1.226:27017 --db locationTracker -c userLocation --out $v_data_dump_dir/$v_data_object.json 2> $v_temp_dir/"$v_data_object"_extract_command_output.txt &
 v_extract_pid=$!
 
 # Waiting for the process to complete and checking the status
@@ -168,7 +164,7 @@ echo -e "$v_log_obj_txt" > $v_arch_dir/logs/"$v_data_object""_extract_"$v_task_d
 # Removing the previous run's file from the directory
 rm $v_temp_dir/"$v_data_object"_log.log
 
-# Creating new file for deal's ETL run. Content will be appended in further tasks of T and L.
+# Creating new file for user_location's ETL run. Content will be appended in further tasks of T and L.
 echo -e "$v_log_obj_txt" > $v_temp_dir/"$v_data_object"_log.log
 chmod 0777 $v_temp_dir/"$v_data_object"_log.log
 #-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
@@ -180,6 +176,6 @@ echo -e "$v_log_obj_txt";
 #  Removing the Command's (mongoexport) output stored in a file
 rm $v_temp_dir/"$v_data_object"_extract_command_output.txt
 
-#echo "Deal mongo export end time is : $taskEndTime "
+#echo "user_location mongo export end time is : $taskEndTime "
 
 exit 0

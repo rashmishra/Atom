@@ -92,7 +92,7 @@ v_log_obj_txt+=`echo "\n$(date) Query is $query."`;
 #v_export_result=`echo $(./mongoexport --host 10.2.1.227:27017 --db offerplatform -q "$query" -c offer --out $v_data_dump_dir/$v_data_object.json 2>&1)`;
 
 cd $v_mongo_dir
-./mongoexport --host 10.2.1.227:27017 --db dealplatform -q "$query" -c deal --out $v_data_dump_dir/$v_data_object.json 2> $v_temp_dir/"$v_data_object"_extract_command_output.txt &
+./mongoexport --host 10.2.1.226:27017 --db dealplatform -q "$query" -c deal --out $v_data_dump_dir/$v_data_object.json 2> $v_temp_dir/"$v_data_object"_extract_command_output.txt &
 v_extract_pid=$!
 
 # Waiting for the process to complete

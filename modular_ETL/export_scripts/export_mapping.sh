@@ -91,7 +91,7 @@ p_exit_upon_error(){
 #v_export_result=`echo $(./mongoexport --host 10.2.1.227:27017 --db mappingplatform -q "$query" -c mapping --out $v_data_dump_dir/$v_data_object.json 2>&1)`;
 
 cd $v_mongo_dir
-./mongoexport --host 10.2.1.227:27017 --db nb-mapping -c mapping  --out $v_data_dump_dir/$v_data_object.json 2> $v_temp_dir/"$v_data_object"_extract_command_output.txt &
+./mongoexport --host 10.2.1.226:27017 --db nb-mapping -c mapping  --out $v_data_dump_dir/$v_data_object.json 2> $v_temp_dir/"$v_data_object"_extract_command_output.txt &
 v_extract_pid=$!
 
 # Waiting for the process to complete and checking the status

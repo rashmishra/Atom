@@ -46,7 +46,7 @@
             },
             {
                 "name": "userCell",
-                "type": "INTEGER",
+                "type": "STRING",
                 "mode": "NULLABLE"
             },
             {

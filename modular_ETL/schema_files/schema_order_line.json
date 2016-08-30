@@ -388,7 +388,10 @@
         "name": "ispaidtomerchant",
         "type": "STRING",
         "mode": "nullable"
+    },
+    {
+        "name": "cashbackamount",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
     }
 ]
-
-

@@ -87,7 +87,7 @@ p_exit_upon_error(){
 
 cd $v_mongo_dir
 
-./mongoexport --host 10.2.1.227:27017 --db nearbuy_customer_deal_preferences  -c userPreferences --out $v_data_dump_dir/$v_data_object.json 2> $v_temp_dir/"$v_data_object"_extract_command_output.txt &
+./mongoexport --host 10.2.1.226:27017 --db nearbuy_customer_deal_preferences  -c userPreferences --out $v_data_dump_dir/$v_data_object.json 2> $v_temp_dir/"$v_data_object"_extract_command_output.txt &
 v_extract_pid=$!
 
 # Waiting for the process to complete

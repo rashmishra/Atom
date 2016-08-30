@@ -193,5 +193,15 @@
         "name": "deviceid",
         "type": "STRING",
         "mode": "nullable"
+    },
+    {
+        "name": "partnerid",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "totalcashbackamount",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
     }
 ]

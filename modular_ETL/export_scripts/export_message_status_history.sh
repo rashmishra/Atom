@@ -22,7 +22,7 @@ v_etl_task='extract'
 v_data_object=$1;
 v_data_dump_dir=$2
 v_mongo_dir=$3;
-v_incremental_epoch=$4;
+v_incremental_epoch=$(($4*1000));
 v_temp_dir=$5/temp;
 v_logs_dir=$5/logs;
 v_arch_dir=$5/arch;
@@ -83,14 +83,14 @@ p_exit_upon_error(){
 }
 
 #query="{\$or:[{\"createdAt\":{\$gte:$v_incremental_epoch}},{\"lastModifiedAt\":{\$gte:$v_incremental_epoch}}]}"
-query="{\$or:[{\"createdTime\":{\$gte:$v_incremental_epoch}},{\"updateHistory.lastUpdatedAt\":{\$gte:$v_incremental_epoch} },{\"updateTime\":{\$gte:$v_incremental_epoch} },{\"updateHistory.createdAt\":{\$gte:$v_incremental_epoch} }]}"
+query="{\"createdAt\":{\$gte:$v_incremental_epoch}}"
 v_log_obj_txt+=`echo "\n$(date) Query is $query."`;
 
 ## Correct one
 #v_export_result=`echo $(./mongoexport --host 10.2.1.227:27017 --db message_status_historyplatform -q "$query" -c message_status_history --out $v_data_dump_dir/$v_data_object.json 2>&1)`;
 
 cd $v_mongo_dir
-./mongoexport --host 10.2.3.15:27017 --db nb-delivery-manager -c message_status_history --out $v_data_dump_dir/$v_data_object.json 2> $v_temp_dir/"$v_data_object"_extract_command_output.txt &
+./mongoexport --host 10.2.3.15:27017 --db nb-delivery-manager -c message_status_history -q $query --out $v_data_dump_dir/$v_data_object.json 2> $v_temp_dir/"$v_data_object"_extract_command_output.txt &
 v_extract_pid=$!
 
 # Waiting for the process to complete and checking the status

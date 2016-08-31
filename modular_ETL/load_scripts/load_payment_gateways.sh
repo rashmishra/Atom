@@ -152,8 +152,8 @@ fi
 
 v_cloud_result=`cat "$v_data_object"_cloud_result.txt`;
 
-echo "Loaded $v_fileName into $v_cloud_storage_path";
-v_log_obj_txt+=`echo "\n$(date) Cloud Load of $v_fileName into $v_cloud_storage_path result: \n$v_cloud_result"`;
+echo "Loaded $PAYU_FILE_NAME.gz $PAYTM_FILE_NAME.gz $MOBIKWIK_FILE_NAME.gz into $v_cloud_storage_path";
+v_log_obj_txt+=`echo "\n$(date) Cloud Load of $PAYU_FILE_NAME.gz $PAYTM_FILE_NAME.gz $MOBIKWIK_FILE_NAME.gz into $v_cloud_storage_path result: \n$v_cloud_result"`;
 #-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#
                      ## Completed: Loading into Google Cloud ## 
 #-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#
@@ -311,6 +311,7 @@ maxBadRecords=0
 v_fileName=$MOBIKWIK_FILE_NAME.gz
 
 bq load --source_format=NEWLINE_DELIMITED_JSON --replace --ignore_unknown_values=1 --max_bad_records=$maxBadRecords $v_destination_tbl $v_cloud_storage_path/$v_fileName $v_schema_filepath/$schemaFileName &
+bq load --source_format=NEWLINE_DELIMITED_JSON --replace --ignore_unknown_values=1 --max_bad_records=0 mobikwik.transactions gs://nb_batman_begins/payment_gateways/mobikwik.json.gz 
 #2> "$v_data_object"_final_table_result.txt 
 v_pid=$!
 

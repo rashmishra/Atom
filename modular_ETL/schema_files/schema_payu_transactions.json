@@ -5,6 +5,11 @@
         "type": "STRING"
     },
     {
+        "name": "createdAt",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
         "mode": "NULLABLE",
         "name": "gatewayResponse",
         "type": "RECORD",

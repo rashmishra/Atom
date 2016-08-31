@@ -5,6 +5,11 @@
         "mode": "NULLABLE"
     },
     {
+        "name": "createdAt",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
         "name": "gatewayResponse",
         "type": "RECORD",
         "mode": "NULLABLE",

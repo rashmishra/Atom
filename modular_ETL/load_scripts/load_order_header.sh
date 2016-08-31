@@ -263,7 +263,8 @@ bq rm -f $v_dataset_name.$tableName
 bq cp $v_metadataset_name.prior_$tableName $v_dataset_name.$tableName
 # Removing Prior and Incremental tables
 bq rm -f $v_metadataset_name.prior_$tableName
-bq rm -f $v_metadataset_name.incremental_$tableName
+# Stopping deletion as per Alka's request to have Lat-Lng from OH. Validated by Rahul.
+#bq rm -f $v_metadataset_name.incremental_$tableName
 
 ###################################################################################
 ## Storing the status (success/failed) into respective text file. This will be in 

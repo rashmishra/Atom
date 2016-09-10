@@ -305,6 +305,21 @@
                 "name": "attribute_3",
                 "type": "STRING",
                 "mode": "NULLABLE"
+            },
+            {
+                "name": "attribute_7",
+                "type": "INTEGER",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "attribute_8",
+                "type": "INTEGER",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "street",
+                "type": "INTEGER",
+                "mode": "NULLABLE"
             }
         ]
     },
@@ -362,6 +377,21 @@
                 "name": "attribute_2",
                 "type": "STRING",
                 "mode": "NULLABLE"
+            },
+            {
+                "name": "attribute_7",
+                "type": "INTEGER",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "attribute_8",
+                "type": "INTEGER",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "street",
+                "type": "INTEGER",
+                "mode": "NULLABLE"
             }
         ]
     },
@@ -415,6 +445,11 @@
     {
         "name": "businessPolygonId",
         "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "isDuplicate",
+        "type": "BOOLEAN",
         "mode": "NULLABLE"
     },
     {

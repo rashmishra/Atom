@@ -197,7 +197,7 @@ if [[ "`bq ls $v_dataset_name | awk '{print $1}' | grep \"\b$tableName\b\"`" == 
         #             ON inc.customerId = base.customerId
         #             AND inc.time = base.time
         #         WHERE inc.time IS NULL";
-        v_query="SELECT *        
+        v_query="SELECT base.*        
                 FROM $v_dataset_name.$tableName  base 
                 LEFT OUTER JOIN (SELECT customerId as inc_customer_ID, time as inc_time FROM $v_metadataset_name.incremental_$tableName) inc
                     ON inc.inc_customer_ID = base.customerId

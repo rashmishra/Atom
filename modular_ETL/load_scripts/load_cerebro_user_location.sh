@@ -245,7 +245,7 @@ fi
 
 v_destination_tbl="$v_metadataset_name.prior_$tableName";
 v_query="SELECT * FROM $v_metadataset_name.incremental_$tableName";
-bq query --maximum_billing_tier 150 --append=1 --flatten_results=0 --allow_large_results=1 --destination_table=$v_destination_tbl "$v_query" 2> "$v_data_object"_table_union_result.txt &
+bq query --maximum_billing_tier 150 --append=1 --flatten_results=0 --allow_large_results=1 -n 1 --destination_table=$v_destination_tbl "$v_query" 2> "$v_data_object"_table_union_result.txt &
 v_pid=$!
 
 wait $v_pid

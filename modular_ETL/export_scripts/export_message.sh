@@ -82,15 +82,12 @@ p_exit_upon_error(){
 
 }
 
-#query="{\$or:[{\"createdAt\":{\$gte:$v_incremental_epoch}},{\"lastModifiedAt\":{\$gte:$v_incremental_epoch}}]}"
-query="{\$or:[{\"createdTime\":{\$gte:$v_incremental_epoch}},{\"updateHistory.lastUpdatedAt\":{\$gte:$v_incremental_epoch} },{\"updateTime\":{\$gte:$v_incremental_epoch} },{\"updateHistory.createdAt\":{\$gte:$v_incremental_epoch} }]}"
+
+query="{\$or:[{\"createdAt\":{\$gte:$v_incremental_epoch}},{\"updatedAt\":{\$gte:$v_incremental_epoch}}]}"
 v_log_obj_txt+=`echo "\n$(date) Query is $query."`;
 
-## Correct one
-#v_export_result=`echo $(./mongoexport --host 10.2.1.227:27017 --db messageplatform -q "$query" -c message --out $v_data_dump_dir/$v_data_object.json 2>&1)`;
-
 cd $v_mongo_dir
-./mongoexport --host 10.2.3.15:27017 --db nb-delivery-manager -c message --out $v_data_dump_dir/$v_data_object.json 2> $v_temp_dir/"$v_data_object"_extract_command_output.txt &
+./mongoexport --host 10.2.3.15:27017 --db nb-delivery-manager -c message -q $query --out $v_data_dump_dir/$v_data_object.json 2> $v_temp_dir/"$v_data_object"_extract_command_output.txt &
 v_extract_pid=$!
 
 # Waiting for the process to complete and checking the status

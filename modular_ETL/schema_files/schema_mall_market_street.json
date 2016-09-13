@@ -1,62 +1,79 @@
 [
-    {
-        "name": "_id",
-        "type": "INTEGER",
-        "mode": "NULLABLE"
-    },
-    {
-        "name": "name",
-        "type": "STRING",
-        "mode": "NULLABLE"
-    },
-    {
-        "name": "city",
-        "type": "STRING",
-        "mode": "NULLABLE"
-    },
-    {
-        "name": "locality",
-        "type": "STRING",
-        "mode": "NULLABLE"
-    },
-    {
-        "name": "type",
-        "type": "INTEGER",
-        "mode": "NULLABLE"
-    },
-    {
-        "name": "createdOn",
-        "type": "INTEGER",
-        "mode": "NULLABLE"
-    },
-    {
-        "name": "createdBy",
-        "type": "STRING",
-        "mode": "NULLABLE"
-    },
-    {
-        "name": "isActive",
-        "type": "BOOLEAN",
-        "mode": "NULLABLE"
-    },
-    {
-        "name": "isDeleted",
-        "type": "BOOLEAN",
-        "mode": "NULLABLE"
-    },
-    {
-        "name": "isHotspot",
-        "type": "BOOLEAN",
-        "mode": "NULLABLE"
-    },
-    {
-        "name": "polygonId",
-        "type": "INTEGER",
-        "mode": "NULLABLE"
-    },
-    {
-        "name": "radius",
-        "type": "FLOAT",
-        "mode": "NULLABLE"
-    }
+   {
+    "name": "_id",
+    "type": "INTEGER",
+    "mode": "NULLABLE"
+   },
+   {
+    "name": "name",
+    "type": "STRING",
+    "mode": "NULLABLE"
+   },
+   {
+    "name": "city",
+    "type": "STRING",
+    "mode": "NULLABLE"
+   },
+   {
+    "name": "locality",
+    "type": "STRING",
+    "mode": "NULLABLE"
+   },
+   {
+    "name": "type",
+    "type": "INTEGER",
+    "mode": "NULLABLE"
+   },
+   {
+    "name": "createdOn",
+    "type": "INTEGER",
+    "mode": "NULLABLE"
+   },
+   {
+    "name": "createdBy",
+    "type": "STRING",
+    "mode": "NULLABLE"
+   },
+   {
+    "name": "isActive",
+    "type": "BOOLEAN",
+    "mode": "NULLABLE"
+   },
+   {
+    "name": "isDeleted",
+    "type": "BOOLEAN",
+    "mode": "NULLABLE"
+   },
+   {
+    "name": "isHotspot",
+    "type": "BOOLEAN",
+    "mode": "NULLABLE"
+   },
+   {
+    "name": "polygonId",
+    "type": "INTEGER",
+    "mode": "NULLABLE"
+   },
+   {
+    "name": "radius",
+    "type": "FLOAT",
+    "mode": "NULLABLE"
+   },
+   {
+    "name": "centroid",
+    "type": "RECORD",
+    "mode": "NULLABLE",
+    "fields": [
+     {
+      "name": "coordinates",
+      "type": "FLOAT",
+      "mode": "REPEATED"
+     },
+     {
+      "name": "type",
+      "type": "STRING",
+      "mode": "NULLABLE"
+     }
+    ]
+   }
 ]

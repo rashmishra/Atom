@@ -115,6 +115,16 @@
                 "mode": "NULLABLE"
             },
             {
+                "name": "cashbackPercent",
+                "type": "FLOAT",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "cashbackAmount",
+                "type": "FLOAT",
+                "mode": "NULLABLE"
+            },
+            {
                 "name": "voucherQuantityRange",
                 "type": "RECORD",
                 "mode": "NULLABLE",
@@ -502,6 +512,11 @@
     },
     {
         "name": "visible",
+        "type": "BOOLEAN",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "isCashback",
         "type": "BOOLEAN",
         "mode": "NULLABLE"
     }

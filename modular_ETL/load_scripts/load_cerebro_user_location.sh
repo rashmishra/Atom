@@ -196,15 +196,22 @@ if [[ "`bq ls $v_dataset_name | awk '{print $1}' | grep \"\b$tableName\b\"`" == 
 #                        base.metaInfo.orderId, base.metaInfo.paymentRequest, base.metaInfo.dealId, base.metaInfo.userId, base.location.type, 
 #                        base.location.coordinates, base.time, base.hotspotEntered, base.hotspotLeft, base.distanceFromHotspot
         ## Make another table with prior (till last run) data 
-        v_query="SELECT base.*
+        # v_query="SELECT base.*
+        #         FROM $v_dataset_name.$tableName  base 
+        #         LEFT OUTER JOIN  $v_metadataset_name.incremental_$tableName inc
+        #             ON inc.customerId = base.customerId
+        #             AND inc.time = base.time
+        #         WHERE inc.time IS NULL";
+
+        v_query="SELECT *        
                 FROM $v_dataset_name.$tableName  base 
-                LEFT OUTER JOIN  $v_metadataset_name.incremental_$tableName inc
-                    ON inc.customerId = base.customerId
-                    AND inc.time = base.time
-                WHERE inc.time IS NULL";
+                LEFT OUTER JOIN (SELECT customerId as inc_customer_ID, time as inc_time FROM $v_metadataset_name.incremental_$tableName) inc
+                    ON inc.inc_customer_ID = base.customerId
+                    AND inc.inc_time = base.time
+                WHERE inc.inc_time IS NOT NULL";
         v_destination_tbl="$v_metadataset_name.prior_$tableName";
         echo "Destination table is $v_destination_tbl and Query is $v_query"
-        bq query  --maximum_billing_tier 150 --allow_large_results=1  --quiet --noflatten_results --replace --destination_table=$v_destination_tbl "$v_query" 2> "$v_data_object"_prior_table_result.txt &
+        bq query  --maximum_billing_tier 150 --allow_large_results=1  -n 1 --noflatten_results --replace --destination_table=$v_destination_tbl "$v_query" 2> "$v_data_object"_prior_table_result.txt &
         v_pid=$!
 
         wait $v_pid

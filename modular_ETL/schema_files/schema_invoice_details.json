@@ -1,0 +1,38 @@
+[
+      {
+        "mode": "NULLABLE",
+        "name": "baId",
+        "type": "INTEGER"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "bankId",
+        "type": "INTEGER"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "processingDate",
+        "type": "INTEGER"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "transactionId",
+        "type": "STRING"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "filePath",
+        "type": "STRING"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "isAdjustment",
+        "type": "BOOLEAN"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "createdAt",
+        "type": "INTEGER"
+      }
+]
+

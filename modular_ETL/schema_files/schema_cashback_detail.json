@@ -41,7 +41,7 @@
     },
     {
         "name": "created_at",
-        "type": "TIMESTAMP",
+        "type": "INTEGER",
         "mode": "nullable"
     },
     {
@@ -51,7 +51,7 @@
     },
     {
         "name": "updated_at",
-        "type": "TIMESTAMP",
+        "type": "INTEGER",
         "mode": "nullable"
     },
     {
@@ -67,7 +67,7 @@
     },
     {
         "name": "msg_sent_at",
-        "type": "TIMESTAMP",
+        "type": "INTEGER",
         "mode": "nullable"
     },
     {
@@ -77,7 +77,7 @@
     },
     {
         "name": "cashback_processedat",
-        "type": "TIMESTAMP",
+        "type": "INTEGER",
         "mode": "nullable"
     },
     {

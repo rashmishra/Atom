@@ -1,0 +1,96 @@
+[ 
+    {
+        "name": "id",
+        "type": "INTEGER",
+        "mode": "nullable"
+    },
+    {
+        "name": "orderid",
+        "type": "INTEGER",
+        "mode": "nullable"
+    },
+    {
+        "name": "orderlineid",
+        "type": "INTEGER",
+        "mode": "nullable"
+    },
+    {
+        "name": "customerid",
+        "type": "INTEGER",
+        "mode": "nullable"
+    },
+    {
+        "name": "emailid",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "customer_phone",
+        "type": "INTEGER",
+        "mode": "nullable"
+    },
+    {
+        "name": "cashback_amount",
+        "type": "INTEGER",
+        "mode": "nullable"
+    },
+    {
+        "name": "istravel",
+        "type": "BOOLEAN",
+        "mode": "nullable"
+    },
+    {
+        "name": "created_at",
+        "type": "INTEGER",
+        "mode": "nullable"
+    },
+    {
+        "name": "created_by",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "updated_at",
+        "type": "INTEGER",
+        "mode": "nullable"
+    },
+    {
+        "name": "updated_by",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+
+    {
+        "name": "msg_sent",
+        "type": "BOOLEAN",
+        "mode": "nullable"
+    },
+    {
+        "name": "msg_sent_at",
+        "type": "INTEGER",
+        "mode": "nullable"
+    },
+    {
+        "name": "cashback_processed",
+        "type": "BOOLEAN",
+        "mode": "nullable"
+    },
+    {
+        "name": "cashback_processedat",
+        "type": "INTEGER",
+        "mode": "nullable"
+    },
+    {
+        "name": "merchant_name",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "customer_name",
+        "type": "STRING",
+        "mode": "nullable"
+    }
+]
+
+
+

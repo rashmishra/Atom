@@ -190,7 +190,7 @@ if [[ "`bq ls $v_dataset_name | awk '{print $1}' | grep \"\b$tableName\b\"`" == 
 
             ## Make the diff table
             ## Make another table with prior (till last run) data 
-            v_query="SELECT * FROM $v_dataset_name.$tableName WHERE orderlineid NOT IN (SELECT orderlineid FROM $v_metadataset_name.incremental_$tableName)";
+            v_query="SELECT * FROM $v_dataset_name.$tableName WHERE id NOT IN (SELECT id FROM $v_metadataset_name.incremental_$tableName)";
             v_destination_tbl="$v_metadataset_name.prior_$tableName";
             echo "Destination table is $v_destination_tbl and Query is $v_query"
             bq query  --maximum_billing_tier 10 --allow_large_results=1  --quiet --replace --destination_table=$v_destination_tbl "$v_query" &

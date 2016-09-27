@@ -91,7 +91,13 @@ v_log_obj_txt+=`echo "\n$(date) Query is $query."`;
 
 
 cd $v_mongo_dir
-./mongoexport --host 10.2.1.226:27017 --db locationTracker -c userLocation -q "$query" --out $v_data_dump_dir/$v_data_object.json 2> $v_temp_dir/"$v_data_object"_extract_command_output.txt &
+
+primary=$(./mongo --host 10.2.1.126 --port 27017 --eval "printjson(rs.isMaster())" | grep "primary" | cut -d"\"" -f4) && echo $primary
+v_prefix="ip-"
+v_primary_ip=${primary#$v_prefix}
+echo "Primary IP is $v_primary_ip"
+
+./mongoexport --host "$v_primary_ip" --db locationTracker -c userLocation -q "$query" --out $v_data_dump_dir/$v_data_object.json 2> $v_temp_dir/"$v_data_object"_extract_command_output.txt &
 v_extract_pid=$!
 
 # Waiting for the process to complete and checking the status

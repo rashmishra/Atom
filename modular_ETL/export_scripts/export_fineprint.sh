@@ -92,7 +92,14 @@ v_log_obj_txt+=`echo "\n$(date) Query is $query."`;
 #v_export_result=`echo $(./mongoexport --host 10.2.1.227:27017 --db fineprintplatform -q "$query" -c fineprint --out $v_data_dump_dir/$v_data_object.json 2>&1)`;
 
 cd $v_mongo_dir
-./mongoexport --host 10.2.1.242:27017 --db nb-lookup -c fineprint --out $v_data_dump_dir/$v_data_object.json 2> $v_temp_dir/"$v_data_object"_extract_command_output.txt &
+
+
+primary=$(./mongo --host 10.2.3.72 --port 27017 --eval "printjson(rs.isMaster())" | grep "primary" | cut -d"\"" -f4) && echo $primary
+v_prefix="ip-"
+v_primary_ip=${primary#$v_prefix}
+echo "Primary IP is $v_primary_ip"
+
+./mongoexport --host "$v_primary_ip" --db nb-lookup -c fineprint --out $v_data_dump_dir/$v_data_object.json 2> $v_temp_dir/"$v_data_object"_extract_command_output.txt &
 v_extract_pid=$!
 
 # Waiting for the process to complete and checking the status

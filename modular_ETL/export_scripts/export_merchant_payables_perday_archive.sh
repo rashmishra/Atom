@@ -89,13 +89,13 @@ v_log_obj_txt+=`echo "\n$(date) Query is $query."`;
 
 cd $v_mongo_dir
 
-primary=$(~/mongo_cp/bin/mongo --host 10.2.1.235 --port 27017 --eval "printjson(rs.status())" | tail -n+3 | grep -v "ISODate" | grep -v "Timestamp");
-v_primary_ip=$(echo "$primary" | jq .members[1].name);
-v_primary_ip=${v_primary_ip//\"/};
+secondary=$(~/mongo_cp/bin/mongo --host 10.2.1.235 --port 27017 --eval "printjson(rs.status())" | tail -n+3 | grep -v "ISODate" | grep -v "Timestamp");
+v_secondary_ip=$(echo "$secondary" | jq .members[1].name);
+v_secondary_ip=${v_secondary_ip//\"/};
 
-echo "Primary IP is $v_primary_ip"
+echo "Secondary IP is $v_secondary_ip"
 
-./mongoexport --host "$v_primary_ip" --db aps-payable  -c merchant_payables_per_day_archive --out $v_data_dump_dir/$v_data_object.json 2> $v_temp_dir/"$v_data_object"_extract_command_output.txt &
+./mongoexport --host "$v_secondary_ip" --db aps-payable  -c merchant_payables_per_day_archive --out $v_data_dump_dir/$v_data_object.json 2> $v_temp_dir/"$v_data_object"_extract_command_output.txt &
 v_extract_pid=$!
 
 # Waiting for the process to complete and checking the status

@@ -93,7 +93,8 @@ cd $v_mongo_dir
 
 primary=$(./mongo --host 10.2.3.72 --port 27017 --eval "printjson(rs.isMaster())" | grep "primary" | cut -d"\"" -f4) && echo $primary
 v_prefix="ip-"
-v_primary_ip=${primary#$v_prefix}
+primary=${primary#$v_prefix}
+v_primary_ip=${primary//-/.}
 echo "Primary IP is $v_primary_ip"
 
 ./mongoexport --host "$v_primary_ip" --db nb-delivery-manager -c user_device_token_status --out $v_data_dump_dir/$v_data_object.json 2> $v_temp_dir/"$v_data_object"_extract_command_output.txt &

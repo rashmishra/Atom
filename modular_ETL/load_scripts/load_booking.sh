@@ -187,7 +187,7 @@ if [[ "`bq ls $v_dataset_name | awk '{print $1}' | grep \"\b$tableName\b\"`" == 
             v_query="SELECT * FROM $v_dataset_name.$tableName WHERE createdAt < $v_incremental_epoch";
             v_destination_tbl="$v_metadataset_name.prior_$tableName";
             echo "Destination table is $v_destination_tbl and Query is $v_query"
-            bq query --quiet   --maximum_billing_tier 10 --allow_large_results=1 --flatten_results=0 --replace --destination_table=$v_destination_tbl "$v_query" &
+            bq query --quiet   --maximum_billing_tier 10 --allow_large_results=1 --flatten_results=0 -n 1 --replace --destination_table=$v_destination_tbl "$v_query" &
             v_pid=$!
 
             if wait $v_pid; then
@@ -221,7 +221,7 @@ fi
 
 v_destination_tbl="$v_metadataset_name.prior_$tableName";
 v_query="SELECT * FROM $v_metadataset_name.incremental_$tableName";
-bq query --append=1 --flatten_results=0 --allow_large_results=1 --destination_table=$v_destination_tbl "$v_query" &
+bq query --append=1 --flatten_results=0 --allow_large_results=1 -n 1 --destination_table=$v_destination_tbl "$v_query" &
 v_pid=$!
 
 if wait $v_pid; then

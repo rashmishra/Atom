@@ -87,11 +87,13 @@ p_exit_upon_error(){
 
 cd $v_mongo_dir
 
-secondary=$(~/mongo_cp/bin/mongo --host 10.2.3.72 --port 27017 --eval "printjson(rs.status())" | tail -n+3 | grep -v "ISODate" | grep -v "Timestamp");
-v_secondary_ip=$(echo "$secondary" | jq .members[1].name);
-v_secondary_ip=${v_secondary_ip//\"/};
+v_arbiter_ip="10.2.3.72"
 
-echo "Secondary IP is $v_secondary_ip"
+v_primary_ip=`./mongo   --host $v_arbiter_ip:27017 --eval="printjson(rs.isMaster())" | tail -n+3 | grep -v ISODate | grep -v "Object" | jq .primary`;
+v_secondary_ip=`./mongo   --host $v_arbiter_ip --eval="printjson(rs.isMaster())" | tail -n+3 | grep -v ISODate | grep -v "Object" | jq .hosts | grep -v "$v_primary_ip" | grep -v  "\[" | grep -v "\]" | sed -e 's/\"//g' | sed -e 's/\ //g'`;
+v_secondary_ip=`echo $v_secondary_ip | sed -e 's/,//g' | sed -e 's/-/./g' | sed -e 's/ip.//g' | head -n 1`;
+echo "Secondary IP is $v_secondary_ip";
+
 
 ./mongoexport --host "$v_secondary_ip" --db location -c mall_market_street --out $v_data_dump_dir/$v_data_object.json 2> $v_temp_dir/"$v_data_object"_extract_command_output.txt &
 v_extract_pid=$!

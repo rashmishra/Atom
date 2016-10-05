@@ -35,6 +35,15 @@
     "mode": "NULLABLE"
    },
    {
+    "name": "updatedAt",
+    "type": "INTEGER",
+    "mode": "NULLABLE"
+   },
+   {
+    "name": "updatedBy",
+    "type": "STRING",
+    "mode": "NULLABLE"
+   },{
     "name": "isActive",
     "type": "BOOLEAN",
     "mode": "NULLABLE"

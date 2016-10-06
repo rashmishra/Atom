@@ -113,15 +113,18 @@ p_exit_upon_error(){
 
 # Detailed Reports movement
 v_report_month=$(date +%Y%m);
+v_prev_report_month=$(date -d '- 1 month' +%Y%m);
 
 v_load_pids="";
 
 for i in $PLAY_TRANSFORM_DETAILED_REPORT_NAMES; do
     # echo "mv $v_transform_dir/${i}_${v_report_month}.csv $v_load_dir/"
-    mv $v_transform_dir/${i}_${v_report_month}.csv $v_load_dir/
+    mv $v_transform_dir/${i}_${v_report_month}.csv $v_load_dir/    
+    mv $v_transform_dir/${i}_${v_prev_report_month}.csv $v_load_dir/    
     v_load_pids+=" $!"
     # echo "gsutil -m cp $v_load_dir/${i}_${v_report_month}.csv $v_cloud_storage_path"
-    gsutil -m cp $v_load_dir/${i}_${v_report_month}.csv $v_cloud_storage_path &
+    gsutil -m cp $v_load_dir/${i}_${v_report_month}.csv $v_cloud_storage_path 
+    gsutil -m cp $v_load_dir/${i}_${v_prev_report_month}.csv $v_cloud_storage_path &
     v_load_pids+=" $!"
 
 done
@@ -143,14 +146,19 @@ p_exit_upon_error "$v_task_status" "$v_subtask"
 
 # Incremental Table
 v_fileName=crashes_com.nearbuy.nearbuymobile_${v_report_month}.csv
+v_prev_fileName=crashes_com.nearbuy.nearbuymobile_${v_prev_report_month}.csv
 tableName=crashes_crashes
 v_destination_tbl="$v_metadataset_name.incremental_$tableName";
 schemaFileName=schema_playstore_crashes_crashes.json
 v_load_pids="";
 
+echo "Prev File Name: $v_prev_fileName";
+echo "File Name: $v_fileName";
 
-echo "bq load --quiet --replace --field_delimiter=',' --source_format=CSV --skip_leading_rows=1 --max_bad_records=0  --allow_jagged_rows=1 --allow_quoted_newlines=1 --ignore_unknown_values=1   $v_destination_tbl $v_cloud_storage_path/$v_fileName $v_schema_filepath/$schemaFileName"
-bq load --quiet --replace --field_delimiter=',' --source_format=CSV --skip_leading_rows=1 --max_bad_records=0  --allow_jagged_rows=1 --allow_quoted_newlines=1 --ignore_unknown_values=1   $v_destination_tbl $v_cloud_storage_path/$v_fileName $v_schema_filepath/$schemaFileName 
+echo "Y" | bq rm $v_destination_tbl;
+echo "bq load --quiet --field_delimiter=',' --source_format=CSV --skip_leading_rows=1 --max_bad_records=0  --allow_jagged_rows=1 --allow_quoted_newlines=1 --ignore_unknown_values=1   $v_destination_tbl $v_cloud_storage_path/$v_fileName $v_schema_filepath/$schemaFileName"
+bq load --quiet --field_delimiter=',' --source_format=CSV --skip_leading_rows=1 --max_bad_records=0  --allow_jagged_rows=1 --allow_quoted_newlines=1 --ignore_unknown_values=1   $v_destination_tbl $v_cloud_storage_path/$v_fileName  $v_schema_filepath/$schemaFileName 
+bq load --quiet --field_delimiter=',' --source_format=CSV --skip_leading_rows=1 --max_bad_records=0  --allow_jagged_rows=1 --allow_quoted_newlines=1 --ignore_unknown_values=1   $v_destination_tbl $v_cloud_storage_path/$v_prev_fileName $v_schema_filepath/$schemaFileName 
 v_load_pids+=" $!"
 
 if [[ "`bq ls $v_dataset_name | awk '{print $1}' | grep \"\b$tableName\b\"`" == "$tableName" ]] ; 
@@ -200,13 +208,17 @@ p_exit_upon_error "$v_task_status" "$v_subtask"
 
 # Incremental Table
 v_fileName=anrs_com.nearbuy.nearbuymobile_${v_report_month}.csv
+v_prev_fileName=anrs_com.nearbuy.nearbuymobile_${v_prev_report_month}.csv
 tableName=crashes_anrs
 v_destination_tbl="$v_metadataset_name.incremental_$tableName";
 schemaFileName=schema_playstore_crashes_anrs.json
 v_load_pids=""
 
-echo "bq load --quiet --replace --field_delimiter=',' --source_format=CSV --skip_leading_rows=1 --max_bad_records=0  --allow_jagged_rows=1 --allow_quoted_newlines=1 --ignore_unknown_values=1   $v_destination_tbl $v_cloud_storage_path/$v_fileName $v_schema_filepath/$schemaFileName"
-bq load --quiet --replace --field_delimiter=',' --source_format=CSV --skip_leading_rows=1 --max_bad_records=0  --allow_jagged_rows=1 --allow_quoted_newlines=1 --ignore_unknown_values=1   $v_destination_tbl $v_cloud_storage_path/$v_fileName $v_schema_filepath/$schemaFileName
+
+echo "Y" | bq rm $v_destination_tbl;
+echo "bq load --quiet --field_delimiter=',' --source_format=CSV --skip_leading_rows=1 --max_bad_records=0  --allow_jagged_rows=1 --allow_quoted_newlines=1 --ignore_unknown_values=1   $v_destination_tbl $v_cloud_storage_path/$v_fileName $v_schema_filepath/$schemaFileName"
+bq load --quiet --field_delimiter=',' --source_format=CSV --skip_leading_rows=1 --max_bad_records=0  --allow_jagged_rows=1 --allow_quoted_newlines=1 --ignore_unknown_values=1   $v_destination_tbl $v_cloud_storage_path/$v_fileName $v_schema_filepath/$schemaFileName
+bq load --quiet --field_delimiter=',' --source_format=CSV --skip_leading_rows=1 --max_bad_records=0  --allow_jagged_rows=1 --allow_quoted_newlines=1 --ignore_unknown_values=1   $v_destination_tbl $v_cloud_storage_path/$v_prev_fileName $v_schema_filepath/$schemaFileName
 v_load_pids+=" $!"
 
 if [[ "`bq ls $v_dataset_name | awk '{print $1}' | grep \"\b$tableName\b\"`" == "$tableName" ]] ; 
@@ -258,13 +270,19 @@ p_exit_upon_error "$v_task_status" "$v_subtask"
 
 # Incremental Table
 v_fileName=reviews_com.nearbuy.nearbuymobile_${v_report_month}.csv
+v_prev_fileName=reviews_com.nearbuy.nearbuymobile_${v_prev_report_month}.csv
 tableName=reviews_reviews
 v_destination_tbl="$v_metadataset_name.incremental_$tableName";
 schemaFileName=schema_playstore_reviews_reviews.json
 v_load_pids=""
 
-echo "bq load --quiet --replace --field_delimiter=',' --source_format=CSV --skip_leading_rows=1 --max_bad_records=0  --allow_jagged_rows=1 --allow_quoted_newlines=1 --ignore_unknown_values=1   $v_destination_tbl $v_cloud_storage_path/$v_fileName $v_schema_filepath/$schemaFileName"
-bq load --quiet --replace --field_delimiter=',' --source_format=CSV --skip_leading_rows=1 --max_bad_records=0  --allow_jagged_rows=1 --allow_quoted_newlines=1 --ignore_unknown_values=1   $v_destination_tbl $v_cloud_storage_path/$v_fileName $v_schema_filepath/$schemaFileName
+echo "Prev File Name: $v_prev_fileName";
+echo "File Name: $v_fileName";
+
+echo "Y" | bq rm $v_destination_tbl;
+echo "bq load --quiet --field_delimiter=',' --source_format=CSV --skip_leading_rows=1 --max_bad_records=0  --allow_jagged_rows=1 --allow_quoted_newlines=1 --ignore_unknown_values=1   $v_destination_tbl $v_cloud_storage_path/$v_fileName $v_schema_filepath/$schemaFileName"
+bq load --quiet --field_delimiter=',' --source_format=CSV --skip_leading_rows=1 --max_bad_records=0  --allow_jagged_rows=1 --allow_quoted_newlines=1 --ignore_unknown_values=1   $v_destination_tbl $v_cloud_storage_path/$v_fileName $v_schema_filepath/$schemaFileName
+bq load --quiet --field_delimiter=',' --source_format=CSV --skip_leading_rows=1 --max_bad_records=0  --allow_jagged_rows=1 --allow_quoted_newlines=1 --ignore_unknown_values=1   $v_destination_tbl $v_cloud_storage_path/$v_prev_fileName $v_schema_filepath/$schemaFileName
 v_load_pids+=" $!"
 
 if [[ "`bq ls $v_dataset_name | awk '{print $1}' | grep \"\b$tableName\b\"`" == "$tableName" ]] ; 
@@ -315,6 +333,7 @@ echo "Completed Detailed Reports Conversion"
 ## Aggregated Reports movement
 # Aggregated Reports: Crashes
 v_report_month=$(date +%Y%m);
+v_prev_report_month=$(date -d '- 1 month' +%Y%m);
 
 tableName=stats_crashes
 
@@ -329,14 +348,25 @@ fi
 
 for i in $PLAY_AGGREGATED_CRASHES_REPORT_NAMES; do
     v_fileName=${PLAY_AGGREGATED_CRASHES_REPORT_PREFIX}_${v_report_month}_${i}.csv
+    v_prev_fileName=${PLAY_AGGREGATED_CRASHES_REPORT_PREFIX}_${v_prev_report_month}_${i}.csv
+
+    echo -e "\nPrev File Name: $v_prev_fileName";
+    echo -e "\nFile Name: $v_fileName";
+    
+    echo -e "\nCommand used: mv $v_transform_dir/$v_fileName $v_load_dir/"
+    echo -e "Command used: $v_transform_dir/$v_prev_fileName $v_load_dir/\n"
+
     # echo "mv $v_transform_dir/$v_fileName $v_load_dir/"
     mv $v_transform_dir/$v_fileName $v_load_dir/
+    mv $v_transform_dir/$v_prev_fileName $v_load_dir/
     v_load_pids+=" $!"
     # echo "gsutil -m cp $v_load_dir/$v_fileName $v_cloud_storage_path"
-    gsutil -m cp $v_load_dir/$v_fileName $v_cloud_storage_path
+    gsutil -m cp $v_load_dir/$v_fileName  $v_cloud_storage_path
+    gsutil -m cp $v_load_dir/$v_prev_fileName $v_cloud_storage_path
     v_load_pids+=" $!"
     # echo "bq load --quiet --field_delimiter=',' --source_format=CSV --skip_leading_rows=1 --max_bad_records=0  --allow_jagged_rows=1 --allow_quoted_newlines=1 --ignore_unknown_values=1   $v_destination_tbl $v_cloud_storage_path/$v_fileName $v_schema_filepath/$schemaFileName"
-    bq load --quiet --field_delimiter=',' --source_format=CSV --skip_leading_rows=1 --max_bad_records=0  --allow_jagged_rows=1 --allow_quoted_newlines=1 --ignore_unknown_values=1   $v_destination_tbl $v_cloud_storage_path/$v_fileName $v_schema_filepath/$schemaFileName &
+    bq load --quiet --field_delimiter=',' --source_format=CSV --skip_leading_rows=1 --max_bad_records=0  --allow_jagged_rows=1 --allow_quoted_newlines=1 --ignore_unknown_values=1   $v_destination_tbl $v_cloud_storage_path/$v_fileName $v_schema_filepath/$schemaFileName 
+    bq load --quiet --field_delimiter=',' --source_format=CSV --skip_leading_rows=1 --max_bad_records=0  --allow_jagged_rows=1 --allow_quoted_newlines=1 --ignore_unknown_values=1   $v_destination_tbl $v_cloud_storage_path/$v_prev_fileName $v_schema_filepath/$schemaFileName &
     v_load_pids+=" $!"
 done
 
@@ -390,6 +420,7 @@ p_exit_upon_error "$v_task_status" "$v_subtask"
 
 # Aggregated Reports: GCM
 v_report_month=$(date +%Y%m);
+v_prev_report_month=$(date -d '- 1 month' +%Y%m);
 
 tableName=stats_gcm
 
@@ -404,16 +435,25 @@ fi
 
 for i in $PLAY_AGGREGATED_GCM_REPORT_NAMES; do
     v_fileName=${PLAY_AGGREGATED_GCM_REPORT_PREFIX}_${v_report_month}_${i}.csv
+    v_fileName=${PLAY_AGGREGATED_GCM_REPORT_PREFIX}_${v_prev_report_month}_${i}.csv
+
+
+    echo "Prev File Name: $v_prev_fileName";
+    echo "File Name: $v_fileName";
+
     # echo "mv $v_transform_dir/$v_fileName $v_load_dir/"
     mv $v_transform_dir/$v_fileName $v_load_dir/
+    mv $v_transform_dir/$v_prev_fileName $v_load_dir/
     v_load_pids+=" $!"
     
-    # echo "gsutil -m cp $v_load_dir/$v_fileName $v_cloud_storage_path"
+    echo "gsutil -m cp $v_load_dir/$v_fileName $v_cloud_storage_path"
     gsutil -m cp $v_load_dir/$v_fileName $v_cloud_storage_path
+    gsutil -m cp $v_load_dir/$v_prev_fileName $v_cloud_storage_path
     v_load_pids+=" $!"
 
-    # echo "bq load --quiet --field_delimiter=',' --source_format=CSV --skip_leading_rows=1 --max_bad_records=0  --allow_jagged_rows=1 --allow_quoted_newlines=1 --ignore_unknown_values=1   $v_destination_tbl $v_cloud_storage_path/$v_fileName $v_schema_filepath/$schemaFileName"
-    bq load --quiet --field_delimiter=',' --source_format=CSV --skip_leading_rows=1 --max_bad_records=0  --allow_jagged_rows=1 --allow_quoted_newlines=1 --ignore_unknown_values=1   $v_destination_tbl $v_cloud_storage_path/$v_fileName $v_schema_filepath/$schemaFileName &
+    echo "bq load --quiet --field_delimiter=',' --source_format=CSV --skip_leading_rows=1 --max_bad_records=0  --allow_jagged_rows=1 --allow_quoted_newlines=1 --ignore_unknown_values=1   $v_destination_tbl $v_cloud_storage_path/$v_fileName $v_schema_filepath/$schemaFileName"
+    bq load --quiet --field_delimiter=',' --source_format=CSV --skip_leading_rows=1 --max_bad_records=0  --allow_jagged_rows=1 --allow_quoted_newlines=1 --ignore_unknown_values=1   $v_destination_tbl $v_cloud_storage_path/$v_fileName $v_schema_filepath/$schemaFileName
+    bq load --quiet --field_delimiter=',' --source_format=CSV --skip_leading_rows=1 --max_bad_records=0  --allow_jagged_rows=1 --allow_quoted_newlines=1 --ignore_unknown_values=1   $v_destination_tbl $v_cloud_storage_path/$v_prev_report_month $v_schema_filepath/$schemaFileName &
     v_load_pids+=" $!"
 done
 
@@ -467,6 +507,7 @@ p_exit_upon_error "$v_task_status" "$v_subtask"
 
 # Aggregated Reports: Installs
 v_report_month=$(date +%Y%m);
+v_prev_report_month=$(date -d '- 1 month' +%Y%m);
 
 tableName=stats_installs
 
@@ -480,16 +521,29 @@ fi
 
 
 for i in $PLAY_AGGREGATED_INSTALLS_REPORT_NAMES; do
+    
+    echo "$v_report_month";
+    echo "$v_prev_report_month";
+
     v_fileName=${PLAY_AGGREGATED_INSTALLS_REPORT_PREFIX}_${v_report_month}_${i}.csv
+    v_fileName=${PLAY_AGGREGATED_INSTALLS_REPORT_PREFIX}_${v_prev_report_month}_${i}.csv
+
+    echo "Prev File Name: $v_prev_fileName";
+    echo "File Name: $v_fileName";
+
     # echo "mv $v_transform_dir/$v_fileName $v_load_dir/"
     mv $v_transform_dir/$v_fileName $v_load_dir/
+    mv $v_transform_dir/$v_prev_fileName $v_load_dir/
+
     v_load_pids+=" $!"
     # echo "gsutil -m cp $v_load_dir/$v_fileName $v_cloud_storage_path"
     gsutil -m cp $v_load_dir/$v_fileName $v_cloud_storage_path
+    gsutil -m cp $v_load_dir/$v_prev_fileName $v_cloud_storage_path
     v_load_pids+=" $!"
 
     # echo "bq load --quiet --field_delimiter=',' --source_format=CSV --skip_leading_rows=1 --max_bad_records=0  --allow_jagged_rows=1 --allow_quoted_newlines=1 --ignore_unknown_values=1   $v_destination_tbl $v_cloud_storage_path/$v_fileName $v_schema_filepath/$schemaFileName"
-    bq load --quiet --field_delimiter=',' --source_format=CSV --skip_leading_rows=1 --max_bad_records=0  --allow_jagged_rows=1 --allow_quoted_newlines=1 --ignore_unknown_values=1   $v_destination_tbl $v_cloud_storage_path/$v_fileName $v_schema_filepath/$schemaFileName &
+    bq load --quiet --field_delimiter=',' --source_format=CSV --skip_leading_rows=1 --max_bad_records=0  --allow_jagged_rows=1 --allow_quoted_newlines=1 --ignore_unknown_values=1   $v_destination_tbl $v_cloud_storage_path/$v_fileName $v_schema_filepath/$schemaFileName 
+    bq load --quiet --field_delimiter=',' --source_format=CSV --skip_leading_rows=1 --max_bad_records=0  --allow_jagged_rows=1 --allow_quoted_newlines=1 --ignore_unknown_values=1   $v_destination_tbl $v_cloud_storage_path/$v_prev_fileName $v_schema_filepath/$schemaFileName &
     v_load_pids+=" $!"
 done
 
@@ -529,7 +583,7 @@ bq rm -f $v_metadataset_name.incremental_$tableName &
 v_load_pids+=" $!"
 
 
-v_subtask="Aggregated Reports data update: GCM"
+v_subtask="Aggregated Reports data update: Installs"
 if wait $v_load_pids; then
     echo "Processes $v_load_pids Status: success";
     v_task_status="success";
@@ -544,6 +598,7 @@ p_exit_upon_error "$v_task_status" "$v_subtask"
 
 # Aggregated Reports: Ratings
 v_report_month=$(date +%Y%m);
+v_prev_report_month=$(date -d '- 1 month' +%Y%m);
 
 tableName=stats_ratings
 v_destination_tbl="$v_metadataset_name.incremental_$tableName";
@@ -556,16 +611,24 @@ fi
 
 for i in $PLAY_AGGREGATED_RATINGS_REPORT_NAMES; do
     v_fileName=${PLAY_AGGREGATED_RATINGS_REPORT_PREFIX}_${v_report_month}_${i}.csv
+    v_fileName=${PLAY_AGGREGATED_RATINGS_REPORT_PREFIX}_${v_prev_report_month}_${i}.csv
+
+    echo "Prev File Name: $v_prev_fileName";
+    echo "File Name: $v_fileName";
+
     # echo "mv $v_transform_dir/$v_fileName $v_load_dir/"
     mv $v_transform_dir/$v_fileName $v_load_dir/
+    mv $v_transform_dir/$v_prev_fileName $v_load_dir/
     v_load_pids+=" $!"
     
     # echo "gsutil -m cp $v_load_dir/$v_fileName $v_cloud_storage_path"
     gsutil -m cp $v_load_dir/$v_fileName $v_cloud_storage_path
+    gsutil -m cp $v_load_dir/$v_prev_fileName $v_cloud_storage_path
     v_load_pids+=" $!"
 
     # echo "bq load --quiet --field_delimiter=',' --source_format=CSV --skip_leading_rows=1 --max_bad_records=0  --allow_jagged_rows=1 --allow_quoted_newlines=1 --ignore_unknown_values=1   $v_destination_tbl $v_cloud_storage_path/$v_fileName $v_schema_filepath/$schemaFileName"
-    bq load --quiet --field_delimiter=',' --source_format=CSV --skip_leading_rows=1 --max_bad_records=0  --allow_jagged_rows=1 --allow_quoted_newlines=1 --ignore_unknown_values=1   $v_destination_tbl $v_cloud_storage_path/$v_fileName $v_schema_filepath/$schemaFileName &
+    bq load --quiet --field_delimiter=',' --source_format=CSV --skip_leading_rows=1 --max_bad_records=0  --allow_jagged_rows=1 --allow_quoted_newlines=1 --ignore_unknown_values=1   $v_destination_tbl $v_cloud_storage_path/$v_fileName $v_schema_filepath/$schemaFileName 
+    bq load --quiet --field_delimiter=',' --source_format=CSV --skip_leading_rows=1 --max_bad_records=0  --allow_jagged_rows=1 --allow_quoted_newlines=1 --ignore_unknown_values=1   $v_destination_tbl $v_cloud_storage_path/$v_prev_fileName $v_schema_filepath/$schemaFileName &
     v_load_pids+=" $!"
 done
 

@@ -95,11 +95,15 @@ cd $v_data_dump_dir;
 v_subtask="Playstore Detailed Reports"
 
 ## Detailed Reports Download
-v_report_month=$(date +%Y%m);
+#v_report_month=$(date +%Y%m);
+
+v_report_month=$(date -d '- 0days' +%Y%m);
+v_prev_report_month=$(date -d '- 1 month' +%Y%m);
+
 v_detailed_rep_pids=""
 for i in $PLAY_DETAILED_REPORT_NAMES; do
-
-gsutil -m cp ${PLAY_BUCKET}/${i}_${v_report_month}.csv ./ &
+gsutil -m cp ${PLAY_BUCKET}/${i}_${v_report_month}.csv ./ 
+gsutil -m cp ${PLAY_BUCKET}/${i}_${v_prev_report_month}.csv ./ &
 v_pid=$!
 v_detailed_rep_pids+=" $v_pid"
 done
@@ -118,10 +122,15 @@ p_exit_upon_error "$v_task_status" "$v_subtask"
 v_subtask="Playstore Aggregated Reports"
 
 v_agg_crash_rep_pids="";
-for i in $PLAY_AGGREGATED_CRASHES_REPORT_NAMES; do
-    gsutil -m cp ${PLAY_AGGREGATED_CRASHES_REPORT_FOLDER}/${PLAY_AGGREGATED_CRASHES_REPORT_PREFIX}_${v_report_month}_${i}.csv ./ &
+for i in $PLAY_AGGREGATED_CRASHES_REPORT_NAMES; do 
+     echo $i;
+     sleep 2;
+    gsutil -m cp ${PLAY_AGGREGATED_CRASHES_REPORT_FOLDER}/${PLAY_AGGREGATED_CRASHES_REPORT_PREFIX}_${v_report_month}_${i}.csv  ./
+    gsutil -m cp ${PLAY_AGGREGATED_CRASHES_REPORT_FOLDER}/${PLAY_AGGREGATED_CRASHES_REPORT_PREFIX}_${v_prev_report_month}_${i}.csv ./ &
     v_pid=$!
-    v_agg_crash_rep_pids+=" $v_pid"
+    echo "PID for $i is : $v_pid"
+    v_agg_crash_rep_pids+=" $v_pid";
+    sleep 1;
 done
 
 if wait $v_agg_crash_rep_pids; 
@@ -137,7 +146,8 @@ p_exit_upon_error "$v_task_status" "$v_subtask"
 ## GCM
 v_agg_gcm_rep_pids="";
 for i in $PLAY_AGGREGATED_GCM_REPORT_NAMES; do
-    gsutil -m cp ${PLAY_AGGREGATED_GCM_REPORT_FOLDER}/${PLAY_AGGREGATED_GCM_REPORT_PREFIX}_${v_report_month}_${i}.csv ./ &
+    gsutil -m cp ${PLAY_AGGREGATED_GCM_REPORT_FOLDER}/${PLAY_AGGREGATED_GCM_REPORT_PREFIX}_${v_report_month}_${i}.csv  ./
+    gsutil -m cp ${PLAY_AGGREGATED_GCM_REPORT_FOLDER}/${PLAY_AGGREGATED_GCM_REPORT_PREFIX}_${v_prev_report_month}_${i}.csv ./ &
     v_pid=$!
     v_agg_gcm_rep_pids+=" $v_pid"
 done
@@ -153,7 +163,8 @@ p_exit_upon_error "$v_task_status" "$v_subtask"
 
 ## Installs
 for i in $PLAY_AGGREGATED_INSTALLS_REPORT_NAMES; do
-    gsutil -m cp ${PLAY_AGGREGATED_INSTALLS_REPORT_FOLDER}/${PLAY_AGGREGATED_INSTALLS_REPORT_PREFIX}_${v_report_month}_${i}.csv ./ &
+    gsutil -m cp ${PLAY_AGGREGATED_INSTALLS_REPORT_FOLDER}/${PLAY_AGGREGATED_INSTALLS_REPORT_PREFIX}_${v_report_month}_${i}.csv ./ 
+    gsutil -m cp ${PLAY_AGGREGATED_INSTALLS_REPORT_FOLDER}/${PLAY_AGGREGATED_INSTALLS_REPORT_PREFIX}_${v_prev_report_month}_${i}.csv ./ &
     v_pid=$!
     v_agg_installs_rep_pids+=" $v_pid"
 done
@@ -169,7 +180,8 @@ p_exit_upon_error "$v_task_status" "$v_subtask"
 
 ## Ratings
 for i in $PLAY_AGGREGATED_RATINGS_REPORT_NAMES; do
-    gsutil -m cp ${PLAY_AGGREGATED_RATINGS_REPORT_FOLDER}/${PLAY_AGGREGATED_RATINGS_REPORT_PREFIX}_${v_report_month}_${i}.csv ./ &
+    gsutil -m cp ${PLAY_AGGREGATED_RATINGS_REPORT_FOLDER}/${PLAY_AGGREGATED_RATINGS_REPORT_PREFIX}_${v_report_month}_${i}.csv ./
+    gsutil -m cp ${PLAY_AGGREGATED_RATINGS_REPORT_FOLDER}/${PLAY_AGGREGATED_RATINGS_REPORT_PREFIX}_${v_prev_report_month}_${i}.csv ./ &
     v_pid=$!
     v_agg_ratings_rep_pids+=" $v_pid"
 done

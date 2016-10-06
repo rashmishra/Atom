@@ -100,14 +100,17 @@ v_subtask="Playstore Detailed Reports"
 ## Detailed Reports Conversion
 # v_report_month=$(date +%Y%m);
 
-v_report_month=$(date -d '- 5days' +%Y%m);
+v_report_month=$(date +%Y%m);
+v_prev_report_month=$(date -d '- 1 month' +%Y%m);
 
 v_detailed_rep_pids=""
 for i in $PLAY_TRANSFORM_DETAILED_REPORT_NAMES; do
 
 echo "Command used: iconv -f UTF-16 -t UTF-8 ${v_data_dump_dir}/${i}_${v_report_month}.csv -o $v_transform_dir/${i}_${v_report_month}.csv &";
 ls -lrth  ${v_data_dump_dir}/${i}_${v_report_month}.csv
-iconv -f UTF-16 -t UTF-8 ${v_data_dump_dir}/${i}_${v_report_month}.csv  -o  ${v_transform_dir}/${i}_${v_report_month}.csv &
+ls -lrth  ${v_data_dump_dir}/${i}_${v_prev_report_month}.csv
+iconv -f UTF-16 -t UTF-8 ${v_data_dump_dir}/${i}_${v_report_month}.csv  -o  ${v_transform_dir}/${i}_${v_report_month}.csv
+iconv -f UTF-16 -t UTF-8 ${v_data_dump_dir}/${i}_${v_prev_report_month}.csv  -o  ${v_transform_dir}/${i}_${v_prev_report_month}.csv &
 v_pid=$!
 v_detailed_rep_pids+=" $v_pid"
 ls -lrth  ${v_transform_dir}/${i}_${v_report_month}.csv
@@ -132,7 +135,8 @@ v_subtask="Playstore Aggregated Reports"
 v_agg_crash_rep_pids="";
 for i in $PLAY_AGGREGATED_CRASHES_REPORT_NAMES; do
     echo "Command used: iconv -f UTF-16 -t UTF-8 ${v_data_dump_dir}/${PLAY_AGGREGATED_CRASHES_REPORT_PREFIX}_${v_report_month}_${i}.csv -o $v_transform_dir/${PLAY_AGGREGATED_CRASHES_REPORT_PREFIX}_${v_report_month}_${i}.csv &";
-    iconv -f UTF-16 -t UTF-8 ${v_data_dump_dir}/${PLAY_AGGREGATED_CRASHES_REPORT_PREFIX}_${v_report_month}_${i}.csv -o $v_transform_dir/${PLAY_AGGREGATED_CRASHES_REPORT_PREFIX}_${v_report_month}_${i}.csv &
+    iconv -f UTF-16 -t UTF-8 ${v_data_dump_dir}/${PLAY_AGGREGATED_CRASHES_REPORT_PREFIX}_${v_report_month}_${i}.csv -o $v_transform_dir/${PLAY_AGGREGATED_CRASHES_REPORT_PREFIX}_${v_report_month}_${i}.csv 
+    iconv -f UTF-16 -t UTF-8 ${v_data_dump_dir}/${PLAY_AGGREGATED_CRASHES_REPORT_PREFIX}_${v_prev_report_month}_${i}.csv -o $v_transform_dir/${PLAY_AGGREGATED_CRASHES_REPORT_PREFIX}_${v_prev_report_month}_${i}.csv &
     v_pid=$!
     v_agg_crash_rep_pids+=" $v_pid"
 done
@@ -151,7 +155,8 @@ echo "Completed AGgregated Reports Conversion: Crashes"
 ## GCM
 v_agg_gcm_rep_pids="";
 for i in $PLAY_AGGREGATED_GCM_REPORT_NAMES; do
-    iconv -f UTF-16 -t UTF-8 ${v_data_dump_dir}/${PLAY_AGGREGATED_GCM_REPORT_PREFIX}_${v_report_month}_${i}.csv -o $v_transform_dir/${PLAY_AGGREGATED_GCM_REPORT_PREFIX}_${v_report_month}_${i}.csv &
+    iconv -f UTF-16 -t UTF-8 ${v_data_dump_dir}/${PLAY_AGGREGATED_GCM_REPORT_PREFIX}_${v_report_month}_${i}.csv -o $v_transform_dir/${PLAY_AGGREGATED_GCM_REPORT_PREFIX}_${v_report_month}_${i}.csv 
+    iconv -f UTF-16 -t UTF-8 ${v_data_dump_dir}/${PLAY_AGGREGATED_GCM_REPORT_PREFIX}_${v_prev_report_month}_${i}.csv -o $v_transform_dir/${PLAY_AGGREGATED_GCM_REPORT_PREFIX}_${v_prev_report_month}_${i}.csv &
     v_pid=$!
     v_agg_gcm_rep_pids+=" $v_pid"
 done
@@ -170,7 +175,8 @@ echo "Completed AGgregated Reports Conversion: GCM"
 ## Installs
 v_agg_installs_rep_pids="";
 for i in $PLAY_AGGREGATED_INSTALLS_REPORT_NAMES; do
-    iconv -f UTF-16 -t UTF-8 ${v_data_dump_dir}/${PLAY_AGGREGATED_INSTALLS_REPORT_PREFIX}_${v_report_month}_${i}.csv -o $v_transform_dir/${PLAY_AGGREGATED_INSTALLS_REPORT_PREFIX}_${v_report_month}_${i}.csv &
+    iconv -f UTF-16 -t UTF-8 ${v_data_dump_dir}/${PLAY_AGGREGATED_INSTALLS_REPORT_PREFIX}_${v_report_month}_${i}.csv -o $v_transform_dir/${PLAY_AGGREGATED_INSTALLS_REPORT_PREFIX}_${v_report_month}_${i}.csv
+    iconv -f UTF-16 -t UTF-8 ${v_data_dump_dir}/${PLAY_AGGREGATED_INSTALLS_REPORT_PREFIX}_${v_prev_report_month}_${i}.csv -o $v_transform_dir/${PLAY_AGGREGATED_INSTALLS_REPORT_PREFIX}_${v_prev_report_month}_${i}.csv &
     v_pid=$!
     v_agg_installs_rep_pids+=" $v_pid"
 done
@@ -184,12 +190,14 @@ else
 fi
 p_exit_upon_error "$v_task_status" "$v_subtask"
 
+
 echo "Completed AGgregated Reports Conversion: Installs"
 
 ## Ratings
 v_agg_ratings_rep_pids="";
 for i in $PLAY_AGGREGATED_RATINGS_REPORT_NAMES; do
-    iconv -f UTF-16 -t UTF-8 ${v_data_dump_dir}/${PLAY_AGGREGATED_RATINGS_REPORT_PREFIX}_${v_report_month}_${i}.csv -o $v_transform_dir/${PLAY_AGGREGATED_RATINGS_REPORT_PREFIX}_${v_report_month}_${i}.csv &
+    iconv -f UTF-16 -t UTF-8 ${v_data_dump_dir}/${PLAY_AGGREGATED_RATINGS_REPORT_PREFIX}_${v_report_month}_${i}.csv -o $v_transform_dir/${PLAY_AGGREGATED_RATINGS_REPORT_PREFIX}_${v_report_month}_${i}.csv 
+    iconv -f UTF-16 -t UTF-8 ${v_data_dump_dir}/${PLAY_AGGREGATED_RATINGS_REPORT_PREFIX}_${v_prev_report_month}_${i}.csv -o $v_transform_dir/${PLAY_AGGREGATED_RATINGS_REPORT_PREFIX}_${v_prev_report_month}_${i}.csv &
     v_pid=$!
     v_agg_ratings_rep_pids+=" $v_pid"
 done
@@ -210,6 +218,7 @@ v_agg_crash_rep_pids="";
 for i in $PLAY_AGGREGATED_CRASHES_REPORT_NAMES; do
     echo "Command used: sed -i -e \"s/^/$i,/\" $v_transform_dir/${PLAY_AGGREGATED_CRASHES_REPORT_PREFIX}_${v_report_month}_${i}.csv &";
     sed -i -e "s/^/$i,/" $v_transform_dir/${PLAY_AGGREGATED_CRASHES_REPORT_PREFIX}_${v_report_month}_${i}.csv 
+    sed -i -e "s/^/$i,/" $v_transform_dir/${PLAY_AGGREGATED_CRASHES_REPORT_PREFIX}_${v_prev_report_month}_${i}.csv &
     v_pid=$!
     v_agg_crash_rep_pids+=" $v_pid"
 done
@@ -229,7 +238,8 @@ echo "Completed AGgregated Reports Dimension Name ADdition: Crashes"
 v_agg_gcm_rep_pids="";
 for i in $PLAY_AGGREGATED_GCM_REPORT_NAMES; do
     echo "Command used: sed -i -e \"s/^/$i,/\" $v_transform_dir/${PLAY_AGGREGATED_GCM_REPORT_PREFIX}_${v_report_month}_${i}.csv  &";
-    sed -i -e "s/^/$i,/" $v_transform_dir/${PLAY_AGGREGATED_GCM_REPORT_PREFIX}_${v_report_month}_${i}.csv &
+    sed -i -e "s/^/$i,/" $v_transform_dir/${PLAY_AGGREGATED_GCM_REPORT_PREFIX}_${v_report_month}_${i}.csv
+    sed -i -e "s/^/$i,/" $v_transform_dir/${PLAY_AGGREGATED_GCM_REPORT_PREFIX}_${v_prev_report_month}_${i}.csv &
     v_pid=$!
     v_agg_gcm_rep_pids+=" $v_pid"
 done
@@ -249,7 +259,8 @@ echo "Completed AGgregated Reports Dimension Name ADdition: GCM"
 v_agg_installs_rep_pids="";
 for i in $PLAY_AGGREGATED_INSTALLS_REPORT_NAMES; do
     echo "Command used: sed -i -e "s/^/$i,/" $v_transform_dir/${PLAY_AGGREGATED_INSTALLS_REPORT_PREFIX}_${v_report_month}_${i}.csv  &"
-    sed -i -e "s/^/$i,/" $v_transform_dir/${PLAY_AGGREGATED_INSTALLS_REPORT_PREFIX}_${v_report_month}_${i}.csv  &
+    sed -i -e "s/^/$i,/" $v_transform_dir/${PLAY_AGGREGATED_INSTALLS_REPORT_PREFIX}_${v_report_month}_${i}.csv  
+    sed -i -e "s/^/$i,/" $v_transform_dir/${PLAY_AGGREGATED_INSTALLS_REPORT_PREFIX}_${v_prev_report_month}_${i}.csv  &
     v_pid=$!
     v_agg_installs_rep_pids+=" $v_pid"
 done
@@ -269,7 +280,8 @@ echo "Completed AGgregated Reports Conversion: Installs"
 v_agg_ratings_rep_pids="";
 for i in $PLAY_AGGREGATED_RATINGS_REPORT_NAMES; do
     echo "Command used: sed -i -e \"s/^/$i,/\" $v_transform_dir/${PLAY_AGGREGATED_RATINGS_REPORT_PREFIX}_${v_report_month}_${i}.csv  &"
-    sed -i -e "s/^/$i,/" $v_transform_dir/${PLAY_AGGREGATED_RATINGS_REPORT_PREFIX}_${v_report_month}_${i}.csv  &
+    sed -i -e "s/^/$i,/" $v_transform_dir/${PLAY_AGGREGATED_RATINGS_REPORT_PREFIX}_${v_report_month}_${i}.csv  
+    sed -i -e "s/^/$i,/" $v_transform_dir/${PLAY_AGGREGATED_RATINGS_REPORT_PREFIX}_${v_prev_report_month}_${i}.csv  &
     
     v_pid=$!
     v_agg_ratings_rep_pids+=" $v_pid"
@@ -292,11 +304,12 @@ p_exit_upon_error "$v_task_status" "$v_subtask"
 # Detailed Reports
 #v_report_month=$(date +%Y%m);
 
-v_report_month=$(date -d '- 5days' +%Y%m);
+v_report_month=$(date +%Y%m);
 
 v_detailed_rep_pids=""
 for i in $PLAY_TRANSFORM_DETAILED_REPORT_NAMES; do
     rm ${v_data_dump_dir}/${i}_${v_report_month}.csv 
+    rm ${v_data_dump_dir}/${i}_${v_prev_report_month}.csv 
 done
 
 
@@ -307,6 +320,7 @@ v_subtask="Playstore Aggregated Reports"
 v_agg_crash_rep_pids="";
 for i in $PLAY_AGGREGATED_CRASHES_REPORT_NAMES; do
     rm ${v_data_dump_dir}/${PLAY_AGGREGATED_CRASHES_REPORT_PREFIX}_${v_report_month}_${i}.csv 
+    rm ${v_data_dump_dir}/${PLAY_AGGREGATED_CRASHES_REPORT_PREFIX}_${v_prev_report_month}_${i}.csv 
 done
 
 
@@ -314,6 +328,7 @@ done
 v_agg_gcm_rep_pids="";
 for i in $PLAY_AGGREGATED_GCM_REPORT_NAMES; do
     rm ${v_data_dump_dir}/${PLAY_AGGREGATED_GCM_REPORT_PREFIX}_${v_report_month}_${i}.csv 
+    rm ${v_data_dump_dir}/${PLAY_AGGREGATED_GCM_REPORT_PREFIX}_${v_prev_report_month}_${i}.csv 
 done
 
 
@@ -321,6 +336,7 @@ done
 v_agg_installs_rep_pids=""
 for i in $PLAY_AGGREGATED_INSTALLS_REPORT_NAMES; do
     rm ${v_data_dump_dir}/${PLAY_AGGREGATED_INSTALLS_REPORT_PREFIX}_${v_report_month}_${i}.csv 
+    rm ${v_data_dump_dir}/${PLAY_AGGREGATED_INSTALLS_REPORT_PREFIX}_${v_prev_report_month}_${i}.csv 
 done
 
 
@@ -328,6 +344,7 @@ done
 v_agg_ratings_rep_pids=""
 for i in $PLAY_AGGREGATED_RATINGS_REPORT_NAMES; do
     rm ${v_data_dump_dir}/${PLAY_AGGREGATED_RATINGS_REPORT_PREFIX}_${v_report_month}_${i}.csv 
+    rm ${v_data_dump_dir}/${PLAY_AGGREGATED_RATINGS_REPORT_PREFIX}_${v_prev_report_month}_${i}.csv 
 done
 ###################################################################################
 ## Storing the status (success/failed) into respective text file. This will be in 

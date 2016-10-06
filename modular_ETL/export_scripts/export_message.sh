@@ -88,11 +88,17 @@ v_log_obj_txt+=`echo "\n$(date) Query is $query."`;
 
 cd $v_mongo_dir
 
-v_arbiter_ip="10.2.3.72"
+#v_arbiter_ip="10.2.3.72"
+# 5 Oct 2016 | Ranganath | DB migrated from one server (10.2.3.72) to another (10.2.3.67).
+# v_arbiter_ip="10.2.3.67"
 
-v_primary_ip=`./mongo   --host $v_arbiter_ip:27017 --eval="printjson(rs.isMaster())" | tail -n+3 | grep -v ISODate | grep -v "Object" | jq .primary`;
-v_secondary_ip=`./mongo   --host $v_arbiter_ip --eval="printjson(rs.isMaster())" | tail -n+3 | grep -v ISODate | grep -v "Object" | jq .hosts | grep -v "$v_primary_ip" | grep -v  "\[" | grep -v "\]" | sed -e 's/\"//g' | sed -e 's/\ //g'`;
-v_secondary_ip=`echo $v_secondary_ip | sed -e 's/,//g' | sed -e 's/-/./g' | sed -e 's/ip.//g' | head -n 1`;
+# v_primary_ip=`./mongo   --host $v_arbiter_ip:27017 --eval="printjson(rs.isMaster())" | tail -n+3 | grep -v ISODate | grep -v "Object" | jq .primary`;
+# v_secondary_ip=`./mongo   --host $v_arbiter_ip --eval="printjson(rs.isMaster())" | tail -n+3 | grep -v ISODate | grep -v "Object" | jq .hosts | grep -v "$v_primary_ip" | grep -v  "\[" | grep -v "\]" | sed -e 's/\"//g' | sed -e 's/\ //g'`;
+# v_secondary_ip=`echo $v_secondary_ip | sed -e 's/,//g' | sed -e 's/-/./g' | sed -e 's/ip.//g' | head -n 1`;
+
+# 5 Oct 2016 | Ranganath | Using DNS alias for delivery manager
+v_secondary_ip="nb-prod-db-deliverymanager-secondary.nbtools.com";
+
 echo "${v_data_object}: Secondary IP is $v_secondary_ip";
 
 ./mongoexport --host "$v_secondary_ip" --db nb-delivery-manager -c message -q "$query" --out $v_data_dump_dir/$v_data_object.json 2> $v_temp_dir/"$v_data_object"_extract_command_output.txt &

@@ -708,6 +708,11 @@ v_log_obj_txt+=`echo "\n$v_etl_task process ended for $v_data_object at $v_task_
 v_log_obj_txt+=`echo "\n------------------------------------------------------------"`;
 v_log_obj_txt+=`echo "\n------------------------------------------------------------"`;
 
+## Writing the status (success/ failure) into proper file
+
+echo $v_task_status > $v_temp_dir/${v_data_object}_load_status.txt
+chmod 0777 $v_temp_dir/${v_data_object}_load_status.txt;
+
 
 ##############################################################################
 ## Storing the log text in data object specific log file in temp folder     ##

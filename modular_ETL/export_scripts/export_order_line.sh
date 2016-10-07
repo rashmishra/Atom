@@ -86,7 +86,8 @@ p_exit_upon_error(){
 #v_incremental_epoch=1465471494000;
 
 #echo "OMS data export start time is : $taskStartTime "
-DBHOST=nb-prod-oms-db-ugd.c6vqep7kcqpl.ap-southeast-1.rds.amazonaws.com
+# DBHOST=nb-prod-oms-db-ugd.c6vqep7kcqpl.ap-southeast-1.rds.amazonaws.com
+DBHOST=nb-prod-oms-db-ugd-read.c6vqep7kcqpl.ap-southeast-1.rds.amazonaws.com
 DBPORT=5432
 DBNAME=oms
 DBUSER=oms

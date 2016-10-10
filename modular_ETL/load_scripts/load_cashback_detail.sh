@@ -193,7 +193,7 @@ if [[ "`bq ls $v_dataset_name | awk '{print $1}' | grep \"\b$tableName\b\"`" == 
             v_query="SELECT * FROM $v_dataset_name.$tableName WHERE id NOT IN (SELECT id FROM $v_metadataset_name.incremental_$tableName)";
             v_destination_tbl="$v_metadataset_name.prior_$tableName";
             echo "Destination table is $v_destination_tbl and Query is $v_query"
-            bq query  --maximum_billing_tier 10 --allow_large_results=1  --quiet --replace --destination_table=$v_destination_tbl "$v_query" &
+            bq query  --maximum_billing_tier 10 --allow_large_results=1 --quiet --replace -n 1 --destination_table=$v_destination_tbl "$v_query" &
             v_pid=$!
 
             wait $v_pid
@@ -225,7 +225,7 @@ fi
 
 v_destination_tbl="$v_metadataset_name.prior_$tableName";
 v_query="SELECT * FROM $v_metadataset_name.incremental_$tableName";
-bq query --append=1 --flatten_results=0 --allow_large_results=1 --destination_table=$v_destination_tbl "$v_query" &
+bq query --append=1 --flatten_results=0 --allow_large_results=1 -n 1 --destination_table=$v_destination_tbl "$v_query" &
 # 2> "$v_data_object"_table_union_result.txt &
 v_pid=$!
 

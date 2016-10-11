@@ -403,7 +403,7 @@ WHERE Event_Type_ID = 50";
 # Removing existing table with the day's data being loaded.
 echo "Y" | bq rm "$v_dataset_name.${tableName}_$v_extract_date";
 
-bq query  --append=1 --allow_large_results=1 --maximum_billing_tier 5 --quiet --destination_table=$v_dataset_name.${tableName}_$v_extract_date $v_cheetah_query_50 & 
+bq query  --append=1 --allow_large_results=1 --maximum_billing_tier 5 --quiet -n 1 --destination_table=$v_dataset_name.${tableName}_$v_extract_date $v_cheetah_query_50 & 
 v_pid=$!
 
 wait $v_pid
@@ -423,7 +423,7 @@ v_subtask="Unsubscribe Events data load in Final Table";
 p_exit_upon_error "$v_task_status" "$v_subtask"
 
  
-bq query  --append=1 --allow_large_results=1 --maximum_billing_tier 5 --quiet --destination_table=$v_dataset_name.${tableName}_$v_extract_date $v_cheetah_query_30 & 
+bq query  --append=1 --allow_large_results=1 --maximum_billing_tier 5 --quiet -n 1 --destination_table=$v_dataset_name.${tableName}_$v_extract_date $v_cheetah_query_30 & 
 v_pid=$!
 
 wait $v_pid
@@ -442,7 +442,7 @@ v_log_obj_txt+=`echo "\n$(date) $v_task_status is the task status for $v_subtask
 v_subtask="Transaction Events data load in Final Table";
 p_exit_upon_error "$v_task_status" "$v_subtask"
  
-bq query  --append=1 --allow_large_results=1 --maximum_billing_tier 5 --quiet --destination_table=$v_dataset_name.${tableName}_$v_extract_date $v_cheetah_query_20 & 
+bq query  --append=1 --allow_large_results=1 --maximum_billing_tier 5 --quiet -n 1 --destination_table=$v_dataset_name.${tableName}_$v_extract_date $v_cheetah_query_20 & 
 v_pid=$!
 
 wait $v_pid
@@ -461,7 +461,7 @@ v_log_obj_txt+=`echo "\n$(date) $v_task_status is the task status for $v_subtask
 v_subtask="Click Events data load in Final Table";
 p_exit_upon_error "$v_task_status" "$v_subtask"
  
-bq query  --append=1 --allow_large_results=1 --maximum_billing_tier 5 --quiet --destination_table=$v_dataset_name.${tableName}_$v_extract_date $v_cheetah_query_10 & 
+bq query  --append=1 --allow_large_results=1 --maximum_billing_tier 5 --quiet -n 1 --destination_table=$v_dataset_name.${tableName}_$v_extract_date $v_cheetah_query_10 & 
 v_pid=$!
 
 wait $v_pid
@@ -480,7 +480,7 @@ v_log_obj_txt+=`echo "\n$(date) $v_task_status is the task status for $v_subtask
 v_subtask="Open Mail Events data load in Final Table";
 p_exit_upon_error "$v_task_status" "$v_subtask"
  
-bq query  --append=1 --allow_large_results=1 --maximum_billing_tier 5 --quiet --destination_table=$v_dataset_name.${tableName}_$v_extract_date $v_cheetah_query_3 & 
+bq query  --append=1 --allow_large_results=1 --maximum_billing_tier 5 --quiet -n 1 --destination_table=$v_dataset_name.${tableName}_$v_extract_date $v_cheetah_query_3 & 
 v_pid=$!
 
 wait $v_pid
@@ -499,7 +499,7 @@ v_log_obj_txt+=`echo "\n$(date) $v_task_status is the task status for $v_subtask
 v_subtask="Bulk Mail Bounce Events data load in Final Table";
 p_exit_upon_error "$v_task_status" "$v_subtask"
  
-bq query  --append=1 --allow_large_results=1 --maximum_billing_tier 5 --quiet --destination_table=$v_dataset_name.${tableName}_$v_extract_date $v_cheetah_query_2 & 
+bq query  --append=1 --allow_large_results=1 --maximum_billing_tier 5 --quiet -n 1 --destination_table=$v_dataset_name.${tableName}_$v_extract_date $v_cheetah_query_2 & 
 v_pid=$!
 
 wait $v_pid
@@ -518,7 +518,7 @@ v_log_obj_txt+=`echo "\n$(date) $v_task_status is the task status for $v_subtask
 v_subtask="Event Mail Send Events data load in Final Table";
 p_exit_upon_error "$v_task_status" "$v_subtask"
  
-bq query  --append=1 --allow_large_results=1 --maximum_billing_tier 5 --quiet --destination_table=$v_dataset_name.${tableName}_$v_extract_date $v_cheetah_query_1 & 
+bq query  --append=1 --allow_large_results=1 --maximum_billing_tier 5 --quiet -n 1 --destination_table=$v_dataset_name.${tableName}_$v_extract_date $v_cheetah_query_1 & 
 v_pid=$!
 
 wait $v_pid

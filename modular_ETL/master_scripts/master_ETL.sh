@@ -30,7 +30,8 @@ v_job_start_ts=`echo $(date -d "@$v_job_start_epoch" +"%Y-%m-%d %r %Z")`
 v_masterlog_txt=''
 
 
-v_masterlog_txt+=`echo " \n"`
+v_masterlog_txt+=`echo " \n"`;
+v_email_text="ETL failed in one or more stages. \n";
 
 
 
@@ -413,6 +414,7 @@ declare -a v_arr_load_status
 ### Reading the run status of the previous Extract runs.
 
 v_all_extracts_status="success";
+v_extract_failed_items="";
 
 for ((i=0;i<$v_config_line_cnr; i++)); do
 
@@ -423,6 +425,7 @@ for ((i=0;i<$v_config_line_cnr; i++)); do
 
     if [[ ${v_arr_extract_status[$i]} == *"failed"* ]]; then
         v_all_extracts_status="failed";
+        v_extract_failed_items+="\n    ${v_arr_data_object[$i]} : ${v_arr_extract_status[$i]}"
     fi
 
     echo "Extract Status for ${v_arr_data_object[$i]} is ${v_arr_extract_status[$i]}";
@@ -430,7 +433,12 @@ for ((i=0;i<$v_config_line_cnr; i++)); do
 done;
 #-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
 
-echo "ALL Extract status: $v_all_extracts_status"
+echo "ALL Extracts status: $v_all_extracts_status";
+
+if [ $v_all_extracts_status == "failed" ]; 
+    then v_email_text+="\nExtract failed for: $v_extract_failed_items";
+         echo -e "Extract failed for: \n $v_extract_failed_items";
+fi
 
 sleep 1;
 
@@ -706,6 +714,7 @@ v_masterlog_txt+=`echo "\n$(date) Transform processes are complete."`;
 ### Reading the run status of the previous Transformation runs.
 
 v_all_transformations_status="success";
+v_transform_failed_items="";
 
 for ((i=0;i<$v_config_line_cnr; i++)); do
 
@@ -716,6 +725,7 @@ for ((i=0;i<$v_config_line_cnr; i++)); do
 
     if [[ ${v_arr_transform_status[$i]} == *"failed"* ]]; then
         v_all_transformations_status="failed";
+        v_transform_failed_items+="\n    ${v_arr_data_object[$i]} : ${v_arr_transform_status[$i]}"
     fi
 
     echo "Transformation Status for ${v_arr_data_object[$i]} is ${v_arr_transform_status[$i]}";
@@ -723,7 +733,12 @@ for ((i=0;i<$v_config_line_cnr; i++)); do
 done;
 #-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
 
-echo "ALL Transformations status: $v_all_transformations_status"
+echo "ALL Transformations status: $v_all_transformations_status";
+
+if [ $v_all_transformations_status == "failed" ]; 
+    then v_email_text+="\n\nTransformation failed for: $v_transform_failed_items";
+fi
+
 
 sleep 1;
 
@@ -977,6 +992,7 @@ v_masterlog_txt+=`echo "\n$(date) Load processes are complete."`;
 ### Reading the run status of the previous load runs.
 
 v_all_loads_status="success";
+v_load_failed_items="";
 
 for ((i=0;i<$v_config_line_cnr; i++)); do
 
@@ -987,13 +1003,22 @@ for ((i=0;i<$v_config_line_cnr; i++)); do
 
     if [[ ${v_arr_load_status[$i]} == *"failed"* ]]; then
         v_all_loads_status="failed";
+        v_load_failed_items+="\n    ${v_arr_data_object[$i]} : ${v_arr_load_status[$i]}"
     fi
 
     echo "load Status for ${v_arr_data_object[$i]} is ${v_arr_load_status[$i]}";
 
 done;
 
+
+if [ $v_all_loads_status == "failed" ]; then
+    v_email_text+="\n\nLoading failed for: $v_load_failed_items" ;
+    echo -e "Load Failed items: $v_load_failed_items";
+    
+fi
+
 echo "ALL loads status: $v_all_loads_status";
+
 
 ## Mailing part
 # send the email with the overall load status
@@ -1006,11 +1031,17 @@ mutt -a $LOGS_DIR/log_ETL_tasks.csv -s "Atom Refresh: All loads status:  $v_all_
 # Calculating the status of entire ETL job
 v_ETL_job_run_status="success";
 
-if [ $v_all_loads_status == "failed" -o  $v_all_extracts_status == "failed" -o  $v_all_transformations_status == "failed" ];
-    then v_ETL_job_run_status="failed";
+# if [ $v_all_loads_status == "failed" -o  $v_all_extracts_status == "failed" -o  $v_all_transformations_status == "failed" ];
+#     then v_ETL_job_run_status="failed";
+# fi
+
+if [ $v_all_loads_status == "success" -a  $v_all_extracts_status == "success" -a  $v_all_transformations_status == "success" ];
+    then v_email_text="All is Well :)\n Extract, Transform and Load were successful for all data objects";
 fi
 # Mailing all runs Status
-mutt -a $LOGS_DIR/log_ETL_tasks.csv -s "Atom Refresh: All ETL runs status:  $v_ETL_job_run_status. `date` "  -- sairanganath.v@nearbuy.com rahul.sachan@nearbuy.com rashmi.mishra@nearbuy.com bhaskar.vedula@nearbuy.com < /dev/null
+echo -e "$v_email_text" | mutt -a $LOGS_DIR/log_ETL_tasks.csv -s "Atom Refresh: All ETL runs status:  $v_ETL_job_run_status. `date` "  -- sairanganath.v@nearbuy.com rahul.sachan@nearbuy.com rashmi.mishra@nearbuy.com bhaskar.vedula@nearbuy.com ;
+
+# mutt -a $LOGS_DIR/log_ETL_tasks.csv -s "Atom Refresh: All ETL runs status:  $v_ETL_job_run_status. `date` "  -- sairanganath.v@nearbuy.com rahul.sachan@nearbuy.com rashmi.mishra@nearbuy.com bhaskar.vedula@nearbuy.com < /dev/null
 
 
 

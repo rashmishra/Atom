@@ -1,0 +1,59 @@
+[
+    {
+        "mode": "NULLABLE",
+        "name": "merchantId",
+        "type": "INTEGER"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "raisedBy",
+        "type": "STRING"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "raisedOn",
+        "type": "INTEGER"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "raisedFrom",
+        "type": "STRING"
+    },
+    {
+        "mode": "REPEATED",
+        "name": "changeRequest",
+        "type": "RECORD",
+        "fields": [
+            {
+                "mode": "NULLABLE",
+                "name": "attribute",
+                "type": "STRING"
+            },
+            {
+                "mode": "NULLABLE",
+                "name": "resolution",
+                "type": "STRING"
+            },
+            {
+                "mode": "NULLABLE",
+                "name": "resolvedBy",
+                "type": "STRING"
+            },
+            {
+                "mode": "NULLABLE",
+                "name": "resolvedOn",
+                "type": "INTEGER"
+            }
+        ]
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "isRequestResolved",
+        "type": "BOOLEAN"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "resolvedOn",
+        "type": "INTEGER"
+    }
+]

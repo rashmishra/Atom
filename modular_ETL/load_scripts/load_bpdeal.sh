@@ -156,7 +156,7 @@ v_query="select STRFTIME_UTC_USEC(now()-39600,\"%Y-%m-%d\") as date ,dealId,sold
         offers.startAt as offerStartAt,offers.endAt as offerEndAt,offers.expiresAt as offerExpiresAt, isDeleted,createdAt,updatedAt, 
         dealValidityEndDate,isSoldOut,isPublished 
 from FLATTEN($v_dataset_name.$tableName,offers)"
-bq query --append=1 --flatten_results=0 --allow_large_results=1 --destination_table=$v_dataset_name.${tableName}_history  $v_query > /dev/null
+bq query --append=1 --flatten_results=0 --allow_large_results=1 -n 0 --destination_table=$v_dataset_name.${tableName}_history  $v_query > /dev/null
 
 #v_incr_table_result=`echo $(bq load --quiet  --source_format=NEWLINE_DELIMITED_JSON --replace --ignore_unknown_values=1 --max_bad_records=$maxBadRecords $v_metadataset_name.incremental_$tableName $v_cloud_storage_path/$v_fileName $v_schema_filepath/$schemaFileName 2>&1)`
 echo "Etl Home is $6."

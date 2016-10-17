@@ -26,7 +26,7 @@
     },
     {
         "name": "rating",
-        "type": "INTEGER",
+        "type": "FLOAT",
         "mode": "NULLABLE"
     },
     {
@@ -63,7 +63,7 @@
     },
     {
         "name": "isRated",
-        "type": "BOOLEAN",
+          "type": "BOOLEAN",
         "mode": "NULLABLE"
     },
     {
@@ -119,7 +119,7 @@
                     {
                         "name": "timeStamp",
                         "type": "INTEGER",
-                        "mode": "NULLABLE"
+"mode": "NULLABLE"
                     },
                     {
                         "name": "dealId",
@@ -183,3 +183,5 @@
         ]
     }
 ]
+
+

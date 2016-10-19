@@ -221,26 +221,12 @@ if [[ "`bq ls $v_dataset_name | awk '{print $1}' | grep \"\b$tableName\b\"`" == 
     else echo "Table $v_dataset_name.$tableName missing"; 
 fi
 
-
-###################################################################################
-## Storing the status (success/failed) into respective text file. This will be in 
-## consumed by the main script to determine the status of entire Extract activity
-## and this object's ETL flow
-###################################################################################
-
-echo $v_task_status > $v_temp_dir/${v_data_object}_load_status.txt
-
-chmod 0777 $v_temp_dir/${v_data_object}_load_status.txt;
-
-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
-
-
 ## Drop Final (e.g. Atom) table
 #bq query --append=1 --flatten_results=0 --allow_large_results=1 --destination_table=$METADATA_DATASET_NAME.final_customer 'select * from '"$METADATA_DATASET_NAME"'.customer_incremental' > /dev/null
 
 v_destination_tbl="$v_metadataset_name.prior_$tableName";
 v_query="SELECT * FROM $v_metadataset_name.incremental_$tableName";
-bq query --append=1 -n 1 --flatten_results=0 --allow_large_results=1 --destination_table=$v_destination_tbl "$v_query" 2> "$v_data_object"_table_union_result.txt &
+bq query --append=1 --flatten_results=0 --allow_large_results=1 -n 1 --destination_table=$v_destination_tbl "$v_query" 2> "$v_data_object"_table_union_result.txt &
 v_pid=$!
 
 wait $v_pid
@@ -265,7 +251,7 @@ v_log_obj_txt+=`echo "\n$(date) $v_table_union_result \n$v_task_status is the ta
 v_subtask="Prior n Incr. Table Union";
 p_exit_upon_error "$v_task_status" "$v_subtask"
 
-rm "$v_data_object"_table_union_result.txt
+# rm "$v_data_object"_table_union_result.txt
 
 #-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#
                      ## Completed: Checking for Process Failure ##
@@ -279,6 +265,21 @@ bq cp $v_metadataset_name.prior_$tableName $v_dataset_name.$tableName
 # Removing Prior and Incremental tables
 bq rm -f $v_metadataset_name.prior_$tableName
 bq rm -f $v_metadataset_name.incremental_$tableName
+
+###################################################################################
+## Storing the status (success/failed) into respective text file. This will be in 
+## consumed by the main script to determine the status of entire Extract activity
+## and this object's ETL flow
+###################################################################################
+
+echo "Message Status History Load status is : $v_task_status"
+
+echo $v_task_status > $v_temp_dir/${v_data_object}_load_status.txt
+
+chmod 0777 $v_temp_dir/${v_data_object}_load_status.txt;
+
+#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
+
 
 
 ###################################################################################

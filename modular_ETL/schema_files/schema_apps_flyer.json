@@ -11,7 +11,12 @@
     },
     {
         "name": "download_time",
-        "type": "STRING",
+        "type": "TIMESTAMP",
+        "mode": "NULLABLE"
+    },    
+    {
+        "name": "download_time_epoch",
+        "type": "INTEGER",
         "mode": "NULLABLE"
     },
     {
@@ -21,7 +26,12 @@
     },
     {
         "name": "click_time",
-        "type": "STRING",
+        "type": "TIMESTAMP",
+        "mode": "NULLABLE"
+    },    
+    {
+        "name": "click_time_epoch",
+        "type": "INTEGER",
         "mode": "NULLABLE"
     },
     {
@@ -136,7 +146,12 @@
     },
     {
         "name": "install_time",
-        "type": "STRING",
+        "type": "TIMESTAMP",
+        "mode": "NULLABLE"
+    },    
+    {
+        "name": "install_time_epoch",
+        "type": "INTEGER",
         "mode": "NULLABLE"
     },
     {
@@ -146,7 +161,12 @@
     },
     {
         "name": "event_time",
-        "type": "STRING",
+        "type": "TIMESTAMP",
+        "mode": "NULLABLE"
+    },    
+    {
+        "name": "event_time_epoch",
+        "type": "INTEGER",
         "mode": "NULLABLE"
     },
     {

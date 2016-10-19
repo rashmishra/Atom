@@ -135,13 +135,14 @@ fi
 v_cloud_result=`cat "$v_data_object"_cloud_result.txt`;
 
 echo "Loaded $v_fileName into $v_cloud_storage_path";
-v_log_obj_txt+=`echo "\n$(date) Cloud Load of $v_fileName into $v_cloud_storage_path result: \n$v_cloud_result"`;
+v_log_obj_txt+=`echo "\n$(date) Cloud Load of $v_fileName into $v_cloud_storage_path result: \n$v_task_status"`;
+v_log_obj_txt+=`echo "\n$(date) $v_cloud_result"`;
 #-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#
                      ## Completed: Loading into Google Cloud ## 
 #-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#
 
 ########################################################################################
-## Checking if the prior process has failed. If Failed, then exit this task (script). ##
+## Checking if the Cloud Upload process has failed. If Failed, then exit this task (script). ##
 
 v_subtask="Cloud Upload";
 p_exit_upon_error "$v_task_status" "$v_subtask"

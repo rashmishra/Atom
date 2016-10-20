@@ -158,6 +158,16 @@
         "mode": "NULLABLE"
     },
     {
+        "name": "reservationEmailId",
+        "type": "STRING",
+        "mode": "REPEATED"
+    },
+    {
+        "name": "coverage",
+        "type": "INTEGER",
+        "mode": "REPEATED"
+    },
+    {
         "name": "reservationNumbers",
         "type": "RECORD",
         "mode": "REPEATED",
@@ -237,11 +247,6 @@
         "mode": "NULLABLE"
     },
     {
-        "name": "coverage",
-        "type": "STRING",
-        "mode": "NULLABLE"
-    },
-    {
         "name": "bannerImagePortrait",
         "type": "STRING",
         "mode": "NULLABLE"
@@ -309,12 +314,26 @@
             {
                 "name": "attribute_7",
                 "type": "INTEGER",
-                "mode": "NULLABLE"
+                "mode": "NULLABLE",
+                "description": "Mall"
             },
             {
                 "name": "attribute_8",
                 "type": "INTEGER",
-                "mode": "NULLABLE"
+                "mode": "NULLABLE",
+                "description": "Market"
+            },
+            {
+                "name": "attribute_9",
+                "type": "INTEGER",
+                "mode": "NULLABLE",
+                "description": "Beach"
+            },
+            {
+                "name": "attribute_10",
+                "type": "INTEGER",
+                "mode": "NULLABLE",
+                "description": "Wildlife"
             },
             {
                 "name": "street",
@@ -386,7 +405,20 @@
             {
                 "name": "attribute_8",
                 "type": "INTEGER",
-                "mode": "NULLABLE"
+                "mode": "NULLABLE",
+                "description": "Market"
+            },
+            {
+                "name": "attribute_9",
+                "type": "INTEGER",
+                "mode": "NULLABLE",
+                "description": "Beach"
+            },
+            {
+                "name": "attribute_10",
+                "type": "INTEGER",
+                "mode": "NULLABLE",
+                "description": "Wildlife"
             },
             {
                 "name": "street",

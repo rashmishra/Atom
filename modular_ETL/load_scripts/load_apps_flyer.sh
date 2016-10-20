@@ -192,7 +192,7 @@ if [[ "`bq ls $v_dataset_name | awk '{print $1}' | grep \"\b$tableName\b\"`" == 
     then 
 
         ## Make another table with prior (till last run) data 
-        v_query="SELECT * FROM $v_dataset_name.$tableName WHERE event_time_epoch < (SELECT SELECT MIN(event_time_epoch) as oldest_event_epoch FROM $v_metadataset_name.incremental_$tableName)";
+        v_query="SELECT * FROM $v_dataset_name.$tableName WHERE event_time_epoch < (SELECT MIN(event_time_epoch) as oldest_event_epoch FROM $v_metadataset_name.incremental_$tableName)";
         v_destination_tbl="$v_metadataset_name.prior_$tableName";
         echo "Destination table is $v_destination_tbl and Query is $v_query"
         bq query  --maximum_billing_tier 10 --allow_large_results=1  --quiet --flatten_results=0 --replace -n 0 --destination_table=$v_destination_tbl "$v_query" 2> "$v_data_object"_prior_table_result.txt &

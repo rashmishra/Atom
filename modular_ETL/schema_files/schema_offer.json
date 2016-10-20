@@ -25,6 +25,11 @@
                         "mode": "NULLABLE"
                     },
                     {
+                        "name": "otype",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    },
+                    {
                         "name": "creditsAllowed",
                         "type": "BOOLEAN",
                         "mode": "NULLABLE"
@@ -52,6 +57,45 @@
                         ]
                     },
                     {
+                        "name": "incl",
+                        "type": "RECORD",
+                        "mode": "REPEATED",
+                        "fields": [
+                            {
+                                "name": "id",
+                                "type": "INTEGER",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "text",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "fpInputs",
+                                "type": "RECORD",
+                                "mode": "REPEATED",
+                                "fields": [
+                                    {
+                                        "name": "index",
+                                        "type": "INTEGER",
+                                        "mode": "NULLABLE"
+                                    },
+                                    {
+                                        "name": "type",
+                                        "type": "STRING",
+                                        "mode": "NULLABLE"
+                                    },
+                                    {
+                                        "name": "value",
+                                        "type": "STRING",
+                                        "mode": "NULLABLE"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
                         "name": "odesc",
                         "type": "RECORD",
                         "mode": "NULLABLE",
@@ -75,12 +119,56 @@
                                         "name": "qty",
                                         "type": "INTEGER",
                                         "mode": "NULLABLE"
+                                    },
+                                    {
+                                        "mode": "REPEATED",
+                                        "name": "inclusions",
+                                        "type": "RECORD",
+                                        "fields": [
+                                            {
+                                                "mode": "NULLABLE",
+                                                "name": "title",
+                                                "type": "STRING"
+                                            },
+                                            {
+                                                "mode": "NULLABLE",
+                                                "name": "desc",
+                                                "type": "STRING"
+                                            },
+                                            {
+                                                "mode": "REPEATED",
+                                                "name": "subInclusions",
+                                                "type": "RECORD",
+                                                "fields": [
+                                                    {
+                                                        "mode": "NULLABLE",
+                                                        "name": "title",
+                                                        "type": "STRING"
+                                                    },
+                                                    {
+                                                        "mode": "NULLABLE",
+                                                        "name": "desc",
+                                                        "type": "STRING"
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "mode": "NULLABLE",
+                                        "name": "isPrimary",
+                                        "type": "BOOLEAN"
                                     }
                                 ]
                             },
                             {
                                 "name": "desc",
                                 "type": "STRING",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "useNewMenu",
+                                "type": "BOOLEAN",
                                 "mode": "NULLABLE"
                             }
                         ]

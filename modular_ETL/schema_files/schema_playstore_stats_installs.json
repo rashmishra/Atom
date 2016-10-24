@@ -53,5 +53,10 @@
         "name": "daily_user_uninstalls",
         "type": "STRING",
         "mode": "NULLABLE"
+    },
+    {
+        "name": "active_device_installs",
+        "type": "STRING",
+        "mode": "NULLABLE"
     }
 ]

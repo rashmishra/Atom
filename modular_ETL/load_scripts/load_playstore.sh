@@ -435,7 +435,7 @@ fi
 
 for i in $PLAY_AGGREGATED_GCM_REPORT_NAMES; do
     v_fileName=${PLAY_AGGREGATED_GCM_REPORT_PREFIX}_${v_report_month}_${i}.csv
-    v_fileName=${PLAY_AGGREGATED_GCM_REPORT_PREFIX}_${v_prev_report_month}_${i}.csv
+    v_prev_fileName=${PLAY_AGGREGATED_GCM_REPORT_PREFIX}_${v_prev_report_month}_${i}.csv
 
 
     echo "Prev File Name: $v_prev_fileName";
@@ -453,7 +453,7 @@ for i in $PLAY_AGGREGATED_GCM_REPORT_NAMES; do
 
     echo "bq load --quiet --field_delimiter=',' --source_format=CSV --skip_leading_rows=1 --max_bad_records=0  --allow_jagged_rows=1 --allow_quoted_newlines=1 --ignore_unknown_values=1   $v_destination_tbl $v_cloud_storage_path/$v_fileName $v_schema_filepath/$schemaFileName"
     bq load --quiet --field_delimiter=',' --source_format=CSV --skip_leading_rows=1 --max_bad_records=0  --allow_jagged_rows=1 --allow_quoted_newlines=1 --ignore_unknown_values=1   $v_destination_tbl $v_cloud_storage_path/$v_fileName $v_schema_filepath/$schemaFileName
-    bq load --quiet --field_delimiter=',' --source_format=CSV --skip_leading_rows=1 --max_bad_records=0  --allow_jagged_rows=1 --allow_quoted_newlines=1 --ignore_unknown_values=1   $v_destination_tbl $v_cloud_storage_path/$v_prev_report_month $v_schema_filepath/$schemaFileName &
+    bq load --quiet --field_delimiter=',' --source_format=CSV --skip_leading_rows=1 --max_bad_records=0  --allow_jagged_rows=1 --allow_quoted_newlines=1 --ignore_unknown_values=1   $v_destination_tbl $v_cloud_storage_path/$v_prev_fileName $v_schema_filepath/$schemaFileName &
     v_load_pids+=" $!"
 done
 

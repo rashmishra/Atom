@@ -553,7 +553,7 @@ if [[ "`bq ls $v_dataset_name | awk '{print $1}' | grep \"\b$tableName\b\"`" == 
     then 
     # prior table
     echo "Table $v_metadataset_name.$tableName exists";
-    v_query="SELECT Dimension_Name, date, package_name_app_name, Dimension_Value, current_device_installs, daily_device_installs, daily_device_upgrades, current_user_installs, total_user_installs, daily_user_installs, daily_user_uninstalls
+    v_query="SELECT Dimension_Name, date, package_name_app_name, Dimension_Value, current_device_installs, daily_device_installs, daily_device_upgrades, current_user_installs, total_user_installs, daily_user_installs, daily_user_uninstalls, active_device_installs
              FROM (SELECT CONCAT(LOWER(RTRIM(LTRIM(Dimension_Name))), STRING(date)) as dkey, * FROM [playstore.stats_installs]) A       
              WHERE dkey NOT IN (SELECT CONCAT(LOWER(RTRIM(LTRIM(Dimension_Name))), STRING(date)) as dkey FROM [metadata.incremental_stats_installs] GROUP BY dkey )";
     v_destination_tbl="$v_metadataset_name.prior_$tableName";

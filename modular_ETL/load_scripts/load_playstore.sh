@@ -532,7 +532,7 @@ for i in $PLAY_AGGREGATED_INSTALLS_REPORT_NAMES; do
     echo "$v_prev_report_month";
 
     v_fileName=${PLAY_AGGREGATED_INSTALLS_REPORT_PREFIX}_${v_report_month}_${i}.csv
-    v_fileName=${PLAY_AGGREGATED_INSTALLS_REPORT_PREFIX}_${v_prev_report_month}_${i}.csv
+    v_prev_fileName=${PLAY_AGGREGATED_INSTALLS_REPORT_PREFIX}_${v_prev_report_month}_${i}.csv
 
     echo "Prev File Name: $v_prev_fileName";
     echo "File Name: $v_fileName";
@@ -619,7 +619,7 @@ fi
 
 for i in $PLAY_AGGREGATED_RATINGS_REPORT_NAMES; do
     v_fileName=${PLAY_AGGREGATED_RATINGS_REPORT_PREFIX}_${v_report_month}_${i}.csv
-    v_fileName=${PLAY_AGGREGATED_RATINGS_REPORT_PREFIX}_${v_prev_report_month}_${i}.csv
+    v_prev_fileName=${PLAY_AGGREGATED_RATINGS_REPORT_PREFIX}_${v_prev_report_month}_${i}.csv
 
     echo "Prev File Name: $v_prev_fileName";
     echo "File Name: $v_fileName";

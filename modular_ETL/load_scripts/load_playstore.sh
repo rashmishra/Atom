@@ -64,6 +64,8 @@ p_exit_upon_error(){
     v_task_status="$1";
     v_subtask="$2";
 
+    echo "Playstore:: Subtask is: $v_subtask . Status: $v_task_status ."
+
 
     if [ $v_task_status == "failed" ] ; then
         v_log_obj_txt+=`echo "\n$(date) $(date) Task ($v_subtask) failed for $v_data_object. Hence exiting."`;
@@ -345,6 +347,7 @@ if [[ "`bq ls $v_metadataset_name | awk '{print $1}' | grep \"\bincremental_$tab
 	then bq rm $v_destination_tbl;
 fi
 
+echo "Playstore: Crashes Reports loading starts";
 
 for i in $PLAY_AGGREGATED_CRASHES_REPORT_NAMES; do
     v_fileName=${PLAY_AGGREGATED_CRASHES_REPORT_PREFIX}_${v_report_month}_${i}.csv
@@ -415,6 +418,8 @@ else
     v_task_status="failed";
 fi
 
+echo "Playstore: Crashes Reports loading starts";
+
 p_exit_upon_error "$v_task_status" "$v_subtask"
 # Completed Aggregated Reports: Crashes
 
@@ -432,6 +437,7 @@ if [[ "`bq ls $v_metadataset_name | awk '{print $1}' | grep \"\bincremental_$tab
 	then bq rm $v_destination_tbl;
 fi
 
+echo "Playstore: GCM Reports loading starts";
 
 for i in $PLAY_AGGREGATED_GCM_REPORT_NAMES; do
     v_fileName=${PLAY_AGGREGATED_GCM_REPORT_PREFIX}_${v_report_month}_${i}.csv
@@ -501,7 +507,7 @@ else
     echo "Processes $v_load_pids Status: failed";
     v_task_status="failed";
 fi
-
+echo "Playstore: GCM Reports loading finished";
 p_exit_upon_error "$v_task_status" "$v_subtask"
 # Completed Aggregated Reports: GCM
 
@@ -519,7 +525,7 @@ if [[ "`bq ls $v_metadataset_name | awk '{print $1}' | grep \"\bincremental_$tab
 	then bq rm $v_destination_tbl;
 fi
 
-
+echo "Playstore: Installs Reports loading starts";
 for i in $PLAY_AGGREGATED_INSTALLS_REPORT_NAMES; do
     
     echo "$v_report_month";
@@ -591,6 +597,8 @@ else
     echo "Processes $v_load_pids Status: failed";
     v_task_status="failed";
 fi
+
+echo "Playstore: Installs Reports loading finished";
 
 p_exit_upon_error "$v_task_status" "$v_subtask"
 

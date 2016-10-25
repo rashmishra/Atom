@@ -88,8 +88,8 @@ p_exit_upon_error(){
 
 }
 
-# DBHOST=nb-prod-oms-db-ugd.c6vqep7kcqpl.ap-southeast-1.rds.amazonaws.com
-DBHOST=nb-prod-oms-db-ugd-read.c6vqep7kcqpl.ap-southeast-1.rds.amazonaws.com
+DBHOST=nb-prod-oms-db-ugd.c6vqep7kcqpl.ap-southeast-1.rds.amazonaws.com
+# DBHOST=nb-prod-oms-db-ugd-read.c6vqep7kcqpl.ap-southeast-1.rds.amazonaws.com
 DBPORT=5432
 DBNAME=inventory_system
 DBUSER=inventory

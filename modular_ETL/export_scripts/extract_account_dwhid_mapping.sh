@@ -90,8 +90,8 @@ p_exit_upon_error(){
 
 
 #echo "OMS data export start time is : $taskStartTime "
-# DBHOST=nb-prod-oms-db-ugd.c6vqep7kcqpl.ap-southeast-1.rds.amazonaws.com
-DBHOST=nb-prod-oms-db-ugd-read.c6vqep7kcqpl.ap-southeast-1.rds.amazonaws.com
+DBHOST=nb-prod-oms-db-ugd.c6vqep7kcqpl.ap-southeast-1.rds.amazonaws.com
+# DBHOST=nb-prod-oms-db-ugd-read.c6vqep7kcqpl.ap-southeast-1.rds.amazonaws.com
 DBPORT=5432
 DBNAME=merchantuserprofile
 DBUSER=merusepro

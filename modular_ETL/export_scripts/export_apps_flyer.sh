@@ -99,6 +99,7 @@ v_extract_pid=$!
 if wait $v_extract_pid; then
     echo "Process $v_extract_pid Status: success";
     v_task_status="success";
+
 else 
     echo "Process $v_extract_pid Status: failed";
     v_task_status="failed";
@@ -111,6 +112,15 @@ fi
 v_log_obj_txt+=`echo "\n$(date) $v_task_status is the task status. \n"`;
 
 v_subtask="Mongo export";
+p_exit_upon_error "$v_task_status" "$v_subtask"
+
+
+if [ `wc -l $v_data_dump_dir/$v_data_object.json | awk '{print $1}' | sed -e 's/ //g'` -eq 0 ] ; then echo "Zero Row count"; v_task_status="failed"; else echo "Non-zero Row count"; v_task_status="success"; fi
+
+
+
+v_subtask="Zero Row count check in exported file";
+v_log_obj_txt+=`echo "\n$(date) ${v_subtask} :${v_task_status}. \n"`;
 p_exit_upon_error "$v_task_status" "$v_subtask"
 
 # Zipping the exported data file

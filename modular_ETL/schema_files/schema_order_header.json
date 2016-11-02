@@ -203,5 +203,10 @@
         "name": "totalcashbackamount",
         "type": "INTEGER",
         "mode": "NULLABLE"
+    },
+    {
+        "name": "appversion",
+        "type": "STRING",
+        "mode": "NULLABLE"
     }
 ]

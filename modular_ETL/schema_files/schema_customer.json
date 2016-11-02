@@ -365,5 +365,72 @@
                 "mode": "NULLABLE"
             }
         ]
+    },
+    {
+        "name": "customerDevices",
+        "type": "RECORD",
+        "mode": "REPEATED",
+        "fields": [
+            {
+                "name": "osId",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "advId",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "deviceWidth",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "deviceHeight",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "deviceToken",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "isUninstalled",
+                "type": "BOOLEAN",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "isActive",
+                "type": "BOOLEAN",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "timeStamp",
+                "type": "INTEGER",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "os",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "networkStatus",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "appVersion",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "deviceDensity",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            }
+        ]
     }
 ]

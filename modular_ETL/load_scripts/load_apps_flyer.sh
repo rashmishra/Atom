@@ -39,7 +39,7 @@ v_logs_dir=$6/logs;
 v_temp_dir=$6/temp;
 v_arch_dir=$6/arch;
 v_transform_dir=$6/data/transform;
-v_incremental_epoch=$7;
+v_incremental_epoch=$(($7*1000));
 
 v_task_status='Not set yet';
 v_log_obj_txt+=`echo "\n------------------------------------------------------------"`;
@@ -192,7 +192,7 @@ if [[ "`bq ls $v_dataset_name | awk '{print $1}' | grep \"\b$tableName\b\"`" == 
     then 
 
         ## Make another table with prior (till last run) data 
-        v_query="SELECT * FROM $v_dataset_name.$tableName WHERE event_time_epoch < (SELECT MIN(event_time_epoch) as oldest_event_epoch FROM $v_metadataset_name.incremental_$tableName)";
+        v_query="SELECT * FROM $v_dataset_name.$tableName WHERE event_time_epoch < (SELECT COALESCE(MIN(event_time_epoch), $v_incremental_epoch) as oldest_event_epoch FROM $v_metadataset_name.incremental_$tableName)";
         v_destination_tbl="$v_metadataset_name.prior_$tableName";
         echo "Destination table is $v_destination_tbl and Query is $v_query"
         bq query  --maximum_billing_tier 10 --allow_large_results=1  --quiet --flatten_results=0 --replace -n 0 --destination_table=$v_destination_tbl "$v_query" 2> "$v_data_object"_prior_table_result.txt &

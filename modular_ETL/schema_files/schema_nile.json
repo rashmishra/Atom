@@ -351,8 +351,8 @@
             },
             {
                 "name": "coverage",
-                "type": "STRING",
-                "mode": "NULLABLE"
+                "type": "INTEGER",
+                "mode": "REPEATED"
             },
             {
                 "name": "bannerImagePortrait",

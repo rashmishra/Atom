@@ -1,0 +1,47 @@
+[
+    {
+        "name": "eventid",
+        "type": "INTEGER",
+        "mode": "nullable"
+    },
+    {
+        "name": "type",
+        "type": "INTEGER",
+        "mode": "nullable"
+    },
+    {
+        "name": "reason",
+        "type": "INTEGER",
+        "mode": "nullable"
+    },
+    {
+        "name": "comments",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "ticketid",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "source",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "createdat",
+        "type": "INTEGER",
+        "mode": "nullable"
+    },
+    {
+        "name": "createdby",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "updatedat",
+        "type": "INTEGER",
+        "mode": "nullable"
+    }
+]

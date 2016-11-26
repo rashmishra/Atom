@@ -1,0 +1,32 @@
+[
+    {
+        "name": "newCohort",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "cid",
+        "type": "INTEGER",
+        "mode": "REQUIRED"
+    },
+    {
+        "name": "time",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "createdBy",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "oldCohort",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "updatedBy",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    }
+]

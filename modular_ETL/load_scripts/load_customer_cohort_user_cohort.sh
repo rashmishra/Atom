@@ -29,7 +29,7 @@ maxBadRecords=100
 
 v_data_object=$1;
 tableName=$1;
-v_fileName="$1.csv.gz";
+v_fileName="$1.json.gz";
 v_cloud_storage_path=$2;
 v_load_dir=$3;
 v_metadataset_name=$4;
@@ -115,7 +115,7 @@ p_exit_upon_error(){
 # Fetching the data file from Transform Directory to Load Directory
 cd $v_transform_dir;
 pwd
-mv "$v_data_object".csv.gz $v_load_dir
+mv "$v_data_object".json.gz $v_load_dir
 
 cd $v_load_dir;
 echo "In Load directory $v_load_dir";

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-## Script Name: load_customer_cohort_counters.sh
+## Script Name: load_bravo_occasion.sh
 ## Purpose: Modular ETL flow of Atom.
 
 
@@ -24,7 +24,7 @@ v_task_datetime=`echo $(date -d "@$v_task_start_epoch" +"%Y-%m-%d_%H:%M_%Z")`;
 ## Initializing required variables
 v_etl_task='load'
 
-schemaFileName=schema_customer_cohort_counters.json
+schemaFileName=schema_bravo_occasion.json
 maxBadRecords=0
 
 v_data_object=$1;
@@ -53,7 +53,7 @@ v_log_obj_txt+=`echo "\n--------------------------------------------------------
 v_log_obj_txt+=`echo "\n$v_etl_task process started for $v_data_object at $v_task_start_ts"`;
 
 
-echo "In customer_cohort_counters Loading script";
+echo "In bravo_occasion Loading script";
 
 ## Function to check task status and exit if error occurs.
 p_exit_upon_error(){
@@ -99,7 +99,7 @@ p_exit_upon_error(){
         echo -e "$v_log_obj_txt" > $v_arch_dir/logs/"$v_data_object""_load_"$v_task_datetime.log
 
 
-        # Creating new file for customer_cohort_counters's ETL run. Content will be appended in further tasks of T and L.
+        # Creating new file for bravo_occasion's ETL run. Content will be appended in further tasks of T and L.
         echo -e "$v_log_obj_txt" >> $v_temp_dir/"$v_data_object"_log.log
 
         chmod 0777 $v_temp_dir/"$v_data_object"_log.log;
@@ -163,7 +163,7 @@ echo "Schema File path is: $v_schema_filepath"
 
 # Loading the data directly
 v_destination_tbl="$v_dataset_name.${tableName}";
-bq load --quiet --source_format=NEWLINE_DELIMITED_JSON --replace --ignore_unknown_values=1 --max_bad_records=$maxBadRecords $v_destination_tbl $v_cloud_storage_path/$v_fileName $v_schema_filepath/$schemaFileName 2> "$v_data_object"_inc_table_result.txt
+bq load --quiet --source_format=NEWLINE_DELIMITED_JSON --replace --ignore_unknown_values=1 --max_bad_records=$maxBadRecords $v_destination_tbl $v_cloud_storage_path/$v_fileName $v_schema_filepath/$schemaFileName 2> "$v_data_object"_inc_table_result.txt 
 #2> "$v_data_object"_final_table_result.txt
 v_pid=$!
 
@@ -241,7 +241,7 @@ v_log_obj_txt+=`echo "\n--------------------------------------------------------
 
 # Maintaining the log of this run in a separate file in arch folder
 echo -e "$v_log_obj_txt" > $v_arch_dir/logs/"$v_data_object""_load_"$v_task_datetime.log
-# Creating new file for customer_cohort_counters's ETL run. Content will be appended in further tasks of T and L.
+# Creating new file for bravo_occasion's ETL run. Content will be appended in further tasks of T and L.
 echo -e "$v_log_obj_txt" >> $v_temp_dir/"$v_data_object"_log.log
 
 chmod 0777 $v_temp_dir/"$v_data_object"_log.log;

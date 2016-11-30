@@ -1,0 +1,84 @@
+[
+    {
+        "name": "collectionId",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "lccollectionId",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "title",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "lctitle",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "internalDescription",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "visible",
+        "type": "BOOLEAN",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "status",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "validityRange",
+        "type": "RECORD",
+        "mode": "NULLABLE",
+        "fields": [
+            {
+                "name": "endDate",
+                "type": "INTEGER",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "startDate",
+                "type": "INTEGER",
+                "mode": "NULLABLE"
+            }
+        ]
+    },
+    {
+        "name": "createdAt",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "createdBy",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "lccreatedBy",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "lastUpdatedBy",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "lastUpdatedAt",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "activeOnApp",
+        "type": "BOOLEAN",
+        "mode": "NULLABLE"
+    }
+]

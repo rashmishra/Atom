@@ -109,9 +109,10 @@ p_exit_upon_error(){
 
 
 # Fetching the data file from Transform Directory to Load Directory
-cd $v_transform_dir;
+cd "$v_transform_dir";
 pwd
 mv "$v_data_object".json.gz $v_load_dir
+echo "Move statement: mv $v_data_object.json.gz $v_load_dir"
 
 cd $v_load_dir;
 echo "In Load directory, from cerebro_user_locality script $v_load_dir";
@@ -204,7 +205,7 @@ if [[ "`bq ls $v_dataset_name | awk '{print $1}' | grep \"\b$tableName\b\"`" == 
         #         WHERE inc.time IS NULL";
 
         v_query="SELECT * FROM $v_dataset_name.$tableName  base 
-                 WHERE base.cid NOT IN (SELECT cid FROM $v_metadataset_name.incremental_$tableName GROUP BY 1)";
+                 WHERE cid NOT IN (SELECT cid FROM $v_metadataset_name.incremental_$tableName GROUP BY 1)";
         v_destination_tbl="$v_metadataset_name.prior_$tableName";
         
         echo "Destination table is $v_destination_tbl and Query is $v_query"

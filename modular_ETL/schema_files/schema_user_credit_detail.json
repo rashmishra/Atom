@@ -108,5 +108,20 @@
         "name": "event",
         "type": "INTEGER",
         "mode": "nullable"
+    },
+    {
+        "name": "refundedcredits",
+        "type": "INTEGER",
+        "mode": "nullable"
+    },
+    {
+        "name": "isrefunded",
+        "type": "BOOLEAN",
+        "mode": "nullable"
+    },
+    {
+        "name": "refundedid",
+        "type": "INTEGER",
+        "mode": "nullable"
     }
 ]

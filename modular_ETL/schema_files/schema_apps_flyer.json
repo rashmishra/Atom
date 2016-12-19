@@ -323,5 +323,10 @@
         "name": "af_keywords",
         "type": "STRING",
         "mode": "NULLABLE"
+    },
+    {
+        "name": "createdAt",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
     }
 ]

@@ -15,6 +15,17 @@
         "mode": "NULLABLE"
     },
     {
+        "name": "gender",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "dateOfBirth",
+        "type": "INTEGER",
+        "mode": "NULLABLE",
+        "description": "Date of Birth of a Customer in Epoch, IST"
+    },
+    {
         "name": "password",
         "type": "STRING",
         "mode": "NULLABLE"

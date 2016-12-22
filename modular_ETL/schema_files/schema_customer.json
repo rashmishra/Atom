@@ -20,10 +20,27 @@
         "mode": "NULLABLE"
     },
     {
-        "name": "dateOfBirth",
-        "type": "INTEGER",
+        "name": "dob",
+        "type": "RECORD",
         "mode": "NULLABLE",
-        "description": "Date of Birth of a Customer in Epoch, IST"
+        "description": "Date of Birth of a Customer split in Day, Month and Year", 
+        "fields": [
+            {
+                "name": "day",
+                "type": "INTEGER",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "month",
+                "type": "INTEGER",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "year",
+                "type": "INTEGER",
+                "mode": "NULLABLE"
+            }
+        ]
     },
     {
         "name": "password",

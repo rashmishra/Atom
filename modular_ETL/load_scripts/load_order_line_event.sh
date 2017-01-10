@@ -186,7 +186,10 @@ rm "$v_data_object"_inc_table_result.txt
 #-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#
                      ## Completed: Checking for Process Failure ##
 #-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#
-if [[ "`bq ls $v_dataset_name | awk '{print $1}' | grep \"\b$tableName\b\"`" == "$tableName" ]] ;
+echo "`bq ls $v_dataset_name | awk '{print $1}' | grep \"\b$tableName\b\"`";
+
+
+if [[ "`bq ls --max_results=10000 $v_dataset_name | awk '{print $1}' | grep \"\b$tableName\b\"`" == "$tableName" ]] ;
     then 
 
         ## Make the diff table

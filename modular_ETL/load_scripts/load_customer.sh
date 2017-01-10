@@ -190,7 +190,7 @@ rm "$v_data_object"_inc_table_result.txt
 
 ### Sairanganath | 08Aug2016 : Commenting this portion as Customer is a large table and will be FULL refresh daily
 
-# if [[ "`bq ls $v_dataset_name | awk '{print $1}' | grep \"\b$tableName\b\"`" == "$tableName" ]] ;
+# if [[ "`bq ls --max_results=10000 $v_dataset_name | awk '{print $1}' | grep \"\b$tableName\b\"`" == "$tableName" ]] ;
 # 	then 
 
 #         echo "Table $v_dataset_name.$tableName exists"; 

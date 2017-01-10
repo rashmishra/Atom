@@ -186,7 +186,7 @@ p_exit_upon_error "$v_task_status" "$v_subtask"
                      ## Completed: Checking for Process Failure ##
 #-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#
 
-if [[ "`bq ls $v_dataset_name | awk '{print $1}' | grep \"\b$tableName\b\"`" == "$tableName" ]] ;
+if [[ "`bq ls --max_results=10000 $v_dataset_name | awk '{print $1}' | grep \"\b$tableName\b\"`" == "$tableName" ]] ;
     then 
 
         ## Make another table with prior (till last run) data 

@@ -48,6 +48,11 @@
         "mode": "NULLABLE"
     },
     {
+        "name": "type",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
         "name": "primaryEmailAddress",
         "type": "STRING",
         "mode": "NULLABLE"

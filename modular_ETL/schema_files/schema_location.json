@@ -27,6 +27,11 @@
                 "mode": "NULLABLE"
             },
             {
+                "name": "CITY_NAME",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
                 "name": "ID",
                 "type": "INTEGER",
                 "mode": "NULLABLE"
@@ -45,6 +50,43 @@
                 "name": "STATE",
                 "type": "STRING",
                 "mode": "NULLABLE"
+            },
+            {
+                "name": "STATE_ID",
+                "type": "INTEGER",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "STATE_NAME",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "PERMALINK",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "ALIAS",
+                "type": "RECORD",
+                "mode": "REPEATED",
+                "fields": [
+                    {
+                       "name": "_id",
+                       "type": "INTEGER",
+                       "mode": "NULLABLE" 
+                    },
+                    {
+                       "name": "name",
+                       "type": "STRING",
+                       "mode": "NULLABLE" 
+                    },
+                    {
+                       "name": "isPrimary",
+                       "type": "BOOLEAN",
+                       "mode": "NULLABLE" 
+                    }
+                ]
             }
         ]
     },
@@ -52,5 +94,17 @@
         "name": "type",
         "type": "STRING",
         "mode": "NULLABLE"
+    },
+    {
+        "name": "centroid",
+        "type": "RECORD",
+        "mode": "NULLABLE",
+        "fields": [
+            {
+                "name": "coordinates",
+                "type": "FLOAT",
+                "mode": "REPEATED" 
+            }
+        ]
     }
 ]

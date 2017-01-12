@@ -1,0 +1,27 @@
+[
+    {
+        "mode": "REQUIRED",
+        "name": "id",
+        "type": "INTEGER"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "eventid",
+        "type": "INTEGER"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "orderlineid",
+        "type": "INTEGER"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "createdat",
+        "type": "INTEGER"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "updatedat",
+        "type": "INTEGER"
+    }
+]

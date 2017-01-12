@@ -163,7 +163,7 @@ bq load --quiet --field_delimiter=',' --source_format=CSV --skip_leading_rows=1 
 bq load --quiet --field_delimiter=',' --source_format=CSV --skip_leading_rows=1 --max_bad_records=0  --allow_jagged_rows=1 --allow_quoted_newlines=1 --ignore_unknown_values=1   $v_destination_tbl $v_cloud_storage_path/$v_prev_fileName $v_schema_filepath/$schemaFileName 
 v_load_pids+=" $!"
 
-if [[ "`bq ls $v_dataset_name | awk '{print $1}' | grep \"\b$tableName\b\"`" == "$tableName" ]] ; 
+if [[ "`bq ls --max_results=10000 $v_dataset_name | awk '{print $1}' | grep \"\b$tableName\b\"`" == "$tableName" ]] ; 
     then 
     # prior table
     echo "Table $v_metadataset_name.$tableName exists";
@@ -223,7 +223,7 @@ bq load --quiet --field_delimiter=',' --source_format=CSV --skip_leading_rows=1 
 bq load --quiet --field_delimiter=',' --source_format=CSV --skip_leading_rows=1 --max_bad_records=0  --allow_jagged_rows=1 --allow_quoted_newlines=1 --ignore_unknown_values=1   $v_destination_tbl $v_cloud_storage_path/$v_prev_fileName $v_schema_filepath/$schemaFileName
 v_load_pids+=" $!"
 
-if [[ "`bq ls $v_dataset_name | awk '{print $1}' | grep \"\b$tableName\b\"`" == "$tableName" ]] ; 
+if [[ "`bq ls --max_results=10000 $v_dataset_name | awk '{print $1}' | grep \"\b$tableName\b\"`" == "$tableName" ]] ; 
     then 
     # prior table
     echo "Table $v_metadataset_name.$tableName exists";
@@ -287,7 +287,7 @@ bq load --quiet --field_delimiter=',' --source_format=CSV --skip_leading_rows=1 
 bq load --quiet --field_delimiter=',' --source_format=CSV --skip_leading_rows=1 --max_bad_records=0  --allow_jagged_rows=1 --allow_quoted_newlines=1 --ignore_unknown_values=1   $v_destination_tbl $v_cloud_storage_path/$v_prev_fileName $v_schema_filepath/$schemaFileName
 v_load_pids+=" $!"
 
-if [[ "`bq ls $v_dataset_name | awk '{print $1}' | grep \"\b$tableName\b\"`" == "$tableName" ]] ; 
+if [[ "`bq ls --max_results=10000 $v_dataset_name | awk '{print $1}' | grep \"\b$tableName\b\"`" == "$tableName" ]] ; 
     then 
     # prior table
     echo "Table $v_metadataset_name.$tableName exists";
@@ -375,7 +375,7 @@ done
 
 wait $v_load_pids
 
-if [[ "`bq ls $v_dataset_name | awk '{print $1}' | grep \"\b$tableName\b\"`" == "$tableName" ]] ; 
+if [[ "`bq ls --max_results=10000 $v_dataset_name | awk '{print $1}' | grep \"\b$tableName\b\"`" == "$tableName" ]] ; 
     then 
     # prior table
     echo "Table $v_metadataset_name.$tableName exists";
@@ -465,7 +465,7 @@ done
 
 wait $v_load_pids
 
-if [[ "`bq ls $v_dataset_name | awk '{print $1}' | grep \"\b$tableName\b\"`" == "$tableName" ]] ; 
+if [[ "`bq ls --max_results=10000 $v_dataset_name | awk '{print $1}' | grep \"\b$tableName\b\"`" == "$tableName" ]] ; 
     then 
     # prior table
     echo "Table $v_metadataset_name.$tableName exists";
@@ -555,7 +555,7 @@ done
 
 wait $v_load_pids
 
-if [[ "`bq ls $v_dataset_name | awk '{print $1}' | grep \"\b$tableName\b\"`" == "$tableName" ]] ; 
+if [[ "`bq ls --max_results=10000 $v_dataset_name | awk '{print $1}' | grep \"\b$tableName\b\"`" == "$tableName" ]] ; 
     then 
     # prior table
     echo "Table $v_metadataset_name.$tableName exists";
@@ -642,7 +642,7 @@ done
 
 wait $v_load_pids
 
-if [[ "`bq ls $v_dataset_name | awk '{print $1}' | grep \"\b$tableName\b\"`" == "$tableName" ]] ; 
+if [[ "`bq ls --max_results=10000 $v_dataset_name | awk '{print $1}' | grep \"\b$tableName\b\"`" == "$tableName" ]] ; 
     then 
     # prior table
     echo "Table $v_metadataset_name.$tableName exists";

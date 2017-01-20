@@ -208,5 +208,55 @@
         "name": "appversion",
         "type": "STRING",
         "mode": "NULLABLE"
+    },
+    {
+        "name": "checkoutdetails",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "extmerchantresponse",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "isexternalmerchant",
+        "type": "BOOLEAN",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "confirmationrequired",
+        "type": "BOOLEAN",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "prepaymentprocessrequired",
+        "type": "BOOLEAN",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "postpaymentprocessrequired",
+        "type": "BOOLEAN",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "externalmerchantname",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "externalmerchantid",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "isguestlistrequired",
+        "type": "BOOLEAN",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "referralprogramid",
+        "type": "STRING",
+        "mode": "NULLABLE"
     }
 ]

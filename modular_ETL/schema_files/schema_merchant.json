@@ -40,6 +40,18 @@
         "mode": "NULLABLE"
     },
     {
+        "mode": "NULLABLE",
+        "name": "externalMapping",
+        "type": "RECORD",
+        "fields": [
+            {
+                "mode": "NULLABLE",
+                "name": "zomatoId",
+                "type": "STRING"
+            }
+        ]
+    },
+    {
         "name": "name",
         "type": "STRING",
         "mode": "NULLABLE"

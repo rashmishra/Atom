@@ -81,7 +81,6 @@ PATH=/home/ubuntu/google-cloud-sdk/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:
 
 
 ########################## 07:30 AM IST to 08:29 AM IST ##########################
-30 05  * * * bash /home/ubuntu/ETL/mixpanel_daily_notifications/get_new_customer_list.sh  > /home/ubuntu/ETL/mixpanel_daily_notifications/logs/log_get_new_customers_`date "+\%F_\%X_\%Z"`.log 2>&1
 # Bhaskar's Adhoc task
 # 30 02 * * * bash /home/ubuntu/DTR/bhaskar_dtr.sh > /dev/null 2>&1
 # 30 02 * * * /home/ubuntu/RT/adhoc.sh > /home/ubuntu/RT/adhoc_logging.log
@@ -104,7 +103,9 @@ PATH=/home/ubuntu/google-cloud-sdk/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:
 30 04 * * * /home/ubuntu/BI/scripts/CM_Reports/master.sh >> /home/ubuntu/BI/logs/logging.log
 
 
+
 ########################## 10:30 AM IST to 11:29 AM IST ##########################
+30 05  * * * bash /home/ubuntu/ETL/mixpanel_daily_notifications/get_new_customer_list.sh  > /home/ubuntu/ETL/mixpanel_daily_notifications/logs/log_get_new_customers_`date "+\%F_\%X_\%Z"`.log 2>&1
 # 58 05 * * *  bash /home/ubuntu/modular_ETL/master_scripts/master_ETL.sh > /home/ubuntu/modular_ETL/arch/logs/modular_log_`date "+\%F_\%X_\%Z"`.log 2>&1
 
 

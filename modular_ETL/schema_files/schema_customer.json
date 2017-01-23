@@ -68,6 +68,11 @@
         "mode": "NULLABLE"
     },
     {
+        "name": "isReferralAllowed",
+        "type": "BOOLEAN",
+        "mode": "NULLABLE"
+    },
+    {
         "name": "isMobileVerified",
         "type": "BOOLEAN",
         "mode": "NULLABLE"

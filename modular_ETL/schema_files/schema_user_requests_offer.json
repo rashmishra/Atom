@@ -1,0 +1,44 @@
+[
+    {
+        "name": "_id",
+        "type": "INTEGER",
+        "mode": "NULLABLE",
+        "description": "Customer ID of the customer who made the request"
+    },
+    {
+        "mode": "REPEATED",
+        "name": "requestOffers",
+        "type": "RECORD",
+        "fields": [
+            {
+                "mode": "NULLABLE",
+                "name": "merchantId",
+                "type": "INTEGER",
+                "description": "ID of the requested merchant"
+            },
+            {
+                "mode": "NULLABLE",
+                "name": "timeStamp",
+                "type": "INTEGER",
+                "description": "epoch timestamp of the offer request time in milliseconds"
+            },
+            {
+                "mode": "NULLABLE",
+                "name": "source",
+                "type": "STRING",
+                "description": "Source Platform from which the offer request was made"
+            },
+            {
+                "mode": "NULLABLE",
+                "name": "isRequired",
+                "type": "BOOLEAN"
+            },
+            {
+                "mode": "NULLABLE",
+                "name": "category",
+                "type": "STRING",
+                "description": "Category of the requested offer"
+            }
+        ]
+    }
+]

@@ -91,6 +91,8 @@ PATH=/home/ubuntu/google-cloud-sdk/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:
 
 
 ########################## 08:30 AM IST to 09:29 AM IST ##########################
+05 03 * * * bash /home/ubuntu/ETL/ga_simplified/ga_session_history.sh > /home/ubuntu/ETL/ga_simplified/logs/ga_session_history_log_`date "+\%F_\%X_\%Z"`.log 2>&1
+15 03 * * * bash /home/ubuntu/ETL/engg_reporting/refresh_LEAD_session_average.sh > /home/ubuntu/ETL/engg_reporting/logs/log_refresh_LEAD_session_average_`date "+\%F_\%X_\%Z"`.log 2>&1
 30 03 * * * /home/ubuntu/BI/scripts/deal_cat.sh >> /home/ubuntu/BI/logs/logging.log
 35 03 * * * bash /home/ubuntu/BI_automation/bi_daily_reports_table_CM_enhanced.sh > /home/ubuntu/BI_automation/logs/log_cm_table_enhanced_`date "+\%F_\%X_\%Z"`.log 2>&1
 

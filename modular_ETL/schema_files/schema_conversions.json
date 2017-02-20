@@ -258,5 +258,190 @@
         "name": "Stat_user_agent",
         "type": "STRING",
         "mode": "NULLABLE"
+    },
+    {
+        "name": "Browser_display_name",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "PayoutGroup_name",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "PayoutGroup_id",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "ConversionMeta_note",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "Affiliate_company",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "AdvertiserManager_full_name",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "ConversionsMobile_device_id",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "ConversionsMobile_android_id",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "ConversionsMobile_odin",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "ConversionsMobile_device_os",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "ConversionsMobile_ios_ifa",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "ConversionsMobile_device_brand",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "ConversionsMobile_mac_address",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "ConversionsMobile_adv_sub5",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "ConversionsMobile_adv_sub4",
+        "type": "FLOAT",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "ConversionsMobile_adv_sub3",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "ConversionsMobile_adv_sub2",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "ConversionsMobile_mobile_carrier",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "ConversionsMobile_device_model",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "ConversionsMobile_user_id",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "ConversionsMobile_windows_aid",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "ConversionsMobile_ios_ifv",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "ConversionsMobile_google_aid",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "OfferUrl_name",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "OfferUrl_preview_url",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "RevenueGroup_id",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "RevenueGroup_name",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "AffiliateManager_full_name",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "Country_name",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "Offer_ref_id",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "Stat_datetime_diff",
+        "type": "TIME",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "Stat_datetime",
+        "type": "TIMESTAMP",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "Stat_is_adjustment",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "Stat_session_ip",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "Stat_session_datetime",
+        "type": "TIMESTAMP",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "Goal_name",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "Offer_name",
+        "type": "STRING",
+        "mode": "NULLABLE"
     }
 ]

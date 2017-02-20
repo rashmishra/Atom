@@ -47,10 +47,10 @@
     {
         "name": "ratingComment",
         "type": "RECORD",
-        "mode": "NULLABLE",
+        "mode": "REPEATED",
         "fields": [
             {
-                "name": "id",
+                "name": "_id",
                 "type": "INTEGER",
                 "mode": "NULLABLE"
             },

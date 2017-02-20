@@ -411,7 +411,7 @@
     },
     {
         "name": "Stat_datetime_diff",
-        "type": "TIME",
+        "type": "STRING",
         "mode": "NULLABLE"
     },
     {

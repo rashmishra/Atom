@@ -125,11 +125,6 @@
         "mode": "NULLABLE"
     },
     {
-        "name": "paidat",
-        "type": "INTEGER",
-        "mode": "NULLABLE"
-    },
-    {
         "name": "paymenttermid",
         "type": "INTEGER",
         "mode": "NULLABLE"

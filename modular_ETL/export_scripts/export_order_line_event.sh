@@ -90,7 +90,7 @@ p_exit_upon_error(){
 DBHOST=nb-prod-oms-db-ugd.c6vqep7kcqpl.ap-southeast-1.rds.amazonaws.com
 # DBHOST=nb-prod-oms-db-ugd-read.c6vqep7kcqpl.ap-southeast-1.rds.amazonaws.com
 DBPORT=5432
-DBNAME=oms
+DBNAME=oms_v2
 DBUSER=oms
 DBPASS=0mspr0d$
 DATE=`date +%Y-%m-%d`

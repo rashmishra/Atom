@@ -1,7 +1,7 @@
 #!/bin/bash
 
-## Script Name: load_order_line.sh
-## Purpose: Modular ETL flow of Atom. Loading data from oms_data.orderline
+## Script Name: load_product.sh
+## Purpose: Modular ETL flow of Atom.
 
                 # Parameters: 
                 #             #### $1: Data Object. ####
@@ -19,13 +19,26 @@ v_task_start_epoch=`date +%s`
 v_task_start_ts=`echo $(date -d "@$v_task_start_epoch" +"%Y-%m-%d %r %Z")`;
 v_task_datetime=`echo $(date -d "@$v_task_start_epoch" +"%Y-%m-%d_%H:%M_%Z")`;
 
+v_data_object=$1;
+tableName=$1;
+v_fileName="$1.csv.gz";
+v_cloud_storage_path=$2;
+v_load_dir=$3;
+v_metadataset_name=$4;
+v_dataset_name=$5;
+v_schema_filepath=$6/schema_files;
+v_logs_dir=$6/logs;
+v_temp_dir=$6/temp;
+v_transform_dir=$6/data/transform;
+v_arch_dir=$6/arch;
+
 v_task_status='Not set yet';
 v_log_obj_txt+=`echo "\n------------------------------------------------------------"`;
 v_log_obj_txt+=`echo "\n------------------------------------------------------------"`;
 v_log_obj_txt+=`echo "\n$v_etl_task process started for $v_data_object at $v_task_start_ts"`;
 
 
-echo "In order_line Loading script";
+echo "In product Loading script";
 
 
 
@@ -72,7 +85,7 @@ p_exit_upon_error(){
         echo -e "$v_log_obj_txt" > $v_arch_dir/logs/"$v_data_object""_load_"$v_task_datetime.log
 
 
-        # Creating new file for Order Line's ETL run. Content will be appended in further tasks of T and L.
+        # Creating new file for Order Header's ETL run. Content will be appended in further tasks of T and L.
         echo -e "$v_log_obj_txt" >> $v_temp_dir/"$v_data_object"_log.log
 
         chmod 0777 $v_temp_dir/"$v_data_object"_log.log;
@@ -88,23 +101,8 @@ p_exit_upon_error(){
 ## Initializing required variables
 v_etl_task='load'
 
-schemaFileName=schema_order_line.json
+schemaFileName=schema_product.json
 maxBadRecords=0
-
-v_data_object=$1;
-# tableName=$1;
-# BOM Changes: Changed the destination table to 'order_line_new'.
-tableName="order_line_new"
-v_fileName="$1.csv.gz";
-v_cloud_storage_path=$2;
-v_load_dir=$3;
-v_metadataset_name=$4;
-v_dataset_name=$5;
-v_schema_filepath=$6/schema_files;
-v_logs_dir=$6/logs;
-v_temp_dir=$6/temp;
-v_transform_dir=$6/data/transform;
-v_arch_dir=$6/arch;
 
 # Fetching the data file from Transform Directory to Load Directory
 cd $v_transform_dir;
@@ -157,9 +155,7 @@ p_exit_upon_error $v_task_status "$v_subtask"
 #v_cloud_result=`echo $(bq load --quiet  --source_format=NEWLINE_DELIMITED_JSON --replace --ignore_unknown_values=1 --max_bad_records=$maxBadRecords $v_metadataset_name.schema_$tableName $v_cloud_storage_path/$v_fileName $v_schema_filepath/$schemaFileName 2>&1)`
 
 v_destination_tbl="$v_metadataset_name.incremental_$tableName";
-echo "bq load --replace --quiet --field_delimiter=',' --source_format=CSV --skip_leading_rows=1 --max_bad_records=0  --allow_jagged_rows=1 --allow_quoted_newlines=1 --ignore_unknown_values=1   $v_destination_tbl $v_cloud_storage_path/$v_fileName $v_schema_filepath/$schemaFileName 2> \"$v_data_object\"_inc_table_result.txt"
-
-bq load --replace --quiet --field_delimiter=',' --source_format=CSV --skip_leading_rows=1 --max_bad_records=0  --allow_jagged_rows=1 --allow_quoted_newlines=1 --ignore_unknown_values=1   $v_destination_tbl $v_cloud_storage_path/$v_fileName $v_schema_filepath/$schemaFileName 2> "$v_data_object"_inc_table_result.txt &
+bq load --replace --quiet --field_delimiter=',' --source_format=CSV --skip_leading_rows=1 --max_bad_records=0  --allow_jagged_rows=1 --allow_quoted_newlines=1 --ignore_unknown_values=1 $v_destination_tbl $v_cloud_storage_path/$v_fileName $v_schema_filepath/$schemaFileName 2> "$v_data_object"_inc_table_result.txt &
 v_pid=$!
 
 
@@ -188,51 +184,49 @@ rm "$v_data_object"_inc_table_result.txt
 #-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#
                      ## Completed: Checking for Process Failure ##
 #-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#
+
 if [[ "`bq ls --max_results=10000 $v_dataset_name | awk '{print $1}' | grep \"\b$tableName\b\"`" == "$tableName" ]] ;
     then 
 
-        ## Make the diff table
-        ## Make another table with prior (till last run) data 
-        v_query="SELECT * FROM $v_dataset_name.$tableName WHERE orderlineid NOT IN (SELECT orderlineid FROM $v_metadataset_name.incremental_$tableName)";
-        v_destination_tbl="$v_metadataset_name.prior_$tableName";
-        echo "Destination table is $v_destination_tbl and Query is $v_query"
-        bq query  --maximum_billing_tier 10 --allow_large_results=1 -n 1 --quiet --replace --destination_table=$v_destination_tbl "$v_query" 2> "$v_data_object"_prior_table_result.txt &
-        v_pid=$!
+            ## Make the diff table
+            ## Make another table with prior (till last run) data 
+            v_query="SELECT * FROM $v_dataset_name.$tableName WHERE orderid NOT IN (SELECT orderid FROM $v_metadataset_name.incremental_$tableName)";
+            v_destination_tbl="$v_metadataset_name.prior_$tableName";
+            echo "Destination table is $v_destination_tbl and Query is $v_query"
+            bq query  --maximum_billing_tier 10 --allow_large_results=1 -n 0  --quiet --replace --destination_table=$v_destination_tbl "$v_query" &
+            v_pid=$!
 
-        wait $v_pid
+            wait $v_pid
 
-        if wait $v_pid; then
-            echo "Process $v_pid Status: success";
-            v_task_status="success";
-        else 
-            echo "Process $v_pid Status: failed";
-            v_task_status="failed";
-        fi
+            if wait $v_pid; then
+                echo "Process $v_pid Status: success";
+                v_task_status="success";
+            else 
+                echo "Process $v_pid Status: failed";
+                v_task_status="failed";
+            fi
 
+            v_log_obj_txt+=`echo "\n$(date) $v_task_status is the task status"`;
 
-        v_prior_table_result=`cat "$v_data_object"_inc_table_result.txt`;
+            ########################################################################################
+            ## Checking if the prior process has failed. If Failed, then exit this task (script). ##
 
-        v_log_obj_txt+=`echo "\n$(date) Prior data table creation log: "`;
-        v_log_obj_txt+=`echo "\n$(date) $v_prior_table_result \n$v_task_status is the task status"`;
+            v_subtask="Prior Data table creation";
+            p_exit_upon_error "$v_task_status" "$v_subtask"
 
-        ########################################################################################
-        ## Checking if the prior process has failed. If Failed, then exit this task (script). ##
-
-        v_subtask="Prior Data table creation";
-        p_exit_upon_error "$v_task_status" "$v_subtask"
-        #-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#
-                             ## Completed: Checking for Process Failure ##
-        #-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#
+            #-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#
+                                 ## Completed: Checking for Process Failure ##
+            #-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#
     else echo "Table $v_dataset_name.$tableName missing"; 
 fi
-
 
 ## Drop Final (e.g. Atom) table
 #bq query --append=1 --flatten_results=0 --allow_large_results=1 --destination_table=$METADATA_DATASET_NAME.final_customer 'select * from '"$METADATA_DATASET_NAME"'.customer_incremental' > /dev/null
 
 v_destination_tbl="$v_metadataset_name.prior_$tableName";
 v_query="SELECT * FROM $v_metadataset_name.incremental_$tableName";
-bq query --append=1 --flatten_results=0 --allow_large_results=1 -n 1 --destination_table=$v_destination_tbl "$v_query" 2> "$v_data_object"_table_union_result.txt &
+bq query --append=1 --flatten_results=0 --allow_large_results=1 -n 1 --destination_table=$v_destination_tbl "$v_query" &
+# 2> "$v_data_object"_table_union_result.txt &
 v_pid=$!
 
 wait $v_pid
@@ -269,7 +263,8 @@ bq rm -f $v_dataset_name.$tableName
 bq cp $v_metadataset_name.prior_$tableName $v_dataset_name.$tableName
 # Removing Prior and Incremental tables
 bq rm -f $v_metadataset_name.prior_$tableName
-bq rm -f $v_metadataset_name.incremental_$tableName
+# Stopping deletion as per Alka's request to have Lat-Lng from OH. Validated by Rahul.
+#bq rm -f $v_metadataset_name.incremental_$tableName
 
 ###################################################################################
 ## Storing the status (success/failed) into respective text file. This will be in 
@@ -323,7 +318,7 @@ v_log_obj_txt+=`echo "\n--------------------------------------------------------
 echo -e "$v_log_obj_txt" > $v_arch_dir/logs/"$v_data_object""_load_"$v_task_datetime.log
 
 
-# Creating new file for order_line's ETL run. Content will be appended in further tasks of T and L.
+# Creating new file for product's ETL run. Content will be appended in further tasks of T and L.
 echo -e "$v_log_obj_txt" >> $v_temp_dir/"$v_data_object"_log.log
 
 chmod 0777 $v_temp_dir/"$v_data_object"_log.log;

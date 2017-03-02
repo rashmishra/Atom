@@ -2,396 +2,221 @@
     {
         "name": "orderlineid",
         "type": "INTEGER",
-        "mode": "nullable"
+        "mode": "REQUIRED"
     },
     {
-        "name": "cancellationpolicies",
-        "type": "STRING",
-        "mode": "nullable"
-    },
-    {
-        "name": "cda",
-        "type": "STRING",
-        "mode": "nullable"
-    },
-    {
-        "name": "createdat",
+        "name": "productid",
         "type": "INTEGER",
-        "mode": "nullable"
-    },
-    {
-        "name": "createdby",
-        "type": "STRING",
-        "mode": "nullable"
-    },
-    {
-        "name": "dealid",
-        "type": "STRING",
-        "mode": "nullable"
-    },
-    {
-        "name": "endat",
-        "type": "INTEGER",
-        "mode": "nullable"
-    },
-    {
-        "name": "expiresat",
-        "type": "INTEGER",
-        "mode": "nullable"
-    },
-    {
-        "name": "finalprice",
-        "type": "INTEGER",
-        "mode": "nullable"
-    },
-    {
-        "name": "fineprint",
-        "type": "STRING",
-        "mode": "nullable"
-    },
-    {
-        "name": "highlightsection",
-        "type": "STRING",
-        "mode": "nullable"
-    },
-    {
-        "name": "imageurl",
-        "type": "STRING",
-        "mode": "nullable"
-    },
-    {
-        "name": "iscancellable",
-        "type": "STRING",
-        "mode": "nullable"
-    },
-    {
-        "name": "isconfirmationrequired",
-        "type": "STRING",
-        "mode": "nullable"
-    },
-    {
-        "name": "isshippingrequired",
-        "type": "STRING",
-        "mode": "nullable"
-    },
-    {
-        "name": "isvoucherrequired",
-        "type": "STRING",
-        "mode": "nullable"
-    },
-    {
-        "name": "marginpercentage",
-        "type": "FLOAT",
-        "mode": "nullable"
-    },
-    {
-        "name": "merchantid",
-        "type": "STRING",
-        "mode": "nullable"
-    },
-    {
-        "name": "merchantname",
-        "type": "STRING",
-        "mode": "nullable"
-    },
-    {
-        "name": "offerdescription",
-        "type": "STRING",
-        "mode": "nullable"
-    },
-    {
-        "name": "offerid",
-        "type": "STRING",
-        "mode": "nullable"
-    },
-    {
-        "name": "offertitle",
-        "type": "STRING",
-        "mode": "nullable"
-    },
-    {
-        "name": "orderid",
-        "type": "INTEGER",
-        "mode": "nullable"
-    },
-    {
-        "name": "partnernumber",
-        "type": "STRING",
-        "mode": "nullable"
-    },
-    {
-        "name": "paymentterms",
-        "type": "STRING",
-        "mode": "nullable"
-    },
-    {
-        "name": "productshortdesc",
-        "type": "STRING",
-        "mode": "nullable"
-    },
-    {
-        "name": "quantity",
-        "type": "INTEGER",
-        "mode": "nullable"
-    },
-    {
-        "name": "redemptionbyemail",
-        "type": "STRING",
-        "mode": "nullable"
+        "mode": "NULLABLE"
     },
     {
         "name": "redemptionbyid",
         "type": "STRING",
-        "mode": "nullable"
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "redemptionbyemail",
+        "type": "STRING",
+        "mode": "NULLABLE"
     },
     {
         "name": "redemptionbyname",
         "type": "STRING",
-        "mode": "nullable"
+        "mode": "NULLABLE"
     },
     {
         "name": "redemptionbyrole",
         "type": "STRING",
-        "mode": "nullable"
+        "mode": "NULLABLE"
     },
     {
         "name": "redemptiondate",
         "type": "INTEGER",
-        "mode": "nullable"
-    },
-    {
-        "name": "status",
-        "type": "INTEGER",
-        "mode": "nullable"
-    },
-    {
-        "name": "title",
-        "type": "STRING",
-        "mode": "nullable"
-    },
-    {
-        "name": "unitprice",
-        "type": "INTEGER",
-        "mode": "nullable"
-    },
-    {
-        "name": "updatedat",
-        "type": "INTEGER",
-        "mode": "nullable"
-    },
-    {
-        "name": "updatedby",
-        "type": "STRING",
-        "mode": "nullable"
-    },
-    {
-        "name": "validfrom",
-        "type": "INTEGER",
-        "mode": "nullable"
-    },
-    {
-        "name": "vertical",
-        "type": "STRING",
-        "mode": "nullable"
-    },
-    {
-        "name": "vouchercode",
-        "type": "STRING",
-        "mode": "nullable"
-    },
-    {
-        "name": "voucherid",
-        "type": "INTEGER",
-        "mode": "nullable"
-    },
-    {
-        "name": "voucherstatus",
-        "type": "STRING",
-        "mode": "nullable"
-    },
-    {
-        "name": "voucherurl",
-        "type": "STRING",
-        "mode": "nullable"
-    },
-    {
-        "name": "whatyouget",
-        "type": "STRING",
-        "mode": "nullable"
-    },
-    {
-        "name": "offerdescreption",
-        "type": "STRING",
-        "mode": "nullable"
-    },
-    {
-        "name": "paymenttermbreackage",
-        "type": "STRING",
-        "mode": "nullable"
-    },
-    {
-        "name": "paymenttermfrequency",
-        "type": "STRING",
-        "mode": "nullable"
-    },
-    {
-        "name": "paymenttermtrigger",
-        "type": "STRING",
-        "mode": "nullable"
-    },
-    {
-        "name": "paymenttermtype",
-        "type": "STRING",
-        "mode": "nullable"
-    },
-    {
-        "name": "bookingrequestid",
-        "type": "STRING",
-        "mode": "nullable"
-    },
-    {
-        "name": "paymentnumber",
-        "type": "STRING",
-        "mode": "nullable"
+        "mode": "NULLABLE"
     },
     {
         "name": "paymentstatus",
         "type": "INTEGER",
-        "mode": "nullable"
+        "mode": "NULLABLE"
     },
     {
-        "name": "bookedat",
+        "name": "status",
         "type": "INTEGER",
-        "mode": "nullable"
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "createdat",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "createdby",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "updatedat",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "updatedby",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "vouchercode",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "voucherid",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "voucherurl",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "voucherstatus",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "ismerchantcoderequired",
+        "type": "BOOLEAN",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "isautoredeem",
+        "type": "BOOLEAN",
+        "mode": "NULLABLE"
     },
     {
         "name": "paidat",
         "type": "INTEGER",
-        "mode": "nullable"
-    },
-    {
-        "name": "cancelledat",
-        "type": "INTEGER",
-        "mode": "nullable"
-    },
-    {
-        "name": "closedat",
-        "type": "INTEGER",
-        "mode": "nullable"
-    },
-    {
-        "name": "isbooked",
-        "type": "STRING",
-        "mode": "nullable"
-    },
-    {
-        "name": "iscancelled",
-        "type": "STRING",
-        "mode": "nullable"
-    },
-    {
-        "name": "isopen",
-        "type": "STRING",
-        "mode": "nullable"
+        "mode": "NULLABLE"
     },
     {
         "name": "ispaid",
-        "type": "STRING",
-        "mode": "nullable"
-    },
-    {
-        "name": "ismerchantcoderequired",
-        "type": "STRING",
-        "mode": "nullable"
-    },
-    {
-        "name": "isautoredeem",
-        "type": "STRING",
-        "mode": "nullable"
+        "type": "BOOLEAN",
+        "mode": "NULLABLE"
     },
     {
         "name": "merchantcode",
         "type": "STRING",
-        "mode": "nullable"
+        "mode": "NULLABLE"
     },
     {
         "name": "redemptionlat",
         "type": "FLOAT",
-        "mode": "nullable"
+        "mode": "NULLABLE"
     },
     {
         "name": "redemptionlong",
         "type": "FLOAT",
-        "mode": "nullable"
+        "mode": "NULLABLE"
     },
     {
-        "name": "bookingdate",
-        "type": "STRING",
-        "mode": "nullable"
-    },
-    {
-        "name": "bookingtimeslot",
+        "name": "orderid",
         "type": "INTEGER",
-        "mode": "nullable"
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "expiresat",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "iscancellable",
+        "type": "BOOLEAN",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "isconfirmationrequired",
+        "type": "BOOLEAN",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "isshippingrequired",
+        "type": "BOOLEAN",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "isvoucherrequired",
+        "type": "BOOLEAN",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "bookingrequestid",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "bookedat",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "cancelledat",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "closedat",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "isbooked",
+        "type": "BOOLEAN",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "iscancelled",
+        "type": "BOOLEAN",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "isopen",
+        "type": "BOOLEAN",
+        "mode": "NULLABLE"
     },
     {
         "name": "cancellationpolicyid",
         "type": "INTEGER",
-        "mode": "nullable"
-    },
-    {
-        "name": "paymenttermid",
-        "type": "INTEGER",
-        "mode": "nullable"
-    },
-    {
-        "name": "senttoaps",
-        "type": "STRING",
-        "mode": "nullable"
-    },
-    {
-        "name": "categoryid",
-        "type": "STRING",
-        "mode": "nullable"
-    },
-    {
-        "name": "flatcommission",
-        "type": "INTEGER",
-        "mode": "nullable"
-    },
-    {
-        "name": "exclusions",
-        "type": "STRING",
-        "mode": "nullable"
-    },
-    {
-        "name": "nearbuymenu",
-        "type": "STRING",
-        "mode": "nullable"
-    },
-    {
-        "name": "termsandconditions",
-        "type": "STRING",
-        "mode": "nullable"
+        "mode": "NULLABLE"
     },
     {
         "name": "expiredat",
         "type": "INTEGER",
-        "mode": "nullable"
+        "mode": "NULLABLE"
     },
     {
         "name": "acceptedat",
         "type": "INTEGER",
-        "mode": "nullable"
+        "mode": "NULLABLE"
     },
     {
-        "name": "ispaidtomerchant",
-        "type": "STRING",
-        "mode": "nullable"
-    },
-    {
-        "name": "cashbackamount",
+        "name": "validfrom",
         "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "workflowtype",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "purchasedetailsitem",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "redemptiontype",
+        "type": "STRING",
         "mode": "NULLABLE"
     }
 ]

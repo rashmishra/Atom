@@ -1,6 +1,6 @@
 #!/bin/bash
 
-## Script Name: export_order_line.sh
+## Script Name: export_orderbom.sh
 ## Purpose: Modular ETL flow of Atom.
 
 ##### $1: Data Object. ####
@@ -22,6 +22,7 @@ v_etl_task='extract'
 v_data_object=$1;
 v_data_dump_dir=$2
 v_mondo_dir=$3;
+#v_incremental_epoch=$4;
 v_incremental_epoch=$(($4*1000));
 v_temp_dir=$5/temp;
 v_logs_dir=$5/logs;
@@ -42,13 +43,14 @@ p_exit_upon_error(){
     v_subtask="$2";
 
 
-    if [ $v_task_status == "failed" ] ; 
-    then
+    if [ $v_task_status == "failed" ] ; then
         v_log_obj_txt+=`echo "\n$(date) $(date) Task ($v_subtask) failed for $v_data_object. Hence exiting."`;
 
         taskEndTime=`date`;
+
         v_task_end_epoch=`date +%s`
         v_task_end_ts=`echo $(date -d "@$v_task_end_epoch" +"%Y-%m-%d %r %Z")`;
+
         v_bq_log_tbl_row='';
 
         ## Writing (appending) the CSV log table row into respective file
@@ -59,10 +61,12 @@ p_exit_upon_error(){
         v_log_obj_txt+=`echo "\n$(date) Log Table Row: \n$v_bq_log_tbl_row"`;
 
         ## Writing the status (success/ failure) into proper file
+
         echo $v_task_status > $v_temp_dir/${v_data_object}_extract_status.txt
         chmod 0777 $v_temp_dir/${v_data_object}_extract_status.txt;
 
         ## Writing the log of this task to files
+
         v_log_obj_txt+=`echo "\n$v_etl_task process ended for $v_data_object at $v_task_end_ts"`;
         v_log_obj_txt+=`echo "\n------------------------------------------------------------"`;
         v_log_obj_txt+=`echo "\n------------------------------------------------------------"`;
@@ -70,20 +74,20 @@ p_exit_upon_error(){
         # Maintaining the log of this run in a separate file in arch folder
         echo -e "$v_log_obj_txt" > $v_arch_dir/logs/"$v_data_object""_extract_"$v_task_datetime.log
 
-        # Creating new file for order_line's ETL run. Content will be appended in further tasks of T and L.
+
+        # Creating new file for orderbom's ETL run. Content will be appended in further tasks of T and L.
         echo -e "$v_log_obj_txt" > $v_temp_dir/"$v_data_object"_log.log
+
         chmod 0777 $v_temp_dir/"$v_data_object"_log.log;
 
-        #Exiting with an error-code
+        
+
         exit 1;
     fi
 
 
 }
 
-
-# Avoiding choking due to Full refresh
-#v_incremental_epoch=1465471494000;
 
 #echo "OMS data export start time is : $taskStartTime "
 
@@ -100,21 +104,15 @@ v_log_obj_txt+=`rm $v_data_dump_dir/$v_data_object.*`;
 
 v_log_obj_txt+=`echo "\nRemoved old $v_data_dump_dir/$v_data_object.csv file"`;
 
-# Storing Query in a separate file to use in psql command
-#echo "select * from oms_data.orderline where createdat>$v_incremental_epoch or updatedat>$v_incremental_epoch" > ./query_$v_data_object.txt
-
 v_extract_filename="$v_data_dump_dir/$v_data_object.csv";
-# v_query_logfile=$v_temp_dir/"$v_data_object"_extract_command_output.txt;
 
-echo "Command O/p is stored in $v_query_logfile"
 echo "Query is stored in $v_extract_filename"
 
 export PGPASSWORD='0mspr0d$'
 
-
 v_extract_filename="$v_data_dump_dir/$v_data_object.csv";
 
-v_command="\copy (select * from oms_data.orderline where createdat>$v_incremental_epoch or updatedat>$v_incremental_epoch)  to $v_extract_filename with DELIMITER ',' CSV HEADER"
+v_command="\copy (select * from oms_data.orderbom where createdat>$v_incremental_epoch or updatedat>$v_incremental_epoch)  to $v_extract_filename with DELIMITER ',' CSV HEADER"
 
 
 #psql -d $DBNAME -h $DBHOST -p $DBPORT -U $DBUSER --log-file=$v_query_logfile -A --field-separator=, -f "query_$v_data_object.txt" -o "$v_extract_filename" &
@@ -134,20 +132,17 @@ else
     v_task_status="failed";
 fi
 
+rm ./query_$v_data_object.txt
+
 v_log_obj_txt+=`echo "\n$(date) $v_task_status is the task status. \n"`;
 
 v_subtask="Postgres export";
 p_exit_upon_error "$v_task_status" "$v_subtask"
 
-# Zipping the exported data file
+v_log_obj_txt+=`echo " \n$v_task_status is the task status"`;
 
-echo "Before gzipping OL";
-ls -l | grep $v_data_object
+gzip -f $v_extract_filename
 
-gzip -f $v_extract_filename 
-
-echo "After gzipping OL";
-ls -l | grep $v_data_object
 
 # Init end time for logging purpose
 taskEndTime=`date`;
@@ -180,9 +175,6 @@ v_log_obj_txt+=`echo "\n Log Table Row: \n$v_bq_log_tbl_row"`;
 
 echo $v_task_status > $v_temp_dir/${v_data_object}_extract_status.txt
 
-
-chmod 0777 $v_temp_dir/${v_data_object}_extract_status.txt;
-
 ###################################################################################
 
 taskEndTime=`date`;
@@ -204,12 +196,13 @@ echo -e "$v_log_obj_txt" > $v_temp_dir/"$v_data_object""_extract_"$v_task_dateti
 # Removing the previous run's file from the directory
 v_log_obj_txt+=`rm $v_logs_dir/"$v_data_object"_log.log`;
 
-# Creating new file for order_line's ETL run. Content will be appended in further tasks of T and L.
+# Creating new file for orderbom's ETL run. Content will be appended in further tasks of T and L.
 echo -e "$v_log_obj_txt" > $v_logs_dir/"$v_data_object"_log.log
 ##############################################################################
+
 
 echo -e "Log text is: \n"
 echo -e "$v_log_obj_txt";
 
-echo "Order Line data export end time is : $taskEndTime "
+echo "Order Header data export end time is : $taskEndTime "
 exit 0

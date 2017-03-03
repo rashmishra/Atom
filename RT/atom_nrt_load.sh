@@ -13,31 +13,31 @@ DBPASS=0mspr0d$
 DATE=`date +%Y-%m-%d`
 
 # get last max created time updated time from different tables which need to be loaded
-echo "$(/home/ubuntu/google-cloud-sdk/bin/bq query 'select max(createdAt) as lastrun from Atom_rt.order_header')" | sed -n 5p | sed 's/[^0-9]*//g' > /home/ubuntu/RT/lastordercreatedtime.txt
-echo "$(/home/ubuntu/google-cloud-sdk/bin/bq query 'select max(updatedAt) as lastrun from Atom_rt.order_header')" | sed -n 5p | sed 's/[^0-9]*//g' > /home/ubuntu/RT/lastorderupdatedtime.txt
-echo "$(/home/ubuntu/google-cloud-sdk/bin/bq query 'select max(createdAt) as lastrun from Atom_rt.order_line')" | sed -n 5p | sed 's/[^0-9]*//g' > /home/ubuntu/RT/lastorderlinecreatedtime.txt
-echo "$(/home/ubuntu/google-cloud-sdk/bin/bq query 'select max(updatedAt) as lastrun from Atom_rt.order_line')" | sed -n 5p | sed 's/[^0-9]*//g' > /home/ubuntu/RT/lastorderlineupdatedtime.txt
-echo "$(/home/ubuntu/google-cloud-sdk/bin/bq query 'select max(createdAt) as lastrun from Atom_rt.order_bom')" | sed -n 5p | sed 's/[^0-9]*//g' > /home/ubuntu/RT/lastorderbomcreatedtime.txt
-echo "$(/home/ubuntu/google-cloud-sdk/bin/bq query 'select max(updatedAt) as lastrun from Atom_rt.order_bom')" | sed -n 5p | sed 's/[^0-9]*//g' > /home/ubuntu/RT/lastorderbomupdatedtime.txt
-echo "$(/home/ubuntu/google-cloud-sdk/bin/bq query 'select max(createdAt) as lastrun from Atom_rt.product')" | sed -n 5p | sed 's/[^0-9]*//g' > /home/ubuntu/RT/lastproductcreatedtime.txt
-echo "$(/home/ubuntu/google-cloud-sdk/bin/bq query 'select max(updatedAt) as lastrun from Atom_rt.product')" | sed -n 5p | sed 's/[^0-9]*//g' > /home/ubuntu/RT/lastproductupdatedtime.txt
-#echo "$(bq query 'select max(createdAt) as lastrun from Atom_rt.customer')" | sed -n 5p | sed 's/[^0-9]*//g' > /home/ubuntu/RT/lastcustomercreatedtime.txt
-#echo "$(bq query 'select max(lastModifiedAt) as lastrun from Atom_rt.customer')" | sed -n 5p | sed 's/[^0-9]*//g' > /home/ubuntu/RT/lastcustomerupdatedtime.txt
+echo "$(/home/ubuntu/google-cloud-sdk/bin/bq query 'select max(createdAt) as lastrun from Atom_rt.order_header')" | sed -n 5p | sed 's/[^0-9]*//g' > /home/ubuntu/modular_ETL/RT/lastordercreatedtime.txt
+echo "$(/home/ubuntu/google-cloud-sdk/bin/bq query 'select max(updatedAt) as lastrun from Atom_rt.order_header')" | sed -n 5p | sed 's/[^0-9]*//g' > /home/ubuntu/modular_ETL/RT/lastorderupdatedtime.txt
+echo "$(/home/ubuntu/google-cloud-sdk/bin/bq query 'select max(createdAt) as lastrun from Atom_rt.order_line_new')" | sed -n 5p | sed 's/[^0-9]*//g' > /home/ubuntu/modular_ETL/RT/lastorderlinecreatedtime.txt
+echo "$(/home/ubuntu/google-cloud-sdk/bin/bq query 'select max(updatedAt) as lastrun from Atom_rt.order_line_new')" | sed -n 5p | sed 's/[^0-9]*//g' > /home/ubuntu/modular_ETL/RT/lastorderlineupdatedtime.txt
+echo "$(/home/ubuntu/google-cloud-sdk/bin/bq query 'select max(createdAt) as lastrun from Atom_rt.order_bom')" | sed -n 5p | sed 's/[^0-9]*//g' > /home/ubuntu/modular_ETL/RT/lastorderbomcreatedtime.txt
+echo "$(/home/ubuntu/google-cloud-sdk/bin/bq query 'select max(updatedAt) as lastrun from Atom_rt.order_bom')" | sed -n 5p | sed 's/[^0-9]*//g' > /home/ubuntu/modular_ETL/RT/lastorderbomupdatedtime.txt
+echo "$(/home/ubuntu/google-cloud-sdk/bin/bq query 'select max(createdAt) as lastrun from Atom_rt.product')" | sed -n 5p | sed 's/[^0-9]*//g' > /home/ubuntu/modular_ETL/RT/lastproductcreatedtime.txt
+echo "$(/home/ubuntu/google-cloud-sdk/bin/bq query 'select max(updatedAt) as lastrun from Atom_rt.product')" | sed -n 5p | sed 's/[^0-9]*//g' > /home/ubuntu/modular_ETL/RT/lastproductupdatedtime.txt
+#echo "$(bq query 'select max(createdAt) as lastrun from Atom_rt.customer')" | sed -n 5p | sed 's/[^0-9]*//g' > /home/ubuntu/modular_ETL/RT/lastcustomercreatedtime.txt
+#echo "$(bq query 'select max(lastModifiedAt) as lastrun from Atom_rt.customer')" | sed -n 5p | sed 's/[^0-9]*//g' > /home/ubuntu/modular_ETL/RT/lastcustomerupdatedtime.txt
 
 
-LAST_OH_CREATEDTIME=$(($(head -1 /home/ubuntu/RT/lastordercreatedtime.txt)));
-LAST_OH_UPDATEDTIME=$(($(head -1 /home/ubuntu/RT/lastorderupdatedtime.txt)));
+LAST_OH_CREATEDTIME=$(($(head -1 /home/ubuntu/modular_ETL/RT/lastordercreatedtime.txt)));
+LAST_OH_UPDATEDTIME=$(($(head -1 /home/ubuntu/modular_ETL/RT/lastorderupdatedtime.txt)));
 
-LAST_OL_CREATEDTIME=$(($(head -1 /home/ubuntu/RT/lastorderlinecreatedtime.txt)));
-LAST_OL_UPDATEDTIME=$(($(head -1 /home/ubuntu/RT/lastorderlineupdatedtime.txt)));
+LAST_OL_CREATEDTIME=$(($(head -1 /home/ubuntu/modular_ETL/RT/lastorderlinecreatedtime.txt)));
+LAST_OL_UPDATEDTIME=$(($(head -1 /home/ubuntu/modular_ETL/RT/lastorderlineupdatedtime.txt)));
 
-LAST_OB_CREATEDTIME=$(($(head -1 /home/ubuntu/RT/lastorderbomcreatedtime.txt)));
-LAST_OB_UPDATEDTIME=$(($(head -1 /home/ubuntu/RT/lastorderbomupdatedtime.txt)));
+LAST_OB_CREATEDTIME=$(($(head -1 /home/ubuntu/modular_ETL/RT/lastorderbomcreatedtime.txt)));
+LAST_OB_UPDATEDTIME=$(($(head -1 /home/ubuntu/modular_ETL/RT/lastorderbomupdatedtime.txt)));
 
-LAST_PR_CREATEDTIME=$(($(head -1 /home/ubuntu/RT/lastproductcreatedtime.txt)));
-LAST_PR_UPDATEDTIME=$(($(head -1 /home/ubuntu/RT/lastproductupdatedtime.txt)));
-#LAST_CUST_CREATEDTIME=$(($(head -1 /home/ubuntu/RT/lastcustomercreatedtime.txt)))
-#LAST_CUST_UPDATEDTIME=$(($(head -1 /home/ubuntu/RT/lastcustomerupdatedtime.txt)))
+LAST_PR_CREATEDTIME=$(($(head -1 /home/ubuntu/modular_ETL/RT/lastproductcreatedtime.txt)));
+LAST_PR_UPDATEDTIME=$(($(head -1 /home/ubuntu/modular_ETL/RT/lastproductupdatedtime.txt)));
+#LAST_CUST_CREATEDTIME=$(($(head -1 /home/ubuntu/modular_ETL/RT/lastcustomercreatedtime.txt)))
+#LAST_CUST_UPDATEDTIME=$(($(head -1 /home/ubuntu/modular_ETL/RT/lastcustomerupdatedtime.txt)))
 
 
 echo "last order header entry was created at : $LAST_OH_CREATEDTIME";
@@ -57,31 +57,31 @@ echo "last product entry was updated at: $LAST_PR_UPDATEDTIME";
 
 export PGPASSWORD='0mspr0d$'
 /usr/bin/psql -d $DBNAME -h $DBHOST -p $DBPORT -U $DBUSER <<EOF
-\copy (select * from oms_data.orderheader where createdAt > $LAST_OH_CREATEDTIME or updatedAt> $LAST_OH_UPDATEDTIME )  to /home/ubuntu/RT/ohExport.csv with DELIMITER ',' CSV HEADER;
-\copy (select * from oms_data.orderline where createdAt > $LAST_OL_CREATEDTIME or updatedAt> $LAST_OL_UPDATEDTIME ) to /home/ubuntu/RT/olExport.csv with DELIMITER ',' CSV HEADER;
-\copy (select * from oms_data.orderbom where createdAt > $LAST_OB_CREATEDTIME or updatedAt> $LAST_OB_UPDATEDTIME ) to /home/ubuntu/RT/oBOMExport.csv with DELIMITER ',' CSV HEADER;
-\copy (select * from oms_data.product where createdAt > $LAST_PR_CREATEDTIME or updatedAt> $LAST_PR_UPDATEDTIME ) to /home/ubuntu/RT/productExport.csv with DELIMITER ',' CSV HEADER;
+\copy (select * from oms_data.orderheader where createdAt > $LAST_OH_CREATEDTIME or updatedAt> $LAST_OH_UPDATEDTIME )  to /home/ubuntu/modular_ETL/RT/ohExport.csv with DELIMITER ',' CSV HEADER;
+\copy (select * from oms_data.orderline where createdAt > $LAST_OL_CREATEDTIME or updatedAt> $LAST_OL_UPDATEDTIME ) to /home/ubuntu/modular_ETL/RT/olExport.csv with DELIMITER ',' CSV HEADER;
+\copy (select * from oms_data.orderbom where createdAt > $LAST_OB_CREATEDTIME or updatedAt> $LAST_OB_UPDATEDTIME ) to /home/ubuntu/modular_ETL/RT/oBOMExport.csv with DELIMITER ',' CSV HEADER;
+\copy (select * from oms_data.product where createdAt > $LAST_PR_CREATEDTIME or updatedAt> $LAST_PR_UPDATEDTIME ) to /home/ubuntu/modular_ETL/RT/productExport.csv with DELIMITER ',' CSV HEADER;
 EOF
 
 #query="{\$or:[{\"createdAt\":{\$gt:$LAST_CUST_CREATEDTIME}},{\"lastModifiedAt\":{\$gt:$LAST_CUST_UPDATEDTIME}}]}"
 #echo $query
 #cd /home/ubuntu/mongo_cp/bin
-#./mongoexport --host 10.2.4.15:27017 --db nearbuy_customer_profile -q $query -c customer  --out /home/ubuntu/RT/customerProfileExport.json
+#./mongoexport --host 10.2.4.15:27017 --db nearbuy_customer_profile -q $query -c customer  --out /home/ubuntu/modular_ETL/RT/customerProfileExport.json
 
 #gzip $1/customerProfileExport.json
-/home/ubuntu/google-cloud-sdk/bin/gsutil -m cp -r /home/ubuntu/RT/*Export* gs://nb_rt
+/home/ubuntu/google-cloud-sdk/bin/gsutil -m cp -r /home/ubuntu/modular_ETL/RT/*Export* gs://nb_rt
 
-/home/ubuntu/google-cloud-sdk/bin/bq load --field_delimiter=',' --source_format=CSV --skip_leading_rows=1 --max_bad_records=0  --allow_jagged_rows=1 --allow_quoted_newlines=1 --ignore_unknown_values=1  Atom_rt.order_header_temp gs://nb_rt/ohExport.csv /home/ubuntu/RT/schema_order_header.json
+/home/ubuntu/google-cloud-sdk/bin/bq load --field_delimiter=',' --source_format=CSV --skip_leading_rows=1 --max_bad_records=0  --allow_jagged_rows=1 --allow_quoted_newlines=1 --ignore_unknown_values=1  Atom_rt.order_header_temp gs://nb_rt/ohExport.csv /home/ubuntu/modular_ETL/RT/schema_order_header.json
 
-/home/ubuntu/google-cloud-sdk/bin/bq load --field_delimiter=',' --source_format=CSV --skip_leading_rows=1 --max_bad_records=0  --allow_jagged_rows=1 --allow_quoted_newlines=1 --ignore_unknown_values=1  Atom_rt.order_line_new_temp gs://nb_rt/olExport.csv /home/ubuntu/RT/schema_order_line.json
+/home/ubuntu/google-cloud-sdk/bin/bq load --field_delimiter=',' --source_format=CSV --skip_leading_rows=1 --max_bad_records=0  --allow_jagged_rows=1 --allow_quoted_newlines=1 --ignore_unknown_values=1  Atom_rt.order_line_new_temp gs://nb_rt/olExport.csv /home/ubuntu/modular_ETL/RT/schema_order_line.json
 
 #BOM
-/home/ubuntu/google-cloud-sdk/bin/bq load --field_delimiter=',' --source_format=CSV --skip_leading_rows=1 --max_bad_records=0  --allow_jagged_rows=1 --allow_quoted_newlines=1 --ignore_unknown_values=1  Atom_rt.order_bom_temp gs://nb_rt/oBOMExport.csv /home/ubuntu/RT/schema_order_bom.json
+/home/ubuntu/google-cloud-sdk/bin/bq load --field_delimiter=',' --source_format=CSV --skip_leading_rows=1 --max_bad_records=0  --allow_jagged_rows=1 --allow_quoted_newlines=1 --ignore_unknown_values=1  Atom_rt.order_bom_temp gs://nb_rt/oBOMExport.csv /home/ubuntu/modular_ETL/RT/schema_order_bom.json
 
 #Product
-/home/ubuntu/google-cloud-sdk/bin/bq load --field_delimiter=',' --source_format=CSV --skip_leading_rows=1 --max_bad_records=0  --allow_jagged_rows=1 --allow_quoted_newlines=1 --ignore_unknown_values=1  Atom_rt.product_temp gs://nb_rt/productExport.csv /home/ubuntu/RT/schema_product.json
+/home/ubuntu/google-cloud-sdk/bin/bq load --field_delimiter=',' --source_format=CSV --skip_leading_rows=1 --max_bad_records=0  --allow_jagged_rows=1 --allow_quoted_newlines=1 --ignore_unknown_values=1  Atom_rt.product_temp gs://nb_rt/productExport.csv /home/ubuntu/modular_ETL/RT/schema_product.json
 
-#bq  load  --source_format=NEWLINE_DELIMITED_JSON --ignore_unknown_values=1 --max_bad_records=0 Atom_rt.customer_temp gs://nb_rt/customerProfileExport.json /home/ubuntu/RT/schema_customer.json
+#bq  load  --source_format=NEWLINE_DELIMITED_JSON --ignore_unknown_values=1 --max_bad_records=0 Atom_rt.customer_temp gs://nb_rt/customerProfileExport.json /home/ubuntu/modular_ETL/RT/schema_customer.json
 
 /home/ubuntu/google-cloud-sdk/bin/bq query --replace --allow_large_results=1 --destination_table=Atom_rt.order_header_final 'select * from Atom_rt.order_header where orderid not in (select orderid from Atom_rt.order_header_temp)' > /dev/null
 /home/ubuntu/google-cloud-sdk/bin/bq query --append=1 --allow_large_results=1 --destination_table=Atom_rt.order_header_final 'select * from Atom_rt.order_header_temp' > /dev/null

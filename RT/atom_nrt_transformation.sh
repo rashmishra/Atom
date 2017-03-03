@@ -12,14 +12,14 @@
 ## Step 1: Find the delta rows in BOM by fetching latest createdat and updated from Atom_rt.order_line
 
 v_query="SELECT
-  tbl1.orderlineid AS orderlineid,
+  orderlineid AS orderlineid,
   CAST (null AS STRING) AS cancellationpolicies,
   CAST (null AS STRING) AS cda,
   tbl2.createdat AS createdat,
   tbl2.createdby AS createdby,
   CAST (null AS INTEGER) AS endat,
   expiresat,
-  finalprice,
+  INTEGER(finalprice) AS finalprice,
   fineprint,
   highlightsection,
   imageurl,
@@ -44,7 +44,7 @@ v_query="SELECT
   redemptiondate,
   STATUS AS status,
   title,
-  unitprice,
+  INTEGER(unitprice),
   tbl2.updatedat AS updatedat,
   tbl2.updatedby AS updatedby,
   validfrom,
@@ -101,8 +101,8 @@ v_dataset_name=Atom_rt;
 
 tableName=incremental_order_line_recreated
 v_destination_tbl="$v_dataset_name.${tableName}";
-echo "bq query --maximum_billing_tier 100 --allow_large_results=1  --replace -n 1 --destination_table=$v_destination_tbl \"$v_query\""
-bq query --maximum_billing_tier 100 --allow_large_results=1 --replace -n 0 --destination_table=$v_destination_tbl "$v_query"
+echo "/home/ubuntu/google-cloud-sdk/bin/bq query --maximum_billing_tier 100 --allow_large_results=1  --replace -n 1 --destination_table=$v_destination_tbl \"$v_query\""
+/home/ubuntu/google-cloud-sdk/bin/bq query --maximum_billing_tier 100 --allow_large_results=1 --replace -n 0 --destination_table=$v_destination_tbl "$v_query"
 
 
 ## Step 2: Create Prior table which contains the orderline records created prior/ apart to/ from the incremental table's records
@@ -112,8 +112,8 @@ v_query="SELECT * FROM Atom_rt.order_line WHERE orderlineid NOT IN (SELECT order
 v_dataset_name=Atom_rt;
 tableName=prior_order_line
 v_destination_tbl="$v_dataset_name.${tableName}";
-echo "bq query --maximum_billing_tier 100 --allow_large_results=1  --replace -n 1 --destination_table=$v_destination_tbl \"$v_query\""
-bq query --maximum_billing_tier 100 --allow_large_results=1 --replace -n 0 --destination_table=$v_destination_tbl "$v_query";
+echo "/home/ubuntu/google-cloud-sdk/bin/bq query --maximum_billing_tier 100 --allow_large_results=1  --replace -n 1 --destination_table=$v_destination_tbl \"$v_query\""
+/home/ubuntu/google-cloud-sdk/bin/bq query --maximum_billing_tier 100 --allow_large_results=1 --replace -n 0 --destination_table=$v_destination_tbl "$v_query";
 
 
 ## Step 3: Appending the incremental data to prior table. (UNION operation)
@@ -122,15 +122,15 @@ v_query="SELECT * FROM Atom_rt.incremental_order_line_recreated";
 v_dataset_name=Atom_rt;
 tableName=prior_order_line
 v_destination_tbl="$v_dataset_name.${tableName}";
-echo "bq query --maximum_billing_tier 100 --allow_large_results=1  --append -n 1 --destination_table=$v_destination_tbl \"$v_query\""
-bq query --maximum_billing_tier 100 --allow_large_results=1 --append -n 0 --destination_table=$v_destination_tbl "$v_query";
+echo "/home/ubuntu/google-cloud-sdk/bin/bq query --maximum_billing_tier 100 --allow_large_results=1  --append -n 1 --destination_table=$v_destination_tbl \"$v_query\""
+/home/ubuntu/google-cloud-sdk/bin/bq query --maximum_billing_tier 100 --allow_large_results=1 --append -n 0 --destination_table=$v_destination_tbl "$v_query";
 
 
 
 
 # Step 4: Copy the combined data of incremental and prior lying in prior table to main table
-bq cp -r Atom_rt.prior_order_line Atom_rt.order_line
-bq rm Atom_rt.prior_order_line;
-bq rm Atom_rt.incremental_order_line_recreated;
+/home/ubuntu/google-cloud-sdk/bin/bq cp -r Atom_rt.prior_order_line Atom_rt.order_line
+/home/ubuntu/google-cloud-sdk/bin/bq rm Atom_rt.prior_order_line;
+/home/ubuntu/google-cloud-sdk/bin/bq rm Atom_rt.incremental_order_line_recreated;
 
 exit 0;

@@ -86,12 +86,12 @@
     },
     {
         "name": "ismerchantcoderequired",
-        "type": "BOOLEAN",
+        "type": "STRING",
         "mode": "NULLABLE"
     },
     {
         "name": "isautoredeem",
-        "type": "BOOLEAN",
+        "type": "STRING",
         "mode": "NULLABLE"
     },
     {
@@ -101,7 +101,7 @@
     },
     {
         "name": "ispaid",
-        "type": "BOOLEAN",
+        "type": "STRING",
         "mode": "NULLABLE"
     },
     {
@@ -131,22 +131,22 @@
     },
     {
         "name": "iscancellable",
-        "type": "BOOLEAN",
+        "type": "STRING",
         "mode": "NULLABLE"
     },
     {
         "name": "isconfirmationrequired",
-        "type": "BOOLEAN",
+        "type": "STRING",
         "mode": "NULLABLE"
     },
     {
         "name": "isshippingrequired",
-        "type": "BOOLEAN",
+        "type": "STRING",
         "mode": "NULLABLE"
     },
     {
         "name": "isvoucherrequired",
-        "type": "BOOLEAN",
+        "type": "STRING",
         "mode": "NULLABLE"
     },
     {
@@ -171,17 +171,17 @@
     },
     {
         "name": "isbooked",
-        "type": "BOOLEAN",
+        "type": "STRING",
         "mode": "NULLABLE"
     },
     {
         "name": "iscancelled",
-        "type": "BOOLEAN",
+        "type": "STRING",
         "mode": "NULLABLE"
     },
     {
         "name": "isopen",
-        "type": "BOOLEAN",
+        "type": "STRING",
         "mode": "NULLABLE"
     },
     {

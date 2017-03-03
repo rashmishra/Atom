@@ -16,7 +16,7 @@ p_exit_upon_error(){
     v_subtask="$2";
 
 
-    if [ $v_task_status == "failed" ] ; then
+    if [ "$v_task_status" == "failed" ] ; then
         v_log_obj_txt+=`echo "\n$(date) $(date) Task ($v_subtask) failed for $v_data_object. Hence exiting."`;
 
         taskEndTime=`date`;
@@ -67,14 +67,14 @@ p_exit_upon_error(){
 ## Step 1: Find the delta rows in BOM by fetching latest createdat and updated from Atom.order_line
 
 v_query="SELECT
-  tbl2.orderlineid AS orderlineid,
+  orderlineid AS orderlineid,
   CAST (null AS STRING) AS cancellationpolicies,
   CAST (null AS STRING) AS cda,
   tbl2.createdat AS createdat,
   tbl2.createdby AS createdby,
   CAST (null AS INTEGER) AS endat,
   expiresat,
-  finalprice,
+  CAST(finalprice AS INTEGER) AS finalprice,
   fineprint,
   highlightsection,
   imageurl,
@@ -99,10 +99,10 @@ v_query="SELECT
   redemptiondate,
   STATUS AS status,
   title,
-  unitprice,
+  CAST(unitprice AS INTEGER) AS unitprice,
   tbl2.updatedat AS updatedat,
   tbl2.updatedby AS updatedby,
-  tbl2.validfrom AS validfrom,
+  validfrom,
   vertical,
   vouchercode,
   voucherid,
@@ -118,7 +118,7 @@ v_query="SELECT
   CAST (null AS STRING) AS paymentnumber,
   paymentstatus,
   bookedat,
-  tbl2.paidat,
+  paidat,
   cancelledat,
   closedat,
   isbooked,
@@ -130,7 +130,7 @@ v_query="SELECT
   merchantcode,
   redemptionlat,
   redemptionlong,
-  bookingdate,
+  CAST(bookingdate AS STRING) AS bookingdate,
   bookingtimeslot,
   cancellationpolicyid,
   paymenttermid,
@@ -156,8 +156,8 @@ v_dataset_name=Atom;
 
 tableName=incremental_order_line_recreated
 v_destination_tbl="$v_dataset_name.${tableName}";
-echo "bq query --maximum_billing_tier 100 --allow_large_results=1  --replace -n 1 --destination_table=$v_destination_tbl \"$v_query\""
-bq query --maximum_billing_tier 100 --allow_large_results=1 --replace -n 0 --destination_table=$v_destination_tbl "$v_query"
+echo "/home/ubuntu/google-cloud-sdk/bin/bq query --maximum_billing_tier 100 --allow_large_results=1  --replace -n 1 --destination_table=$v_destination_tbl \"$v_query\""
+/home/ubuntu/google-cloud-sdk/bin/bq query --maximum_billing_tier 100 --allow_large_results=1 --replace -n 0 --destination_table=$v_destination_tbl "$v_query"
 v_pid=$!
 
 
@@ -185,8 +185,8 @@ v_query="SELECT * FROM Atom.order_line WHERE orderlineid NOT IN (SELECT orderlin
 v_dataset_name=Atom;
 tableName=prior_order_line
 v_destination_tbl="$v_dataset_name.${tableName}";
-echo "bq query --maximum_billing_tier 100 --allow_large_results=1  --replace -n 1 --destination_table=$v_destination_tbl \"$v_query\""
-bq query --maximum_billing_tier 100 --allow_large_results=1 --replace -n 0 --destination_table=$v_destination_tbl "$v_query";
+echo "/home/ubuntu/google-cloud-sdk/bin/bq query --maximum_billing_tier 100 --allow_large_results=1  --replace -n 1 --destination_table=$v_destination_tbl \"$v_query\""
+/home/ubuntu/google-cloud-sdk/bin/bq query --maximum_billing_tier 100 --allow_large_results=1 --replace -n 0 --destination_table=$v_destination_tbl "$v_query";
 v_pid=$!
 
 
@@ -212,8 +212,8 @@ v_query="SELECT * FROM Atom.incremental_order_line_recreated";
 v_dataset_name=Atom;
 tableName=prior_order_line
 v_destination_tbl="$v_dataset_name.${tableName}";
-echo "bq query --maximum_billing_tier 100 --allow_large_results=1  --append -n 1 --destination_table=$v_destination_tbl \"$v_query\""
-bq query --maximum_billing_tier 100 --allow_large_results=1 --append -n 0 --destination_table=$v_destination_tbl "$v_query";
+echo "/home/ubuntu/google-cloud-sdk/bin/bq query --maximum_billing_tier 100 --allow_large_results=1  --append -n 1 --destination_table=$v_destination_tbl \"$v_query\""
+/home/ubuntu/google-cloud-sdk/bin/bq query --maximum_billing_tier 100 --allow_large_results=1 --append -n 0 --destination_table=$v_destination_tbl "$v_query";
 v_pid=$!
 
 
@@ -235,7 +235,7 @@ p_exit_upon_error "$v_task_status" "$v_subtask";
 
 
 # Step 4: Copy the combined data of incremental and prior lying in prior table to main table
-bq cp -r Atom.prior_order_line Atom.order_line
+/home/ubuntu/google-cloud-sdk/bin/bq cp -f Atom.prior_order_line Atom.order_line
 v_pid=$!
 
 
@@ -254,10 +254,10 @@ v_subtask="Transformation Step 4: Copy UNION result to main table";
 p_exit_upon_error "$v_task_status" "$v_subtask";
 
 
-bq rm Atom.prior_order_line;
-bq rm Atom.incremental_order_line_recreated;
+/home/ubuntu/google-cloud-sdk/bin/bq rm Atom.prior_order_line;
+/home/ubuntu/google-cloud-sdk/bin/bq rm Atom.incremental_order_line_recreated;
 
-if [[ "$v_status" = "success" ]]; 
+if [ "$v_status" == "success" ]; 
   then 
     echo `date` "Task: #v_subtask ended with status $v_task_status." | mail -s "Transformation of BOM to OL completed: $v_task_status" sairanganath.v@nearbuy.com;
   else 

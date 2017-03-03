@@ -106,7 +106,7 @@ p_exit_upon_error "$v_task_status" "$v_subtask";
 
 
 
-if [[ "$v_status" = "success" ]]; 
+if [ "$v_status" == "success" ]; 
   then 
     echo `date` "Task: #v_subtask ended with status $v_task_status." | mail -s "Wrapper script calling ETL and Transform OL completed: $v_task_status" sairanganath.v@nearbuy.com;
   else 

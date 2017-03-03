@@ -19,7 +19,7 @@ v_query="SELECT
   tbl2.createdby AS createdby,
   CAST (null AS INTEGER) AS endat,
   expiresat,
-  INTEGER(finalprice) AS finalprice,
+  CAST (finalprice AS INTEGER) AS finalprice,
   fineprint,
   highlightsection,
   imageurl,
@@ -44,7 +44,7 @@ v_query="SELECT
   redemptiondate,
   STATUS AS status,
   title,
-  INTEGER(unitprice),
+  CAST(unitprice AS INTEGER) AS unitprice,
   tbl2.updatedat AS updatedat,
   tbl2.updatedby AS updatedby,
   validfrom,
@@ -75,7 +75,7 @@ v_query="SELECT
   merchantcode,
   redemptionlat,
   redemptionlong,
-  bookingdate,
+ CAST(bookingdate AS STRING) AS bookingdate,
   bookingtimeslot,
   cancellationpolicyid,
   paymenttermid,
@@ -129,8 +129,9 @@ echo "/home/ubuntu/google-cloud-sdk/bin/bq query --maximum_billing_tier 100 --al
 
 
 # Step 4: Copy the combined data of incremental and prior lying in prior table to main table
-/home/ubuntu/google-cloud-sdk/bin/bq cp -r Atom_rt.prior_order_line Atom_rt.order_line
-/home/ubuntu/google-cloud-sdk/bin/bq rm Atom_rt.prior_order_line;
-/home/ubuntu/google-cloud-sdk/bin/bq rm Atom_rt.incremental_order_line_recreated;
+/home/ubuntu/google-cloud-sdk/bin/bq rm -f Atom_rt.order_line
+/home/ubuntu/google-cloud-sdk/bin/bq cp  Atom_rt.prior_order_line Atom_rt.order_line
+/home/ubuntu/google-cloud-sdk/bin/bq rm -f Atom_rt.prior_order_line;
+/home/ubuntu/google-cloud-sdk/bin/bq rm -f Atom_rt.incremental_order_line_recreated;
 
 exit 0;

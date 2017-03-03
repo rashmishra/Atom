@@ -85,7 +85,7 @@ p_exit_upon_error(){
         echo -e "$v_log_obj_txt" > $v_arch_dir/logs/"$v_data_object""_load_"$v_task_datetime.log
 
 
-        # Creating new file for Order Header's ETL run. Content will be appended in further tasks of T and L.
+        # Creating new file for Order BOM's ETL run. Content will be appended in further tasks of T and L.
         echo -e "$v_log_obj_txt" >> $v_temp_dir/"$v_data_object"_log.log
 
         chmod 0777 $v_temp_dir/"$v_data_object"_log.log;
@@ -190,7 +190,7 @@ if [[ "`bq ls --max_results=10000 $v_dataset_name | awk '{print $1}' | grep \"\b
 
             ## Make the diff table
             ## Make another table with prior (till last run) data 
-            v_query="SELECT * FROM $v_dataset_name.$tableName WHERE orderid NOT IN (SELECT orderid FROM $v_metadataset_name.incremental_$tableName)";
+            v_query="SELECT * FROM $v_dataset_name.$tableName WHERE orderbomid NOT IN (SELECT orderbomid FROM $v_metadataset_name.incremental_$tableName)";
             v_destination_tbl="$v_metadataset_name.prior_$tableName";
             echo "Destination table is $v_destination_tbl and Query is $v_query"
             bq query  --maximum_billing_tier 10 --allow_large_results=1 -n 0  --quiet --replace --destination_table=$v_destination_tbl "$v_query" &
@@ -263,8 +263,7 @@ bq rm -f $v_dataset_name.$tableName
 bq cp $v_metadataset_name.prior_$tableName $v_dataset_name.$tableName
 # Removing Prior and Incremental tables
 bq rm -f $v_metadataset_name.prior_$tableName
-# Stopping deletion as per Alka's request to have Lat-Lng from OH. Validated by Rahul.
-#bq rm -f $v_metadataset_name.incremental_$tableName
+bq rm -f $v_metadataset_name.incremental_$tableName
 
 ###################################################################################
 ## Storing the status (success/failed) into respective text file. This will be in 

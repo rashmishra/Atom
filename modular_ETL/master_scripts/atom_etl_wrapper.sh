@@ -23,41 +23,7 @@ p_exit_upon_error(){
     if [ $v_task_status == "failed" ] ; then
         v_log_obj_txt+=`echo "\n$(date) $(date) Task ($v_subtask) failed for $v_data_object. Hence exiting."`;
 
-        taskEndTime=`date`;
-
-        v_task_end_epoch=`date +%s`
-        v_task_end_ts=`echo $(date -d "@$v_task_end_epoch" +"%Y-%m-%d %r %Z")`;
-
-        v_bq_log_tbl_row='';
-
-        ## Writing (appending) the CSV log table row into respective file
-        v_bq_log_tbl_row="$v_data_object,$v_etl_task,$v_task_start_epoch,$v_task_start_ts,$v_task_status,$v_task_end_epoch,$v_task_end_ts";
-        echo -e  "CSV Row for Load: \n$v_bq_log_tbl_row"
-        echo $v_bq_log_tbl_row >> $v_logs_dir/log_ETL_tasks.csv
-        
-        v_log_obj_txt+=`echo "\n$(date) Log Table Row: \n$v_bq_log_tbl_row"`;
-
-        ## Writing the status (success/ failure) into proper file
-
-        echo $v_task_status > $v_temp_dir/${v_data_object}_load_status.txt
-        chmod 0777 $v_temp_dir/${v_data_object}_load_status.txt;
-
-        ## Writing the log of this task to files
-
-        v_log_obj_txt+=`echo "\n$v_etl_task process ended for $v_data_object at $v_task_end_ts"`;
-        v_log_obj_txt+=`echo "\n------------------------------------------------------------"`;
-        v_log_obj_txt+=`echo "\n------------------------------------------------------------"`;
-
-        # Maintaining the log of this run in a separate file in arch folder
-        echo -e "$v_log_obj_txt" > $v_arch_dir/logs/"$v_data_object""_load_"$v_task_datetime.log
-
-
-        # Creating new file for Order Header's ETL run. Content will be appended in further tasks of T and L.
-        echo -e "$v_log_obj_txt" >> $v_temp_dir/"$v_data_object"_log.log
-
-        chmod 0777 $v_temp_dir/"$v_data_object"_log.log;
-
-        
+        mail -s "PROD Machine | Task ($v_subtask) failed in Atom wrapper script"  rahul.sachan@nearbuy.com rashmi.mishra@nearbuy.com sairanganath.v@nearbuy.com < /dev/null ;
 
         exit 1;
 
@@ -65,6 +31,11 @@ p_exit_upon_error(){
 
 }
 
+# Step 1
+
+echo `date` "Atom ETL master script invoked from Wrapper";
+
+mail -s "PROD Machine | Atom ETL master script invoked." rahul.sachan@nearbuy.com rashmi.mishra@nearbuy.com sairanganath.v@nearbuy.com < /dev/null
 
 bash /home/ubuntu/modular_ETL/master_scripts/master_ETL.sh >> /home/ubuntu/modular_ETL/arch/logs/modular_log-${v_run_date}.log 2>&1
 v_pid=$!
@@ -78,14 +49,16 @@ else
     v_task_status="failed";
 fi
 
-echo `date` "Atom ETL load Status called from Wrapper: $v_task_status";
+echo `date` "Atom ETL master script Status called from Wrapper: $v_task_status";
 
 
-v_subtask="Atom ETL load";
+v_subtask="Atom ETL master script";
 p_exit_upon_error "$v_task_status" "$v_subtask";
 
+mail -s "PROD Machine | Atom ETL master script completed. Invoking Transformation of BOM to old OL" rahul.sachan@nearbuy.com rashmi.mishra@nearbuy.com sairanganath.v@nearbuy.com < /dev/null
 
 
+# Step 2
 bash /home/ubuntu/modular_ETL/master_scripts/transform_bom_to_orderline.sh >> /home/ubuntu/modular_ETL/master_scripts/log_transform_bom_to_orderline_${v_run_date}.log 2>&1
 v_pid=$!
 
@@ -108,9 +81,9 @@ p_exit_upon_error "$v_task_status" "$v_subtask";
 
 if [ "$v_status" == "success" ]; 
   then 
-    echo `date` "Task: #v_subtask ended with status $v_task_status." | mail -s "Wrapper script calling ETL and Transform OL completed: $v_task_status" sairanganath.v@nearbuy.com;
+    echo `date` "Task: $v_subtask ended with status $v_task_status." | mail -s "PROD Machine | Wrapper script calling ETL and Transform OL completed: $v_task_status" rahul.sachan@nearbuy.com rashmi.mishra@nearbuy.com sairanganath.v@nearbuy.com;
   else 
-    echo `date` "Task: #v_subtask ended with status $v_task_status." | mail -s "Wrapper script calling ETL and Transform OL completed: $v_task_status" sairanganath.v@nearbuy.com;
+    echo `date` "Task: $v_subtask ended with status $v_task_status." | mail -s "PROD Machine | Wrapper script calling ETL and Transform OL completed: $v_task_status" rahul.sachan@nearbuy.com rashmi.mishra@nearbuy.com sairanganath.v@nearbuy.com;
     exit 1;
 fi
 

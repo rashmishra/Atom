@@ -58,12 +58,14 @@ PATH=/home/ubuntu/google-cloud-sdk/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:
 #* * * * * bash -x /home/ubuntu/mail.sh >> /home/ubuntu/mail.logs 2>&1
 
 
-00 03,07,11,15,19 * * * sudo bash /data/transporter/master_backup.sh > /data/transporter/logs/log_master_backup_`date "+\%Y-\%m-\%d_\%H:\%M"`.log 2>&1
+# 00 03,07,11,15,19 * * * sudo bash /data/transporter/master_backup.sh > /data/transporter/logs/log_master_backup_`date "+\%Y-\%m-\%d_\%H:\%M"`.log 2>&1
 0 */2 * * * bash /home/ubuntu/BI_automation/SF/ga_sf_agg_interday.sh > /home/ubuntu/BI_automation/SF/logs/log_ga_sf_agg_interday_`date "+\%F_\%X_\%Z"`.log 2>&1
 */30 * * * * bash /home/ubuntu/BI_automation/cm_table_rt.sh > /home/ubuntu/BI_automation/logs/log_cm_table_rt_`date "+\%F_\%X_\%Z"`.log 2>&1
 00 3-17 * * * bash /home/ubuntu/ETL/ga_simplified/intraday_refresh.sh >> /home/ubuntu/ETL/ga_simplified/logs/ga_intraday_log_`date "+\%F_\%X_\%Z"`.log 2>&1
 
-
+# Anish's Cashback Reports' CRON
+30,05 * * * * bash /home/ubuntu/ETL/engg_reporting/CB_Expiry_World/refresh_CB_GB_30_day_expiry.sh >> /home/ubuntu/ETL/engg_reporting/CB_Expiry_World/logs/log_CB_GB_30_day_expiry_Feb2017_`date "+\%F_\%X_\%Z"`.log
+40 * * * * bash /home/ubuntu/ETL/engg_reporting/CB_Expiry_World/refresh_CB_credit_expiry_reminder.sh
 
 
 ########################## 05:30 AM IST to 06:29 AM IST ########################## 
@@ -84,6 +86,7 @@ PATH=/home/ubuntu/google-cloud-sdk/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:
 # Bhaskar's Adhoc task
 # 30 02 * * * bash /home/ubuntu/DTR/bhaskar_dtr.sh > /dev/null 2>&1
 # 30 02 * * * /home/ubuntu/RT/adhoc.sh > /home/ubuntu/RT/adhoc_logging.log
+15 02 * * * bash /home/ubuntu/ETL/engg_reporting/refresh_DM_funnel_with_GB.sh > /home/ubuntu/ETL/engg_reporting/logs/refresh_DM_funnel_with_GB_`date "+\%F_\%X_\%Z"`.log 2>&1
 25 02 * * * /home/ubuntu/ETL/adhoc_requests/cohorts_credits_base/refresh_credits_balance_with_cohorts_data.sh > /home/ubuntu/ETL/adhoc_requests/cohorts_credits_base/logs/log_credits_balance_`date "+\%F_\%X_\%Z"`.log  2>&1
 30 02 * * * /home/ubuntu/BI/scripts/akhil_query.sh > /home/ubuntu/BI/logs/Akhil_logging.log
 45 02 * * * bash /home/ubuntu/ETL/atom_simplified/refresh_atom_simplified.sh > /home/ubuntu/ETL/atom_simplified/logs/log_atom_simplified_`date "+\%F_\%X_\%Z"`.log 2>&1
@@ -91,6 +94,9 @@ PATH=/home/ubuntu/google-cloud-sdk/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:
 
 
 ########################## 08:30 AM IST to 09:29 AM IST ##########################
+05 03 * * * bash /home/ubuntu/ETL/ga_simplified/ga_session_history.sh > /home/ubuntu/ETL/ga_simplified/logs/ga_session_history_log_`date "+\%F_\%X_\%Z"`.log 2>&1
+15 03 * * * bash /home/ubuntu/ETL/engg_reporting/refresh_LEAD_session_average.sh > /home/ubuntu/ETL/engg_reporting/logs/log_refresh_LEAD_session_average_`date "+\%F_\%X_\%Z"`.log 2>&1
+25 03 * * * bash /home/ubuntu/ETL/engg_reporting/CB_Expiry_World/wrapper_refresh_CB_GB_world.sh
 30 03 * * * /home/ubuntu/BI/scripts/deal_cat.sh >> /home/ubuntu/BI/logs/logging.log
 35 03 * * * bash /home/ubuntu/BI_automation/bi_daily_reports_table_CM_enhanced.sh > /home/ubuntu/BI_automation/logs/log_cm_table_enhanced_`date "+\%F_\%X_\%Z"`.log 2>&1
 

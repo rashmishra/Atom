@@ -1,6 +1,6 @@
 #!/bin/bash
 
-## Script Name: export_order_header.sh
+## Script Name: export_product.sh
 ## Purpose: Modular ETL flow of Atom.
 
 ##### $1: Data Object. ####
@@ -75,7 +75,7 @@ p_exit_upon_error(){
         echo -e "$v_log_obj_txt" > $v_arch_dir/logs/"$v_data_object""_extract_"$v_task_datetime.log
 
 
-        # Creating new file for order_header's ETL run. Content will be appended in further tasks of T and L.
+        # Creating new file for product's ETL run. Content will be appended in further tasks of T and L.
         echo -e "$v_log_obj_txt" > $v_temp_dir/"$v_data_object"_log.log
 
         chmod 0777 $v_temp_dir/"$v_data_object"_log.log;
@@ -89,20 +89,28 @@ p_exit_upon_error(){
 }
 
 
-#echo "OMS data export start time is : $taskStartTime "
-
 DBHOST=nb-prod-oms-db-ugd.c6vqep7kcqpl.ap-southeast-1.rds.amazonaws.com
-# DBHOST="nb-prod-oms-db-ugd-read.c6vqep7kcqpl.ap-southeast-1.rds.amazonaws.com"
+# DBHOST=nb-prod-oms-db-ugd-read.c6vqep7kcqpl.ap-southeast-1.rds.amazonaws.com
 DBPORT=5432
 DBNAME=oms_v2
 DBUSER=oms
 DBPASS=0mspr0d$
 DATE=`date +%Y-%m-%d`
+
+## Removing old CSV file of this object
+v_log_obj_txt+=`rm $v_data_dump_dir/$v_data_object.*`;
+
+v_log_obj_txt+=`echo "\nRemoved old $v_data_dump_dir/$v_data_object.csv file"`;
+
+v_extract_filename="$v_data_dump_dir/$v_data_object.csv";
+
+echo "Query is stored in $v_extract_filename"
+
 export PGPASSWORD='0mspr0d$'
 
 v_extract_filename="$v_data_dump_dir/$v_data_object.csv";
 
-v_command="\copy (select * from oms_data.orderheader where createdat>$v_incremental_epoch or updatedat>$v_incremental_epoch)  to $v_extract_filename with DELIMITER ',' CSV HEADER"
+v_command="\copy (select * from oms_data.product where createdat>$v_incremental_epoch or updatedat>$v_incremental_epoch)  to $v_extract_filename with DELIMITER ',' CSV HEADER"
 
 
 #psql -d $DBNAME -h $DBHOST -p $DBPORT -U $DBUSER --log-file=$v_query_logfile -A --field-separator=, -f "query_$v_data_object.txt" -o "$v_extract_filename" &
@@ -111,7 +119,7 @@ psql -d $DBNAME -h $DBHOST -p $DBPORT -U $DBUSER -A --field-separator=, -c "$v_c
 
 v_extract_pid=$!
 
-echo -e "\n\nThe PID for Order Header data export is $v_extract_pid\n\n";
+echo -e "\n\nThe PID for Order Line data export is $v_extract_pid\n\n";
 
 # Waiting for the process to complete
 if wait $v_extract_pid; then
@@ -186,7 +194,7 @@ echo -e "$v_log_obj_txt" > $v_temp_dir/"$v_data_object""_extract_"$v_task_dateti
 # Removing the previous run's file from the directory
 v_log_obj_txt+=`rm $v_logs_dir/"$v_data_object"_log.log`;
 
-# Creating new file for order_header's ETL run. Content will be appended in further tasks of T and L.
+# Creating new file for product's ETL run. Content will be appended in further tasks of T and L.
 echo -e "$v_log_obj_txt" > $v_logs_dir/"$v_data_object"_log.log
 ##############################################################################
 

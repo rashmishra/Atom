@@ -27,7 +27,7 @@ CONFIG_DIR="$ETL_HOME_DIR/config";
 CONFIG_FILE_NAME=$CONFIG_DIR/config.csv
 
 # Name of cloud bucket
-CLOUD_BUCKET_NAME=nb_batman_begins_dev
+CLOUD_BUCKET_NAME=nb_batman_begins
 
 # Path where daily exported files will be stores in google cloud
 CLOUD_DAILY_STORAGE_PATH=gs://$CLOUD_BUCKET_NAME/dailydump

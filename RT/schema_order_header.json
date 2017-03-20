@@ -258,5 +258,15 @@
         "name": "referralprogramid",
         "type": "STRING",
         "mode": "NULLABLE"
+    },
+    {
+        "name": "promocodegroup",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "city",
+        "type": "STRING",
+        "mode": "NULLABLE"
     }
 ]

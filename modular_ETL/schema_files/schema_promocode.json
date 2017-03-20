@@ -5,6 +5,11 @@
         "mode": "NULLABLE"
     },
     {
+        "name": "promoCodeGroup",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
         "name": "lcPromoCodeId",
         "type": "STRING",
         "mode": "NULLABLE"

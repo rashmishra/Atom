@@ -254,8 +254,8 @@ v_subtask="Transformation Step 4: Copy UNION result to main table";
 p_exit_upon_error "$v_task_status" "$v_subtask";
 
 
-/home/ubuntu/google-cloud-sdk/bin/bq rm Atom.prior_order_line;
-/home/ubuntu/google-cloud-sdk/bin/bq rm Atom.incremental_order_line_recreated;
+/home/ubuntu/google-cloud-sdk/bin/bq rm -f Atom.prior_order_line;
+/home/ubuntu/google-cloud-sdk/bin/bq rm -f Atom.incremental_order_line_recreated;
 
 if [ "$v_status" == "success" ]; 
   then 

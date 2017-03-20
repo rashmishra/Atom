@@ -211,5 +211,5 @@ echo -e "$v_log_obj_txt" > $v_logs_dir/"$v_data_object"_log.log
 echo -e "Log text is: \n"
 echo -e "$v_log_obj_txt";
 
-echo "Order Line data export end time is : $taskEndTime "
+echo "Order Line Event data export end time is : $taskEndTime "
 exit 0

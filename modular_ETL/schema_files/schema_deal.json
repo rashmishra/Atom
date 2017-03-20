@@ -293,6 +293,11 @@
                         "name": "ccTo",
                         "type": "INTEGER",
                         "mode": "REPEATED"
+                    },
+                    {
+                        "name": "decisionMakers",
+                        "type": "INTEGER",
+                        "mode": "REPEATED"
                     }
                 ]
             },

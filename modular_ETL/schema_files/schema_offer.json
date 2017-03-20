@@ -25,6 +25,11 @@
                         "mode": "NULLABLE"
                     },
                     {
+                        "name": "linkChannelManager",
+                        "type": "BOOLEAN",
+                        "mode": "NULLABLE"
+                    },
+                    {
                         "name": "otype",
                         "type": "STRING",
                         "mode": "NULLABLE"

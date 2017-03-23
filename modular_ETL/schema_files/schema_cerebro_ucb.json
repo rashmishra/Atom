@@ -1,0 +1,69 @@
+[
+    {
+        "name": "cid",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "nOfTxWhenEnteredFunnel",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "enteredTime",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "createdAt",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "updatedAt",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "isInside",
+        "type": "BOOLEAN",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "currentTxNumber",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "mode": "REPEATED",
+        "name": "txActedUpon",
+        "type": "RECORD",
+        "fields": [
+            {
+                "name": "orderId",
+                "type": "INTEGER",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "predictedAOV",
+                "type": "FLOAT",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "predictedCat",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "nextTxNumber",
+                "type": "INTEGER",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "code",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            }
+        ]
+    }
+]

@@ -66,6 +66,8 @@ PATH=/home/ubuntu/google-cloud-sdk/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:
 # Anish's Cashback Reports' CRON
 30,05 * * * * bash /home/ubuntu/ETL/engg_reporting/CB_Expiry_World/refresh_CB_GB_30_day_expiry.sh >> /home/ubuntu/ETL/engg_reporting/CB_Expiry_World/logs/log_CB_GB_30_day_expiry_Feb2017_`date "+\%F_\%X_\%Z"`.log
 40 * * * * bash /home/ubuntu/ETL/engg_reporting/CB_Expiry_World/refresh_CB_credit_expiry_reminder.sh
+38 05,10  * * * bash /home/ubuntu/ETL/engg_reporting/Referral/generate_Referral_Funnels.sh > /home/ubuntu/ETL/engg_reporting/Referral/logs/log_generate_Referral_Funnels_`date "+\%F_\%X_\%Z"`.log 2>&1
+30 02,05,08,11,14,17 * * * bash /home/ubuntu/ETL/engg_reporting/Referral/refresh_aggressive_CB_GB_30_day_expiry.sh > /home/ubuntu/ETL/engg_reporting/Referral/logs/log_refresh_aggressive_CB_GB_30_day_expiry_`date "+\%F_\%X_\%Z"`.log 2>&1
 
 
 ########################## 05:30 AM IST to 06:29 AM IST ########################## 

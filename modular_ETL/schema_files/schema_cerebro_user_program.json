@@ -63,6 +63,36 @@
                 "name": "clickedAt",
                 "type": "INTEGER",
                 "mode": "NULLABLE"
+            },
+            {
+                "name": "createdAt",
+                "type": "INTEGER",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "credits",
+                "type": "INTEGER",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "oid",
+                "type": "INTEGER",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "percent",
+                "type": "INTEGER",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "code",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "referralPid",
+                "type": "STRING",
+                "mode": "NULLABLE"
             }
         ]
     }

@@ -158,7 +158,7 @@ echo "Etl Home is $6."
 echo "Schema File path is: $v_schema_filepath"
 
 # v_destination_tbl=$v_metadataset_name.incremental_$tableName
-v_destination_tbl=$v_dataset_name.$tableName
+v_destination_tbl="$v_metadataset_name.incremental_$tableName"
 bq load --source_format=NEWLINE_DELIMITED_JSON --replace --ignore_unknown_values=1 --max_bad_records=$maxBadRecords "$v_destination_tbl" $v_cloud_storage_path/$v_fileName $v_schema_filepath/$schemaFileName  &
 #2> "$v_data_object"_inc_table_result.txt
 v_pid=$!
@@ -188,95 +188,98 @@ rm "$v_data_object"_inc_table_result.txt
                      ## Completed: Checking for Process Failure ##
 #-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#
 
-### Sairanganath | 08Aug2016 : Commenting this portion as Customer is a large table and will be FULL refresh daily
-
-# if [[ "`bq ls --max_results=10000 $v_dataset_name | awk '{print $1}' | grep \"\b$tableName\b\"`" == "$tableName" ]] ;
-# 	then 
-
-#         echo "Table $v_dataset_name.$tableName exists"; 
-
-#         ## Make another table with prior (till last run) data 
-#         v_query="SELECT * FROM $v_dataset_name.$tableName WHERE customerId not in (SELECT customerid FROM $v_metadataset_name.incremental_$tableName)";
-#         v_destination_tbl="$v_metadataset_name.prior_$tableName";
-#         echo "Destination table is $v_destination_tbl and Query is $v_query"
-#         bq query --quiet   --maximum_billing_tier 10 --allow_large_results=1 --flatten_results=0 --replace -n 10 --destination_table=$v_destination_tbl "$v_query" 2> "$v_data_object"_prior_table_result.txt &
-#         v_pid=$!
-
-#         wait $v_pid
-
-#         if wait $v_pid; then
-#             echo "Process $v_pid Status: success";
-#             v_task_status="success";
-#         else 
-#             echo "Process $v_pid Status: failed";
-#             v_task_status="failed";
-#         fi
+## Sairanganath | 08Aug2016 : Commenting this portion as Customer is a large table and will be FULL refresh daily
+## Sairanganath | 24Mar2017 : Un-Commenting this portion as Customer has become very large and also customer profile is maintaining 
+##                            update times in 'lastModifiedAt' field properly
 
 
-#         v_prior_table_result=`cat "$v_data_object"_inc_table_result.txt`;
+if [[ "`bq ls --max_results=10000 $v_dataset_name | awk '{print $1}' | grep \"\b$tableName\b\"`" == "$tableName" ]] ;
+	then 
 
-#         v_log_obj_txt+=`echo "\n$(date) Prior data table creation log: "`;
-#         v_log_obj_txt+=`echo "\n$(date) $v_prior_table_result \n$v_task_status is the task status"`;
+        echo "Table $v_dataset_name.$tableName exists"; 
 
-#         ########################################################################################
-#         ## Checking if the prior process has failed. If Failed, then exit this task (script). ##
+        ## Make another table with prior (till last run) data 
+        v_query="SELECT * FROM $v_dataset_name.$tableName WHERE customerId not in (SELECT customerid FROM $v_metadataset_name.incremental_$tableName)";
+        v_destination_tbl="$v_metadataset_name.prior_$tableName";
+        echo "Destination table is $v_destination_tbl and Query is $v_query"
+        bq query --quiet   --maximum_billing_tier 10 --allow_large_results=1 --flatten_results=0 --replace -n 10 --destination_table=$v_destination_tbl "$v_query" 2> "$v_data_object"_prior_table_result.txt &
+        v_pid=$!
 
-#         v_subtask="Prior Data table creation";
-#         p_exit_upon_error "$v_task_status" "$v_subtask"
+        wait $v_pid
 
-#         #-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#
-#                              ## Completed: Checking for Process Failure ##
-#         #-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#
-#     else echo "Table $v_dataset_name.$tableName missing"; 
-# fi
-
-
-# ## Drop Final (e.g. Atom) table
-# #bq query --append=1 --flatten_results=0 --allow_large_results=1 --destination_table=$METADATA_DATASET_NAME.final_customer 'select * from '"$METADATA_DATASET_NAME"'.customer_incremental' > /dev/null
-
-# v_destination_tbl="$v_metadataset_name.prior_$tableName";
-# v_query="SELECT * FROM $v_metadataset_name.incremental_$tableName";
-# bq query --append=1 --flatten_results=0 --allow_large_results=1 --destination_table=$v_destination_tbl "$v_query" 2> "$v_data_object"_table_union_result.txt &
-# v_pid=$!
-
-# wait $v_pid
-
-# if wait $v_pid; then
-#     echo "Process $v_pid Status: success";
-#     v_task_status="success";
-# else 
-#     echo "Process $v_pid Status: failed";
-#     v_task_status="failed";
-# fi
+        if wait $v_pid; then
+            echo "Process $v_pid Status: success";
+            v_task_status="success";
+        else 
+            echo "Process $v_pid Status: failed";
+            v_task_status="failed";
+        fi
 
 
-# v_table_union_result=`cat "$v_data_object"_table_union_result.txt`;
+        v_prior_table_result=`cat "$v_data_object"_inc_table_result.txt`;
 
-# v_log_obj_txt+=`echo "\n$(date) Prior data table creation log: "`;
-# v_log_obj_txt+=`echo "\n$(date) $v_table_union_result \n$v_task_status is the task status"`;
+        v_log_obj_txt+=`echo "\n$(date) Prior data table creation log: "`;
+        v_log_obj_txt+=`echo "\n$(date) $v_prior_table_result \n$v_task_status is the task status"`;
 
-# ########################################################################################
-# ## Checking if the prior process has failed. If Failed, then exit this task (script). ##
+        ########################################################################################
+        ## Checking if the prior process has failed. If Failed, then exit this task (script). ##
 
-# v_subtask="Prior n Incr. Table Union";
-# p_exit_upon_error "$v_task_status" "$v_subtask"
+        v_subtask="Prior Data table creation";
+        p_exit_upon_error "$v_task_status" "$v_subtask"
 
-# rm "$v_data_object"_table_union_result.txt
-
-# #-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#
-#                      ## Completed: Checking for Process Failure ##
-# #-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#
-
-# ## Load prior (till last run) data + diff table into final table
-
-# bq rm -f $v_dataset_name.$tableName
-# bq cp $v_metadataset_name.prior_$tableName $v_dataset_name.$tableName
-# # Removing Prior and Incremental tables
-# bq rm -f $v_metadataset_name.prior_$tableName
-# bq rm -f $v_metadataset_name.incremental_$tableName
+        #-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#
+                             ## Completed: Checking for Process Failure ##
+        #-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#
+    else echo "Table $v_dataset_name.$tableName missing"; 
+fi
 
 
-### End of Commenting for Full Load
+## Drop Final (e.g. Atom) table
+#bq query --append=1 --flatten_results=0 --allow_large_results=1 --destination_table=$METADATA_DATASET_NAME.final_customer 'select * from '"$METADATA_DATASET_NAME"'.customer_incremental' > /dev/null
+
+v_destination_tbl="$v_metadataset_name.prior_$tableName";
+v_query="SELECT * FROM $v_metadataset_name.incremental_$tableName";
+bq query --append=1 --flatten_results=0 --allow_large_results=1 --destination_table=$v_destination_tbl "$v_query" 2> "$v_data_object"_table_union_result.txt &
+v_pid=$!
+
+wait $v_pid
+
+if wait $v_pid; then
+    echo "Process $v_pid Status: success";
+    v_task_status="success";
+else 
+    echo "Process $v_pid Status: failed";
+    v_task_status="failed";
+fi
+
+
+v_table_union_result=`cat "$v_data_object"_table_union_result.txt`;
+
+v_log_obj_txt+=`echo "\n$(date) Prior data table creation log: "`;
+v_log_obj_txt+=`echo "\n$(date) $v_table_union_result \n$v_task_status is the task status"`;
+
+########################################################################################
+## Checking if the prior process has failed. If Failed, then exit this task (script). ##
+
+v_subtask="Prior n Incr. Table Union";
+p_exit_upon_error "$v_task_status" "$v_subtask"
+
+rm "$v_data_object"_table_union_result.txt
+
+#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#
+                     ## Completed: Checking for Process Failure ##
+#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#
+
+## Load prior (till last run) data + diff table into final table
+
+bq rm -f $v_dataset_name.$tableName
+bq cp $v_metadataset_name.prior_$tableName $v_dataset_name.$tableName
+# Removing Prior and Incremental tables
+bq rm -f $v_metadataset_name.prior_$tableName
+bq rm -f $v_metadataset_name.incremental_$tableName
+
+
+## End of Commenting for Full Load
 ###################################################################################
 ## Storing the status (success/failed) into respective text file. This will be in 
 ## consumed by the main script to determine the status of entire Extract activity

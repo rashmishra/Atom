@@ -159,7 +159,7 @@ echo "Schema File path is: $v_schema_filepath"
 
 # v_destination_tbl=$v_metadataset_name.incremental_$tableName
 v_destination_tbl="$v_metadataset_name.incremental_$tableName"
-bq load --source_format=NEWLINE_DELIMITED_JSON --replace --ignore_unknown_values=1 --max_bad_records=$maxBadRecords "$v_destination_tbl" $v_cloud_storage_path/$v_fileName $v_schema_filepath/$schemaFileName  &
+bq load --source_format=NEWLINE_DELIMITED_JSON --replace -n 1 --ignore_unknown_values=1 --max_bad_records=$maxBadRecords "$v_destination_tbl" $v_cloud_storage_path/$v_fileName $v_schema_filepath/$schemaFileName  &
 #2> "$v_data_object"_inc_table_result.txt
 v_pid=$!
 
@@ -202,7 +202,7 @@ if [[ "`bq ls --max_results=10000 $v_dataset_name | awk '{print $1}' | grep \"\b
         v_query="SELECT * FROM $v_dataset_name.$tableName WHERE customerId not in (SELECT customerid FROM $v_metadataset_name.incremental_$tableName)";
         v_destination_tbl="$v_metadataset_name.prior_$tableName";
         echo "Destination table is $v_destination_tbl and Query is $v_query"
-        bq query --quiet   --maximum_billing_tier 10 --allow_large_results=1 --flatten_results=0 --replace -n 10 --destination_table=$v_destination_tbl "$v_query" 2> "$v_data_object"_prior_table_result.txt &
+        bq query --quiet   --maximum_billing_tier 10 --allow_large_results=1 --flatten_results=0 --replace -n 1 --destination_table=$v_destination_tbl "$v_query" 2> "$v_data_object"_prior_table_result.txt &
         v_pid=$!
 
         wait $v_pid
@@ -239,7 +239,7 @@ fi
 
 v_destination_tbl="$v_metadataset_name.prior_$tableName";
 v_query="SELECT * FROM $v_metadataset_name.incremental_$tableName";
-bq query --append=1 --flatten_results=0 --allow_large_results=1 --destination_table=$v_destination_tbl "$v_query" 2> "$v_data_object"_table_union_result.txt &
+bq query --append=1 --flatten_results=0 --allow_large_results=1 -n 1 --destination_table=$v_destination_tbl "$v_query" 2> "$v_data_object"_table_union_result.txt &
 v_pid=$!
 
 wait $v_pid

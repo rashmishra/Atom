@@ -141,12 +141,12 @@ p_exit_upon_error "$v_task_status" "$v_subtask"
 
 # Zipping the exported data file
 
-echo "Before gzipping OL";
+echo "Before gzipping order_line_event";
 ls -l | grep $v_data_object
 
 gzip -f $v_extract_filename 
 
-echo "After gzipping OL";
+echo "After gzipping order_line_event";
 ls -l | grep $v_data_object
 
 # Init end time for logging purpose

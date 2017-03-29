@@ -101,7 +101,8 @@ v_subtask="Playstore Detailed Reports"
 # v_report_month=$(date +%Y%m);
 
 v_report_month=$(date +%Y%m);
-v_prev_report_month=$(date -d '- 1 month' +%Y%m);
+# v_prev_report_month=$(date -d '- 1 month' +%Y%m);
+v_prev_report_month=`(date --date="$(date +%Y-%m-15) -1 month" +%Y%m)`;
 
 v_detailed_rep_pids=""
 for i in $PLAY_TRANSFORM_DETAILED_REPORT_NAMES; do

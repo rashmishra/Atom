@@ -115,7 +115,8 @@ p_exit_upon_error(){
 
 # Detailed Reports movement
 v_report_month=$(date +%Y%m);
-v_prev_report_month=$(date -d '- 1 month' +%Y%m);
+# v_prev_report_month=$(date -d '- 1 month' +%Y%m);
+v_prev_report_month=`(date --date="$(date +%Y-%m-15) -1 month" +%Y%m)`;
 
 v_load_pids="";
 
@@ -335,7 +336,8 @@ echo "Completed Detailed Reports Conversion"
 ## Aggregated Reports movement
 # Aggregated Reports: Crashes
 v_report_month=$(date +%Y%m);
-v_prev_report_month=$(date -d '- 1 month' +%Y%m);
+# v_prev_report_month=$(date -d '- 1 month' +%Y%m);
+v_prev_report_month=`(date --date="$(date +%Y-%m-15) -1 month" +%Y%m)`;
 
 tableName=stats_crashes
 
@@ -425,7 +427,8 @@ p_exit_upon_error "$v_task_status" "$v_subtask"
 
 # Aggregated Reports: GCM
 v_report_month=$(date +%Y%m);
-v_prev_report_month=$(date -d '- 1 month' +%Y%m);
+# v_prev_report_month=$(date -d '- 1 month' +%Y%m);
+v_prev_report_month=`(date --date="$(date +%Y-%m-15) -1 month" +%Y%m)`;
 
 tableName=stats_gcm
 
@@ -513,7 +516,8 @@ p_exit_upon_error "$v_task_status" "$v_subtask"
 
 # Aggregated Reports: Installs
 v_report_month=$(date +%Y%m);
-v_prev_report_month=$(date -d '- 1 month' +%Y%m);
+# v_prev_report_month=$(date -d '- 1 month' +%Y%m);
+v_prev_report_month=`(date --date="$(date +%Y-%m-15) -1 month" +%Y%m)`;
 
 tableName=stats_installs
 
@@ -606,7 +610,8 @@ p_exit_upon_error "$v_task_status" "$v_subtask"
 
 # Aggregated Reports: Ratings
 v_report_month=$(date +%Y%m);
-v_prev_report_month=$(date -d '- 1 month' +%Y%m);
+# v_prev_report_month=$(date -d '- 1 month' +%Y%m);
+v_prev_report_month=`(date --date="$(date +%Y-%m-15) -1 month" +%Y%m)`;
 
 tableName=stats_ratings
 v_destination_tbl="$v_metadataset_name.incremental_$tableName";

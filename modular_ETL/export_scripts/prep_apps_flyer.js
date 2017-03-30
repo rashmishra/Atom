@@ -1,7 +1,14 @@
 db.apps_flyer.drop();
 db.app_flier.find().forEach(function(doc){
     var newdoc = JSON.parse(doc.payload);
+    
+    var v_createdAt = 0;
+    
+    if(doc.createdAt !=null ){
+    	v_createdAt = doc.createdAt.toNumber();
+    }
 
+    newdoc.createdAt = v_createdAt;
     var event_dateString = newdoc.event_time,
     dateTimeParts = event_dateString.split(' '),
     timeParts = dateTimeParts[1].split(':'),

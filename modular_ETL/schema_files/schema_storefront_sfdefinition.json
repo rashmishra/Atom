@@ -1,0 +1,79 @@
+[
+    {
+        "name": "_id",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "sectionDefinitions",
+        "type": "RECORD",
+        "mode": "REPEATED",
+        "fields": [
+            {
+                "name": "sectionId",
+                "type": "INTEGER",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "sectionType",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "displayName",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "sortOrder",
+                "type": "INTEGER",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "visibleCount",
+                "type": "INTEGER",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "totalCount",
+                "type": "INTEGER",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "isPrimarySpot",
+                "type": "BOOLEAN",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "category",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "categoryPermaLink",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            }
+        ]
+    },
+    {
+        "name": "isActive",
+        "type": "BOOLEAN",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "platform",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "version",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "isDefault",
+        "type": "BOOLEAN",
+        "mode": "NULLABLE"
+    }
+]

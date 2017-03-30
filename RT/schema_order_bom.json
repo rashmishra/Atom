@@ -1,0 +1,187 @@
+[
+    {
+        "name": "orderbomid",
+        "type": "INTEGER",
+        "mode": "REQUIRED"
+    },
+    {
+        "name": "orderid",
+        "type": "INTEGER",
+        "mode": "REQUIRED"
+    },
+    {
+        "name": "productid",
+        "type": "INTEGER",
+        "mode": "REQUIRED"
+    },
+    {
+        "name": "createdat",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "createdby",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "updatedby",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "updatedat",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "dealid",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "finalprice",
+        "type": "FLOAT",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "fineprint",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "highlightsection",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "imageurl",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "marginpercentage",
+        "type": "FLOAT",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "merchantid",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "merchantname",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "offerdescription",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "offerid",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "offertitle",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "partnernumber",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "paymentterms",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "productshortdesc",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "quantity",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "title",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "unitprice",
+        "type": "FLOAT",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "whatyouget",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "paymenttermid",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "categoryid",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "flatcommission",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "exclusions",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "nearbuymenu",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "termsandconditions",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "ispaidtomerchant",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "vertical",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "cashbackamount",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "bookingdate",
+        "type": "DATE",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "bookingtimeslot",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "bannerimage",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    }
+]

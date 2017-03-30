@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ## Script Name: load_order_line.sh
-## Purpose: Modular ETL flow of Atom.
+## Purpose: Modular ETL flow of Atom. Loading data from oms_data.orderline
 
                 # Parameters: 
                 #             #### $1: Data Object. ####
@@ -92,7 +92,9 @@ schemaFileName=schema_order_line.json
 maxBadRecords=0
 
 v_data_object=$1;
-tableName=$1;
+# tableName=$1;
+# BOM Changes: Changed the destination table to 'order_line_new'.
+tableName="order_line_new"
 v_fileName="$1.csv.gz";
 v_cloud_storage_path=$2;
 v_load_dir=$3;
@@ -186,7 +188,7 @@ rm "$v_data_object"_inc_table_result.txt
 #-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#
                      ## Completed: Checking for Process Failure ##
 #-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#
-if [[ "`bq ls $v_dataset_name | awk '{print $1}' | grep \"\b$tableName\b\"`" == "$tableName" ]] ;
+if [[ "`bq ls --max_results=10000 $v_dataset_name | awk '{print $1}' | grep \"\b$tableName\b\"`" == "$tableName" ]] ;
     then 
 
         ## Make the diff table

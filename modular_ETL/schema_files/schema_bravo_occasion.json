@@ -1,0 +1,243 @@
+[
+    {
+        "mode": "NULLABLE",
+        "name": "occasionId",
+        "type": "STRING"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "status",
+        "type": "STRING"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "createdAt",
+        "type": "INTEGER"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "createdBy",
+        "type": "STRING"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "lastUpdatedBy",
+        "type": "STRING"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "isDefaultOccasion",
+        "type": "BOOLEAN"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "lastUpdatedAt",
+        "type": "INTEGER"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "occasionAttrib",
+        "type": "RECORD",
+        "fields": [
+            {
+                "mode": "NULLABLE",
+                "name": "name",
+                "type": "STRING"
+            },
+            {
+                "mode": "NULLABLE",
+                "name": "campaignStartDate",
+                "type": "INTEGER"
+            },
+            {
+                "mode": "REPEATED",
+                "name": "locations",
+                "type": "RECORD",
+                "fields": [
+                    {
+                        "mode": "NULLABLE",
+                        "name": "state",
+                        "type": "RECORD",
+                        "fields": [
+                            {
+                                "mode": "NULLABLE",
+                                "name": "id",
+                                "type": "STRING"
+                            },
+                            {
+                                "mode": "NULLABLE",
+                                "name": "name",
+                                "type": "STRING"
+                            }
+                        ]
+                    },
+                    {
+                        "mode": "NULLABLE",
+                        "name": "city",
+                        "type": "RECORD",
+                        "fields": [
+                            {
+                                "mode": "NULLABLE",
+                                "name": "id",
+                                "type": "STRING"
+                            },
+                            {
+                                "mode": "NULLABLE",
+                                "name": "name",
+                                "type": "STRING"
+                            }
+                        ]
+                    },
+                    {
+                        "mode": "NULLABLE",
+                        "name": "subCity",
+                        "type": "RECORD",
+                        "fields": [
+                            {
+                                "mode": "NULLABLE",
+                                "name": "id",
+                                "type": "STRING"
+                            },
+                            {
+                                "mode": "NULLABLE",
+                                "name": "name",
+                                "type": "STRING"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "mode": "NULLABLE",
+                "name": "validityRange",
+                "type": "RECORD",
+                "fields": [
+                    {
+                        "mode": "NULLABLE",
+                        "name": "startDate",
+                        "type": "INTEGER"
+                    },
+                    {
+                        "mode": "NULLABLE",
+                        "name": "endDate",
+                        "type": "INTEGER"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "occasionContent",
+        "type": "RECORD",
+        "fields": [
+            {
+                "mode": "NULLABLE",
+                "name": "name",
+                "type": "STRING"
+            },
+            {
+                "mode": "NULLABLE",
+                "name": "campaignStartDate",
+                "type": "INTEGER"
+            },
+            {
+                "mode": "REPEATED",
+                "name": "locations",
+                "type": "RECORD",
+                "fields": [
+                    {
+                        "mode": "NULLABLE",
+                        "name": "state",
+                        "type": "RECORD",
+                        "fields": [
+                            {
+                                "mode": "NULLABLE",
+                                "name": "id",
+                                "type": "STRING"
+                            },
+                            {
+                                "mode": "NULLABLE",
+                                "name": "name",
+                                "type": "STRING"
+                            }
+                        ]
+                    },
+                    {
+                        "mode": "NULLABLE",
+                        "name": "city",
+                        "type": "RECORD",
+                        "fields": [
+                            {
+                                "mode": "NULLABLE",
+                                "name": "id",
+                                "type": "STRING"
+                            },
+                            {
+                                "mode": "NULLABLE",
+                                "name": "name",
+                                "type": "STRING"
+                            }
+                        ]
+                    },
+                    {
+                        "mode": "NULLABLE",
+                        "name": "subCity",
+                        "type": "RECORD",
+                        "fields": [
+                            {
+                                "mode": "NULLABLE",
+                                "name": "id",
+                                "type": "STRING"
+                            },
+                            {
+                                "mode": "NULLABLE",
+                                "name": "name",
+                                "type": "STRING"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "mode": "NULLABLE",
+                "name": "validityRange",
+                "type": "RECORD",
+                "fields": [
+                    {
+                        "mode": "NULLABLE",
+                        "name": "startDate",
+                        "type": "INTEGER"
+                    },
+                    {
+                        "mode": "NULLABLE",
+                        "name": "endDate",
+                        "type": "INTEGER"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "mode": "REPEATED",
+        "name": "logDTOs",
+        "type": "RECORD",
+        "fields": [
+            {
+                "mode": "NULLABLE",
+                "name": "lastUpdatedAt",
+                "type": "INTEGER"
+            },
+            {
+                "mode": "NULLABLE",
+                "name": "lastUpdatedBy",
+                "type": "STRING"
+            },
+            {
+                "mode": "NULLABLE",
+                "name": "auditLog",
+                "type": "STRING"
+            }
+        ]
+    }
+]

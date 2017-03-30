@@ -94,7 +94,7 @@ p_exit_upon_error(){
 DBHOST=nb-prod-oms-db-ugd.c6vqep7kcqpl.ap-southeast-1.rds.amazonaws.com
 # DBHOST="nb-prod-oms-db-ugd-read.c6vqep7kcqpl.ap-southeast-1.rds.amazonaws.com"
 DBPORT=5432
-DBNAME=oms
+DBNAME=oms_v2
 DBUSER=oms
 DBPASS=0mspr0d$
 DATE=`date +%Y-%m-%d`
@@ -111,7 +111,7 @@ psql -d $DBNAME -h $DBHOST -p $DBPORT -U $DBUSER -A --field-separator=, -c "$v_c
 
 v_extract_pid=$!
 
-echo -e "\n\nThe PID for Order Line data export is $v_extract_pid\n\n";
+echo -e "\n\nThe PID for Order Header data export is $v_extract_pid\n\n";
 
 # Waiting for the process to complete
 if wait $v_extract_pid; then

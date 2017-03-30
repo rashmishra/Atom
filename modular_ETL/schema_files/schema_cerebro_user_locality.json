@@ -1,0 +1,27 @@
+[
+    {
+        "name": "cid",
+        "type": "INTEGER",
+        "mode": "REQUIRED"
+    },
+    {
+        "name": "cityId",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "cityName",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "enteredAt",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "lastChecked",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    }
+]

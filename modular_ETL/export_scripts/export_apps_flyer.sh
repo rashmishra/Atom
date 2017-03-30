@@ -84,7 +84,7 @@ p_exit_upon_error(){
 }
 
 #query="{\$or:[{\"createdAt\":{\$gte:$v_incremental_epoch}},{\"lastModifiedAt\":{\$gte:$v_incremental_epoch}}]}"
-query="{\"event_time_epoch\":{\$gte:$v_incremental_epoch}}"
+query="{\"createdAt\":{\$gte:$v_incremental_epoch}}"
 v_log_obj_txt+=`echo "\n$(date) Query is $query."`;
 
 

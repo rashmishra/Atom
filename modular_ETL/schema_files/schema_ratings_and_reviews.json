@@ -5,6 +5,16 @@
         "mode": "NULLABLE"
     },
     {
+        "name": "source",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "noOfTimesRatingShown",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
         "name": "fromGroupType",
         "type": "STRING",
         "mode": "NULLABLE"
@@ -37,10 +47,10 @@
     {
         "name": "ratingComment",
         "type": "RECORD",
-        "mode": "NULLABLE",
+        "mode": "REPEATED",
         "fields": [
             {
-                "name": "id",
+                "name": "_id",
                 "type": "INTEGER",
                 "mode": "NULLABLE"
             },

@@ -115,7 +115,8 @@ p_exit_upon_error(){
 
 # Detailed Reports movement
 v_report_month=$(date +%Y%m);
-v_prev_report_month=$(date -d '- 1 month' +%Y%m);
+# v_prev_report_month=$(date -d '- 1 month' +%Y%m);
+v_prev_report_month=`(date --date="$(date +%Y-%m-15) -1 month" +%Y%m)`;
 
 v_load_pids="";
 
@@ -163,7 +164,7 @@ bq load --quiet --field_delimiter=',' --source_format=CSV --skip_leading_rows=1 
 bq load --quiet --field_delimiter=',' --source_format=CSV --skip_leading_rows=1 --max_bad_records=0  --allow_jagged_rows=1 --allow_quoted_newlines=1 --ignore_unknown_values=1   $v_destination_tbl $v_cloud_storage_path/$v_prev_fileName $v_schema_filepath/$schemaFileName 
 v_load_pids+=" $!"
 
-if [[ "`bq ls $v_dataset_name | awk '{print $1}' | grep \"\b$tableName\b\"`" == "$tableName" ]] ; 
+if [[ "`bq ls --max_results=10000 $v_dataset_name | awk '{print $1}' | grep \"\b$tableName\b\"`" == "$tableName" ]] ; 
     then 
     # prior table
     echo "Table $v_metadataset_name.$tableName exists";
@@ -223,7 +224,7 @@ bq load --quiet --field_delimiter=',' --source_format=CSV --skip_leading_rows=1 
 bq load --quiet --field_delimiter=',' --source_format=CSV --skip_leading_rows=1 --max_bad_records=0  --allow_jagged_rows=1 --allow_quoted_newlines=1 --ignore_unknown_values=1   $v_destination_tbl $v_cloud_storage_path/$v_prev_fileName $v_schema_filepath/$schemaFileName
 v_load_pids+=" $!"
 
-if [[ "`bq ls $v_dataset_name | awk '{print $1}' | grep \"\b$tableName\b\"`" == "$tableName" ]] ; 
+if [[ "`bq ls --max_results=10000 $v_dataset_name | awk '{print $1}' | grep \"\b$tableName\b\"`" == "$tableName" ]] ; 
     then 
     # prior table
     echo "Table $v_metadataset_name.$tableName exists";
@@ -287,7 +288,7 @@ bq load --quiet --field_delimiter=',' --source_format=CSV --skip_leading_rows=1 
 bq load --quiet --field_delimiter=',' --source_format=CSV --skip_leading_rows=1 --max_bad_records=0  --allow_jagged_rows=1 --allow_quoted_newlines=1 --ignore_unknown_values=1   $v_destination_tbl $v_cloud_storage_path/$v_prev_fileName $v_schema_filepath/$schemaFileName
 v_load_pids+=" $!"
 
-if [[ "`bq ls $v_dataset_name | awk '{print $1}' | grep \"\b$tableName\b\"`" == "$tableName" ]] ; 
+if [[ "`bq ls --max_results=10000 $v_dataset_name | awk '{print $1}' | grep \"\b$tableName\b\"`" == "$tableName" ]] ; 
     then 
     # prior table
     echo "Table $v_metadataset_name.$tableName exists";
@@ -335,7 +336,8 @@ echo "Completed Detailed Reports Conversion"
 ## Aggregated Reports movement
 # Aggregated Reports: Crashes
 v_report_month=$(date +%Y%m);
-v_prev_report_month=$(date -d '- 1 month' +%Y%m);
+# v_prev_report_month=$(date -d '- 1 month' +%Y%m);
+v_prev_report_month=`(date --date="$(date +%Y-%m-15) -1 month" +%Y%m)`;
 
 tableName=stats_crashes
 
@@ -375,7 +377,7 @@ done
 
 wait $v_load_pids
 
-if [[ "`bq ls $v_dataset_name | awk '{print $1}' | grep \"\b$tableName\b\"`" == "$tableName" ]] ; 
+if [[ "`bq ls --max_results=10000 $v_dataset_name | awk '{print $1}' | grep \"\b$tableName\b\"`" == "$tableName" ]] ; 
     then 
     # prior table
     echo "Table $v_metadataset_name.$tableName exists";
@@ -425,7 +427,8 @@ p_exit_upon_error "$v_task_status" "$v_subtask"
 
 # Aggregated Reports: GCM
 v_report_month=$(date +%Y%m);
-v_prev_report_month=$(date -d '- 1 month' +%Y%m);
+# v_prev_report_month=$(date -d '- 1 month' +%Y%m);
+v_prev_report_month=`(date --date="$(date +%Y-%m-15) -1 month" +%Y%m)`;
 
 tableName=stats_gcm
 
@@ -465,7 +468,7 @@ done
 
 wait $v_load_pids
 
-if [[ "`bq ls $v_dataset_name | awk '{print $1}' | grep \"\b$tableName\b\"`" == "$tableName" ]] ; 
+if [[ "`bq ls --max_results=10000 $v_dataset_name | awk '{print $1}' | grep \"\b$tableName\b\"`" == "$tableName" ]] ; 
     then 
     # prior table
     echo "Table $v_metadataset_name.$tableName exists";
@@ -513,7 +516,8 @@ p_exit_upon_error "$v_task_status" "$v_subtask"
 
 # Aggregated Reports: Installs
 v_report_month=$(date +%Y%m);
-v_prev_report_month=$(date -d '- 1 month' +%Y%m);
+# v_prev_report_month=$(date -d '- 1 month' +%Y%m);
+v_prev_report_month=`(date --date="$(date +%Y-%m-15) -1 month" +%Y%m)`;
 
 tableName=stats_installs
 
@@ -555,7 +559,7 @@ done
 
 wait $v_load_pids
 
-if [[ "`bq ls $v_dataset_name | awk '{print $1}' | grep \"\b$tableName\b\"`" == "$tableName" ]] ; 
+if [[ "`bq ls --max_results=10000 $v_dataset_name | awk '{print $1}' | grep \"\b$tableName\b\"`" == "$tableName" ]] ; 
     then 
     # prior table
     echo "Table $v_metadataset_name.$tableName exists";
@@ -606,7 +610,8 @@ p_exit_upon_error "$v_task_status" "$v_subtask"
 
 # Aggregated Reports: Ratings
 v_report_month=$(date +%Y%m);
-v_prev_report_month=$(date -d '- 1 month' +%Y%m);
+# v_prev_report_month=$(date -d '- 1 month' +%Y%m);
+v_prev_report_month=`(date --date="$(date +%Y-%m-15) -1 month" +%Y%m)`;
 
 tableName=stats_ratings
 v_destination_tbl="$v_metadataset_name.incremental_$tableName";
@@ -642,7 +647,7 @@ done
 
 wait $v_load_pids
 
-if [[ "`bq ls $v_dataset_name | awk '{print $1}' | grep \"\b$tableName\b\"`" == "$tableName" ]] ; 
+if [[ "`bq ls --max_results=10000 $v_dataset_name | awk '{print $1}' | grep \"\b$tableName\b\"`" == "$tableName" ]] ; 
     then 
     # prior table
     echo "Table $v_metadataset_name.$tableName exists";

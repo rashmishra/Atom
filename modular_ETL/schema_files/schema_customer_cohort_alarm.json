@@ -1,0 +1,32 @@
+[
+    {
+        "name": "cid",
+        "type": "INTEGER",
+        "mode": "REQUIRED"
+    },
+    {
+        "name": "state",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "toBeActivated",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "createdBy",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "toBeActivatedAt_original",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "updatedBy",
+        "type": "STRING"
+    }
+]

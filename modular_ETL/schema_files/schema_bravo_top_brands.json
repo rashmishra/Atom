@@ -1,0 +1,32 @@
+[
+    {
+        "mode": "REQUIRED",
+        "name": "merchantId",
+        "type": "INTEGER"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "createdOn",
+        "type": "INTEGER"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "deletedOn",
+        "type": "INTEGER"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "createdBy",
+        "type": "STRING"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "deletedBy",
+        "type": "STRING"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "isDeleted",
+        "type": "BOOLEAN"
+    }
+]

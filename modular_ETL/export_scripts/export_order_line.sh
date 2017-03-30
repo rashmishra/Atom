@@ -90,7 +90,7 @@ p_exit_upon_error(){
 DBHOST=nb-prod-oms-db-ugd.c6vqep7kcqpl.ap-southeast-1.rds.amazonaws.com
 # DBHOST=nb-prod-oms-db-ugd-read.c6vqep7kcqpl.ap-southeast-1.rds.amazonaws.com
 DBPORT=5432
-DBNAME=oms
+DBNAME=oms_v2
 DBUSER=oms
 DBPASS=0mspr0d$
 DATE=`date +%Y-%m-%d`
@@ -104,7 +104,7 @@ v_log_obj_txt+=`echo "\nRemoved old $v_data_dump_dir/$v_data_object.csv file"`;
 #echo "select * from oms_data.orderline where createdat>$v_incremental_epoch or updatedat>$v_incremental_epoch" > ./query_$v_data_object.txt
 
 v_extract_filename="$v_data_dump_dir/$v_data_object.csv";
-v_query_logfile=$v_temp_dir/"$v_data_object"_extract_command_output.txt;
+# v_query_logfile=$v_temp_dir/"$v_data_object"_extract_command_output.txt;
 
 echo "Command O/p is stored in $v_query_logfile"
 echo "Query is stored in $v_extract_filename"

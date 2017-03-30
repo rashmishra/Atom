@@ -463,6 +463,11 @@
                         ]
                     }
                 ]
+            },
+            {
+                "name": "usersList",
+                "type": "STRING",
+                "mode": "REPEATED"
             }
         ]
     },
@@ -737,5 +742,10 @@
                 ]
             }
         ]
+    },
+    {
+        "name": "isUserSpecificCode",
+        "type": "BOOLEAN",
+        "mode": "NULLABLE"
     }
 ]

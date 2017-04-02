@@ -89,7 +89,7 @@ PATH=/home/ubuntu/google-cloud-sdk/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:
 # 30 02 * * * bash /home/ubuntu/DTR/bhaskar_dtr.sh > /dev/null 2>&1
 # 30 02 * * * /home/ubuntu/RT/adhoc.sh > /home/ubuntu/RT/adhoc_logging.log
 15 02 * * * bash /home/ubuntu/ETL/engg_reporting/refresh_DM_funnel_with_GB.sh > /home/ubuntu/ETL/engg_reporting/logs/refresh_DM_funnel_with_GB_`date "+\%F_\%X_\%Z"`.log 2>&1
-25 02 * * * /home/ubuntu/ETL/adhoc_requests/cohorts_credits_base/refresh_credits_balance_with_cohorts_data.sh > /home/ubuntu/ETL/adhoc_requests/cohorts_credits_base/logs/log_credits_balance_`date "+\%F_\%X_\%Z"`.log  2>&1
+# 25 02 * * * /home/ubuntu/ETL/adhoc_requests/cohorts_credits_base/refresh_credits_balance_with_cohorts_data.sh > /home/ubuntu/ETL/adhoc_requests/cohorts_credits_base/logs/log_credits_balance_`date "+\%F_\%X_\%Z"`.log  2>&1
 30 02 * * * /home/ubuntu/BI/scripts/akhil_query.sh > /home/ubuntu/BI/logs/Akhil_logging.log
 45 02 * * * bash /home/ubuntu/ETL/atom_simplified/refresh_atom_simplified.sh > /home/ubuntu/ETL/atom_simplified/logs/log_atom_simplified_`date "+\%F_\%X_\%Z"`.log 2>&1
 

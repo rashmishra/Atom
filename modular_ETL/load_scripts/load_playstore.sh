@@ -171,7 +171,7 @@ if [[ "`bq ls --max_results=10000 $v_dataset_name | awk '{print $1}' | grep \"\b
     v_query="SELECT * FROM $v_dataset_name.$tableName WHERE crash_report_date_and_time NOT IN (SELECT crash_report_date_and_time FROM $v_metadataset_name.incremental_$tableName)";
     v_destination_tbl="$v_metadataset_name.prior_$tableName";
     echo "Destination table is $v_destination_tbl and Query is $v_query"
-    bq query --maximum_billing_tier 10 --allow_large_results=1  --quiet -n 1 --replace --destination_table=$v_destination_tbl "$v_query"
+    bq query --maximum_billing_tier 10 --allow_large_results=1  --quiet -n 0 --replace --destination_table=$v_destination_tbl "$v_query"
     v_load_pids+=" $!"
 
     else echo "Table $v_dataset_name.$tableName missing"; 
@@ -231,7 +231,7 @@ if [[ "`bq ls --max_results=10000 $v_dataset_name | awk '{print $1}' | grep \"\b
     v_query="SELECT * FROM $v_dataset_name.$tableName WHERE crash_report_date_and_time NOT IN (SELECT crash_report_date_and_time FROM $v_metadataset_name.incremental_$tableName)";
     v_destination_tbl="$v_metadataset_name.prior_$tableName";
     echo "Destination table is $v_destination_tbl and Query is $v_query"
-    bq query  --maximum_billing_tier 10 --allow_large_results=1  --quiet -n 1 --replace --destination_table=$v_destination_tbl "$v_query"
+    bq query  --maximum_billing_tier 10 --allow_large_results=1  --quiet -n 0 --replace --destination_table=$v_destination_tbl "$v_query"
     v_load_pids+=" $!"
 
     else echo "Table $v_dataset_name.$tableName missing"; 
@@ -295,7 +295,7 @@ if [[ "`bq ls --max_results=10000 $v_dataset_name | awk '{print $1}' | grep \"\b
     v_query="SELECT * FROM $v_dataset_name.$tableName WHERE review_submit_date_and_time NOT IN (SELECT review_submit_date_and_time FROM $v_metadataset_name.incremental_$tableName)";
     v_destination_tbl="$v_metadataset_name.prior_$tableName";
     echo "Destination table is $v_destination_tbl and Query is $v_query"
-    bq query  --maximum_billing_tier 10 --allow_large_results=1  --quiet -n 1 --replace --destination_table=$v_destination_tbl "$v_query"
+    bq query  --maximum_billing_tier 10 --allow_large_results=1  --quiet -n 0 --replace --destination_table=$v_destination_tbl "$v_query"
     v_load_pids+=" $!"
 
     else echo "Table $v_dataset_name.$tableName missing"; 

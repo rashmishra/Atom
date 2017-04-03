@@ -569,5 +569,10 @@
                 "mode": "NULLABLE"
             }
         ]
+    },
+    {
+        "name": "businessAccountId",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
     }
 ]

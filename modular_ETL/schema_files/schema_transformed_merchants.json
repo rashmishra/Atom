@@ -1,0 +1,2439 @@
+[
+    {
+        "name": "_id",
+        "type": "STRING",
+        "mode": "REQUIRED"
+    },
+    {
+        "name": "isDiscoverable",
+        "type": "BOOLEAN",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "deals",
+        "type": "RECORD",
+        "mode": "REPEATED",
+        "fields": [
+            {
+                "name": "_id",
+                "type": "INTEGER",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "workflowType",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "validOnOutlets",
+                "type": "INTEGER",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "isOnline",
+                "type": "BOOLEAN",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "isRaffelDeal",
+                "type": "BOOLEAN",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "state",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "soldTillLastDay",
+                "type": "INTEGER",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "dealTitle",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            }
+        ]
+    },
+    {
+        "name": "transformedMerchantId",
+        "type": "RECORD",
+        "mode": "NULLABLE",
+        "fields": [
+            {
+                "name": "merchantId",
+                "type": "INTEGER",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "catId",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            }
+        ]
+    },
+    {
+        "name": "createdAt",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "createdBy",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "lastUpdatedAt",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "lastUpdatedBy",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "isActive",
+        "type": "BOOLEAN",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "isDeleted",
+        "type": "BOOLEAN",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "isPublished",
+        "type": "BOOLEAN",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "isDuplicate",
+        "type": "BOOLEAN",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "publishedId",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "merchantId",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "name",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "timing",
+        "type": "RECORD",
+        "mode": "NULLABLE",
+        "fields": [
+            {
+                "name": "id_1",
+                "type": "RECORD",
+                "mode": "NULLABLE",
+                "fields": [
+                    {
+                        "name": "isOpenAllDay",
+                        "type": "BOOLEAN",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "isOpen",
+                        "type": "BOOLEAN",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "timeSlots",
+                        "type": "RECORD",
+                        "mode": "REPEATED",
+                        "fields": [
+                            {
+                                "name": "startMeridian",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "endMeridian",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "startTimeStr",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "endTimeStr",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "startTime",
+                                "type": "INTEGER",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "endTime",
+                                "type": "INTEGER",
+                                "mode": "NULLABLE"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "id_2",
+                "type": "RECORD",
+                "mode": "NULLABLE",
+                "fields": [
+                    {
+                        "name": "isOpenAllDay",
+                        "type": "BOOLEAN",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "isOpen",
+                        "type": "BOOLEAN",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "timeSlots",
+                        "type": "RECORD",
+                        "mode": "REPEATED",
+                        "fields": [
+                            {
+                                "name": "startMeridian",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "endMeridian",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "startTimeStr",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "endTimeStr",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "startTime",
+                                "type": "INTEGER",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "endTime",
+                                "type": "INTEGER",
+                                "mode": "NULLABLE"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "id_3",
+                "type": "RECORD",
+                "mode": "NULLABLE",
+                "fields": [
+                    {
+                        "name": "isOpenAllDay",
+                        "type": "BOOLEAN",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "isOpen",
+                        "type": "BOOLEAN",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "timeSlots",
+                        "type": "RECORD",
+                        "mode": "REPEATED",
+                        "fields": [
+                            {
+                                "name": "startMeridian",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "endMeridian",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "startTimeStr",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "endTimeStr",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "startTime",
+                                "type": "INTEGER",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "endTime",
+                                "type": "INTEGER",
+                                "mode": "NULLABLE"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "id_4",
+                "type": "RECORD",
+                "mode": "NULLABLE",
+                "fields": [
+                    {
+                        "name": "isOpenAllDay",
+                        "type": "BOOLEAN",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "isOpen",
+                        "type": "BOOLEAN",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "timeSlots",
+                        "type": "RECORD",
+                        "mode": "REPEATED",
+                        "fields": [
+                            {
+                                "name": "startMeridian",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "endMeridian",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "startTimeStr",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "endTimeStr",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "startTime",
+                                "type": "INTEGER",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "endTime",
+                                "type": "INTEGER",
+                                "mode": "NULLABLE"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "id_5",
+                "type": "RECORD",
+                "mode": "NULLABLE",
+                "fields": [
+                    {
+                        "name": "isOpenAllDay",
+                        "type": "BOOLEAN",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "isOpen",
+                        "type": "BOOLEAN",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "timeSlots",
+                        "type": "RECORD",
+                        "mode": "REPEATED",
+                        "fields": [
+                            {
+                                "name": "startMeridian",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "endMeridian",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "startTimeStr",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "endTimeStr",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "startTime",
+                                "type": "INTEGER",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "endTime",
+                                "type": "INTEGER",
+                                "mode": "NULLABLE"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "id_6",
+                "type": "RECORD",
+                "mode": "NULLABLE",
+                "fields": [
+                    {
+                        "name": "isOpenAllDay",
+                        "type": "BOOLEAN",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "isOpen",
+                        "type": "BOOLEAN",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "timeSlots",
+                        "type": "RECORD",
+                        "mode": "REPEATED",
+                        "fields": [
+                            {
+                                "name": "startMeridian",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "endMeridian",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "startTimeStr",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "endTimeStr",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "startTime",
+                                "type": "INTEGER",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "endTime",
+                                "type": "INTEGER",
+                                "mode": "NULLABLE"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "id_7",
+                "type": "RECORD",
+                "mode": "NULLABLE",
+                "fields": [
+                    {
+                        "name": "isOpenAllDay",
+                        "type": "BOOLEAN",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "isOpen",
+                        "type": "BOOLEAN",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "timeSlots",
+                        "type": "RECORD",
+                        "mode": "REPEATED",
+                        "fields": [
+                            {
+                                "name": "startMeridian",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "endMeridian",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "startTimeStr",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "endTimeStr",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "startTime",
+                                "type": "INTEGER",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "endTime",
+                                "type": "INTEGER",
+                                "mode": "NULLABLE"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "deliveryTiming",
+        "type": "RECORD",
+        "mode": "NULLABLE",
+        "fields": [
+            {
+                "name": "id_1",
+                "type": "RECORD",
+                "mode": "NULLABLE",
+                "fields": [
+                    {
+                        "name": "isOpenAllDay",
+                        "type": "BOOLEAN",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "isOpen",
+                        "type": "BOOLEAN",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "timeSlots",
+                        "type": "RECORD",
+                        "mode": "REPEATED",
+                        "fields": [
+                            {
+                                "name": "startMeridian",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "endMeridian",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "startTimeStr",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "endTimeStr",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "startTime",
+                                "type": "INTEGER",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "endTime",
+                                "type": "INTEGER",
+                                "mode": "NULLABLE"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "id_2",
+                "type": "RECORD",
+                "mode": "NULLABLE",
+                "fields": [
+                    {
+                        "name": "isOpenAllDay",
+                        "type": "BOOLEAN",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "isOpen",
+                        "type": "BOOLEAN",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "timeSlots",
+                        "type": "RECORD",
+                        "mode": "REPEATED",
+                        "fields": [
+                            {
+                                "name": "startMeridian",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "endMeridian",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "startTimeStr",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "endTimeStr",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "startTime",
+                                "type": "INTEGER",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "endTime",
+                                "type": "INTEGER",
+                                "mode": "NULLABLE"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "id_3",
+                "type": "RECORD",
+                "mode": "NULLABLE",
+                "fields": [
+                    {
+                        "name": "isOpenAllDay",
+                        "type": "BOOLEAN",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "isOpen",
+                        "type": "BOOLEAN",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "timeSlots",
+                        "type": "RECORD",
+                        "mode": "REPEATED",
+                        "fields": [
+                            {
+                                "name": "startMeridian",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "endMeridian",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "startTimeStr",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "endTimeStr",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "startTime",
+                                "type": "INTEGER",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "endTime",
+                                "type": "INTEGER",
+                                "mode": "NULLABLE"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "id_4",
+                "type": "RECORD",
+                "mode": "NULLABLE",
+                "fields": [
+                    {
+                        "name": "isOpenAllDay",
+                        "type": "BOOLEAN",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "isOpen",
+                        "type": "BOOLEAN",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "timeSlots",
+                        "type": "RECORD",
+                        "mode": "REPEATED",
+                        "fields": [
+                            {
+                                "name": "startMeridian",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "endMeridian",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "startTimeStr",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "endTimeStr",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "startTime",
+                                "type": "INTEGER",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "endTime",
+                                "type": "INTEGER",
+                                "mode": "NULLABLE"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "id_5",
+                "type": "RECORD",
+                "mode": "NULLABLE",
+                "fields": [
+                    {
+                        "name": "isOpenAllDay",
+                        "type": "BOOLEAN",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "isOpen",
+                        "type": "BOOLEAN",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "timeSlots",
+                        "type": "RECORD",
+                        "mode": "REPEATED",
+                        "fields": [
+                            {
+                                "name": "startMeridian",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "endMeridian",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "startTimeStr",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "endTimeStr",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "startTime",
+                                "type": "INTEGER",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "endTime",
+                                "type": "INTEGER",
+                                "mode": "NULLABLE"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "id_6",
+                "type": "RECORD",
+                "mode": "NULLABLE",
+                "fields": [
+                    {
+                        "name": "isOpenAllDay",
+                        "type": "BOOLEAN",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "isOpen",
+                        "type": "BOOLEAN",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "timeSlots",
+                        "type": "RECORD",
+                        "mode": "REPEATED",
+                        "fields": [
+                            {
+                                "name": "startMeridian",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "endMeridian",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "startTimeStr",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "endTimeStr",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "startTime",
+                                "type": "INTEGER",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "endTime",
+                                "type": "INTEGER",
+                                "mode": "NULLABLE"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "id_7",
+                "type": "RECORD",
+                "mode": "NULLABLE",
+                "fields": [
+                    {
+                        "name": "isOpenAllDay",
+                        "type": "BOOLEAN",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "isOpen",
+                        "type": "BOOLEAN",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "timeSlots",
+                        "type": "RECORD",
+                        "mode": "REPEATED",
+                        "fields": [
+                            {
+                                "name": "startMeridian",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "endMeridian",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "startTimeStr",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "endTimeStr",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "startTime",
+                                "type": "INTEGER",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "endTime",
+                                "type": "INTEGER",
+                                "mode": "NULLABLE"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "description",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "usp",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "status",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "catInfo",
+        "type": "RECORD",
+        "mode": "NULLABLE",
+        "fields": [
+            {
+                "name": "isPrimary",
+                "type": "BOOLEAN",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "layout",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "key",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "fields",
+                "type": "RECORD",
+                "mode": "REPEATED",
+                "fields": [
+                    {
+                        "name": "multiple",
+                        "type": "BOOLEAN",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "values",
+                        "type": "STRING",
+                        "mode": "REPEATED"
+                    },
+                    {
+                        "name": "key",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "type",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    }
+                ]
+            },
+            {
+                "name": "costForTwo",
+                "type": "STRING",
+                "mode": "REPEATED"
+            },
+            {
+                "name": "cuisine",
+                "type": "RECORD",
+                "mode": "REPEATED",
+                "fields": [
+                    {
+                        "name": "id",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "name",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    }
+                ]
+            },
+            {
+                "name": "subCat",
+                "type": "RECORD",
+                "mode": "REPEATED",
+                "fields": [
+                    {
+                        "name": "key",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "fields",
+                        "type": "RECORD",
+                        "mode": "REPEATED",
+                        "fields": [
+                            {
+                                "name": "key",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "type",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "multiple",
+                                "type": "BOOLEAN",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "values",
+                                "type": "STRING",
+                                "mode": "REPEATED"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "images",
+                        "type": "RECORD",
+                        "mode": "REPEATED",
+                        "fields": [
+                            {
+                                "name": "key",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "type",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "multiple",
+                                "type": "BOOLEAN",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "values",
+                                "type": "STRING",
+                                "mode": "REPEATED"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "images",
+                "type": "RECORD",
+                "mode": "REPEATED",
+                "fields": [
+                    {
+                        "name": "key",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "max",
+                        "type": "INTEGER",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "min",
+                        "type": "INTEGER",
+                        "mode": "NULLABLE"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "bannerImageDetails",
+        "type": "RECORD",
+        "mode": "NULLABLE",
+        "fields": [
+            {
+                "name": "imageUrl",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "imageId",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            }
+        ]
+    },
+    {
+        "name": "merchantType",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "nickName",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "reservationEmailId",
+        "type": "STRING",
+        "mode": "REPEATED"
+    },
+    {
+        "name": "reservationNumbers",
+        "type": "RECORD",
+        "mode": "REPEATED",
+        "fields": [
+            {
+                "name": "type",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "contactNo",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "stdCode",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "countryCode",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            }
+        ]
+    },
+    {
+        "name": "websiteLink",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "socialMediaLink",
+        "type": "RECORD",
+        "mode": "NULLABLE",
+        "fields": [
+            {
+                "name": "li",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "fb",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "in",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "pi",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "tw",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "yo",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            }
+        ]
+    },
+    {
+        "name": "companyLogoId",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "companyLogo",
+        "type": "RECORD",
+        "mode": "NULLABLE",
+        "fields": [
+            {
+                "name": "imageId",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "imageUrl",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            }
+        ]
+    },
+    {
+        "name": "phoneNumbers",
+        "type": "RECORD",
+        "mode": "REPEATED",
+        "fields": [
+            {
+                "name": "type",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "contactNo",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "stdCode",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "countryCode",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            }
+        ]
+    },
+    {
+        "name": "isChain",
+        "type": "BOOLEAN",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "chainMerchantId",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "coverage",
+        "type": "INTEGER",
+        "mode": "REPEATED"
+    },
+    {
+        "name": "redemptionAddress",
+        "type": "RECORD",
+        "mode": "NULLABLE",
+        "fields": [
+            {
+                "name": "_id",
+                "type": "INTEGER",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "displayText",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "shortDisplayText",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "salutation",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "firstName",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "lastName",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "middleName",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "addressLine1",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "addressLine1Analyzed",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "addressLine1LowerCase",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "addressLine2",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "postOffice",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "subDivision",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "division",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "cityTown",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "district",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "state",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "country",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "pincode",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "latitude",
+                "type": "FLOAT",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "longitude",
+                "type": "FLOAT",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "type",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "landmark",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "attribute_1",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "attribute_2",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "attribute_3",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "attribute_4",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "attribute_5",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "attribute_6",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "attribute_7",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "attribute_8",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "attribute_9",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "attribute_10",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "street",
+                "type": "INTEGER",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "locality",
+                "type": "RECORD",
+                "mode": "NULLABLE",
+                "fields": [
+                    {
+                        "name": "_id",
+                        "type": "INTEGER",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "name",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "idNameForAgg",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "aliases",
+                        "type": "STRING",
+                        "mode": "REPEATED"
+                    },
+                    {
+                        "name": "permalink",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "images",
+                        "type": "RECORD",
+                        "mode": "REPEATED",
+                        "fields": [
+                            {
+                                "name": "imageId",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "imageUrl",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "isPopular",
+                        "type": "BOOLEAN",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "isHotspot",
+                        "type": "BOOLEAN",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "centroid",
+                        "type": "RECORD",
+                        "mode": "NULLABLE",
+                        "fields": [
+                            {
+                                "name": "type",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "coordinates",
+                                "type": "FLOAT",
+                                "mode": "REPEATED"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "polygonId",
+                        "type": "INTEGER",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "locality",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "city",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "type",
+                        "type": "INTEGER",
+                        "mode": "NULLABLE"
+                    }
+                ]
+            },
+            {
+                "name": "subLocality",
+                "type": "RECORD",
+                "mode": "NULLABLE",
+                "fields": [
+                    {
+                        "name": "_id",
+                        "type": "INTEGER",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "namei",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "idNameForAgg",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "aliases",
+                        "type": "STRING",
+                        "mode": "REPEATED"
+                    },
+                    {
+                        "name": "permalink",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "images",
+                        "type": "RECORD",
+                        "mode": "REPEATED",
+                        "fields": [
+                            {
+                                "name": "imageId",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "imageUrl",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "isPopular",
+                        "type": "BOOLEAN",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "isHotspot",
+                        "type": "BOOLEAN",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "centroid",
+                        "type": "RECORD",
+                        "mode": "NULLABLE",
+                        "fields": [
+                            {
+                                "name": "type",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "coordinates",
+                                "type": "FLOAT",
+                                "mode": "REPEATED"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "polygonId",
+                        "type": "INTEGER",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "locality",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "city",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "type",
+                        "type": "INTEGER",
+                        "mode": "NULLABLE"
+                    }
+                ]
+            },
+            {
+                "name": "city",
+                "type": "RECORD",
+                "mode": "NULLABLE",
+                "fields": [
+                    {
+                        "name": "_id",
+                        "type": "INTEGER",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "name",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "idNameForAgg",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "aliases",
+                        "type": "STRING",
+                        "mode": "REPEATED"
+                    },
+                    {
+                        "name": "permalink",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "images",
+                        "type": "RECORD",
+                        "mode": "REPEATED",
+                        "fields": [
+                            {
+                                "name": "imageId",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "imageUrl",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "isPopular",
+                        "type": "BOOLEAN",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "isHotspot",
+                        "type": "BOOLEAN",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "centroid",
+                        "type": "RECORD",
+                        "mode": "NULLABLE",
+                        "fields": [
+                            {
+                                "name": "type",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "coordinates",
+                                "type": "FLOAT",
+                                "mode": "REPEATED"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "polygonId",
+                        "type": "INTEGER",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "locality",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "city",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "type",
+                        "type": "INTEGER",
+                        "mode": "NULLABLE"
+                    }
+                ]
+            },
+            {
+                "name": "stateLoc",
+                "type": "RECORD",
+                "mode": "NULLABLE",
+                "fields": [
+                    {
+                        "name": "_id",
+                        "type": "INTEGER",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "name",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "idNameForAgg",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "aliases",
+                        "type": "STRING",
+                        "mode": "REPEATED"
+                    },
+                    {
+                        "name": "permalink",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "images",
+                        "type": "RECORD",
+                        "mode": "REPEATED",
+                        "fields": [
+                            {
+                                "name": "imageId",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "imageUrl",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "isPopular",
+                        "type": "BOOLEAN",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "isHotspot",
+                        "type": "BOOLEAN",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "centroid",
+                        "type": "RECORD",
+                        "mode": "NULLABLE",
+                        "fields": [
+                            {
+                                "name": "type",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "coordinates",
+                                "type": "FLOAT",
+                                "mode": "REPEATED"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "polygonId",
+                        "type": "INTEGER",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "locality",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "city",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "type",
+                        "type": "INTEGER",
+                        "mode": "NULLABLE"
+                    }
+                ]
+            },
+            {
+                "name": "countryLoc",
+                "type": "RECORD",
+                "mode": "NULLABLE",
+                "fields": [
+                    {
+                        "name": "_id",
+                        "type": "INTEGER",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "name",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "idNameForAgg",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "aliases",
+                        "type": "STRING",
+                        "mode": "REPEATED"
+                    },
+                    {
+                        "name": "permalink",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "images",
+                        "type": "RECORD",
+                        "mode": "REPEATED",
+                        "fields": [
+                            {
+                                "name": "imageId",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "imageUrl",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "isPopular",
+                        "type": "BOOLEAN",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "isHotspot",
+                        "type": "BOOLEAN",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "centroid",
+                        "type": "RECORD",
+                        "mode": "NULLABLE",
+                        "fields": [
+                            {
+                                "name": "type",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "coordinates",
+                                "type": "FLOAT",
+                                "mode": "REPEATED"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "polygonId",
+                        "type": "INTEGER",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "locality",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "city",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "type",
+                        "type": "INTEGER",
+                        "mode": "NULLABLE"
+                    }
+                ]
+            },
+            {
+                "name": "mallDetail",
+                "type": "RECORD",
+                "mode": "NULLABLE",
+                "fields": [
+                    {
+                        "name": "_id",
+                        "type": "INTEGER",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "name",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "idNameForAgg",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "aliases",
+                        "type": "STRING",
+                        "mode": "REPEATED"
+                    },
+                    {
+                        "name": "permalink",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "images",
+                        "type": "RECORD",
+                        "mode": "REPEATED",
+                        "fields": [
+                            {
+                                "name": "imageId",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "imageUrl",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "isPopular",
+                        "type": "BOOLEAN",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "isHotspot",
+                        "type": "BOOLEAN",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "centroid",
+                        "type": "RECORD",
+                        "mode": "NULLABLE",
+                        "fields": [
+                            {
+                                "name": "type",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "coordinates",
+                                "type": "FLOAT",
+                                "mode": "REPEATED"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "polygonId",
+                        "type": "INTEGER",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "locality",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "city",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "type",
+                        "type": "INTEGER",
+                        "mode": "NULLABLE"
+                    }
+                ]
+            },
+            {
+                "name": "marketDetail",
+                "type": "RECORD",
+                "mode": "NULLABLE",
+                "fields": [
+                    {
+                        "name": "_id",
+                        "type": "INTEGER",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "name",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "idNameForAgg",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "aliases",
+                        "type": "STRING",
+                        "mode": "REPEATED"
+                    },
+                    {
+                        "name": "permalink",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "images",
+                        "type": "RECORD",
+                        "mode": "REPEATED",
+                        "fields": [
+                            {
+                                "name": "imageId",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "imageUrl",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "isPopular",
+                        "type": "BOOLEAN",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "isHotspot",
+                        "type": "BOOLEAN",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "centroid",
+                        "type": "RECORD",
+                        "mode": "NULLABLE",
+                        "fields": [
+                            {
+                                "name": "type",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "coordinates",
+                                "type": "FLOAT",
+                                "mode": "REPEATED"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "polygonId",
+                        "type": "INTEGER",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "locality",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "city",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "type",
+                        "type": "INTEGER",
+                        "mode": "NULLABLE"
+                    }
+                ]
+            },
+            {
+                "name": "streetDetail",
+                "type": "RECORD",
+                "mode": "NULLABLE",
+                "fields": [
+                    {
+                        "name": "_id",
+                        "type": "INTEGER",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "name",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "idNameForAgg",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "aliases",
+                        "type": "STRING",
+                        "mode": "REPEATED"
+                    },
+                    {
+                        "name": "permalink",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "images",
+                        "type": "RECORD",
+                        "mode": "REPEATED",
+                        "fields": [
+                            {
+                                "name": "imageId",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "imageUrl",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "isPopular",
+                        "type": "BOOLEAN",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "isHotspot",
+                        "type": "BOOLEAN",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "centroid",
+                        "type": "RECORD",
+                        "mode": "NULLABLE",
+                        "fields": [
+                            {
+                                "name": "type",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "coordinates",
+                                "type": "FLOAT",
+                                "mode": "REPEATED"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "polygonId",
+                        "type": "INTEGER",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "locality",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "city",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "type",
+                        "type": "INTEGER",
+                        "mode": "NULLABLE"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "tags",
+        "type": "STRING",
+        "mode": "REPEATED"
+    },
+    {
+        "name": "sfId",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "facilities",
+        "type": "RECORD",
+        "mode": "REPEATED",
+        "fields": [
+            {
+                "name": "_id",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "description",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "image",
+                "type": "RECORD",
+                "mode": "NULLABLE",
+                "fields": [
+                    {
+                        "name": "imageId",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "imageUrl",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "ratingDetails",
+        "type": "RECORD",
+        "mode": "NULLABLE",
+        "fields": [
+            {
+                "name": "ratings",
+                "type": "RECORD",
+                "mode": "REPEATED",
+                "fields": [
+                    {
+                        "name": "count",
+                        "type": "INTEGER",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "source",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "avgRating",
+                        "type": "FLOAT",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "category",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "webUrl",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "noOfReviews",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "ratingUrl",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "establishmentTypes",
+        "type": "RECORD",
+        "mode": "REPEATED",
+        "fields": [
+            {
+                "name": "key",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "label",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            }
+        ]
+    },
+    {
+        "name": "isTopBrand",
+        "type": "BOOLEAN",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "vertical",
+        "type": "STRING",
+        "mode": "REPEATED"
+    },
+    {
+        "name": "costForTwo",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "cuisine",
+        "type": "RECORD",
+        "mode": "REPEATED",
+        "fields": [
+            {
+                "name": "_id",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "name",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            }
+        ]
+    },
+    {
+        "name": "carouselImages",
+        "type": "RECORD",
+        "mode": "REPEATED",
+        "fields": [
+            {
+                "name": "imageId",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "imageUrl",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            }
+        ]
+    },
+    {
+        "name": "category",
+        "type": "RECORD",
+        "mode": "NULLABLE",
+        "fields": [
+            {
+                "name": "_id",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "name",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "nameAnalyzed",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "nameLowerCase",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "subcats",
+                "type": "RECORD",
+                "mode": "REPEATED",
+                "fields": [
+                    {
+                        "name": "_id",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "name",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "geometry",
+        "type": "RECORD",
+        "mode": "NULLABLE",
+        "fields": [
+            {
+                "name": "type",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "coordinates",
+                "type": "FLOAT",
+                "mode": "REPEATED"
+            }
+        ]
+    },
+    {
+        "name": "weightage",
+        "type": "RECORD",
+        "mode": "NULLABLE",
+        "fields": [
+            {
+                "name": "popularSortFactor",
+                "type": "FLOAT",
+                "mode": "NULLABLE"
+            }
+        ]
+    },
+    {
+        "name": "imageTags",
+        "type": "RECORD",
+        "mode": "REPEATED",
+        "fields": [
+            {
+                "name": "imageId",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "type",
+                "type": "STRING",
+                "mode": "REPEATED"
+            },
+            {
+                "name": "caption",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            }
+        ]
+    }
+]

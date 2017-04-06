@@ -25,7 +25,7 @@ v_task_datetime=`echo $(date -d "@$v_task_start_epoch" +"%Y-%m-%d_%H:%M_%Z")`;
 v_etl_task='load'
 
 schemaFileName=schema_transformed_merchants.json
-maxBadRecords=0
+maxBadRecords=100
 
 v_data_object=$1;
 tableName=$1;

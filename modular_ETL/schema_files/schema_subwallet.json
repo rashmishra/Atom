@@ -1,0 +1,57 @@
+[
+    {
+        "name": "subwalletid",
+        "type": "INTEGER",
+        "mode": "REQUIRED"
+    },
+    {
+        "name": "credits",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "userid",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "usertype",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "expiresat",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "redeemlimit",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "subwallettype",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "createdat",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "createdby",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "lastupdatedat",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "lastupdatedby",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    }
+]

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-## Script Name: export_user_credit_detail.sh
+## Script Name: export_subwallet.sh
 ## Purpose: Modular ETL flow of Atom.
 
 ##### $1: Data Object. ####
@@ -75,7 +75,7 @@ p_exit_upon_error(){
         echo -e "$v_log_obj_txt" > $v_arch_dir/logs/"$v_data_object""_extract_"$v_task_datetime.log
 
 
-        # Creating new file for user_credit_detail's ETL run. Content will be appended in further tasks of T and L.
+        # Creating new file for subwallet's ETL run. Content will be appended in further tasks of T and L.
         echo -e "$v_log_obj_txt" > $v_temp_dir/"$v_data_object"_log.log
 
         chmod 0777 $v_temp_dir/"$v_data_object"_log.log;
@@ -101,15 +101,17 @@ export PGPASSWORD='nbcr3d1T'
 
 v_extract_filename="$v_data_dump_dir/$v_data_object.csv";
 
-v_command="\copy (SELECT * FROM nbcredit.usercreditdetail WHERE createdat >= $v_incremental_epoch OR lastupdatedat >= $v_incremental_epoch ) to $v_extract_filename with DELIMITER ',' CSV HEADER"
+v_command="\copy (SELECT * FROM nbcredit.subwallet WHERE createdat >= $v_incremental_epoch OR lastupdatedat >= $v_incremental_epoch ) to $v_extract_filename with DELIMITER ',' CSV HEADER"
 
 
 #psql -d $DBNAME -h $DBHOST -p $DBPORT -U $DBUSER --log-file=$v_query_logfile -A --field-separator=, -f "query_$v_data_object.txt" -o "$v_extract_filename" &
 
+echo "Command to fetch subwallet is: ${v_command}";
+
 psql -d $DBNAME -h $DBHOST -p $DBPORT -U $DBUSER -A --field-separator=, -c "$v_command"  &
 v_extract_pid=$!
 
-echo -e "\n\nThe PID for user_credit_detail data export is $v_extract_pid\n\n";
+echo -e "\n\nThe PID for subwallet data export is $v_extract_pid\n\n";
 
 # Waiting for the process to complete
 if wait $v_extract_pid; then
@@ -181,7 +183,7 @@ echo -e "$v_log_obj_txt" > $v_temp_dir/"$v_data_object""_extract_"$v_task_dateti
 # Removing the previous run's file from the directory
 v_log_obj_txt+=`rm $v_logs_dir/"$v_data_object"_log.log`;
 
-# Creating new file for user_credit_detail's ETL run. Content will be appended in further tasks of T and L.
+# Creating new file for subwallet's ETL run. Content will be appended in further tasks of T and L.
 echo -e "$v_log_obj_txt" > $v_logs_dir/"$v_data_object"_log.log
 ##############################################################################
 
@@ -189,5 +191,5 @@ echo -e "$v_log_obj_txt" > $v_logs_dir/"$v_data_object"_log.log
 echo -e "Log text is: \n"
 echo -e "$v_log_obj_txt";
 
-echo "user_credit_detail data export end time is : $taskEndTime "
+echo "subwallet data export end time is : $taskEndTime "
 exit 0

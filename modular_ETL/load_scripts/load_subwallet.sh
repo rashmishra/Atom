@@ -1,6 +1,6 @@
 #!/bin/bash
 
-## Script Name: load_user_credit_detail.sh
+## Script Name: load_subwallet.sh
 ## Purpose: Modular ETL flow of Atom.
 
 
@@ -24,7 +24,7 @@ v_task_datetime=`echo $(date -d "@$v_task_start_epoch" +"%Y-%m-%d_%H:%M_%Z")`;
 ## Initializing required variables
 v_etl_task='load'
 
-schemaFileName=schema_user_credit_detail.json
+schemaFileName=schema_subwallet.json
 maxBadRecords=0
 
 v_data_object=$1;
@@ -47,7 +47,7 @@ v_log_obj_txt+=`echo "\n--------------------------------------------------------
 v_log_obj_txt+=`echo "\n$v_etl_task process started for $v_data_object at $v_task_start_ts"`;
 
 
-echo "In user_credit_detail Loading script";
+echo "In subwallet Loading script";
 
 ## Function to check task status and exit if error occurs.
 p_exit_upon_error(){
@@ -92,7 +92,7 @@ p_exit_upon_error(){
         echo -e "$v_log_obj_txt" > $v_arch_dir/logs/"$v_data_object""_load_"$v_task_datetime.log
 
 
-        # Creating new file for user_credit_detail's ETL run. Content will be appended in further tasks of T and L.
+        # Creating new file for subwallet's ETL run. Content will be appended in further tasks of T and L.
         echo -e "$v_log_obj_txt" >> $v_temp_dir/"$v_data_object"_log.log
 
         chmod 0777 $v_temp_dir/"$v_data_object"_log.log;
@@ -150,38 +150,6 @@ rm "$v_data_object"_cloud_result.txt
                      ## Completed: Checking for Process Failure ##
 #-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#
 
-#v_incr_table_result=`echo $(bq load --quiet  --source_format=NEWLINE_DELIMITED_JSON --replace --ignore_unknown_values=1 --max_bad_records=$maxBadRecords $v_metadataset_name.incremental_$tableName $v_cloud_storage_path/$v_fileName $v_schema_filepath/$schemaFileName 2>&1)`
-echo "Etl Home is $6."
-echo "Schema File path is: $v_schema_filepath"
-
-# # Loading the data directly
-# bq load --quiet --field_delimiter=',' --source_format=CSV --replace --skip_leading_rows=1 --max_bad_records=0  --allow_jagged_rows=1 --allow_quoted_newlines=1 --ignore_unknown_values=1 $v_dataset_name.$tableName $v_cloud_storage_path/$v_fileName $v_schema_filepath/$schemaFileName &
-# #2> "$v_data_object"_final_table_result.txt 
-# v_pid=$!
-
-# wait $v_pid
-
-# if wait $v_pid; then
-#     echo "Process $v_pid Status: success";
-#     v_task_status="success";
-# else 
-#     echo "Process $v_pid Status: failed";
-#     v_task_status="failed";
-# fi
-
-# v_log_obj_txt+=`echo "\n$(date) $v_task_status is the task status"`;
-
-# ########################################################################################
-# ## Checking if the Incremental Table Load process has failed. If Failed, then exit this task (script). ##
-
-# v_subtask="Incremental Table load";
-# p_exit_upon_error "$v_task_status" "$v_subtask"
-
-# #-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#
-#                      ## Completed: Checking for Process Failure ##
-# #-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#
-
-
 
 v_destination_tbl="$v_metadataset_name.incremental_$tableName";
 echo "bq load --replace --quiet --field_delimiter=',' --source_format=CSV --skip_leading_rows=1 --max_bad_records=0  --allow_jagged_rows=1 --allow_quoted_newlines=1 --ignore_unknown_values=1   $v_destination_tbl $v_cloud_storage_path/$v_fileName $v_schema_filepath/$schemaFileName 2> \"$v_data_object\"_inc_table_result.txt"
@@ -220,7 +188,7 @@ if [[ "`bq ls --max_results=10000 $v_dataset_name | awk '{print $1}' | grep \"\b
 
         ## Make the diff table
         ## Make another table with prior (till last run) data 
-        v_query="SELECT * FROM $v_dataset_name.$tableName WHERE id NOT IN (SELECT id FROM $v_metadataset_name.incremental_$tableName)";
+        v_query="SELECT * FROM $v_dataset_name.$tableName WHERE subwalletid NOT IN (SELECT subwalletid FROM $v_metadataset_name.incremental_$tableName)";
         v_destination_tbl="$v_metadataset_name.prior_$tableName";
         echo "Destination table is $v_destination_tbl and Query is $v_query"
         bq query  --maximum_billing_tier 10 --allow_large_results=1 -n 1 --quiet --replace --destination_table=$v_destination_tbl "$v_query" 2> "$v_data_object"_prior_table_result.txt &
@@ -349,7 +317,7 @@ v_log_obj_txt+=`echo "\n--------------------------------------------------------
 echo -e "$v_log_obj_txt" > $v_arch_dir/logs/"$v_data_object""_load_"$v_task_datetime.log
 
 
-# Creating new file for user_credit_detail's ETL run. Content will be appended in further tasks of T and L.
+# Creating new file for subwallet's ETL run. Content will be appended in further tasks of T and L.
 echo -e "$v_log_obj_txt" >> $v_temp_dir/"$v_data_object"_log.log
 
 chmod 0777 $v_temp_dir/"$v_data_object"_log.log;

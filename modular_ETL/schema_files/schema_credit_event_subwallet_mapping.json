@@ -1,0 +1,42 @@
+[
+    {
+        "name": "id",
+        "type": "INTEGER",
+        "mode": "REQUIRED"
+    },
+    {
+        "name": "crediteventid",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "subwalletid",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "credits",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "createdat",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "createdby",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "lastupdatedat",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "lastupdatedby",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    }
+]

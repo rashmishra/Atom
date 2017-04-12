@@ -29,3 +29,21 @@ PATH=/home/ubuntu/google-cloud-sdk/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:
 #18 09 10 * * sh /home/ubuntu/ETL/master_scripts/masterdump_v4.sh 0 > /home/ubuntu/ETL/logs/sai.log 2>&1
 
 01 1 * * *  bash /home/ubuntu/modular_ETL/master_scripts/test_master_ETL.sh > /home/ubuntu/modular_ETL/arch/logs/modular_log-`date "+\%Y-\%m-\%d"`.log 2>&1
+
+
+## nb_reports
+
+
+00 11 * * * bash /home/ubuntu/nb_reports/master_transactions.sh > /home/ubuntu/nb_reports/logs/log_master_transactions`date "+\%F_\%X_\%Z"`.log 2>&1
+
+10 11 * * * bash /home/ubuntu/nb_reports/cancellation.sh > /home/ubuntu/nb_reports/logs/log_cancellation`date "+\%F_\%X_\%Z"`.log 2>&1
+
+
+15 11 * * * bash /home/ubuntu/nb_reports/redemption.sh > /home/ubuntu/nb_reports/logs/log_redemption`date "+\%F_\%X_\%Z"`.log 2>&1
+
+
+20 11 * * * bash /home/ubuntu/nb_reports/refund.sh > /home/ubuntu/nb_reports/logs/log_refund`date "+\%F_\%X_\%Z"`.log 2>&1
+
+
+
+

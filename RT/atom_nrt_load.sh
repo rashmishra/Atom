@@ -40,19 +40,19 @@ LAST_PR_UPDATEDTIME=$(($(head -1 /home/ubuntu/modular_ETL/RT/lastproductupdatedt
 #LAST_CUST_UPDATEDTIME=$(($(head -1 /home/ubuntu/modular_ETL/RT/lastcustomerupdatedtime.txt)))
 
 
-echo "last order header entry was created at : $LAST_OH_CREATEDTIME";
+echo "last order header entry was created at: $LAST_OH_CREATEDTIME";
 echo "last order header entry was updated at: $LAST_OH_UPDATEDTIME";
 
-echo "last order line entry was created at : $LAST_OL_CREATEDTIME";
+echo "last order line entry was created at: $LAST_OL_CREATEDTIME";
 echo "last order line entry was updated at: $LAST_OL_UPDATEDTIME";
 
-echo "last order BOM entry was created at : $LAST_OB_CREATEDTIME";
+echo "last order BOM entry was created at: $LAST_OB_CREATEDTIME";
 echo "last order BOM entry was updated at: $LAST_OB_UPDATEDTIME";
 
-echo "last product entry was created at : $LAST_PR_CREATEDTIME";
+echo "last product entry was created at: $LAST_PR_CREATEDTIME";
 echo "last product entry was updated at: $LAST_PR_UPDATEDTIME";
 
-#echo "last customer entry was created at : $LAST_CUST_CREATEDTIME"
+#echo "last customer entry was created at: $LAST_CUST_CREATEDTIME"
 #echo "last customer  entry was updated at: $LAST_CUST_UPDATEDTIME"
 
 export PGPASSWORD='0mspr0d$'
@@ -122,5 +122,5 @@ EOF
 
 
 taskEndTime=`date`
-echo "Data processing for marketing ended at : $taskEndTime "
+echo "Data processing for marketing ended at: $taskEndTime "
 exit 0

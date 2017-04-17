@@ -141,7 +141,7 @@ p_exit_upon_error "$v_task_status" "$v_subtask"
 
 v_log_obj_txt+=`echo " \n$v_task_status is the task status"`;
 
-gzip -f $v_extract_filename
+cpulimit -l 80 gzip -f $v_extract_filename
 
 
 # Init end time for logging purpose

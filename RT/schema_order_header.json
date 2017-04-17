@@ -268,5 +268,25 @@
         "name": "city",
         "type": "STRING",
         "mode": "NULLABLE"
+    },
+    {
+        "name": "parentorderid",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "paymentwindow",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "latepaymentprocessed",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "inprocess",
+        "type": "STRING",
+        "mode": "NULLABLE"
     }
 ]

@@ -71,17 +71,17 @@ EOF
 #gzip $1/customerProfileExport.json
 /home/ubuntu/google-cloud-sdk/bin/gsutil -m cp -r /home/ubuntu/modular_ETL/RT/*Export* gs://nb_rt
 
-/home/ubuntu/google-cloud-sdk/bin/bq load --field_delimiter=',' --source_format=CSV --skip_leading_rows=1 --max_bad_records=0  --allow_jagged_rows=1 --allow_quoted_newlines=1 --ignore_unknown_values=1  Atom_rt.order_header_temp gs://nb_rt/ohExport.csv /home/ubuntu/modular_ETL/RT/schema_order_header.json
+/home/ubuntu/google-cloud-sdk/bin/bq load --field_delimiter=',' --source_format=CSV --skip_leading_rows=1 --max_bad_records=0  --allow_jagged_rows=1 --allow_quoted_newlines=1 --ignore_unknown_values=1  Atom_rt.order_header_temp gs://nb_rt/ohExport.csv /home/ubuntu/modular_ETL/schema_files/schema_order_header.json
 
-/home/ubuntu/google-cloud-sdk/bin/bq load --field_delimiter=',' --source_format=CSV --skip_leading_rows=1 --max_bad_records=0  --allow_jagged_rows=1 --allow_quoted_newlines=1 --ignore_unknown_values=1  Atom_rt.order_line_new_temp gs://nb_rt/olExport.csv /home/ubuntu/modular_ETL/RT/schema_order_line.json
+/home/ubuntu/google-cloud-sdk/bin/bq load --field_delimiter=',' --source_format=CSV --skip_leading_rows=1 --max_bad_records=0  --allow_jagged_rows=1 --allow_quoted_newlines=1 --ignore_unknown_values=1  Atom_rt.order_line_new_temp gs://nb_rt/olExport.csv /home/ubuntu/modular_ETL/schema_files/schema_order_line.json
 
 #BOM
-/home/ubuntu/google-cloud-sdk/bin/bq load --field_delimiter=',' --source_format=CSV --skip_leading_rows=1 --max_bad_records=0  --allow_jagged_rows=1 --allow_quoted_newlines=1 --ignore_unknown_values=1  Atom_rt.order_bom_temp gs://nb_rt/oBOMExport.csv /home/ubuntu/modular_ETL/RT/schema_order_bom.json
+/home/ubuntu/google-cloud-sdk/bin/bq load --field_delimiter=',' --source_format=CSV --skip_leading_rows=1 --max_bad_records=0  --allow_jagged_rows=1 --allow_quoted_newlines=1 --ignore_unknown_values=1  Atom_rt.order_bom_temp gs://nb_rt/oBOMExport.csv /home/ubuntu/modular_ETL/schema_files/schema_orderbom.json
 
 #Product
-/home/ubuntu/google-cloud-sdk/bin/bq load --field_delimiter=',' --source_format=CSV --skip_leading_rows=1 --max_bad_records=0  --allow_jagged_rows=1 --allow_quoted_newlines=1 --ignore_unknown_values=1  Atom_rt.product_temp gs://nb_rt/productExport.csv /home/ubuntu/modular_ETL/RT/schema_product.json
+/home/ubuntu/google-cloud-sdk/bin/bq load --field_delimiter=',' --source_format=CSV --skip_leading_rows=1 --max_bad_records=0  --allow_jagged_rows=1 --allow_quoted_newlines=1 --ignore_unknown_values=1  Atom_rt.product_temp gs://nb_rt/productExport.csv /home/ubuntu/modular_ETL/schema_files/schema_product.json
 
-#bq  load  --source_format=NEWLINE_DELIMITED_JSON --ignore_unknown_values=1 --max_bad_records=0 Atom_rt.customer_temp gs://nb_rt/customerProfileExport.json /home/ubuntu/modular_ETL/RT/schema_customer.json
+#bq  load  --source_format=NEWLINE_DELIMITED_JSON --ignore_unknown_values=1 --max_bad_records=0 Atom_rt.customer_temp gs://nb_rt/customerProfileExport.json /home/ubuntu/modular_ETL/schema_files/schema_customer.json
 
 /home/ubuntu/google-cloud-sdk/bin/bq query --replace --allow_large_results=1 --destination_table=Atom_rt.order_header_final 'select * from Atom_rt.order_header where orderid not in (select orderid from Atom_rt.order_header_temp)' > /dev/null
 /home/ubuntu/google-cloud-sdk/bin/bq query --append=1 --allow_large_results=1 --destination_table=Atom_rt.order_header_final 'select * from Atom_rt.order_header_temp' > /dev/null

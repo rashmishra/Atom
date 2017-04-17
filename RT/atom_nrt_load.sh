@@ -40,19 +40,19 @@ LAST_PR_UPDATEDTIME=$(($(head -1 /home/ubuntu/modular_ETL/RT/lastproductupdatedt
 #LAST_CUST_UPDATEDTIME=$(($(head -1 /home/ubuntu/modular_ETL/RT/lastcustomerupdatedtime.txt)))
 
 
-echo "last order header entry was created at : $LAST_OH_CREATEDTIME";
+echo "last order header entry was created at: $LAST_OH_CREATEDTIME";
 echo "last order header entry was updated at: $LAST_OH_UPDATEDTIME";
 
-echo "last order line entry was created at : $LAST_OL_CREATEDTIME";
+echo "last order line entry was created at: $LAST_OL_CREATEDTIME";
 echo "last order line entry was updated at: $LAST_OL_UPDATEDTIME";
 
-echo "last order BOM entry was created at : $LAST_OB_CREATEDTIME";
+echo "last order BOM entry was created at: $LAST_OB_CREATEDTIME";
 echo "last order BOM entry was updated at: $LAST_OB_UPDATEDTIME";
 
-echo "last product entry was created at : $LAST_PR_CREATEDTIME";
+echo "last product entry was created at: $LAST_PR_CREATEDTIME";
 echo "last product entry was updated at: $LAST_PR_UPDATEDTIME";
 
-#echo "last customer entry was created at : $LAST_CUST_CREATEDTIME"
+#echo "last customer entry was created at: $LAST_CUST_CREATEDTIME"
 #echo "last customer  entry was updated at: $LAST_CUST_UPDATEDTIME"
 
 export PGPASSWORD='0mspr0d$'
@@ -71,17 +71,17 @@ EOF
 #gzip $1/customerProfileExport.json
 /home/ubuntu/google-cloud-sdk/bin/gsutil -m cp -r /home/ubuntu/modular_ETL/RT/*Export* gs://nb_rt
 
-/home/ubuntu/google-cloud-sdk/bin/bq load --field_delimiter=',' --source_format=CSV --skip_leading_rows=1 --max_bad_records=0  --allow_jagged_rows=1 --allow_quoted_newlines=1 --ignore_unknown_values=1  Atom_rt.order_header_temp gs://nb_rt/ohExport.csv /home/ubuntu/modular_ETL/RT/schema_order_header.json
+/home/ubuntu/google-cloud-sdk/bin/bq load --field_delimiter=',' --source_format=CSV --skip_leading_rows=1 --max_bad_records=0  --allow_jagged_rows=1 --allow_quoted_newlines=1 --ignore_unknown_values=1  Atom_rt.order_header_temp gs://nb_rt/ohExport.csv /home/ubuntu/modular_ETL/schema_files/schema_order_header.json
 
-/home/ubuntu/google-cloud-sdk/bin/bq load --field_delimiter=',' --source_format=CSV --skip_leading_rows=1 --max_bad_records=0  --allow_jagged_rows=1 --allow_quoted_newlines=1 --ignore_unknown_values=1  Atom_rt.order_line_new_temp gs://nb_rt/olExport.csv /home/ubuntu/modular_ETL/RT/schema_order_line.json
+/home/ubuntu/google-cloud-sdk/bin/bq load --field_delimiter=',' --source_format=CSV --skip_leading_rows=1 --max_bad_records=0  --allow_jagged_rows=1 --allow_quoted_newlines=1 --ignore_unknown_values=1  Atom_rt.order_line_new_temp gs://nb_rt/olExport.csv /home/ubuntu/modular_ETL/schema_files/schema_order_line.json
 
 #BOM
-/home/ubuntu/google-cloud-sdk/bin/bq load --field_delimiter=',' --source_format=CSV --skip_leading_rows=1 --max_bad_records=0  --allow_jagged_rows=1 --allow_quoted_newlines=1 --ignore_unknown_values=1  Atom_rt.order_bom_temp gs://nb_rt/oBOMExport.csv /home/ubuntu/modular_ETL/RT/schema_order_bom.json
+/home/ubuntu/google-cloud-sdk/bin/bq load --field_delimiter=',' --source_format=CSV --skip_leading_rows=1 --max_bad_records=0  --allow_jagged_rows=1 --allow_quoted_newlines=1 --ignore_unknown_values=1  Atom_rt.order_bom_temp gs://nb_rt/oBOMExport.csv /home/ubuntu/modular_ETL/schema_files/schema_orderbom.json
 
 #Product
-/home/ubuntu/google-cloud-sdk/bin/bq load --field_delimiter=',' --source_format=CSV --skip_leading_rows=1 --max_bad_records=0  --allow_jagged_rows=1 --allow_quoted_newlines=1 --ignore_unknown_values=1  Atom_rt.product_temp gs://nb_rt/productExport.csv /home/ubuntu/modular_ETL/RT/schema_product.json
+/home/ubuntu/google-cloud-sdk/bin/bq load --field_delimiter=',' --source_format=CSV --skip_leading_rows=1 --max_bad_records=0  --allow_jagged_rows=1 --allow_quoted_newlines=1 --ignore_unknown_values=1  Atom_rt.product_temp gs://nb_rt/productExport.csv /home/ubuntu/modular_ETL/schema_files/schema_product.json
 
-#bq  load  --source_format=NEWLINE_DELIMITED_JSON --ignore_unknown_values=1 --max_bad_records=0 Atom_rt.customer_temp gs://nb_rt/customerProfileExport.json /home/ubuntu/modular_ETL/RT/schema_customer.json
+#bq  load  --source_format=NEWLINE_DELIMITED_JSON --ignore_unknown_values=1 --max_bad_records=0 Atom_rt.customer_temp gs://nb_rt/customerProfileExport.json /home/ubuntu/modular_ETL/schema_files/schema_customer.json
 
 /home/ubuntu/google-cloud-sdk/bin/bq query --replace --allow_large_results=1 --destination_table=Atom_rt.order_header_final 'select * from Atom_rt.order_header where orderid not in (select orderid from Atom_rt.order_header_temp)' > /dev/null
 /home/ubuntu/google-cloud-sdk/bin/bq query --append=1 --allow_large_results=1 --destination_table=Atom_rt.order_header_final 'select * from Atom_rt.order_header_temp' > /dev/null
@@ -122,5 +122,5 @@ EOF
 
 
 taskEndTime=`date`
-echo "Data processing for marketing ended at : $taskEndTime "
+echo "Data processing for marketing ended at: $taskEndTime "
 exit 0

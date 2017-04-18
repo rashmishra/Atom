@@ -128,7 +128,7 @@ v_subtask="Postgres export";
 p_exit_upon_error "$v_task_status" "$v_subtask"
 
 
-gzip -f $v_data_dump_dir/$v_data_object.csv 
+cpulimit -l 80 gzip -f $v_data_dump_dir/$v_data_object.csv 
 
 
 # Init end time for logging purpose

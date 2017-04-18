@@ -69,4 +69,4 @@ db.app_flier.find().forEach(function(doc){
     db.apps_flyer.save(newdoc);
 })
 
-db.apps_flyer.createIndex({"event_time_epoch": 1})
+db.apps_flyer.createIndex({"createdAt": 1})

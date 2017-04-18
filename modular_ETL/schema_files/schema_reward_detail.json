@@ -1,0 +1,72 @@
+[
+    {
+        "name": "id",
+        "type": "INTEGER",
+        "mode": "REQUIRED"
+    },
+    {
+        "name": "orderid",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "referralprogramid",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "customerid",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "referralcode",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "status",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "amount",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "rewardtype",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "couponid",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "creditid",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "createdat",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "createdby",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "updatedat",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "updatedby",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    }
+]

@@ -144,7 +144,7 @@ p_exit_upon_error "$v_task_status" "$v_subtask"
 echo "Before gzipping order_line_event";
 ls -l | grep $v_data_object
 
-gzip -f $v_extract_filename 
+cpulimit -l 80 gzip -f $v_extract_filename 
 
 echo "After gzipping order_line_event";
 ls -l | grep $v_data_object

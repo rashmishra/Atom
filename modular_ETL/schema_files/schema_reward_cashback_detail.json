@@ -1,0 +1,82 @@
+[
+    {
+        "name": "id",
+        "type": "INTEGER",
+        "mode": "REQUIRED"
+    },
+    {
+        "name": "orderid",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "orderlineid",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "status",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "customerid",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "emailid",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "customerphone",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "cashbackamount",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "istravel",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "createdat",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "createdby",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "updatedat",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "updatedby",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "customername",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "processat",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "cashbackvalidityindays",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    }
+]

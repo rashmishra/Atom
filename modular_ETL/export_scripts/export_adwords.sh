@@ -120,7 +120,7 @@ declare -a v_arr_reportnames=("account_performance_report" "adgroup_performance_
 for i in "${v_arr_reportnames[@]}"
 do
 
-gzip -f $v_data_dump_dir/"$i".csv	
+cpulimit -l 80 gzip -f $v_data_dump_dir/"$i".csv	
 done 
 
 

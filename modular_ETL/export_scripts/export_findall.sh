@@ -106,7 +106,7 @@ v_subtask="API export";
 p_exit_upon_error "$v_task_status" "$v_subtask"
 
 # Zipping the exported data file
-gzip -f $v_data_dump_dir/$v_data_object.json
+cpulimit -l 80 gzip -f $v_data_dump_dir/$v_data_object.json
 
 
 ###################################################################################

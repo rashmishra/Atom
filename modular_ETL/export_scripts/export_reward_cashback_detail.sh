@@ -1,6 +1,6 @@
 #!/bin/bash
 
-## Script Name: export_redeemed_credits_for_expiry.sh
+## Script Name: export_reward_cashback_detail.sh
 ## Purpose: Modular ETL flow of Atom.
 
 ##### $1: Data Object. ####
@@ -10,7 +10,7 @@
 ##### $5: ETL Home directory. ####
 
 
-taskStartTime=`date`
+taskStartTime=`date` 
 
 v_task_start_epoch=`date +%s`
 v_task_start_ts=`echo $(date -d "@$v_task_start_epoch" +"%Y-%m-%d %r %Z")`
@@ -75,7 +75,7 @@ p_exit_upon_error(){
         echo -e "$v_log_obj_txt" > $v_arch_dir/logs/"$v_data_object""_extract_"$v_task_datetime.log
 
 
-        # Creating new file for redeemed_credits_for_expiry's ETL run. Content will be appended in further tasks of T and L.
+        # Creating new file for reward_cashback_detail's ETL run. Content will be appended in further tasks of T and L.
         echo -e "$v_log_obj_txt" > $v_temp_dir/"$v_data_object"_log.log
 
         chmod 0777 $v_temp_dir/"$v_data_object"_log.log;
@@ -89,27 +89,28 @@ p_exit_upon_error(){
 }
 
 
-echo "OMS data export start time is : $taskStartTime "
+#echo "OMS data export start time is : $taskStartTime "
 DBHOST=nb-prod-oms-db-ugd.c6vqep7kcqpl.ap-southeast-1.rds.amazonaws.com
 # DBHOST=nb-prod-oms-db-ugd-read.c6vqep7kcqpl.ap-southeast-1.rds.amazonaws.com
 DBPORT=5432
-DBNAME=nbcredit_v2
-DBUSER=nbcredit
+DBNAME=reward_service
+DBUSER=rewardservice
+DBPASS='r3w@rdS3rv!c3_2468'
 DATE=`date +%Y-%m-%d`
-
-export PGPASSWORD='nbcr3d1T'
+export PGPASSWORD='r3w@rdS3rv!c3_2468'
 
 v_extract_filename="$v_data_dump_dir/$v_data_object.csv";
 
-v_command="\copy nbcredit.redeemedcreditsforexpiry to $v_extract_filename with DELIMITER ',' CSV HEADER"
+v_command="\copy (select * from rs.cashbackdetail where createdat>$v_incremental_epoch or updatedat>$v_incremental_epoch)  to $v_extract_filename with DELIMITER ',' CSV HEADER"
 
 
 #psql -d $DBNAME -h $DBHOST -p $DBPORT -U $DBUSER --log-file=$v_query_logfile -A --field-separator=, -f "query_$v_data_object.txt" -o "$v_extract_filename" &
 
-psql -d $DBNAME -h $DBHOST -p $DBPORT -U $DBUSER -A --field-separator=, -c "$v_command"  &
+psql -d $DBNAME -h $DBHOST -p $DBPORT -U $DBUSER -A --field-separator=, -c "$v_command" &
+
 v_extract_pid=$!
 
-echo -e "\n\nThe PID for redeemed_credits_for_expiry data export is $v_extract_pid\n\n";
+echo -e "\n\nThe PID for Cashback Detail data export is $v_extract_pid\n\n";
 
 # Waiting for the process to complete
 if wait $v_extract_pid; then
@@ -122,11 +123,14 @@ fi
 
 rm ./query_$v_data_object.txt
 
-v_log_obj_txt+=`echo " \n$v_task_status is the task status"`;
+v_log_obj_txt+=`echo "\n$(date) $v_task_status is the task status. \n"`;
 
+v_subtask="Postgres export";
 p_exit_upon_error "$v_task_status" "$v_subtask"
 
-cpulimit -l 80 gzip -f $v_data_dump_dir/$v_data_object.csv 
+v_log_obj_txt+=`echo " \n$v_task_status is the task status"`;
+
+cpulimit -l 80 gzip -f $v_extract_filename
 
 
 # Init end time for logging purpose
@@ -181,7 +185,7 @@ echo -e "$v_log_obj_txt" > $v_temp_dir/"$v_data_object""_extract_"$v_task_dateti
 # Removing the previous run's file from the directory
 v_log_obj_txt+=`rm $v_logs_dir/"$v_data_object"_log.log`;
 
-# Creating new file for redeemed_credits_for_expiry's ETL run. Content will be appended in further tasks of T and L.
+# Creating new file for cashbackdetail's ETL run. Content will be appended in further tasks of T and L.
 echo -e "$v_log_obj_txt" > $v_logs_dir/"$v_data_object"_log.log
 ##############################################################################
 
@@ -189,5 +193,5 @@ echo -e "$v_log_obj_txt" > $v_logs_dir/"$v_data_object"_log.log
 echo -e "Log text is: \n"
 echo -e "$v_log_obj_txt";
 
-echo "redeemed_credits_for_expiry data export end time is : $taskEndTime "
+echo "Cashback detail data export end time is : $taskEndTime "
 exit 0

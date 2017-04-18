@@ -124,7 +124,7 @@ v_log_obj_txt+=`echo " \n$v_task_status is the task status"`;
 
 p_exit_upon_error "$v_task_status" "$v_subtask"
 
-gzip -f $v_data_dump_dir/$v_data_object.csv 
+cpulimit -l 80 gzip -f $v_data_dump_dir/$v_data_object.csv 
 
 
 # Init end time for logging purpose

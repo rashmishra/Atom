@@ -96,15 +96,15 @@ PATH=/home/ubuntu/google-cloud-sdk/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:
 30 03 * * * bash /home/ubuntu/BI_automation/bi_scheduling2.sh > /home/ubuntu/BI_automation/logs/log_bi_scheduling2_`date "+\%F_\%X_\%Z"`.log 2>&1
 
 
-15 04 * * * bash /home/ubuntu/BI_automation/deals_live/live_deals_history.sh > /home/ubuntu/BI_automation/deals_live/logs/log_live_deals_history_`date "+\%F_\%X_\%Z"`.log 2>&1
+15 04 * * * bash /home/ubuntu/BI_automation/deals_live/live_deals_history.sh > /home/ubuntu/BI_automation/logs/log_live_deals_history_`date "+\%F_\%X_\%Z"`.log 2>&1
 
-20 04 * * * bash /home/ubuntu/BI_automation/deals_live/master.sh > /home/ubuntu/BI_automation/deals_live/logs/log_live_deals_csv_`date "+\%F_\%X_\%Z"`.log 2>&1
-
-
-25 04 * * * bash /home/ubuntu/BI_automation/cancellations/master.sh > /home/ubuntu/BI_automation/cancellations/logs/log_cancellation_`date "+\%F_\%X_\%Z"`.log 2>&1
+20 04 * * * bash /home/ubuntu/BI_automation/deals_live/master.sh > /home/ubuntu/BI_automation/logs/log_live_deals_csv_`date "+\%F_\%X_\%Z"`.log 2>&1
 
 
-35 04 * * * bash /home/ubuntu/BI_automation/refunds/master.sh > /home/ubuntu/BI_automation/refunds/logs/log_refunds_`date "+\%F_\%X_\%Z"`.log 2>&1
+25 04 * * * bash /home/ubuntu/BI_automation/cancellations/master.sh > /home/ubuntu/BI_automation/logs/log_cancellation_`date "+\%F_\%X_\%Z"`.log 2>&1
+
+
+35 04 * * * bash /home/ubuntu/BI_automation/refunds/master.sh > /home/ubuntu/BI_automation/logs/log_refunds_`date "+\%F_\%X_\%Z"`.log 2>&1
 
 
 
@@ -118,26 +118,26 @@ PATH=/home/ubuntu/google-cloud-sdk/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:
 
 #00 03,07,11,15,19 * * * sudo bash /data/transporter/master_backup.sh > /data/transporter/logs/log_master_backup_`date "+\%Y-\%m-\%d_\%H:\%M"`.log 2>&1
 
-35 05 * * * bash /home/ubuntu/BI_automation/downstream/appsflyer_reengagement.sh > /home/ubuntu/BI_automation/downstream/logs/log_appsflyer_reengagement_`date "+\%F_\%X_\%Z"`.log 2>&1
+35 05 * * * bash /home/ubuntu/BI_automation/downstream/appsflyer_reengagement.sh > /home/ubuntu/BI_automation/logs/log_appsflyer_reengagement_`date "+\%F_\%X_\%Z"`.log 2>&1
 
 
-40 05 * * * bash /home/ubuntu/BI_automation/downstream/reengagement.sh > /home/ubuntu/BI_automation/downstream/logs/log_reengagement_`date "+\%F_\%X_\%Z"`.log 2>&1
+40 05 * * * bash /home/ubuntu/BI_automation/downstream/reengagement.sh > /home/ubuntu/BI_automation/logs/log_reengagement_`date "+\%F_\%X_\%Z"`.log 2>&1
 
 45 04 * * * bash /home/ubuntu/BI_automation/aag_inventory_table.sh > /home/ubuntu/BI_automation/logs/log_aag_inventory_table_`date "+\%F_\%X_\%Z"`.log 2>&1
 
 
-45 05 * * * bash /home/ubuntu/BI_automation/downstream/downstream_promo.sh > /home/ubuntu/BI_automation/downstream/logs/log_downstream_promo_`date "+\%F_\%X_\%Z"`.log 2>&1
+45 05 * * * bash /home/ubuntu/BI_automation/downstream/downstream_promo.sh > /home/ubuntu/BI_automation/logs/log_downstream_promo_`date "+\%F_\%X_\%Z"`.log 2>&1
 
 
-30 08 * * * bash /home/ubuntu/BI_automation/Customer/Customer_OR/master.sh > /home/ubuntu/BI_automation/Customer/logs/log_Customer_OR_`date "+\%F_\%X_\%Z"`.log 2>&1
+30 08 * * * bash /home/ubuntu/BI_automation/Customer/Customer_OR/master.sh > /home/ubuntu/BI_automation/logs/log_Customer_OR_`date "+\%F_\%X_\%Z"`.log 2>&1
 
 
-45 08 * * * bash /home/ubuntu/BI_automation/Customer/customer_NT/master.sh > /home/ubuntu/BI_automation/Customer/logs/log_Customer_NT_`date "+\%F_\%X_\%Z"`.log 2>&1
+45 08 * * * bash /home/ubuntu/BI_automation/Customer/customer_NT/master.sh > /home/ubuntu/BI_automation/logs/log_Customer_NT_`date "+\%F_\%X_\%Z"`.log 2>&1
 
 
-32 08 * * * bash /home/ubuntu/BI_automation/SF/ga_sf_table.sh > /home/ubuntu/BI_automation/SF/logs/log_ga_sf_table_`date "+\%F_\%X_\%Z"`.log 2>&1
+32 08 * * * bash /home/ubuntu/BI_automation/SF/ga_sf_table.sh > /home/ubuntu/BI_automation/logs/log_ga_sf_table_`date "+\%F_\%X_\%Z"`.log 2>&1
 
-0 */2 * * * bash /home/ubuntu/BI_automation/SF/ga_sf_agg_interday.sh > /home/ubuntu/BI_automation/SF/logs/log_ga_sf_agg_interday_`date "+\%F_\%X_\%Z"`.log 2>&1
+0 */2 * * * bash /home/ubuntu/BI_automation/SF/ga_sf_agg_interday.sh > /home/ubuntu/BI_automation/logs/log_ga_sf_agg_interday_`date "+\%F_\%X_\%Z"`.log 2>&1
 
 
 50 08 * * * bash /home/ubuntu/BI_automation/ga_session.sh > /home/ubuntu/BI_automation/logs/log_ga_session_`date "+\%F_\%X_\%Z"`.log 2>&1
@@ -147,9 +147,9 @@ PATH=/home/ubuntu/google-cloud-sdk/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:
 
 35 03 * * * bash /home/ubuntu/BI_automation/bi_daily_reports_table_CM_enhanced.sh > /home/ubuntu/BI_automation/logs/log_cm_table_enhanced_`date "+\%F_\%X_\%Z"`.log 2>&1
 
-30 04 * * * bash /home/ubuntu/BI_automation/deals_live/live_dtr_deals.sh > /home/ubuntu/BI_automation/deals_live/logs/log_dtr_live_table_`date "+\%F_\%X_\%Z"`.log 2>&1
+30 04 * * * bash /home/ubuntu/BI_automation/deals_live/live_dtr_deals.sh > /home/ubuntu/BI_automation/logs/log_dtr_live_table_`date "+\%F_\%X_\%Z"`.log 2>&1
 
-20 04 * * * bash /home/ubuntu/BI_automation/deals_live/deals_dtr_live_table.sh > /home/ubuntu/BI_automation/deals_live/logs/log_deals_dtr_live_table_`date "+\%F_\%X_\%Z"`.log 2>&1
+##20 04 * * * bash /home/ubuntu/BI_automation/deals_live/deals_dtr_live_table.sh > /home/ubuntu/BI_automation/deals_live/logs/log_deals_dtr_live_table_`date "+\%F_\%X_\%Z"`.log 2>&1
 
 
 30 03 * * * bash /home/ubuntu/BI_automation/Retention_projects.sh > /home/ubuntu/BI_automation/logs/log_Retention_projects_`date "+\%F_\%X_\%Z"`.log 2>&1
@@ -161,6 +161,7 @@ PATH=/home/ubuntu/google-cloud-sdk/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:
 
 50 04 * * * bash /home/ubuntu/BI_automation/sp/bi_scheduling.sh > /home/ubuntu/BI_automation/logs/log_bi_scheduling3`date "+\%F_\%X_\%Z"`.log 2>&1
 
+25 02 * * * bash /home/ubuntu/BI_automation/sales_rep.sh > /home/ubuntu/BI_automation/logs/sales_rep`date "+\%F_\%X_\%Z"`.log 2>&1
 
 #25 02 * * * bash /home/ubuntu/BI_automation/hadoop_data_pipeline.sh > /home/ubuntu/BI_automation/logs/log_hadoop_data_pipeline`date "+\%F_\%X_\%Z"`.log 2>&1
 

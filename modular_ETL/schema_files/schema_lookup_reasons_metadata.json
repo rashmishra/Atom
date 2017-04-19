@@ -1,0 +1,76 @@
+[
+    {
+        "name": "reasonsMetaData",
+        "type": "RECORD",
+        "mode": "REPEATED",
+        "fields": [
+            {
+                "name": "freshDeskReason",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "isMerchantControllable",
+                "type": "BOOLEAN",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "ratingWisePriority",
+                "type": "RECORD",
+                "mode": "REPEATED",
+                "fields": [
+                    {
+                        "name": "priority",
+                        "type": "INTEGER",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "starRating",
+                        "type": "INTEGER",
+                        "mode": "NULLABLE"
+                    }
+                ]
+            },
+            {
+                "name": "isEditable",
+                "type": "BOOLEAN",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "isActive",
+                "type": "BOOLEAN",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "isPartnerServiceActionRequired",
+                "type": "BOOLEAN",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "reason",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "isNearbuyControllable",
+                "type": "BOOLEAN",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "isCustomerServiceActionRequired",
+                "type": "BOOLEAN",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "_id",
+                "type": "INTEGER",
+                "mode": "NULLABLE"
+            }
+        ]
+    },
+    {
+        "name": "groupType",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    }
+]

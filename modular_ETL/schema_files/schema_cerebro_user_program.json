@@ -93,6 +93,26 @@
                 "name": "referralPid",
                 "type": "STRING",
                 "mode": "NULLABLE"
+            },
+            {
+                "name": "isFav",
+                "type": "BOOLEAN",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "merchantId",
+                "type": "INTEGER",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "referralType",
+                "type": "INTEGER",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "cid",
+                "type": "INTEGER",
+                "mode": "NULLABLE"
             }
         ]
     }

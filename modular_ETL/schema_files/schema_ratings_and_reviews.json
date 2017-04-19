@@ -58,6 +58,11 @@
                 "name": "comment",
                 "type": "STRING",
                 "mode": "NULLABLE"
+            },
+            {
+                "name": "metaDataId",
+                "type": "INTEGER",
+                "mode": "NULLABLE"
             }
         ]
     },

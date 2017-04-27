@@ -574,5 +574,57 @@
         "name": "businessAccountId",
         "type": "INTEGER",
         "mode": "NULLABLE"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "isDeListed",
+        "type": "BOOLEAN"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "isTemporaryClosed",
+        "type": "BOOLEAN"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "isPermanentlyClosed",
+        "type": "STRING"
+    },
+    {
+        "name": "socialMediaLink",
+        "type": "RECORD",
+        "mode": "NULLABLE",
+        "fields": [
+            {
+                "name": "li",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "fb",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "in",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "pi",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "tw",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "yo",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            }
+        ]
     }
 ]

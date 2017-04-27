@@ -482,12 +482,12 @@
         "mode": "NULLABLE",
         "fields": [
             {
-                "name": "from",
+                "name": "endDate",
                 "type": "INTEGER",
                 "mode": "NULLABLE"
             },
             {
-                "name": "to",
+                "name": "startDate",
                 "type": "INTEGER",
                 "mode": "NULLABLE"
             }
@@ -746,6 +746,11 @@
     {
         "name": "isUserSpecificCode",
         "type": "BOOLEAN",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "purposeCode",
+        "type": "STRING",
         "mode": "NULLABLE"
     }
 ]

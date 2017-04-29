@@ -1039,7 +1039,7 @@ if [ $v_all_loads_status == "success" -a  $v_all_extracts_status == "success" -a
     then v_email_text="All is Well :)\n Extract, Transform and Load were successful for all data objects";
 fi
 # Mailing all runs Status
-echo -e "$v_email_text" | mutt -a $LOGS_DIR/log_ETL_tasks.csv -s "Atom Refresh: All ETL runs status:  $v_ETL_job_run_status. `date` "  -- sairanganath.v@nearbuy.com rahul.sachan@nearbuy.com rashmi.mishra@nearbuy.com mahesh.sharma@nearbuy.com  alka.gupta@nearbuy.com;
+echo -e "$v_email_text" | mutt -a $LOGS_DIR/log_ETL_tasks.csv -s "Atom Refresh: All ETL runs status:  $v_ETL_job_run_status. `date` "  -- sairanganath.v@nearbuy.com rahul.sachan@nearbuy.com rashmi.mishra@nearbuy.com mahesh.sharma@nearbuy.com abhishek.manocha@nearbuy.com alka.gupta@nearbuy.com;
 
 # mutt -a $LOGS_DIR/log_ETL_tasks.csv -s "Atom Refresh: All ETL runs status:  $v_ETL_job_run_status. `date` "  -- sairanganath.v@nearbuy.com rahul.sachan@nearbuy.com rashmi.mishra@nearbuy.com mahesh.sharma@nearbuy.com < /dev/null
 

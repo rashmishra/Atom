@@ -259,9 +259,9 @@ p_exit_upon_error "$v_task_status" "$v_subtask";
 
 if [ "$v_status" == "success" ]; 
   then 
-    echo `date` "Task: #v_subtask ended with status $v_task_status." | mail -s "Transformation of BOM to OL completed: $v_task_status" sairanganath.v@nearbuy.com;
+    echo `date` "Task: $v_subtask ended with status $v_task_status." | mail -s "Transformation of BOM to OL completed: $v_task_status" sairanganath.v@nearbuy.com;
   else 
-    echo `date` "Task: #v_subtask ended with status $v_task_status." | mail -s "Transformation of BOM to OL completed: $v_task_status" sairanganath.v@nearbuy.com;
+    echo `date` "Task: $v_subtask ended with status $v_task_status." | mail -s "Transformation of BOM to OL completed: $v_task_status" sairanganath.v@nearbuy.com;
     exit 1;
 fi
 

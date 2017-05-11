@@ -275,6 +275,16 @@
         "mode": "NULLABLE"
     },
     {
+        "name": "isPal",
+        "type": "BOOLEAN",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "isDeleted",
+        "type": "BOOLEAN",
+        "mode": "NULLABLE"
+    },
+    {
         "name": "units",
         "type": "RECORD",
         "mode": "NULLABLE",
@@ -300,6 +310,16 @@
                         "mode": "REPEATED"
                     }
                 ]
+            },
+            {
+                "name": "isGuestListRequired",
+                "type": "BOOLEAN",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "guestListRecipient",
+                "type": "STRING",
+                "mode": "REPEATED"
             },
             {
                 "name": "bi",
@@ -340,6 +360,11 @@
             },
             {
                 "name": "iao",
+                "type": "BOOLEAN",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "isExternalMerchant",
                 "type": "BOOLEAN",
                 "mode": "NULLABLE"
             },
@@ -411,6 +436,11 @@
                                 "name": "isUploaded",
                                 "type": "BOOLEAN",
                                 "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "isSelected",
+                                "type": "BOOLEAN",
+                                "mode": "NULLABLE"
                             }
                         ]
                     },
@@ -437,6 +467,11 @@
                             {
                                 "name": "merchantId",
                                 "type": "INTEGER",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "isSelected",
+                                "type": "BOOLEAN",
                                 "mode": "NULLABLE"
                             }
                         ]
@@ -684,6 +719,11 @@
                 ]
             },
             {
+                "name": "contractType",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
                 "name": "del",
                 "type": "STRING",
                 "mode": "REPEATED"
@@ -817,6 +857,219 @@
                 "name": "sd",
                 "type": "STRING",
                 "mode": "NULLABLE"
+            },
+            {
+                "name": "externalMerchantConfig",
+                "type": "RECORD",
+                "mode": "NULLABLE",
+                "fields": [
+                    {
+                        "name": "id",
+                        "type": "INTEGER",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "name",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "customFields",
+                        "type": "RECORD",
+                        "mode": "REPEATED",
+                        "fields": [
+                            {
+                                "name": "key",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "name",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "possibleValues",
+                                "type": "STRING",
+                                "mode": "REPEATED"
+                            },
+                            {
+                                "name": "level",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "type",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "required",
+                                "type": "INTEGER",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "minLength",
+                                "type": "INTEGER",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "maxLength",
+                                "type": "INTEGER",
+                                "mode": "NULLABLE"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "checkoutDetails",
+                        "type": "RECORD",
+                        "mode": "NULLABLE",
+                        "fields": [
+                            {
+                                "name": "headerText",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "footerText",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "subText",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "subTextDescription",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "userInfos",
+                                "type": "RECORD",
+                                "mode": "REPEATED",
+                                "fields": [
+                                    {
+                                        "name": "defaultValue",
+                                        "type": "STRING",
+                                        "mode": "NULLABLE"
+                                    },
+                                    {
+                                        "name": "hintText",
+                                        "type": "STRING",
+                                        "mode": "NULLABLE"
+                                    },
+                                    {
+                                        "name": "key",
+                                        "type": "STRING",
+                                        "mode": "NULLABLE"
+                                    },
+                                    {
+                                        "name": "label",
+                                        "type": "STRING",
+                                        "mode": "NULLABLE"
+                                    },
+                                    {
+                                        "name": "maxLength",
+                                        "type": "INTEGER",
+                                        "mode": "NULLABLE"
+                                    },
+                                    {
+                                        "name": "minLength",
+                                        "type": "INTEGER",
+                                        "mode": "NULLABLE"
+                                    },
+                                    {
+                                        "name": "required",
+                                        "type": "INTEGER",
+                                        "mode": "NULLABLE"
+                                    },
+                                    {
+                                        "name": "type",
+                                        "type": "STRING",
+                                        "mode": "NULLABLE"
+                                    },
+                                    {
+                                        "name": "removeIfMatchFound",
+                                        "type": "BOOLEAN",
+                                        "mode": "NULLABLE"
+                                    },
+                                    {
+                                        "name": "keyForDefaultValue",
+                                        "type": "STRING",
+                                        "mode": "NULLABLE"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "maxQuantityPerOrder",
+                        "type": "INTEGER",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "prePaymentProcessRequired",
+                        "type": "BOOLEAN",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "confirmationRequired",
+                        "type": "BOOLEAN",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "postPaymentProcessRequired",
+                        "type": "BOOLEAN",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "redemptionRequired",
+                        "type": "BOOLEAN",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "createdBy",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "creatdAt",
+                        "type": "INTEGER",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "updatedBy",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "updatedAt",
+                        "type": "INTEGER",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "resendEnabled",
+                        "type": "BOOLEAN",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "maxOptionsInOrder",
+                        "type": "INTEGER",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "minNights",
+                        "type": "INTEGER",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "redemptionType",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    }
+                ]
             }
         ]
     },
@@ -836,4 +1089,3 @@
         "mode": "NULLABLE"
     }
 ]
-

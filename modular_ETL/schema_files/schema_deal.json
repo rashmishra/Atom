@@ -428,6 +428,11 @@
                                 "mode": "NULLABLE"
                             },
                             {
+                                "name": "id",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            },
+                            {
                                 "name": "title",
                                 "type": "STRING",
                                 "mode": "NULLABLE"
@@ -451,6 +456,11 @@
                         "fields": [
                             {
                                 "name": "url",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "id",
                                 "type": "STRING",
                                 "mode": "NULLABLE"
                             },

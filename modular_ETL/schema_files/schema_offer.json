@@ -20,6 +20,16 @@
                         "mode": "NULLABLE"
                     },
                     {
+                        "name": "isPreferred",
+                        "type": "BOOLEAN",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "applicability",
+                        "type": "STRING",
+                        "mode": "REPEATED"
+                    },
+                    {
                         "name": "hasMerchantCodes",
                         "type": "BOOLEAN",
                         "mode": "NULLABLE"
@@ -442,16 +452,16 @@
                                         "name": "tags",
                                         "type": "STRING",
                                         "mode": "REPEATED"
+                                    },
+                                    {
+                                        "name": "daysOfWeek",
+                                        "type": "INTEGER",
+                                        "mode": "REPEATED"
                                     }
                                 ]
                             },
                             {
                                 "name": "blackoutDates",
-                                "type": "INTEGER",
-                                "mode": "REPEATED"
-                            },
-                            {
-                                "name": "daysOfWeek",
                                 "type": "INTEGER",
                                 "mode": "REPEATED"
                             }

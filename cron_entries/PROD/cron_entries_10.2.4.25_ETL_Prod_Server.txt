@@ -23,10 +23,10 @@
 PATH=/home/ubuntu/google-cloud-sdk/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
 #0 */2 * * * /home/ubunt/scripts/BackUpAllMongoDB.sh
 #01 0 * * * /home/ubuntu/scripts/masterdump_v4.sh 1 >> /home/ubuntu/scripts/logging.log 2>&1
-30 04 * * * /home/ubuntu/BI/scripts/CM_Reports/master.sh >> /home/ubuntu/BI/logs/logging.log
-30 03 * * * /home/ubuntu/BI/scripts/deal_cat.sh >> /home/ubuntu/BI/logs/logging.log
-30 02 * * * /home/ubuntu/BI/scripts/akhil_query.sh > /home/ubuntu/BI/logs/Akhil_logging.log
-#10 01 * * *  bash /home/ubuntu/BI/scripts/refresh_checkios.sh
+30 04 * * * /home/ubuntu/BI_automation/BI/scripts/CM_Reports/master.sh >> /home/ubuntu/BI_automation/BI/logs/logging.log
+30 03 * * * /home/ubuntu/BI_automation/BI/scripts/deal_cat.sh >> /home/ubuntu/BI_automation/BI/logs/logging.log
+30 02 * * * /home/ubuntu/BI_automation/BI/scripts/akhil_query.sh > /home/ubuntu/BI_automation/BI/logs/Akhil_logging.log
+#10 01 * * *  bash /home/ubuntu/BI_automation/BI/scripts/refresh_checkios.sh
 
 20 01 * * * sh /home/ubuntu/ETL/WBR/refresh_WBR_tables.sh >> /home/ubuntu/ETL/WBR/logs/refresh_WBR_tables_`date "+\%F_\%X_\%Z"`.log
 
@@ -166,6 +166,8 @@ PATH=/home/ubuntu/google-cloud-sdk/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:
 25 02 * * * bash /home/ubuntu/BI_automation/hadoop_data_pipeline.sh > /home/ubuntu/BI_automation/logs/log_hadoop_data_pipeline`date "+\%F_\%X_\%Z"`.log 2>&1
 
 40 03 * * * bash /home/ubuntu/BI_automation/credits_expired.sh > /home/ubuntu/BI_automation/logs/log_credits_expired`date "+\%F_\%X_\%Z"`.log 2>&1
+
+45 03 * * * bash /home/ubuntu/BI_automation/travel_category.sh > /home/ubuntu/BI_automation/logs/log_travel_category`date "+\%F_\%X_\%Z"`.log 2>&1
 
 ## nb_reports
 

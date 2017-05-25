@@ -334,6 +334,21 @@
         "mode": "NULLABLE"
     },
     {
+        "name": "enforceDndLimits",
+        "type": "BOOLEAN",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "trimPushNotification",
+        "type": "BOOLEAN",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "parentCommunicationId",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
         "name": "updatedBy",
         "type": "STRING",
         "mode": "NULLABLE"

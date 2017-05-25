@@ -201,6 +201,80 @@
         ]
     },
     {
+        "name": "genericEmailWrapper",
+        "type": "RECORD",
+        "mode": "NULLABLE",
+        "fields": [
+            {
+                "name": "isZip",
+                "type": "BOOLEAN",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "zipName",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "subject",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "body",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "html",
+                "type": "BOOLEAN",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "emailFrom",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "emailFromName",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            }
+        ]
+    },
+    {
+        "name": "smsWrapper",
+        "type": "RECORD",
+        "mode": "NULLABLE",
+        "fields": [
+            {
+                "name": "content",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "udhNumber",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "number",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "messageId",
+                "type": "INTEGER",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "communicationType",
+                "type": "INTEGER",
+                "mode": "NULLABLE"
+            }
+        ]
+    },
+    {
         "name": "expiresAt",
         "type": "INTEGER",
         "mode": "NULLABLE"

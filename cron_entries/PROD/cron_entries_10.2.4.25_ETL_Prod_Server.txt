@@ -163,7 +163,7 @@ PATH=/home/ubuntu/google-cloud-sdk/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:
 
 25 02 * * * bash /home/ubuntu/BI_automation/sales_rep.sh > /home/ubuntu/BI_automation/logs/sales_rep`date "+\%F_\%X_\%Z"`.log 2>&1
 
-25 02 * * * bash /home/ubuntu/BI_automation/hadoop_data_pipeline.sh > /home/ubuntu/BI_automation/logs/log_hadoop_data_pipeline`date "+\%F_\%X_\%Z"`.log 2>&1
+45 01 * * * bash /home/ubuntu/BI_automation/hadoop_data_pipeline.sh > /home/ubuntu/BI_automation/logs/log_hadoop_data_pipeline`date "+\%F_\%X_\%Z"`.log 2>&1
 
 40 03 * * * bash /home/ubuntu/BI_automation/credits_expired.sh > /home/ubuntu/BI_automation/logs/log_credits_expired`date "+\%F_\%X_\%Z"`.log 2>&1
 

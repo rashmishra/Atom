@@ -1,0 +1,69 @@
+[
+    {
+        "name": "_id",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "categoryKey",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "updatedBy",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "isActive",
+        "type": "BOOLEAN",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "createdOn",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "isDeleted",
+        "type": "BOOLEAN",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "value",
+        "type": "RECORD",
+        "mode": "REPEATED",
+        "fields": [
+            {
+                "name": "dataType",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "label",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "key",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            }
+        ]
+    },
+    {
+        "name": "createdBy",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "typeKey",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "updatedAt",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    }
+]

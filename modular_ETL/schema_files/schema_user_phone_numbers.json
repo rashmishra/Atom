@@ -1,0 +1,22 @@
+[
+    {
+        "name": "user_phone_id",
+        "type": "INTEGER",
+        "mode": "REQUIRED"
+    },
+    {
+        "name": "userid",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "phonenumber",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "phonetype",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    }
+]

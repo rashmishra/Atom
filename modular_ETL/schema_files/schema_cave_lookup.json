@@ -1,0 +1,94 @@
+[
+    {
+        "name": "id",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "text",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "percentageRefund",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "name",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "trigger",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "breakage",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "refundType",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "payment",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "cycle",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "freq",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "type",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "isApprovalRequired",
+        "type": "BOOLEAN",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "cat",
+        "type": "STRING",
+        "mode": "REPEATED"
+    },
+    {
+        "name": "cancellableByCustomer",
+        "type": "BOOLEAN",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "fpInputs",
+        "type": "RECORD",
+        "mode": "REPEATED",
+        "fields": [
+            {
+                "name": "value",
+                "type": "INTEGER",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "type",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "index",
+                "type": "INTEGER",
+                "mode": "NULLABLE"
+            }
+        ]
+    }
+]

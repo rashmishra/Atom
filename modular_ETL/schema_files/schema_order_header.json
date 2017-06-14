@@ -288,5 +288,40 @@
         "name": "inprocess",
         "type": "STRING",
         "mode": "NULLABLE"
+    },
+    {
+        "name": "totalbookingamount",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "paymentstatus",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "reservationrequired",
+        "type": "BOOLEAN",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "paymenttype",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "unknownpricing",
+        "type": "BOOLEAN",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "reservationstatus",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "showreservationcalldetails",
+        "type": "BOOLEAN",
+        "mode": "NULLABLE"
     }
 ]

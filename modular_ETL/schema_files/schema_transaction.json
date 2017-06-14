@@ -78,5 +78,10 @@
         "name": "ismaster",
         "type": "STRING",
         "mode": "nullable"
+    },
+    {
+        "name": "paymentstagetype",
+        "type": "INTEGER",
+        "mode": "nullable"
     }
 ]

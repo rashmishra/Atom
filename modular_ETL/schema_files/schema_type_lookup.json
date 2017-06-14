@@ -15,6 +15,11 @@
         "mode": "NULLABLE"
     },
     {
+        "name": "payload",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
         "name": "isActive",
         "type": "BOOLEAN",
         "mode": "NULLABLE"
@@ -35,8 +40,30 @@
         "mode": "REPEATED",
         "fields": [
             {
+                "name": "cat",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
                 "name": "dataType",
                 "type": "STRING",
+                "mode": "NULLABLE"
+            }
+            ,
+            {
+                "name": "from",
+                "type": "INTEGER",
+                "mode": "NULLABLE"
+            }
+            ,
+            {
+                "name": "id",
+                "type": "INTEGER",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "to",
+                "type": "INTEGER",
                 "mode": "NULLABLE"
             },
             {

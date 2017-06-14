@@ -78,5 +78,20 @@
         "name": "day",
         "type": "INTEGER",
         "mode": "nullable"
+    },
+    {
+        "name": "discount_detail",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "mrp",
+        "type": "INTEGER",
+        "mode": "nullable"
+    },
+    {
+        "name": "booking_amount",
+        "type": "INTEGER",
+        "mode": "nullable"
     }
 ]

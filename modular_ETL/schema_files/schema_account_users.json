@@ -83,5 +83,11 @@
         "name": "legacybusinessacctid",
         "type": "INTEGER",
         "mode": "nullable"
+    },
+    {
+        "name": "preferredgolocation",
+        "type": "INTEGER",
+        "mode": "nullable"
     }
+
 ]

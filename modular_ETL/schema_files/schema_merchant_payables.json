@@ -111,4 +111,34 @@
         "name": "isDeleted",
         "type": "BOOLEAN"
       }
+,
+{
+        "mode": "NULLABLE",
+        "name": "discountByMerchant",
+        "type": "FLOAT"
+      }
+,
+{
+        "mode": "NULLABLE",
+        "name": "offerTitle",
+        "type": "STRING"
+      }
+,
+{
+        "mode": "NULLABLE",
+        "name": "marginPercentage",
+        "type": "STRING"
+      }
+,
+{
+        "mode": "NULLABLE",
+        "name": "merchantCashbackPercentage",
+        "type": "STRING"
+      }
+,
+{
+        "mode": "NULLABLE",
+        "name": "discount",
+        "type": "STRING"
+      }            
 ]

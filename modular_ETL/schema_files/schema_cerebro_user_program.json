@@ -113,6 +113,11 @@
                 "name": "cid",
                 "type": "INTEGER",
                 "mode": "NULLABLE"
+            },
+            {
+                "name": "bid",
+                "type": "INTEGER",
+                "mode": "NULLABLE"
             }
         ]
     }

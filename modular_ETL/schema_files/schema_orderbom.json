@@ -183,5 +183,25 @@
         "name": "bannerimage",
         "type": "STRING",
         "mode": "NULLABLE"
+    },
+    {
+        "name": "bookingamount",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "discountdetail",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "discountdetailafterpromo",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "discountbymerchant",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
     }
 ]

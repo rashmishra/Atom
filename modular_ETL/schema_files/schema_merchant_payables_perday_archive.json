@@ -82,5 +82,9 @@
       { "mode": "NULLABLE",
         "name": "additionalInfo",
         "type": "STRING"
+      },
+      { "mode": "NULLABLE",
+        "name": "netDiscountByMerchant",
+        "type": "FLOAT"
       }
 ]

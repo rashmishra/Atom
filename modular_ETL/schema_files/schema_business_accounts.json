@@ -118,5 +118,15 @@
         "name": "dealpreviewnullable",
         "type": "STRING",
         "mode": "nullable"
+    },
+    {
+        "name": "reference",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "remarks",
+        "type": "STRING",
+        "mode": "nullable"
     }
 ]

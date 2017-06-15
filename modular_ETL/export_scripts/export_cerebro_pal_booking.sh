@@ -104,7 +104,7 @@ v_secondary_ip=`echo $v_secondary_ip | sed -e 's/,//g' | sed -e 's/-/./g' | sed 
 echo "${v_data_object}: Secondary IP is $v_secondary_ip";
 
 #./mongoexport --host nb-prod-db-cerebro.nbtools.com:27017 
-./mongoexport --host "$v_secondary_ip"  --db cerebro -c palBooking -q "$query" --out $v_data_dump_dir/$v_data_object.json 2> $v_temp_dir/"$v_data_object"_extract_command_output.txt &
+./mongoexport --host "$v_secondary_ip"  --db cerebro -c palBooking  --out $v_data_dump_dir/$v_data_object.json 2> $v_temp_dir/"$v_data_object"_extract_command_output.txt &
 v_extract_pid=$!
 
 # Waiting for the process to complete and checking the status

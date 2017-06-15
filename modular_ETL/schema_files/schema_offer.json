@@ -136,43 +136,43 @@
                                         "mode": "NULLABLE"
                                     },
                                     {
-                                        "mode": "REPEATED",
                                         "name": "inclusions",
                                         "type": "RECORD",
+                                        "mode": "REPEATED",
                                         "fields": [
                                             {
-                                                "mode": "NULLABLE",
                                                 "name": "title",
-                                                "type": "STRING"
+                                                "type": "STRING",
+                                                "mode": "NULLABLE"
                                             },
                                             {
-                                                "mode": "NULLABLE",
                                                 "name": "desc",
-                                                "type": "STRING"
+                                                "type": "STRING",
+                                                "mode": "NULLABLE"
                                             },
                                             {
-                                                "mode": "REPEATED",
                                                 "name": "subInclusions",
                                                 "type": "RECORD",
+                                                "mode": "REPEATED",
                                                 "fields": [
                                                     {
-                                                        "mode": "NULLABLE",
                                                         "name": "title",
-                                                        "type": "STRING"
+                                                        "type": "STRING",
+                                                        "mode": "NULLABLE"
                                                     },
                                                     {
-                                                        "mode": "NULLABLE",
                                                         "name": "desc",
-                                                        "type": "STRING"
+                                                        "type": "STRING",
+                                                        "mode": "NULLABLE"
                                                     }
                                                 ]
                                             }
                                         ]
                                     },
                                     {
-                                        "mode": "NULLABLE",
                                         "name": "isPrimary",
-                                        "type": "BOOLEAN"
+                                        "type": "BOOLEAN",
+                                        "mode": "NULLABLE"
                                     }
                                 ]
                             },
@@ -274,11 +274,147 @@
                                                 "name": "days",
                                                 "type": "INTEGER",
                                                 "mode": "REPEATED"
+                                            },
+                                            {
+                                                "name": "bookingAmount",
+                                                "type": "INTEGER",
+                                                "mode": "NULLABLE"
+                                            },
+                                            {
+                                                "name": "discount",
+                                                "type": "RECORD",
+                                                "mode": "NULLABLE",
+                                                "fields": [
+                                                    {
+                                                        "name": "scheme",
+                                                        "type": "STRING",
+                                                        "mode": "NULLABLE"
+                                                    },
+                                                    {
+                                                        "name": "type",
+                                                        "type": "STRING",
+                                                        "mode": "NULLABLE"
+                                                    },
+                                                    {
+                                                        "name": "amount",
+                                                        "type": "STRING",
+                                                        "mode": "NULLABLE"
+                                                    },
+                                                    {
+                                                        "name": "percent",
+                                                        "type": "FLOAT",
+                                                        "mode": "NULLABLE"
+                                                    },
+                                                    {
+                                                        "name": "maxCap",
+                                                        "type": "INTEGER",
+                                                        "mode": "NULLABLE"
+                                                    },
+                                                    {
+                                                        "name": "minOrderValue",
+                                                        "type": "INTEGER",
+                                                        "mode": "NULLABLE"
+                                                    }
+                                                ]
                                             }
                                         ]
                                     },
                                     {
                                         "name": "csp",
+                                        "type": "INTEGER",
+                                        "mode": "NULLABLE"
+                                    },
+                                    {
+                                        "name": "bookingAmount",
+                                        "type": "INTEGER",
+                                        "mode": "NULLABLE"
+                                    },
+                                    {
+                                        "name": "discount",
+                                        "type": "RECORD",
+                                        "mode": "NULLABLE",
+                                        "fields": [
+                                            {
+                                                "name": "scheme",
+                                                "type": "STRING",
+                                                "mode": "NULLABLE"
+                                            },
+                                            {
+                                                "name": "type",
+                                                "type": "STRING",
+                                                "mode": "NULLABLE"
+                                            },
+                                            {
+                                                "name": "amount",
+                                                "type": "STRING",
+                                                "mode": "NULLABLE"
+                                            },
+                                            {
+                                                "name": "percent",
+                                                "type": "FLOAT",
+                                                "mode": "NULLABLE"
+                                            },
+                                            {
+                                                "name": "maxCap",
+                                                "type": "INTEGER",
+                                                "mode": "NULLABLE"
+                                            },
+                                            {
+                                                "name": "minOrderValue",
+                                                "type": "INTEGER",
+                                                "mode": "NULLABLE"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "unknownPricing",
+                                "type": "BOOLEAN",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "paymenttype",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "bookingAmount",
+                                "type": "INTEGER",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "discount",
+                                "type": "RECORD",
+                                "mode": "NULLABLE",
+                                "fields": [
+                                    {
+                                        "name": "scheme",
+                                        "type": "STRING",
+                                        "mode": "NULLABLE"
+                                    },
+                                    {
+                                        "name": "type",
+                                        "type": "STRING",
+                                        "mode": "NULLABLE"
+                                    },
+                                    {
+                                        "name": "amount",
+                                        "type": "INTEGER",
+                                        "mode": "NULLABLE"
+                                    },
+                                    {
+                                        "name": "percent",
+                                        "type": "FLOAT",
+                                        "mode": "NULLABLE"
+                                    },
+                                    {
+                                        "name": "maxCap",
+                                        "type": "INTEGER",
+                                        "mode": "NULLABLE"
+                                    },
+                                    {
+                                        "name": "minOrderValue",
                                         "type": "INTEGER",
                                         "mode": "NULLABLE"
                                     }
@@ -593,16 +729,21 @@
                         ]
                     },
                     {
-                        "mode": "NULLABLE",
                         "name": "fmenu",
                         "type": "RECORD",
+                        "mode": "NULLABLE",
                         "fields": [
                             {
-                                "mode": "NULLABLE",
                                 "name": "menu",
-                                "type": "STRING"
+                                "type": "STRING",
+                                "mode": "NULLABLE"
                             }
                         ]
+                    },
+                    {
+                        "name": "maxOptionQuantityPerOrder",
+                        "type": "INTEGER",
+                        "mode": "NULLABLE"
                     }
                 ]
             },

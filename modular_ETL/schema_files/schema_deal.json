@@ -1080,6 +1080,33 @@
                         "mode": "NULLABLE"
                     }
                 ]
+            },
+            {
+                "name": "firebaseLink",
+                "type": "RECORD",
+                "mode": "NULLABLE",
+                "fields": [
+                    {
+                        "name": "shortLink",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "previewLink",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    }
+                ]
+            },
+            {
+                "name": "reservationRequired",
+                "type": "BOOLEAN",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "reservationActor",
+                "type": "STRING",
+                "mode": "NULLABLE"
             }
         ]
     },

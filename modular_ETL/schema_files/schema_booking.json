@@ -15,73 +15,8 @@
         "mode": "NULLABLE"
     },
     {
-        "name": "merchantComments",
-        "type": "STRING",
-        "mode": "NULLABLE"
-    },
-    {
-        "name": "merchantRemarks",
-        "type": "STRING",
-        "mode": "NULLABLE"
-    },
-    {
-        "name": "numberOfRooms",
+        "name": "customerId",
         "type": "INTEGER",
-        "mode": "NULLABLE"
-    },
-    {
-        "name": "totalPayable",
-        "type": "INTEGER",
-        "mode": "NULLABLE"
-    },
-    {
-        "name": "nearbuyPayable",
-        "type": "INTEGER",
-        "mode": "NULLABLE"
-    },
-    {
-        "name": "payableAtCheckin",
-        "type": "INTEGER",
-        "mode": "NULLABLE"
-    },
-    {
-        "name": "updatedAt",
-        "type": "INTEGER",
-        "mode": "NULLABLE"
-    },
-    {
-        "name": "updatedBy",
-        "type": "STRING",
-        "mode": "NULLABLE"
-    },
-    {
-        "name": "orderId",
-        "type": "INTEGER",
-        "mode": "NULLABLE"
-    },
-    {
-        "name": "customerPhone",
-        "type": "STRING",
-        "mode": "NULLABLE"
-    },
-    {
-        "name": "customerName",
-        "type": "STRING",
-        "mode": "NULLABLE"
-    },
-    {
-        "name": "customerEmailId",
-        "type": "STRING",
-        "mode": "NULLABLE"
-    },
-    {
-        "name": "cashbackAmount",
-        "type": "INTEGER",
-        "mode": "NULLABLE"
-    },
-    {
-        "name": "reservationNumber",
-        "type": "STRING",
         "mode": "NULLABLE"
     },
     {
@@ -95,39 +30,31 @@
                 "mode": "NULLABLE"
             },
             {
+                "name": "quantity",
+                "type": "INTEGER",
+                "mode": "NULLABLE"
+            },
+            {
                 "name": "dealId",
                 "type": "INTEGER",
                 "mode": "NULLABLE"
             },
             {
-                "name": "price",
-                "type": "INTEGER",
-                "mode": "NULLABLE"
-            },
-            {
-                "name": "merchantName",
-                "type": "STRING",
-                "mode": "NULLABLE"
-            },
-            {
-                "name": "offerTitle",
-                "type": "STRING",
-                "mode": "NULLABLE"
-            },
-            {
-                "name": "fineprint",
-                "type": "STRING",
-                "mode": "NULLABLE"
-            },
-            {
-                "name": "highlightSection",
-                "type": "STRING",
-                "mode": "NULLABLE"
-            },
-            {
-                "name": "whatYouGet",
-                "type": "STRING",
-                "mode": "NULLABLE"
+                "name": "slotPrices",
+                "type": "RECORD",
+                "mode": "REPEATED",
+                "fields": [
+                    {
+                        "name": "date",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "price",
+                        "type": "INTEGER",
+                        "mode": "NULLABLE"
+                    }
+                ]
             },
             {
                 "name": "offerDealDetail",
@@ -145,9 +72,41 @@
                         "mode": "NULLABLE"
                     },
                     {
-                        "name": "isMysteryDeal",
-                        "type": "BOOLEAN",
+                        "name": "dealTitle",
+                        "type": "STRING",
                         "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "images",
+                        "type": "RECORD",
+                        "mode": "NULLABLE",
+                        "fields": [
+                            {
+                                "name": "bannerImage",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "carouselImages",
+                                "type": "STRING",
+                                "mode": "REPEATED"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "startDate",
+                        "type": "INTEGER",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "endDate",
+                        "type": "INTEGER",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "finePrints",
+                        "type": "STRING",
+                        "mode": "REPEATED"
                     },
                     {
                         "name": "cancellationPolicyId",
@@ -165,77 +124,240 @@
                                 "mode": "NULLABLE"
                             },
                             {
-                                "name": "subLocality",
+                                "name": "name",
                                 "type": "STRING",
                                 "mode": "NULLABLE"
                             },
                             {
-                                "name": "locality",
-                                "type": "STRING",
-                                "mode": "NULLABLE"
-                            },
-                            {
-                                "name": "cityTown",
-                                "type": "STRING",
-                                "mode": "NULLABLE"
-                            },
-                            {
-                                "name": "state",
-                                "type": "STRING",
-                                "mode": "NULLABLE"
-                            },
-                            {
-                                "name": "country",
-                                "type": "STRING",
-                                "mode": "NULLABLE"
-                            },
-                            {
-                                "name": "latitude",
-                                "type": "FLOAT",
-                                "mode": "NULLABLE"
-                            },
-                            {
-                                "name": "longitude",
-                                "type": "FLOAT",
-                                "mode": "NULLABLE"
-                            },
-                            {
-                                "name": "mallMarket",
-                                "type": "STRING",
-                                "mode": "NULLABLE"
-                            }
-                        ]
-                    },
-                    {
-                        "name": "offers",
-                        "type": "RECORD",
-                        "mode": "REPEATED",
-                        "fields": [
-                            {
-                                "name": "commission",
+                                "name": "redemptionLocation",
                                 "type": "RECORD",
                                 "mode": "NULLABLE",
                                 "fields": [
                                     {
-                                        "name": "percent",
+                                        "name": "_id",
+                                        "type": "INTEGER",
+                                        "mode": "NULLABLE"
+                                    },
+                                    {
+                                        "name": "addressLine1",
+                                        "type": "STRING",
+                                        "mode": "NULLABLE"
+                                    },
+                                    {
+                                        "name": "subLocality",
+                                        "type": "STRING",
+                                        "mode": "NULLABLE"
+                                    },
+                                    {
+                                        "name": "locality",
+                                        "type": "STRING",
+                                        "mode": "NULLABLE"
+                                    },
+                                    {
+                                        "name": "cityTown",
+                                        "type": "STRING",
+                                        "mode": "NULLABLE"
+                                    },
+                                    {
+                                        "name": "state",
+                                        "type": "STRING",
+                                        "mode": "NULLABLE"
+                                    },
+                                    {
+                                        "name": "country",
+                                        "type": "STRING",
+                                        "mode": "NULLABLE"
+                                    },
+                                    {
+                                        "name": "pincode",
+                                        "type": "STRING",
+                                        "mode": "NULLABLE"
+                                    },
+                                    {
+                                        "name": "latitude",
                                         "type": "FLOAT",
+                                        "mode": "NULLABLE"
+                                    },
+                                    {
+                                        "name": "longitude",
+                                        "type": "FLOAT",
+                                        "mode": "NULLABLE"
+                                    },
+                                    {
+                                        "name": "mallMarket",
+                                        "type": "STRING",
                                         "mode": "NULLABLE"
                                     }
                                 ]
+                            },
+                            {
+                                "name": "reservationEmailIds",
+                                "type": "STRING",
+                                "mode": "REPEATED"
+                            },
+                            {
+                                "name": "reservationNumbers",
+                                "type": "STRING",
+                                "mode": "REPEATED"
+                            },
+                            {
+                                "name": "usp",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "description",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "websiteUrl",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "checkInTime",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "checkOutTime",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "facilities",
+                                "type": "STRING",
+                                "mode": "REPEATED"
+                            },
+                            {
+                                "name": "starRating",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
                             }
                         ]
                     },
                     {
-                        "name": "startDate",
+                        "name": "redemptionStepsId",
                         "type": "INTEGER",
                         "mode": "NULLABLE"
                     },
                     {
-                        "name": "endDate",
+                        "name": "workflowType",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "offerKey",
                         "type": "INTEGER",
                         "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "offerTitle",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "offerDescription",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "travelStayInfo",
+                        "type": "RECORD",
+                        "mode": "NULLABLE",
+                        "fields": [
+                            {
+                                "name": "minNights",
+                                "type": "INTEGER",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "maxNights",
+                                "type": "INTEGER",
+                                "mode": "NULLABLE"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "skus",
+                        "type": "RECORD",
+                        "mode": "REPEATED",
+                        "fields": [
+                            {
+                                "name": "_id",
+                                "type": "INTEGER",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "qty",
+                                "type": "INTEGER",
+                                "mode": "NULLABLE"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "offerValidity",
+                        "type": "RECORD",
+                        "mode": "NULLABLE",
+                        "fields": [
+                            {
+                                "name": "redeemDates",
+                                "type": "RECORD",
+                                "mode": "REPEATED",
+                                "fields": [
+                                    {
+                                        "name": "fromDate",
+                                        "type": "INTEGER",
+                                        "mode": "NULLABLE"
+                                    },
+                                    {
+                                        "name": "toDate",
+                                        "type": "INTEGER",
+                                        "mode": "NULLABLE"
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "validFor",
+                                "type": "INTEGER",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "vd",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "expiryDate",
+                                "type": "INTEGER",
+                                "mode": "NULLABLE"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "pricing",
+                        "type": "RECORD",
+                        "mode": "NULLABLE",
+                        "fields": [
+                            {
+                                "name": "mrp",
+                                "type": "INTEGER",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "msp",
+                                "type": "INTEGER",
+                                "mode": "NULLABLE"
+                            }
+                        ]
                     }
                 ]
+            },
+            {
+                "name": "avgPrice",
+                "type": "INTEGER",
+                "mode": "NULLABLE"
             }
         ]
     },
@@ -247,11 +369,6 @@
     {
         "name": "checkoutDate",
         "type": "INTEGER",
-        "mode": "NULLABLE"
-    },
-    {
-        "name": "specialRequest",
-        "type": "STRING",
         "mode": "NULLABLE"
     },
     {
@@ -280,18 +397,23 @@
         "mode": "NULLABLE"
     },
     {
-        "name": "psReasonId",
-        "type": "STRING",
+        "name": "numberOfRooms",
+        "type": "INTEGER",
         "mode": "NULLABLE"
     },
     {
-        "name": "psReason",
-        "type": "STRING",
+        "name": "totalPayable",
+        "type": "INTEGER",
         "mode": "NULLABLE"
     },
     {
-        "name": "psComments",
-        "type": "STRING",
+        "name": "nearbuyPayable",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "payableAtCheckin",
+        "type": "INTEGER",
         "mode": "NULLABLE"
     }
 ]

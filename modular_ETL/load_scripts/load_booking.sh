@@ -89,7 +89,7 @@ p_exit_upon_error(){
 v_etl_task='load'
 
 schemaFileName=schema_booking.json
-maxBadRecords=0
+maxBadRecords=100
 
 v_data_object=$1;
 tableName=$1;

@@ -1,0 +1,27 @@
+[
+    {
+        "name": "customerId",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "bookingId",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "status",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "timeSlot",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "orderId",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    }
+]

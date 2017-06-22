@@ -930,5 +930,10 @@
                 "mode": "NULLABLE"
             }
         ]
+    },
+    {
+        "name": "_id",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
     }
 ]

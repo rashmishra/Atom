@@ -1,6 +1,6 @@
 [
     {
-        "name": "_id",
+        "name": "bookingId",
         "type": "INTEGER",
         "mode": "NULLABLE"
     },
@@ -20,9 +20,384 @@
         "mode": "NULLABLE"
     },
     {
-        "name": "offers",
+        "name": "adults",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "children",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "checkinDate",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "checkoutDate",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "specialRequest",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "orderId",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "status",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "reservationType",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "waitTimeForResponse",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "reservationActionInterval",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "tableWaitTime",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "createdAt",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "bookingInitiatedAt",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "createdBy",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "updatedAt",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "updatedBy",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "merchantRemarks",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "guestPhoneNumber",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "dealId",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "numberOfRooms",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "totalPayable",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "bookingAmount",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "nearbuyPayable",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "payableAtCheckin",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "addOns",
         "type": "RECORD",
         "mode": "REPEATED",
+        "fields": [
+            {
+                "name": "id",
+                "type": "INTEGER",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "desc",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "quantity",
+                "type": "INTEGER",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "price",
+                "type": "INTEGER",
+                "mode": "NULLABLE"
+            }
+        ]
+    },
+    {
+        "name": "merchantReasons",
+        "type": "RECORD",
+        "mode": "NULLABLE",
+        "fields": [
+            {
+                "name": "reasons",
+                "type": "RECORD",
+                "mode": "REPEATED",
+                "fields": [
+                    {
+                        "name": "reason",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "reasonId",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    }
+                ]
+            },
+            {
+                "name": "comment",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            }
+        ]
+    },
+    {
+        "name": "psReasons",
+        "type": "RECORD",
+        "mode": "NULLABLE",
+        "fields": [
+            {
+                "name": "reasons",
+                "type": "RECORD",
+                "mode": "REPEATED",
+                "fields": [
+                    {
+                        "name": "reason",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "reasonId",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    }
+                ]
+            },
+            {
+                "name": "comment",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            }
+        ]
+    },
+    {
+        "name": "cancellationReason",
+        "type": "RECORD",
+        "mode": "NULLABLE",
+        "fields": [
+            {
+                "name": "reasons",
+                "type": "RECORD",
+                "mode": "REPEATED",
+                "fields": [
+                    {
+                        "name": "reason",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "reasonId",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    }
+                ]
+            },
+            {
+                "name": "comment",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            }
+        ]
+    },
+    {
+        "name": "expiryReasons",
+        "type": "RECORD",
+        "mode": "NULLABLE",
+        "fields": [
+            {
+                "name": "reasons",
+                "type": "RECORD",
+                "mode": "REPEATED",
+                "fields": [
+                    {
+                        "name": "reason",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "reasonId",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    }
+                ]
+            },
+            {
+                "name": "comment",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            }
+        ]
+    },
+    {
+        "name": "customerName",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "customerPhone",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "customerEmailId",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "cashbackAmount",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "reservationNumber",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "isAccepted",
+        "type": "BOOLEAN",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "acceptedAt",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "acceptedBy",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "acceptedByRole",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "rejectedAt",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "rejectedBy",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "rejectedByRole",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "checkoutInitiatedAt",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "closedAt",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "cancelledAt",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "expiredAt",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "paymentAllowedFrom",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "parentBookingId",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "childBookingId",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "firebaseLink",
+        "type": "RECORD",
+        "mode": "NULLABLE",
+        "fields": [
+            {
+                "name": "shortLink",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "previewLink",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            }
+        ]
+    },
+    {
+        "name": "offer",
+        "type": "RECORD",
+        "mode": "NULLABLE",
         "fields": [
             {
                 "name": "offerId",
@@ -36,13 +411,13 @@
             },
             {
                 "name": "dealId",
-                "type": "INTEGER",
+                "type": "STRING",
                 "mode": "NULLABLE"
             },
             {
                 "name": "slotPrices",
                 "type": "RECORD",
-                "mode": "REPEATED",
+                "mode": "NULLABLE",
                 "fields": [
                     {
                         "name": "date",
@@ -50,7 +425,54 @@
                         "mode": "NULLABLE"
                     },
                     {
+                        "name": "timeSlot",
+                        "type": "INTEGER",
+                        "mode": "NULLABLE"
+                    },
+                    {
                         "name": "price",
+                        "type": "INTEGER",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "discount",
+                        "type": "RECORD",
+                        "mode": "NULLABLE",
+                        "fields": [
+                            {
+                                "name": "type",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "scheme",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "amount",
+                                "type": "INTEGER",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "percent",
+                                "type": "FLOAT",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "maxCap",
+                                "type": "INTEGER",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "minOrderValue",
+                                "type": "INTEGER",
+                                "mode": "NULLABLE"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "bookingAmount",
                         "type": "INTEGER",
                         "mode": "NULLABLE"
                     }
@@ -109,6 +531,21 @@
                         "mode": "REPEATED"
                     },
                     {
+                        "name": "inclusions",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "exclusions",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "visaRequirements",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    },
+                    {
                         "name": "cancellationPolicyId",
                         "type": "INTEGER",
                         "mode": "NULLABLE"
@@ -116,7 +553,7 @@
                     {
                         "name": "merchants",
                         "type": "RECORD",
-                        "mode": "REPEATED",
+                        "mode": "NULLABLE",
                         "fields": [
                             {
                                 "name": "merchantId",
@@ -134,7 +571,7 @@
                                 "mode": "NULLABLE",
                                 "fields": [
                                     {
-                                        "name": "_id",
+                                        "name": "id",
                                         "type": "INTEGER",
                                         "mode": "NULLABLE"
                                     },
@@ -228,14 +665,24 @@
                             {
                                 "name": "facilities",
                                 "type": "STRING",
-                                "mode": "REPEATED"
+                                "mode": "NULLABLE"
                             },
                             {
                                 "name": "starRating",
                                 "type": "STRING",
                                 "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "costForTwo",
+                                "type": "INTEGER",
+                                "mode": "NULLABLE"
                             }
                         ]
+                    },
+                    {
+                        "name": "redemptionSteps",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
                     },
                     {
                         "name": "redemptionStepsId",
@@ -246,6 +693,23 @@
                         "name": "workflowType",
                         "type": "STRING",
                         "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "firebaseLink",
+                        "type": "RECORD",
+                        "mode": "NULLABLE",
+                        "fields": [
+                            {
+                                "name": "shortLink",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "previewLink",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            }
+                        ]
                     },
                     {
                         "name": "offerKey",
@@ -282,10 +746,10 @@
                     {
                         "name": "skus",
                         "type": "RECORD",
-                        "mode": "REPEATED",
+                        "mode": "NULLABLE",
                         "fields": [
                             {
-                                "name": "_id",
+                                "name": "id",
                                 "type": "INTEGER",
                                 "mode": "NULLABLE"
                             },
@@ -304,7 +768,7 @@
                             {
                                 "name": "redeemDates",
                                 "type": "RECORD",
-                                "mode": "REPEATED",
+                                "mode": "NULLABLE",
                                 "fields": [
                                     {
                                         "name": "fromDate",
@@ -329,7 +793,113 @@
                                 "mode": "NULLABLE"
                             },
                             {
+                                "name": "blackoutDates",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "daysOfWeek",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "validityTimings",
+                                "type": "RECORD",
+                                "mode": "NULLABLE",
+                                "fields": [
+                                    {
+                                        "name": "from",
+                                        "type": "INTEGER",
+                                        "mode": "NULLABLE"
+                                    },
+                                    {
+                                        "name": "to",
+                                        "type": "INTEGER",
+                                        "mode": "NULLABLE"
+                                    },
+                                    {
+                                        "name": "tags",
+                                        "type": "STRING",
+                                        "mode": "NULLABLE"
+                                    },
+                                    {
+                                        "name": "daysOfWeek",
+                                        "type": "STRING",
+                                        "mode": "NULLABLE"
+                                    },
+                                    {
+                                        "name": "reservationSlotsaddr",
+                                        "type": "STRING",
+                                        "mode": "NULLABLE"
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "validForPeople",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            },
+                            {
                                 "name": "expiryDate",
+                                "type": "INTEGER",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "validForText",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "bookingEndTime",
+                                "type": "INTEGER",
+                                "mode": "NULLABLE"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "commission",
+                        "type": "RECORD",
+                        "mode": "NULLABLE",
+                        "fields": [
+                            {
+                                "name": "percent",
+                                "type": "FLOAT",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "flatComm",
+                                "type": "INTEGER",
+                                "mode": "NULLABLE"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "linkChannelManager",
+                        "type": "BOOLEAN",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "nearbuySlot",
+                        "type": "RECORD",
+                        "mode": "NULLABLE",
+                        "fields": [
+                            {
+                                "name": "key",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "id",
+                                "type": "INTEGER",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "from",
+                                "type": "INTEGER",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "to",
                                 "type": "INTEGER",
                                 "mode": "NULLABLE"
                             }
@@ -360,60 +930,5 @@
                 "mode": "NULLABLE"
             }
         ]
-    },
-    {
-        "name": "checkinDate",
-        "type": "INTEGER",
-        "mode": "NULLABLE"
-    },
-    {
-        "name": "checkoutDate",
-        "type": "INTEGER",
-        "mode": "NULLABLE"
-    },
-    {
-        "name": "status",
-        "type": "STRING",
-        "mode": "NULLABLE"
-    },
-    {
-        "name": "createdAt",
-        "type": "INTEGER",
-        "mode": "NULLABLE"
-    },
-    {
-        "name": "createdBy",
-        "type": "STRING",
-        "mode": "NULLABLE"
-    },
-    {
-        "name": "guestPhoneNumber",
-        "type": "STRING",
-        "mode": "NULLABLE"
-    },
-    {
-        "name": "dealId",
-        "type": "STRING",
-        "mode": "NULLABLE"
-    },
-    {
-        "name": "numberOfRooms",
-        "type": "INTEGER",
-        "mode": "NULLABLE"
-    },
-    {
-        "name": "totalPayable",
-        "type": "INTEGER",
-        "mode": "NULLABLE"
-    },
-    {
-        "name": "nearbuyPayable",
-        "type": "INTEGER",
-        "mode": "NULLABLE"
-    },
-    {
-        "name": "payableAtCheckin",
-        "type": "INTEGER",
-        "mode": "NULLABLE"
     }
 ]

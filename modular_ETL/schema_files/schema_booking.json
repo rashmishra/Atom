@@ -111,7 +111,7 @@
     },
     {
         "name": "dealId",
-        "type": "STRING",
+        "type": "INTEGER",
         "mode": "NULLABLE"
     },
     {
@@ -395,9 +395,9 @@
         ]
     },
     {
-        "name": "offer",
+        "name": "offers",
         "type": "RECORD",
-        "mode": "NULLABLE",
+        "mode": "REPEATED",
         "fields": [
             {
                 "name": "offerId",
@@ -411,7 +411,7 @@
             },
             {
                 "name": "dealId",
-                "type": "STRING",
+                "type": "INTEGER",
                 "mode": "NULLABLE"
             },
             {
@@ -553,7 +553,7 @@
                     {
                         "name": "merchants",
                         "type": "RECORD",
-                        "mode": "NULLABLE",
+                        "mode": "REPEATED",
                         "fields": [
                             {
                                 "name": "merchantId",
@@ -665,7 +665,7 @@
                             {
                                 "name": "facilities",
                                 "type": "STRING",
-                                "mode": "NULLABLE"
+                                "mode": "REPEATED"
                             },
                             {
                                 "name": "starRating",
@@ -682,7 +682,7 @@
                     {
                         "name": "redemptionSteps",
                         "type": "STRING",
-                        "mode": "NULLABLE"
+                        "mode": "REPEATED"
                     },
                     {
                         "name": "redemptionStepsId",

@@ -417,7 +417,7 @@
             {
                 "name": "slotPrices",
                 "type": "RECORD",
-                "mode": "NULLABLE",
+                "mode": "REPEATED",
                 "fields": [
                     {
                         "name": "date",
@@ -524,11 +524,6 @@
                         "name": "endDate",
                         "type": "INTEGER",
                         "mode": "NULLABLE"
-                    },
-                    {
-                        "name": "finePrints",
-                        "type": "STRING",
-                        "mode": "REPEATED"
                     },
                     {
                         "name": "inclusions",
@@ -746,7 +741,7 @@
                     {
                         "name": "skus",
                         "type": "RECORD",
-                        "mode": "NULLABLE",
+                        "mode": "REPEATED",
                         "fields": [
                             {
                                 "name": "id",
@@ -768,7 +763,7 @@
                             {
                                 "name": "redeemDates",
                                 "type": "RECORD",
-                                "mode": "NULLABLE",
+                                "mode": "REPEATED",
                                 "fields": [
                                     {
                                         "name": "fromDate",
@@ -799,13 +794,13 @@
                             },
                             {
                                 "name": "daysOfWeek",
-                                "type": "STRING",
-                                "mode": "NULLABLE"
+                                "type": "INTEGER",
+                                "mode": "REPEATED"
                             },
                             {
                                 "name": "validityTimings",
                                 "type": "RECORD",
-                                "mode": "NULLABLE",
+                                "mode": "REPEATED",
                                 "fields": [
                                     {
                                         "name": "from",
@@ -820,15 +815,15 @@
                                     {
                                         "name": "tags",
                                         "type": "STRING",
-                                        "mode": "NULLABLE"
+                                        "mode": "REPEATED"
                                     },
                                     {
                                         "name": "daysOfWeek",
-                                        "type": "STRING",
-                                        "mode": "NULLABLE"
+                                        "type": "INTEGER",
+                                        "mode": "REPEATED"
                                     },
                                     {
-                                        "name": "reservationSlotsaddr",
+                                        "name": "reservationSlotsaddrsref",
                                         "type": "STRING",
                                         "mode": "NULLABLE"
                                     }

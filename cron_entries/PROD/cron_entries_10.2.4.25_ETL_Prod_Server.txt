@@ -174,6 +174,7 @@ PATH=/home/ubuntu/google-cloud-sdk/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:
 
 30 02 * * * bash /home/ubuntu/nb_reports/master_transactions.sh > /home/ubuntu/nb_reports/logs/log_master_transactions`date "+\%F_\%X_\%Z"`.log 2>&1
 
+0 1 * * 5 bash /home/ubuntu/nb_reports/sold_out_deals.sh > /home/ubuntu/nb_reports/logs/sold_out_deals`date "+\%F_\%X_\%Z"`.log 2>&1
 
 
 45 02 * * * bash /home/ubuntu/nb_reports/cancellation.sh > /home/ubuntu/nb_reports/logs/log_cancellation`date "+\%F_\%X_\%Z"`.log 2>&1

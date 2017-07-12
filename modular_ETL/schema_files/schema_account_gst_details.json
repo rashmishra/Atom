@@ -1,0 +1,67 @@
+[
+    {
+        "name": "id",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "accountid",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "gstin",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "address",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "city",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "postalcode",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "state",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "stateid",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "ackfileid",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "createdat",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "createdby",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "updatedat",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "updatedby",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    }
+]

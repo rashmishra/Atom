@@ -128,5 +128,20 @@
         "name": "remarks",
         "type": "STRING",
         "mode": "nullable"
+    },
+    {
+        "name": "spocname",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "spocemailid",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "spocphonenumber",
+        "type": "STRING",
+        "mode": "nullable"
     }
 ]

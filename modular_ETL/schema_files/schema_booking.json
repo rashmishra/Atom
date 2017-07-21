@@ -930,5 +930,20 @@
         "name": "_id",
         "type": "INTEGER",
         "mode": "NULLABLE"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "maleGuestCount",
+        "type": "INTEGER"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "femaleGuestCount",
+        "type": "INTEGER"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "paymentAllowedTill",
+        "type": "INTEGER"
     }
 ]

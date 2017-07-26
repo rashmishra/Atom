@@ -1,0 +1,196 @@
+[
+    {
+        "mode": "NULLABLE",
+        "name": "id",
+        "type": "INTEGER"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "name",
+        "type": "STRING"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "campaignId",
+        "type": "INTEGER"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "isTestingRequired",
+        "type": "BOOLEAN"
+    },
+    {
+        "mode": "REPEATED",
+        "name": "type",
+        "type": "STRING"
+    },
+    {
+        "mode": "REPEATED",
+        "name": "applicableDays",
+        "type": "INTEGER"
+    },
+    {
+        "mode": "REPEATED",
+        "name": "startTime",
+        "type": "STRING"
+    },
+    {
+        "mode": "REPEATED",
+        "name": "endTime",
+        "type": "STRING"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "startDate",
+        "type": "INTEGER"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "endDate",
+        "type": "INTEGER"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "query",
+        "type": "STRING"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "currentLevel",
+        "type": "INTEGER"
+    },
+    {
+        "mode": "REPEATED",
+        "name": "successMetrics",
+        "type": "RECORD",
+        "fields": [
+            {
+                "mode": "NULLABLE",
+                "name": "minStandard",
+                "type": "FLOAT"
+            },
+            {
+                "mode": "NULLABLE",
+                "name": "metricName",
+                "type": "STRING"
+            }
+        ]
+    },
+    {
+        "mode": "REPEATED",
+        "name": "levels",
+        "type": "STRING"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "expiresIn",
+        "type": "INTEGER"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "timeToWait",
+        "type": "STRING"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "levelDuration",
+        "type": "INTEGER"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "isPromotional",
+        "type": "BOOLEAN"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "oddTimingCheck",
+        "type": "BOOLEAN"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "communicationName",
+        "type": "STRING"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "templateIdMulti",
+        "type": "INTEGER"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "templateId",
+        "type": "INTEGER"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "dayCap",
+        "type": "INTEGER"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "CTA",
+        "type": "STRING"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "timeToEvaluate",
+        "type": "STRING"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "communicationMedium",
+        "type": "RECORD",
+        "fields": [
+            {
+                "mode": "REPEATED",
+                "name": "priority2",
+                "type": "STRING"
+            },
+            {
+                "mode": "NULLABLE",
+                "name": "isMultiChannel",
+                "type": "BOOLEAN"
+            },
+            {
+                "mode": "REPEATED",
+                "name": "priority1",
+                "type": "STRING"
+            }
+        ]
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "hasStopped",
+        "type": "BOOLEAN"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "stoppedAt",
+        "type": "INTEGER"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "createdAt",
+        "type": "INTEGER"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "updatedAt",
+        "type": "INTEGER"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "createdBy",
+        "type": "STRING"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "updatedBy",
+        "type": "STRING"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "cronNeedToRunDay",
+        "type": "INTEGER"
+    }
+]

@@ -1,0 +1,49 @@
+[
+    {
+        "mode": "NULLABLE",
+        "name": "pid",
+        "type": "INTEGER"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "fromDay",
+        "type": "INTEGER"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "toDay",
+        "type": "INTEGER"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "createdAt",
+        "type": "INTEGER"
+    },
+    {
+        "mode": "REPEATED",
+        "name": "results",
+        "type": "RECORD",
+        "fields": [
+            {
+                "mode": "NULLABLE",
+                "name": "metricName",
+                "type": "STRING"
+            },
+            {
+                "mode": "NULLABLE",
+                "name": "stats",
+                "type": "FLOAT"
+            },
+            {
+                "mode": "NULLABLE",
+                "name": "isSuccess",
+                "type": "BOOLEAN"
+            }
+        ]
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "isSuccess",
+        "type": "BOOLEAN"
+    }
+]

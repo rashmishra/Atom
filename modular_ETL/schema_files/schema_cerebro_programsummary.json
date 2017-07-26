@@ -1,0 +1,27 @@
+[
+    {
+        "name": "pid",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "day",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "time",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "nOfTriggersCreated",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "level",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    }
+]

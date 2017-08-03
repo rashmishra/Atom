@@ -1,4 +1,4 @@
-Data Object Name,ETL Mode,Run Flag,Extract Flag,Transform Flag,Load Flag,Cloud_Storage_Path_Variable,BQ_Dataset_NAME,DEFAULT,Extract_Start_Epoch
+Data Object Name,ETL Mode,Run Flag,Extract Flag,Transform Flag,Load Flag,Cloud_Storage_Path_Variable,BQ_Dataset_Name,Extract_Start_Epoch
 account_address,FULL,RUN,RUN,SKIP,RUN,CLOUD_DAILY_STORAGE_PATH,PRIME_DATASET_NAME,DEFAULT
 account_dwhid_mapping,FULL,RUN,RUN,SKIP,RUN,CLOUD_DAILY_STORAGE_PATH,PRIME_DATASET_NAME,DEFAULT
 account_gst_details,FULL,RUN,RUN,SKIP,RUN,CLOUD_DAILY_STORAGE_PATH,PRIME_DATASET_NAME,DEFAULT

@@ -85,6 +85,7 @@ declare -a v_arr_load_flag
 declare -a v_arr_cloud_storage_path
 declare -a v_arr_bq_dataset_name
 declare -a v_arr_incremental_epoch
+declare -a v_arr_epoch_mode
 
 while IFS= read -r line; 
 do 
@@ -123,6 +124,9 @@ v_token_cnr=0
                        ;;
                     7) v_arr_bq_dataset_name[$v_data_obj_cnr]="${!word}";
                        echo "In Case: BigQuery Dataset Name ${!word}";
+                       ;;
+                    8) v_arr_epoch_mode[$v_data_obj_cnr]="${word}";
+                       echo "In Case: Epoch Mode ${word}";
                        ;;
                    esac
            
@@ -270,7 +274,9 @@ for ((i=0;i<$v_config_line_cnr; i++)); do
                 # This if block is to calculate the incremental epoch value for extraction
                 if [ ${v_arr_ETL_mode[$i]} == "FULL" ]
                     then v_incremental_epoch=$FULL_LOAD_EPOCH;
-                    #echo "In Full mode condition"
+                    #echo "In Full mode condition"  && [[ ${#v_arr_epoch_mode[$i]} -eq 10 ]]
+                elif [ ${v_arr_epoch_mode[$i]} != "DEFAULT" ] && [[ ${v_arr_epoch_mode[$i]} -eq ${v_arr_epoch_mode[$i]} ]] && [[ ${v_arr_epoch_mode[$i]} -gt 0 ]] && [[ ${v_arr_epoch_mode[$i]} -lt $((`date +%s`)) ]]
+                    then v_incremental_epoch=${v_arr_epoch_mode[$i]} ;
                 else 
                     bq query "SELECT COALESCE(max( etl_job_start_epoch ), 1420050600 ) AS start_epoch FROM $METADATA_DATASET_NAME.etl_job_history WHERE data_object_task_status = 'success' AND etl_task = 'load' AND data_object = '${v_arr_data_object[$i]}'" > $TEMP_DIR/${v_arr_data_object[$i]}_epoch.txt;
                     v_incremental_epoch=`sed '5q;d'  $TEMP_DIR/${v_arr_data_object[$i]}_epoch.txt | cut -d'|' -f2`;
@@ -284,6 +290,7 @@ for ((i=0;i<$v_config_line_cnr; i++)); do
 
 
                 fi
+
                 
                  echo "$v_incremental_epoch is the incremental Epoch for ${v_arr_data_object[$i]} in ${v_arr_ETL_mode[$i]} refresh mode";
 

@@ -12,6 +12,24 @@ DBUSER=oms
 DBPASS=0mspr0d$
 DATE=`date +%Y-%m-%d`
 
+# Copying table from Atom to Atom_rt if table is missing
+
+if [[ "`bq ls --max_results=10000 Atom_rt | awk '{print $1}' | grep \"\border_bom\b\"`" == "order_bom" ]] 
+    then echo "Order BOM exists in the dataset Atom_rt";
+
+		 v_order_bom_health_check="SELECT IF (CNR_ATOM <= CNR_ATOM_RT, 'GOOD' , 'BAD') as health
+FROM 
+(SELECT COUNT(3) AS CNR_ATOM, 'order_bom' AS tablename
+FROM Atom.order_bom
+) a INNER JOIN 
+(SELECT COUNT(3) AS CNR_ATOM_RT, 'order_bom' AS tablename
+FROM Atom_rt.order_bom 
+) b
+ON a.tablename = b.tablename";
+          echo "Order BOM health check query: $v_order_bom_health_check"
+
+fi
+
 # get last max created time updated time from different tables which need to be loaded
 echo "$(/home/ubuntu/google-cloud-sdk/bin/bq query 'select max(createdAt) as lastrun from Atom_rt.order_header')" | sed -n 5p | sed 's/[^0-9]*//g' > /home/ubuntu/modular_ETL/RT/lastordercreatedtime.txt
 echo "$(/home/ubuntu/google-cloud-sdk/bin/bq query 'select max(updatedAt) as lastrun from Atom_rt.order_header')" | sed -n 5p | sed 's/[^0-9]*//g' > /home/ubuntu/modular_ETL/RT/lastorderupdatedtime.txt

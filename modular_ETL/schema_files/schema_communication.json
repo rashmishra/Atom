@@ -364,5 +364,10 @@
                 "mode": "NULLABLE"
             }
         ]
+    },
+    {
+        "name": "fileId",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
     }
 ]

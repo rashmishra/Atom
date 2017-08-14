@@ -1,0 +1,37 @@
+[
+    {
+        "name": "cid",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "promocodeId",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "promocode",
+        "type": "STRING"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "createdAt",
+        "type": "INTEGER"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "expectedAov",
+        "type": "INTEGER"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "expectedGR",
+        "type": "INTEGER"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "category",
+        "type": "STRING"
+    }
+]

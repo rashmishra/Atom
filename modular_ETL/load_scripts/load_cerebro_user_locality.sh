@@ -205,7 +205,7 @@ if [[ "`bq ls --max_results=10000 $v_dataset_name | awk '{print $1}' | grep \"\b
         #         WHERE inc.time IS NULL";
 
         v_query="SELECT * FROM $v_dataset_name.$tableName  base 
-                 WHERE cid NOT IN (SELECT cid FROM $v_metadataset_name.incremental_$tableName GROUP BY 1)";
+                 WHERE cid NOT IN (SELECT COALESCE(cid, 0) FROM $v_metadataset_name.incremental_$tableName GROUP BY 1)";
         v_destination_tbl="$v_metadataset_name.prior_$tableName";
         
         echo "Destination table is $v_destination_tbl and Query is $v_query"

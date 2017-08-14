@@ -199,7 +199,7 @@ if [[ "`bq ls --max_results=10000 $v_dataset_name | awk '{print $1}' | grep \"\b
         #         WHERE inc.time IS NULL";
 
         v_query="SELECT * FROM $v_dataset_name.$tableName  base 
-                 WHERE base.createdAt < (SELECT MIN(createdAt) as inc_time FROM $v_metadataset_name.incremental_$tableName)";
+                 WHERE base.createdAt < (SELECT COALESCE(MIN(createdAt), 999999999999999) as inc_createdAt FROM $v_metadataset_name.incremental_$tableName)";
         v_destination_tbl="$v_metadataset_name.prior_$tableName";
         echo "Destination table is $v_destination_tbl and Query is $v_query"
         bq query  --maximum_billing_tier 150 --allow_large_results=1 -n 1 --noflatten_results --replace --destination_table=$v_destination_tbl "$v_query" 2> "$v_data_object"_prior_table_result.txt &

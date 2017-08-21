@@ -12,6 +12,51 @@ DBUSER=oms
 DBPASS=0mspr0d$
 DATE=`date +%Y-%m-%d`
 
+# Copying table from Atom to Atom_rt if table is missing/ corrupt
+p_check_rt_health(){
+    v_source_dataset_name="$1";
+    v_source_table_name="$2";
+
+    v_destination_dataset_name="$3";
+    v_destination_table_name="$4";
+
+    v_table_display_name="$5";
+
+    echo "Parameters are $1 $2 $3 $4 $5";
+    
+    
+      if [[ "`bq ls --max_results=10000 ${v_destination_dataset_name} | awk '{print $1}' | grep \"\${v_destination_table_name}\b\"`" == "${v_destination_table_name}" ]] 
+          then echo "${v_table_display_name} exists in the dataset ${v_destination_dataset_name}";
+
+               v_order_bom_health_check="SELECT IF (CNR_ATOM <= CNR_${v_destination_dataset_name}, 'GOOD' , 'BAD') as health
+                  FROM   (SELECT COUNT(3) AS CNR_ATOM, '${v_source_table_name}' AS tablename
+                          FROM ${v_source_dataset_name}.${v_source_table_name}
+                          ) a 
+                  INNER JOIN (SELECT COUNT(3) AS CNR_${v_destination_dataset_name}, '${v_source_table_name}' AS tablename
+                              FROM ${v_destination_dataset_name}.${v_destination_table_name} 
+                          ) b
+                  ON a.tablename = b.tablename";
+                echo "${v_table_display_name} health check query: $v_order_bom_health_check"
+                v_order_bom_health_status=`echo "$(bq query ${v_order_bom_health_check})" | sed -n 5p | sed 's/[^A-Z]*//g'`;
+
+                if [[ "${v_order_bom_health_status}" == "BAD" ]] 
+                    then bq cp -f ${v_source_dataset_name}.${v_source_table_name} ${v_destination_dataset_name}.${v_destination_table_name};
+                         echo "Copied ${v_table_display_name} from ${v_source_dataset_name} as ${v_destination_dataset_name}.${v_destination_table_name} seems to be corrupted";
+                else echo -e "\n${v_table_display_name} health status: ${v_order_bom_health_status}.\n";
+                fi
+         else  bq cp -f ${v_source_dataset_name}.${v_source_table_name} ${v_destination_dataset_name}.${v_destination_table_name};
+               echo "Copied ${v_table_display_name} from ${v_source_dataset_name} as ${v_destination_dataset_name}.${v_destination_table_name} is missing";
+      fi
+    
+}
+
+p_check_rt_health "Atom" "order_bom" "Atom_rt" "order_bom" "Order BOM";
+p_check_rt_health "Atom" "order_header" "Atom_rt" "order_header" "Order Header";
+p_check_rt_health "Atom" "order_line_new" "Atom_rt" "order_line_new" "Order Line (New)";
+p_check_rt_health "Atom" "product" "Atom_rt" "product" "Product";
+
+
+
 # get last max created time updated time from different tables which need to be loaded
 echo "$(/home/ubuntu/google-cloud-sdk/bin/bq query 'select max(createdAt) as lastrun from Atom_rt.order_header')" | sed -n 5p | sed 's/[^0-9]*//g' > /home/ubuntu/modular_ETL/RT/lastordercreatedtime.txt
 echo "$(/home/ubuntu/google-cloud-sdk/bin/bq query 'select max(updatedAt) as lastrun from Atom_rt.order_header')" | sed -n 5p | sed 's/[^0-9]*//g' > /home/ubuntu/modular_ETL/RT/lastorderupdatedtime.txt

@@ -588,7 +588,7 @@
     {
         "mode": "NULLABLE",
         "name": "isPermanentlyClosed",
-        "type": "STRING"
+        "type": "BOOLEAN"
     },
     {
         "name": "socialMediaLink",

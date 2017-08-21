@@ -25,7 +25,7 @@ p_check_rt_health(){
     echo "Parameters are $1 $2 $3 $4 $5";
     
     
-      if [[ "`bq ls --max_results=10000 ${v_destination_dataset_name} | awk '{print $1}' | grep \"\${v_destination_table_name}\b\"`" == "${v_destination_table_name}" ]] 
+      if [[ "`/home/ubuntu/google-cloud-sdk/bin/bq ls --max_results=10000 ${v_destination_dataset_name} | awk '{print $1}' | grep \"\${v_destination_table_name}\b\"`" == "${v_destination_table_name}" ]] 
           then echo "${v_table_display_name} exists in the dataset ${v_destination_dataset_name}";
 
                v_order_bom_health_check="SELECT IF (CNR_ATOM <= CNR_${v_destination_dataset_name}, 'GOOD' , 'BAD') as health
@@ -37,14 +37,14 @@ p_check_rt_health(){
                           ) b
                   ON a.tablename = b.tablename";
                 echo "${v_table_display_name} health check query: $v_order_bom_health_check"
-                v_order_bom_health_status=`echo "$(bq query ${v_order_bom_health_check})" | sed -n 5p | sed 's/[^A-Z]*//g'`;
+                v_order_bom_health_status=`echo "$(/home/ubuntu/google-cloud-sdk/bin/bq query ${v_order_bom_health_check})" | sed -n 5p | sed 's/[^A-Z]*//g'`;
 
                 if [[ "${v_order_bom_health_status}" == "BAD" ]] 
-                    then bq cp -f ${v_source_dataset_name}.${v_source_table_name} ${v_destination_dataset_name}.${v_destination_table_name};
+                    then /home/ubuntu/google-cloud-sdk/bin/bq cp -f ${v_source_dataset_name}.${v_source_table_name} ${v_destination_dataset_name}.${v_destination_table_name};
                          echo "Copied ${v_table_display_name} from ${v_source_dataset_name} as ${v_destination_dataset_name}.${v_destination_table_name} seems to be corrupted";
                 else echo -e "\n${v_table_display_name} health status: ${v_order_bom_health_status}.\n";
                 fi
-         else  bq cp -f ${v_source_dataset_name}.${v_source_table_name} ${v_destination_dataset_name}.${v_destination_table_name};
+         else  /home/ubuntu/google-cloud-sdk/bin/bq cp -f ${v_source_dataset_name}.${v_source_table_name} ${v_destination_dataset_name}.${v_destination_table_name};
                echo "Copied ${v_table_display_name} from ${v_source_dataset_name} as ${v_destination_dataset_name}.${v_destination_table_name} is missing";
       fi
     

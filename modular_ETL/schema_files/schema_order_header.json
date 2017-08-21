@@ -323,5 +323,15 @@
         "name": "showreservationcalldetails",
         "type": "BOOLEAN",
         "mode": "NULLABLE"
+    },
+    {
+        "name": "affiliateid",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "affiliateleadid",
+        "type": "STRING",
+        "mode": "NULLABLE"
     }
 ]

@@ -160,8 +160,10 @@ p_exit_upon_error "$v_task_status" "$v_subtask"
 echo "Etl Home is $6."
 echo "Schema File path is: $v_schema_filepath"
 
-v_destination_tbl="$v_metadataset_name.incremental_$tableName";
-bq load --quiet --source_format=NEWLINE_DELIMITED_JSON --replace --ignore_unknown_values=1 --max_bad_records=$maxBadRecords $v_destination_tbl $v_cloud_storage_path/$v_fileName $v_schema_filepath/$schemaFileName &
+
+# Appendind new rows to Source table
+v_destination_tbl="$v_dataset_name.$tableName";
+bq load --quiet --source_format=NEWLINE_DELIMITED_JSON --ignore_unknown_values=1 --max_bad_records=$maxBadRecords $v_destination_tbl $v_cloud_storage_path/$v_fileName $v_schema_filepath/$schemaFileName &
 # 2> "$v_data_object"_inc_table_result.txt
 v_pid=$!
 
@@ -181,7 +183,7 @@ v_log_obj_txt+=`echo "\n$(date) $v_task_status is the task status"`;
 ########################################################################################
 ## Checking if the prior process has failed. If Failed, then exit this task (script). ##
 
-v_subtask="Incremental Table load";
+v_subtask="Incremental data load - Appending data to actual table";
 p_exit_upon_error "$v_task_status" "$v_subtask"
 
 #rm "$v_data_object"_inc_table_result.txt
@@ -204,8 +206,9 @@ if [[ "`bq ls --max_results=10000 $v_dataset_name | awk '{print $1}' | grep \"\b
         #             AND inc.time = base.time
         #         WHERE inc.time IS NULL";
 
-        v_query="SELECT * FROM $v_dataset_name.$tableName  base 
-                 WHERE cid NOT IN (SELECT cid FROM $v_metadataset_name.incremental_$tableName GROUP BY 1)";
+        v_query="SELECT cid, cityId, cityName, enteredAt, MAX(lastChecked) AS lastChecked 
+                 FROM $v_dataset_name.$tableName  base 
+                 GROUP BY cid, cityId, cityName, enteredAt";
         v_destination_tbl="$v_metadataset_name.prior_$tableName";
         
         echo "Destination table is $v_destination_tbl and Query is $v_query"
@@ -239,49 +242,12 @@ if [[ "`bq ls --max_results=10000 $v_dataset_name | awk '{print $1}' | grep \"\b
     else echo "Table $v_dataset_name.$tableName missing"; 
 fi
 
-## Drop Final (e.g. Atom) table
-#bq query --append=1 --flatten_results=0 --allow_large_results=1 --destination_table=$METADATA_DATASET_NAME.final_customer 'select * from '"$METADATA_DATASET_NAME"'.customer_incremental' > /dev/null
-
-v_destination_tbl="$v_metadataset_name.prior_$tableName";
-v_query="SELECT * FROM $v_metadataset_name.incremental_$tableName";
-bq query --maximum_billing_tier 150 --append=1 --flatten_results=0 --allow_large_results=1 -n 1 --destination_table=$v_destination_tbl "$v_query" 2> "$v_data_object"_table_union_result.txt &
-v_pid=$!
-
-wait $v_pid
-
-if wait $v_pid; then
-    echo "Process $v_pid Status: success";
-    v_task_status="success";
-else 
-    echo "Process $v_pid Status: failed";
-    v_task_status="failed";
-fi
-
-
-v_table_union_result=`cat "$v_data_object"_table_union_result.txt`;
-
-v_log_obj_txt+=`echo "\n$(date) Prior data table creation log: "`;
-v_log_obj_txt+=`echo "\n$(date) $v_table_union_result \n$v_task_status is the task status"`;
-
-########################################################################################
-## Checking if the prior process has failed. If Failed, then exit this task (script). ##
-
-v_subtask="Prior n Incr. Table Union";
-p_exit_upon_error "$v_task_status" "$v_subtask"
-
-rm "$v_data_object"_table_union_result.txt
-
-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#
-                     ## Completed: Checking for Process Failure ##
-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#-X-#
-
 ## Load prior (till last run) data + diff table into final table
 
 bq rm -f $v_dataset_name.$tableName
 bq cp $v_metadataset_name.prior_$tableName $v_dataset_name.$tableName
-# Removing Prior and Incremental tables
+# Removing Prior table
 bq rm -f $v_metadataset_name.prior_$tableName
-bq rm -f $v_metadataset_name.incremental_$tableName
 
 
 

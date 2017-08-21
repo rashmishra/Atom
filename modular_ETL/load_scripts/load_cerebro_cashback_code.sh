@@ -1,6 +1,6 @@
 #!/bin/bash
 
-## Script Name: load_cerebro_ucb.sh
+## Script Name: load_cerebro_cashback_code.sh
 ## Purpose: Modular ETL flow of Atom.
 
 
@@ -24,11 +24,11 @@ v_task_datetime=`echo $(date -d "@$v_task_start_epoch" +"%Y-%m-%d_%H:%M_%Z")`;
 ## Initializing required variables
 v_etl_task='load'
 
-schemaFileName=schema_cerebro_ucb.json
+schemaFileName=schema_cerebro_cashback_code.json
 maxBadRecords=0
 
 v_data_object=$1;
-tableName=ucb;
+tableName=cashback_code;
 v_fileName="$1.json.gz";
 v_cloud_storage_path=$2;
 v_load_dir=$3;
@@ -47,7 +47,7 @@ v_log_obj_txt+=`echo "\n--------------------------------------------------------
 v_log_obj_txt+=`echo "\n$v_etl_task process started for $v_data_object at $v_task_start_ts"`;
 
 
-echo "In cerebro_ucb Loading script";
+echo "In cerebro_cashback_code Loading script";
 
 ## Function to check task status and exit if error occurs.
 p_exit_upon_error(){
@@ -92,7 +92,7 @@ p_exit_upon_error(){
         echo -e "$v_log_obj_txt" > $v_arch_dir/logs/"$v_data_object""_load_"$v_task_datetime.log
 
 
-        # Creating new file for cerebro_ucb's ETL run. Content will be appended in further tasks of T and L.
+        # Creating new file for cerebro_cashback_code's ETL run. Content will be appended in further tasks of T and L.
         echo -e "$v_log_obj_txt" >> $v_temp_dir/"$v_data_object"_log.log
 
         chmod 0777 $v_temp_dir/"$v_data_object"_log.log;
@@ -111,7 +111,7 @@ pwd
 mv "$v_data_object".json.gz $v_load_dir
 
 cd $v_load_dir;
-echo "In Load directory, from cerebro_ucb script $v_load_dir";
+echo "In Load directory, from cerebro_cashback_code script $v_load_dir";
 v_log_obj_txt+=`echo "\n$(date) In Load directory $v_load_dir"`;
 
 ########################################################################################
@@ -198,8 +198,8 @@ if [[ "`bq ls --max_results=10000 $v_dataset_name | awk '{print $1}' | grep \"\b
         #             AND inc.time = base.time
         #         WHERE inc.time IS NULL";
 
-        v_query="SELECT * FROM $v_dataset_name.$tableName 
-                 WHERE cid NOT IN (SELECT COALESCE(cid, 0) FROM $v_metadataset_name.incremental_$tableName)";
+        v_query="SELECT * FROM $v_dataset_name.$tableName  base 
+                 WHERE base.createdAt < (SELECT COALESCE(MIN(createdAt), 999999999999999) as inc_createdAt FROM $v_metadataset_name.incremental_$tableName)";
         v_destination_tbl="$v_metadataset_name.prior_$tableName";
         echo "Destination table is $v_destination_tbl and Query is $v_query"
         bq query  --maximum_billing_tier 150 --allow_large_results=1 -n 1 --noflatten_results --replace --destination_table=$v_destination_tbl "$v_query" 2> "$v_data_object"_prior_table_result.txt &
@@ -280,7 +280,7 @@ bq rm -f $v_metadataset_name.incremental_$tableName
 ## consumed by the main script to determine the status of entire Extract activity
 ## and this object's ETL flow
 ###################################################################################
-echo "cerebro_ucb's Load status is: $v_task_status" 
+echo "cerebro_cashback_code's Load status is: $v_task_status" 
 echo $v_task_status > $v_temp_dir/${v_data_object}_load_status.txt
 
 chmod 0777 $v_temp_dir/${v_data_object}_load_status.txt;
@@ -327,7 +327,7 @@ v_log_obj_txt+=`echo "\n--------------------------------------------------------
 echo -e "$v_log_obj_txt" > $v_arch_dir/logs/"$v_data_object""_load_"$v_task_datetime.log
 
 
-# Creating new file for cerebro_ucb's ETL run. Content will be appended in further tasks of T and L.
+# Creating new file for cerebro_cashback_code's ETL run. Content will be appended in further tasks of T and L.
 echo -e "$v_log_obj_txt" >> $v_temp_dir/"$v_data_object"_log.log
 
 chmod 0777 $v_temp_dir/"$v_data_object"_log.log;

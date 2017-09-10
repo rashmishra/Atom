@@ -222,6 +222,14 @@ for i in $PLAY_AGGREGATED_CRASHES_REPORT_NAMES; do
     sed -i -e "s/^/$i,/" $v_transform_dir/${PLAY_AGGREGATED_CRASHES_REPORT_PREFIX}_${v_prev_report_month}_${i}.csv &
     v_pid=$!
     v_agg_crash_rep_pids+=" $v_pid"
+    
+    if [[ $i == "overview" ]]; 
+        then sed -i -e "s/,/,,/3" $v_transform_dir/${PLAY_AGGREGATED_CRASHES_REPORT_PREFIX}_${v_report_month}_${i}.csv  
+             sed -i -e "s/,/,,/3" $v_transform_dir/${PLAY_AGGREGATED_CRASHES_REPORT_PREFIX}_${v_prev_report_month}_${i}.csv  &
+            
+             v_pid=$!
+             v_agg_ratings_rep_pids+=" $v_pid"
+    fi
 done
 
 if wait $v_agg_crash_rep_pids; 
@@ -242,7 +250,16 @@ for i in $PLAY_AGGREGATED_GCM_REPORT_NAMES; do
     sed -i -e "s/^/$i,/" $v_transform_dir/${PLAY_AGGREGATED_GCM_REPORT_PREFIX}_${v_report_month}_${i}.csv
     sed -i -e "s/^/$i,/" $v_transform_dir/${PLAY_AGGREGATED_GCM_REPORT_PREFIX}_${v_prev_report_month}_${i}.csv &
     v_pid=$!
-    v_agg_gcm_rep_pids+=" $v_pid"
+    v_agg_gcm_rep_pids+=" $v_pid";
+
+    if [[ $i == "overview" ]]; 
+        then sed -i -e "s/,/,,/3" $v_transform_dir/${PLAY_AGGREGATED_GCM_REPORT_PREFIX}_${v_report_month}_${i}.csv  
+             sed -i -e "s/,/,,/3" $v_transform_dir/${PLAY_AGGREGATED_GCM_REPORT_PREFIX}_${v_prev_report_month}_${i}.csv  &
+            
+             v_pid=$!
+             v_agg_ratings_rep_pids+=" $v_pid"
+    fi
+
 done
 
 if wait $v_agg_gcm_rep_pids; 
@@ -263,7 +280,17 @@ for i in $PLAY_AGGREGATED_INSTALLS_REPORT_NAMES; do
     sed -i -e "s/^/$i,/" $v_transform_dir/${PLAY_AGGREGATED_INSTALLS_REPORT_PREFIX}_${v_report_month}_${i}.csv  
     sed -i -e "s/^/$i,/" $v_transform_dir/${PLAY_AGGREGATED_INSTALLS_REPORT_PREFIX}_${v_prev_report_month}_${i}.csv  &
     v_pid=$!
-    v_agg_installs_rep_pids+=" $v_pid"
+    v_agg_installs_rep_pids+=" $v_pid";
+
+
+    if [[ $i == "overview" ]]; 
+        then sed -i -e "s/,/,,/3" $v_transform_dir/${PLAY_AGGREGATED_INSTALLS_REPORT_PREFIX}_${v_report_month}_${i}.csv  
+             sed -i -e "s/,/,,/3" $v_transform_dir/${PLAY_AGGREGATED_INSTALLS_REPORT_PREFIX}_${v_prev_report_month}_${i}.csv  &
+            
+             v_pid=$!
+             v_agg_ratings_rep_pids+=" $v_pid"
+    fi
+
 done
 
 if wait $v_agg_installs_rep_pids; 
@@ -286,6 +313,15 @@ for i in $PLAY_AGGREGATED_RATINGS_REPORT_NAMES; do
     
     v_pid=$!
     v_agg_ratings_rep_pids+=" $v_pid"
+    
+    if [[ $i == "overview" ]]; 
+        then sed -i -e "s/,/,,/3" $v_transform_dir/${PLAY_AGGREGATED_RATINGS_REPORT_PREFIX}_${v_report_month}_${i}.csv  
+             sed -i -e "s/,/,,/3" $v_transform_dir/${PLAY_AGGREGATED_RATINGS_REPORT_PREFIX}_${v_prev_report_month}_${i}.csv  &
+            
+             v_pid=$!
+             v_agg_ratings_rep_pids+=" $v_pid"
+    fi
+
 done
 
 if wait $v_agg_ratings_rep_pids; 

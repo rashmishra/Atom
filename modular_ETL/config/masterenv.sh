@@ -104,11 +104,11 @@ PLAY_AGGREGATED_GCM_REPORT_NAMES=("app_version carrier country device language m
 PLAY_AGGREGATED_GCM_REPORT_FOLDER="${PLAY_BUCKET}/stats/gcm"
 PLAY_AGGREGATED_GCM_REPORT_PREFIX="gcm_${PLAY_APP_NAME}"
 
-PLAY_AGGREGATED_INSTALLS_REPORT_NAMES=("app_version carrier country device language os_version")
+PLAY_AGGREGATED_INSTALLS_REPORT_NAMES=("app_version carrier country device language os_version overview")
 PLAY_AGGREGATED_INSTALLS_REPORT_FOLDER="${PLAY_BUCKET}/stats/installs"
 PLAY_AGGREGATED_INSTALLS_REPORT_PREFIX="installs_${PLAY_APP_NAME}"
 
-PLAY_AGGREGATED_RATINGS_REPORT_NAMES=("app_version carrier country device language os_version")
+PLAY_AGGREGATED_RATINGS_REPORT_NAMES=("app_version carrier country device language os_version overview")
 PLAY_AGGREGATED_RATINGS_REPORT_FOLDER="${PLAY_BUCKET}/stats/ratings"
 PLAY_AGGREGATED_RATINGS_REPORT_PREFIX="ratings_${PLAY_APP_NAME}"
 

@@ -96,19 +96,19 @@ PLAY_DETAILED_REPORT_NAMES=( "crashes/crashes_${PLAY_APP_NAME} crashes/anrs_${PL
 
 PLAY_TRANSFORM_DETAILED_REPORT_NAMES=( "crashes_${PLAY_APP_NAME} anrs_${PLAY_APP_NAME} reviews_${PLAY_APP_NAME}" )
 
-PLAY_AGGREGATED_CRASHES_REPORT_NAMES=( "app_version device os_version overview tablets" )
+PLAY_AGGREGATED_CRASHES_REPORT_NAMES=( "app_version device os_version overview" )
 PLAY_AGGREGATED_CRASHES_REPORT_FOLDER="${PLAY_BUCKET}/stats/crashes"
 PLAY_AGGREGATED_CRASHES_REPORT_PREFIX="crashes_${PLAY_APP_NAME}"
 
-PLAY_AGGREGATED_GCM_REPORT_NAMES=("app_version carrier country device language message_status os_version overview response_code tablets") 
+PLAY_AGGREGATED_GCM_REPORT_NAMES=("app_version carrier country device language message_status os_version overview response_code") 
 PLAY_AGGREGATED_GCM_REPORT_FOLDER="${PLAY_BUCKET}/stats/gcm"
 PLAY_AGGREGATED_GCM_REPORT_PREFIX="gcm_${PLAY_APP_NAME}"
 
-PLAY_AGGREGATED_INSTALLS_REPORT_NAMES=("app_version carrier country device language os_version tablets")
+PLAY_AGGREGATED_INSTALLS_REPORT_NAMES=("app_version carrier country device language os_version")
 PLAY_AGGREGATED_INSTALLS_REPORT_FOLDER="${PLAY_BUCKET}/stats/installs"
 PLAY_AGGREGATED_INSTALLS_REPORT_PREFIX="installs_${PLAY_APP_NAME}"
 
-PLAY_AGGREGATED_RATINGS_REPORT_NAMES=("app_version carrier country device language os_version tablets")
+PLAY_AGGREGATED_RATINGS_REPORT_NAMES=("app_version carrier country device language os_version")
 PLAY_AGGREGATED_RATINGS_REPORT_FOLDER="${PLAY_BUCKET}/stats/ratings"
 PLAY_AGGREGATED_RATINGS_REPORT_PREFIX="ratings_${PLAY_APP_NAME}"
 

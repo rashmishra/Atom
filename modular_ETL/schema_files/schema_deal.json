@@ -538,6 +538,11 @@
                 "mode": "NULLABLE",
                 "fields": [
                     {
+                        "name": "id",
+                        "type": "INTEGER",
+                        "mode": "NULLABLE"
+                    },
+                    {
                         "name": "redemptionSteps",
                         "type": "STRING",
                         "mode": "REPEATED"

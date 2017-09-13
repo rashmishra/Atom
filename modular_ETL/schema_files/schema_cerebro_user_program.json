@@ -90,6 +90,11 @@
                 "mode": "NULLABLE"
             },
             {
+                "name": "codeId",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
                 "name": "referralPid",
                 "type": "STRING",
                 "mode": "NULLABLE"

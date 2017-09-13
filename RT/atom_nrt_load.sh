@@ -54,6 +54,7 @@ p_check_rt_health "Atom" "order_bom" "Atom_rt" "order_bom" "Order BOM";
 p_check_rt_health "Atom" "order_header" "Atom_rt" "order_header" "Order Header";
 p_check_rt_health "Atom" "order_line_new" "Atom_rt" "order_line_new" "Order Line (New)";
 p_check_rt_health "Atom" "product" "Atom_rt" "product" "Product";
+p_check_rt_health "Atom" "order_line" "Atom_rt" "order_line" "Order Line";
 
 
 

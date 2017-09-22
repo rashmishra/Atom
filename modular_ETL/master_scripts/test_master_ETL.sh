@@ -200,6 +200,12 @@ for ((i=0;i<$v_config_line_cnr; i++)); do
     v_log_obj_txt="";
 
 
+    while [[ `ps -aef | grep "bash" | grep -E "export*" | wc -l` -gt 10 ]]; do
+        #statements
+        echo -e `date`" Waiting for one or more extracts to finish so that other extracts can be invoked\n";
+        sleep 30;
+    done
+
     if [ "${v_arr_run_flag[$i]}" != "RUN" ] && [ "${v_arr_run_flag[$i]}" != "SKIP" ]
         then v_masterlog_txt+=`echo "\n$(date) Run Flag is not properly configured for ${v_arr_data_object[$i]}"`;
 
@@ -456,7 +462,7 @@ sleep 1;
 # send the email with the overall Extract status
 #mail -a $LOGS_DIR/log_ETL_tasks.csv -s "Atom Refresh: All Extracts status:  $v_all_extracts_status`date` "  sairanganath.v@nearbuy.com < /dev/null
 # cat sample_text.txt | mutt -a $LOGS_DIR/log_ETL_tasks.csv -s "Atom Refresh: All Extracts status:  $v_all_extracts_status`date` "  -- sairanganath.v@nearbuy.com < /dev/null
-mutt -a $LOGS_DIR/log_ETL_tasks.csv -s "Atom Refresh: All Extracts status:  $v_all_extracts_status`date` "  --  snehesh.mitra@nearbuy.com sairanganath.v@nearbuy.com rashmi.mishra@nearbuy.com < /dev/null
+mutt -a $LOGS_DIR/log_ETL_tasks.csv -s "Atom Refresh: All Extracts status:  $v_all_extracts_status`date` "  -- sairanganath.v@nearbuy.com  < /dev/null
 
 #-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
 
@@ -754,7 +760,7 @@ sleep 1;
 # send the email with the overall Transform status
 #mail -a $LOGS_DIR/log_ETL_tasks.csv -s "Atom Refresh: All Transformations status:  $v_all_transformations_status. `date` "  sairanganath.v@nearbuy.com < /dev/null
 # mutt -a $LOGS_DIR/log_ETL_tasks.csv -s "Atom Refresh: All Transformations status:  $v_all_transformations_status. `date` "  -- sairanganath.v@nearbuy.com < /dev/null
-mutt -a $LOGS_DIR/log_ETL_tasks.csv -s "Atom Refresh: All Transformations status:  $v_all_transformations_status. `date` "  -- sairanganath.v@nearbuy.com rashmi.mishra@nearbuy.com < /dev/null
+mutt -a $LOGS_DIR/log_ETL_tasks.csv -s "Atom Refresh: All Transformations status:  $v_all_transformations_status. `date` "  -- sairanganath.v@nearbuy.com < /dev/null
 
 #-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
 
@@ -773,6 +779,13 @@ for ((i=0;i<$v_config_line_cnr; i++)); do
      v_task_start_ts=`echo $(date -d "@$v_task_start_epoch" +"%Y-%m-%d %r %Z")`;
 
      v_log_obj_txt="";
+
+     while [[ `ps -aef | grep "bash" | grep -E "load_*" | wc -l` -gt 15 ]]; do
+        #statements
+        echo `date`" Waiting for one or more loads to finish so that other loads can be invoked";
+        sleep 30;
+    done
+
 
 
         #echo "Entered in Loading loop. ${v_arr_run_flag[$i]}"
@@ -1030,7 +1043,7 @@ echo "ALL loads status: $v_all_loads_status";
 ## Mailing part
 # send the email with the overall load status
 #mail -a $LOGS_DIR/log_ETL_tasks.csv -s "Atom Refresh: All loads status:  $v_all_loads_status. `date` "  sairanganath.v@nearbuy.com < /dev/null
-mutt -a $LOGS_DIR/log_ETL_tasks.csv -s "Atom Refresh: All loads status:  $v_all_loads_status. `date` "  --  snehesh.mitra@nearbuy.com sairanganath.v@nearbuy.com rashmi.mishra@nearbuy.com < /dev/null
+mutt -a $LOGS_DIR/log_ETL_tasks.csv -s "Atom Refresh: All loads status:  $v_all_loads_status. `date` "  -- sairanganath.v@nearbuy.com < /dev/null
 
 #-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
 
@@ -1046,9 +1059,9 @@ if [ $v_all_loads_status == "success" -a  $v_all_extracts_status == "success" -a
     then v_email_text="All is Well :)\n Extract, Transform and Load were successful for all data objects";
 fi
 # Mailing all runs Status
-echo -e "$v_email_text" | mutt -a $LOGS_DIR/log_ETL_tasks.csv -s "Atom Refresh: All ETL runs status:  $v_ETL_job_run_status. `date` "  -- snehesh.mitra@nearbuy.com sairanganath.v@nearbuy.com rashmi.mishra@nearbuy.com mahesh.sharma@nearbuy.com sunny.sharma@nearbuy.com abhishek.manocha@nearbuy.com alka.gupta@nearbuy.com;
+echo -e "$v_email_text" | mutt -a $LOGS_DIR/log_ETL_tasks.csv -s "Atom Refresh: All ETL runs status:  $v_ETL_job_run_status. `date` "  -- sairanganath.v@nearbuy.com ;
 
-# mutt -a $LOGS_DIR/log_ETL_tasks.csv -s "Atom Refresh: All ETL runs status:  $v_ETL_job_run_status. `date` "  -- sairanganath.v@nearbuy.com rashmi.mishra@nearbuy.com mahesh.sharma@nearbuy.com sunny.sharma@nearbuy.com < /dev/null
+# mutt -a $LOGS_DIR/log_ETL_tasks.csv -s "Atom Refresh: All ETL runs status:  $v_ETL_job_run_status. `date` "  -- sairanganath.v@nearbuy.com rahul.sachan@nearbuy.com rashmi.mishra@nearbuy.com mahesh.sharma@nearbuy.com < /dev/null
 
 
 

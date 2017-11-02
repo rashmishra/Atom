@@ -168,6 +168,12 @@ PATH=/home/ubuntu/google-cloud-sdk/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:
 
 00 04 * * * bash /home/ubuntu/BI_automation/DAS/partner_platform.sh > /home/ubuntu/BI_automation/DAS/logs/partner_platform`date "+\%F_\%X_\%Z"`.log 2>&1
 
+10 04 * * * bash /home/ubuntu/BI_automation/DAS/FNB_keymerchants_traffic.sh > /home/ubuntu/BI_automation/DAS/logs/FNB_keymerchants_traffic`date "+\%F_\%X_\%Z"`.log 2>&1
+
+15 04 * * * bash /home/ubuntu/BI_automation/DAS/live_merchant_info.sh > /home/ubuntu/BI_automation/DAS/logs/live_merchant_info`date "+\%F_\%X_\%Z"`.log 2>&1
+
+20 04 * * * bash /home/ubuntu/BI_automation/DAS/Marketing.sh > /home/ubuntu/BI_automation/DAS/logs/Marketing`date "+\%F_\%X_\%Z"`.log 2>&1
+
 
 ## nb_reports
 

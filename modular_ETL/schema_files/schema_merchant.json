@@ -626,5 +626,15 @@
                 "mode": "NULLABLE"
             }
         ]
-    }
+    },
+    {
+       "name": "draftId",
+       "type": "INTEGER",
+       "mode": "NULLABLE"
+   },
+   {
+       "name": "publishedId",
+       "type": "INTEGER",
+       "mode": "NULLABLE"
+   }
 ]

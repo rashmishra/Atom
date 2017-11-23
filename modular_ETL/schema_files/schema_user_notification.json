@@ -1,0 +1,44 @@
+[
+    {
+        "name": "emailId",
+        "type": "STRING",
+        "mode": "NULLABLE",
+        "description": "email id of the customer"
+    },
+    {
+        "name": "customerId",
+        "type": "INTEGER",
+        "mode": "NULLABLE",
+        "description": "customer id mapped to customer table"
+    },
+    {
+        "name": "entity",
+        "type": "STRING",
+        "mode": "NULLABLE",
+        "description": "entity type to which customer has subscribed e.g occassion"
+    },
+    {
+        "name": "entityId",
+        "type": "STRING",
+        "mode": "NULLABLE",
+        "description": "entity id of the above entity e.g occassoinId"
+    },
+    {
+        "name": "source",
+        "type": "STRING",
+        "mode": "NULLABLE",
+        "description": "source from where customer subscribed  -APP/WEB/MWEB"
+    },
+    {
+        "name": "timestamp",
+        "type": "INTEGER",
+        "mode": "NULLABLE",
+        "description": "epoch time of subscription"
+    },
+    {
+        "name": "cityId",
+        "type": "STRING",
+        "mode": "NULLABLE",
+        "description": "city id from where customer subscribed"
+    },
+]

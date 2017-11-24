@@ -88,14 +88,15 @@ p_exit_upon_error(){
 cd $v_mongo_dir
 
 
-v_arbiter_ip="10.2.3.67"
+#v_arbiter_ip="10.2.3.67"
 
-v_primary_ip=`./mongo   --host $v_arbiter_ip:27017 --eval="printjson(rs.isMaster())" | tail -n+3 | grep -v ISODate | grep -v "Object" | jq .primary`;
-v_secondary_ip=`./mongo   --host $v_arbiter_ip --eval="printjson(rs.isMaster())" | tail -n+3 | grep -v ISODate | grep -v "Object" | jq .hosts | grep -v "$v_primary_ip" | grep -v  "\[" | grep -v "\]" | sed -e 's/\"//g' | sed -e 's/\ //g'`;
-v_secondary_ip=`echo $v_secondary_ip | sed -e 's/,//g' | sed -e 's/-/./g' | sed -e 's/ip.//g' | head -n 1`;
+#v_primary_ip=`./mongo   --host $v_arbiter_ip:27017 --eval="printjson(rs.isMaster())" | tail -n+3 | grep -v ISODate | grep -v "Object" | jq .primary`;
+#v_secondary_ip=`./mongo   --host $v_arbiter_ip --eval="printjson(rs.isMaster())" | tail -n+3 | grep -v ISODate | grep -v "Object" | jq .hosts | grep -v "$v_primary_ip" | grep -v  "\[" | grep -v "\]" | sed -e 's/\"//g' | sed -e 's/\ //g'`;
+#v_secondary_ip=`echo $v_secondary_ip | sed -e 's/,//g' | sed -e 's/-/./g' | sed -e 's/ip.//g' | head -n 1`;
 echo "${v_data_object}: Secondary IP is $v_secondary_ip";
 
-./mongoexport --host "$v_secondary_ip"  --db groupon  -c category --out $v_data_dump_dir/$v_data_object.json 2> $v_temp_dir/"$v_data_object"_extract_command_output.txt &
+v_datasource_ip="nb-qa-db-groupon.nbtools.com"
+./mongoexport -u nbqa -p nearbuy --host "$v_datasource_ip"  --db groupon  -c category --out $v_data_dump_dir/$v_data_object.json 2> $v_temp_dir/"$v_data_object"_extract_command_output.txt &
 v_extract_pid=$!
 
 # Waiting for the process to complete

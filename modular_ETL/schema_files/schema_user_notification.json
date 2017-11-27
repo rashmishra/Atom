@@ -40,5 +40,5 @@
         "type": "STRING",
         "mode": "NULLABLE",
         "description": "city id from where customer subscribed"
-    },
+    }
 ]

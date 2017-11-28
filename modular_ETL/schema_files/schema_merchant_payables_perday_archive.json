@@ -90,6 +90,16 @@
       { "mode": "NULLABLE",
        "name": "isPrepayment",
        "type": "BOOLEAN"
-     }
+     },
+     {
+        "mode": "NULLABLE",
+        "name": "nearbuyCancellationCommission",
+        "type": "FLOAT"
+     },
+    {
+        "mode": "NULLABLE",
+        "name": "isCancelledOrder",
+        "type": "BOOLEAN"
+    }
 
 ]

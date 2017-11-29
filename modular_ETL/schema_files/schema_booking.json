@@ -945,5 +945,15 @@
         "mode": "NULLABLE",
         "name": "paymentAllowedTill",
         "type": "INTEGER"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "cancellationCharges",
+        "type": "INTEGER"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "isCancelledAtAMR",
+        "type": "BOOLEAN"
     }
 ]

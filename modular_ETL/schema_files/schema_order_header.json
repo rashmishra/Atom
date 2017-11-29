@@ -333,5 +333,15 @@
         "name": "affiliateleadid",
         "type": "STRING",
         "mode": "NULLABLE"
+    },
+    {
+        "name": "orderBehaviouralData",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "totalcancellationcharges",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
     }
 ]

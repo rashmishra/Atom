@@ -140,5 +140,17 @@
         "mode": "NULLABLE",
         "name": "discount",
         "type": "STRING"
-      }            
+      }
+,
+{
+        "mode": "NULLABLE",
+        "name": "nearbuyCancellationCommission",
+        "type": "FLOAT"
+      }
+,
+{
+        "mode": "NULLABLE",
+        "name": "isCancelledOrder",
+        "type": "BOOLEAN"
+      }                        
 ]

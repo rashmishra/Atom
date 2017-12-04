@@ -752,5 +752,10 @@
         "name": "purposeCode",
         "type": "STRING",
         "mode": "NULLABLE"
+    },
+    {
+        "name": "applicableOnCollections",
+        "type": "STRING",
+        "mode": "REPEATED"
     }
 ]

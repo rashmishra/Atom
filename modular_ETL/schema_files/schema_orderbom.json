@@ -203,5 +203,25 @@
         "name": "discountbymerchant",
         "type": "INTEGER",
         "mode": "NULLABLE"
+    },
+    {
+        "name": "cancellationCharges",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "cancellationpolicy",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "checkinTime",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "checkoutTime",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
     }
 ]

@@ -600,6 +600,11 @@
                                 "name": "blackoutDates",
                                 "type": "INTEGER",
                                 "mode": "REPEATED"
+                            },
+                            {
+                                "name": "tableAvailability",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
                             }
                         ]
                     },
@@ -743,6 +748,11 @@
                     {
                         "name": "maxOptionQuantityPerOrder",
                         "type": "INTEGER",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "isEarlyBird",
+                        "type": "BOOLEAN",
                         "mode": "NULLABLE"
                     }
                 ]

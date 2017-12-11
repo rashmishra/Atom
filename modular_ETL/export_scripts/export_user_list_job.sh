@@ -97,7 +97,8 @@ cd $v_mongo_dir
 # v_secondary_ip=`echo $v_secondary_ip | sed -e 's/,//g' | sed -e 's/-/./g' | sed -e 's/ip.//g' | head -n 1`;
 
 # 5 Oct 2016 | Ranganath | Using DNS alias for delivery manager
-v_secondary_ip="nb-prod-db-cerebrocohurt.nbtools.com";
+#v_secondary_ip="nb-prod-db-cerebrocohurt.nbtools.com";
+v_secondary_ip="nb-qa-db-cerebrocohurt.nbtools.com";
 
 echo "${v_data_object}: Secondary IP is $v_secondary_ip";
 

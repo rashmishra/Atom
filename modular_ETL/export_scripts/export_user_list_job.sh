@@ -1,7 +1,7 @@
 #!/bin/bash
 
 
-## Script Name: export_user_notification.sh
+## Script Name: export_user_list_job.sh
 ## Purpose: Modular ETL flow of Atom.
 
 ##### $1: Data Object. ####
@@ -71,7 +71,7 @@ p_exit_upon_error(){
         # Maintaining the log of this run in a separate file in arch folder
         echo -e "$v_log_obj_txt" > $v_arch_dir/logs/"$v_data_object""_extract_"$v_task_datetime.log
 
-        # Creating new file for user_notification_offer's ETL run. Content will be appended in further tasks of T and L.
+        # Creating new file for user_list_job's ETL run. Content will be appended in further tasks of T and L.
         echo -e "$v_log_obj_txt" > $v_temp_dir/"$v_data_object"_log.log
         chmod 0777 $v_temp_dir/"$v_data_object"_log.log;
 
@@ -82,24 +82,27 @@ p_exit_upon_error(){
 
 }
 
-query="{\$or:[{\"createdTime\":{\$gte:$v_incremental_epoch}},{\"updateHistory.lastUpdatedAt\":{\$gte:$v_incremental_epoch} },{\"updateTime\":{\$gte:$v_incremental_epoch} },{\"updateHistory.createdAt\":{\$gte:$v_incremental_epoch} }]}"
-# v_log_obj_txt+=`echo "\n$(date) Query is $query."`;
 
+query="{\$or:[{\"createdAt\":{\$gte:$v_incremental_epoch}},{\"updatedAt\":{\$gte:$v_incremental_epoch}}]}"
+v_log_obj_txt+=`echo "\n$(date) Query is $query."`;
 
-cd $v_mongo_dir 
+cd $v_mongo_dir
 
-
-# v_arbiter_ip="10.2.1.126"
+#v_arbiter_ip="10.2.3.72"
+# 5 Oct 2016 | Ranganath | DB migrated from one server (10.2.3.72) to another (10.2.3.67).
+# v_arbiter_ip="10.2.3.67"
 
 # v_primary_ip=`./mongo   --host $v_arbiter_ip:27017 --eval="printjson(rs.isMaster())" | tail -n+3 | grep -v ISODate | grep -v "Object" | jq .primary`;
 # v_secondary_ip=`./mongo   --host $v_arbiter_ip --eval="printjson(rs.isMaster())" | tail -n+3 | grep -v ISODate | grep -v "Object" | jq .hosts | grep -v "$v_primary_ip" | grep -v  "\[" | grep -v "\]" | sed -e 's/\"//g' | sed -e 's/\ //g'`;
 # v_secondary_ip=`echo $v_secondary_ip | sed -e 's/,//g' | sed -e 's/-/./g' | sed -e 's/ip.//g' | head -n 1`;
-# echo "${v_data_object}: Secondary IP is $v_secondary_ip";
 
-v_secondary_ip="nb-prod-db-cust-deal-pref-secondary.nbtools.com"
+# 5 Oct 2016 | Ranganath | Using DNS alias for delivery manager
+v_secondary_ip="nb-prod-db-cerebrocohurt.nbtools.com";
+
 echo "${v_data_object}: Secondary IP is $v_secondary_ip";
 
-./mongoexport --host "$v_secondary_ip" --db nearbuy_customer_deal_preferences -c userNotification --out $v_data_dump_dir/$v_data_object.json 2> $v_temp_dir/"$v_data_object"_extract_command_output.txt &
+
+./mongoexport --host "$v_secondary_ip" --db cCohort -c userListJob -q $query --out $v_data_dump_dir/$v_data_object.json 2> $v_temp_dir/"$v_data_object"_extract_command_output.txt &
 v_extract_pid=$!
 
 # Waiting for the process to complete and checking the status
@@ -175,7 +178,7 @@ echo -e "$v_log_obj_txt" > $v_arch_dir/logs/"$v_data_object""_extract_"$v_task_d
 # Removing the previous run's file from the directory
 rm $v_temp_dir/"$v_data_object"_log.log
 
-# Creating new file for userRequestsOffer's ETL run. Content will be appended in further tasks of T and L.
+# Creating new file for user_list_job's ETL run. Content will be appended in further tasks of T and L.
 echo -e "$v_log_obj_txt" > $v_temp_dir/"$v_data_object"_log.log
 chmod 0777 $v_temp_dir/"$v_data_object"_log.log
 #-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
@@ -187,6 +190,6 @@ echo -e "$v_log_obj_txt";
 #  Removing the Command's (mongoexport) output stored in a file
 rm $v_temp_dir/"$v_data_object"_extract_command_output.txt
 
-#echo "userRequestsOffer mongo export end time is : $taskEndTime "
+#echo "user_list_job mongo export end time is : $taskEndTime "
 
 exit 0

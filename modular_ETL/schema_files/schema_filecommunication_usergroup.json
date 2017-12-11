@@ -1,0 +1,17 @@
+[
+  {
+    "name": "_id",
+    "type": "INTEGER",
+    "mode": "nullable"
+  },
+  {
+    "name": "userGroupsJobStatus",
+    "type": "INTEGER",
+    "mode": "nullable"
+  },
+  {
+    "name": "jobId",
+    "type": "INTEGER",
+    "mode": "nullable"
+  }
+]

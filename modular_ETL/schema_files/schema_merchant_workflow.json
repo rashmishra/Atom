@@ -1,7 +1,7 @@
 [
     {
-        "name": "_id",
-        "type": "INTEGER",
+        "name": "_class",
+        "type": "STRING",
         "mode": "NULLABLE"
     },
     {
@@ -47,15 +47,15 @@
         ]
     },
     {
-        "name": "lastUpdateAt",
+        "name": "lastUpdatedAt",
         "type": "INTEGER",
         "mode": "NULLABLE"
     },
     {
-        "name": "lastUpdateBy",
+        "name": "lastUpdatedBy",
         "type": "STRING",
         "mode": "NULLABLE"
-    }
+    },
     {
         "name": "isCompleted",
         "type": "BOOLEAN",

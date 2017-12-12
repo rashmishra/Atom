@@ -2,7 +2,7 @@
     {
         "name": "_id",
         "type": "INTEGER",
-        "mode": "NULLABLE"
+        "mode": "REQUIRED"
     },
     {
         "name": "status",
@@ -16,7 +16,7 @@
     },
     {
         "mode": "NULLABLE",
-        "name": "updateAt",
+        "name": "updatedAt",
         "type": "INTEGER"
     },
     {

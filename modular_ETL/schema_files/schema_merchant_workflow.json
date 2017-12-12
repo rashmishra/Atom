@@ -1,0 +1,225 @@
+[
+    {
+        "name": "_id",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+    	"name": "userActionLog",
+        "type": "RECORD",
+        "mode": "REPEATED",
+        "fields": [
+        	{
+                "name": "merchantWorkflowId",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "merchantId",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "userRoleName",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "userName",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "actionTaken",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "actionTakenAt",
+                "type": "INTEGER",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "actionTakenDescription",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            }
+        ]
+    },
+    {
+        "name": "lastUpdateAt",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "lastUpdateBy",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    }
+    {
+        "name": "isCompleted",
+        "type": "BOOLEAN",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "isAutoPublish",
+        "type": "BOOLEAN",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "merchantId",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "state",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "merchantUniqeId",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "name",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "city",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "category",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "locality",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "subLocality",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "businessLocality",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "businessSubLocality",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "businessCity",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "isChain",
+        "type": "BOOLEAN",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "isEditPublishedMerchant",
+        "type": "BOOLEAN",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "externalEditTrigger",
+        "type": "BOOLEAN",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "redemptionPolygonId",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "isRejected",
+        "type": "BOOLEAN",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "rejectionComment",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "duplicate",
+        "type": "RECORD",
+        "mode": "NULLABLE",
+        "fields": [
+        	{
+                "name": "isDuplicate",
+                "type": "BOOLEAN",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "duplicateOf",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "markedBy",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "markedOn",
+                "type": "INTEGER",
+                "mode": "NULLABLE"
+            }
+        ]
+    },
+    {
+        "name": "chainMerchantId",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "secondaryCategory",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "isPriorityMerchant",
+        "type": "BOOLEAN",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "assignedTo",
+        "type": "RECORD",
+        "mode": "NULLABLE",
+        "fields": [
+        	{
+                "name": "ROLE_LEAD_GEN",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "ROLE_MCA",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "ROLE_IMAGE_EDITOR",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "ROLE_QA",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            }
+        ]
+    }
+
+
+]

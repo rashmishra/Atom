@@ -37,7 +37,7 @@
     },
     {
         "name": "cityId",
-        "type": "STRING",
+        "type": "INTEGER",
         "mode": "NULLABLE",
         "description": "city id from where customer subscribed"
     }

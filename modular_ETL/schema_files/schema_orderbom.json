@@ -223,5 +223,10 @@
         "name": "checkoutTime",
         "type": "INTEGER",
         "mode": "NULLABLE"
+    },
+    {
+        "name":"updatedforgst",
+        "type":"BOOLEAN",
+        "mode":"NULLABLE"
     }
 ]

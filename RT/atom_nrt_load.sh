@@ -105,7 +105,7 @@ export PGPASSWORD='0mspr0d$'
 /usr/bin/psql -d $DBNAME -h $DBHOST -p $DBPORT -U $DBUSER <<EOF
 \copy (select * from oms_data.orderheader where createdAt > $LAST_OH_CREATEDTIME or updatedAt> $LAST_OH_UPDATEDTIME )  to /home/ubuntu/modular_ETL/RT/ohExport.csv with DELIMITER ',' CSV HEADER;
 \copy (select * from oms_data.orderline where createdAt > $LAST_OL_CREATEDTIME or updatedAt> $LAST_OL_UPDATEDTIME ) to /home/ubuntu/modular_ETL/RT/olExport.csv with DELIMITER ',' CSV HEADER;
-\copy (select * from oms_data.orderbom where createdAt > $LAST_OB_CREATEDTIME or updatedAt> $LAST_OB_UPDATEDTIME ) to /home/ubuntu/modular_ETL/RT/oBOMExport.csv with DELIMITER ',' CSV HEADER;
+\copy (select orderbomid,orderid,productid,createdat,createdby,updatedby,updatedat,dealid,finalprice,fineprint,highlightsection,imageurl,marginpercentage,merchantid,merchantname,offerdescription,offerid,offertitle,partnernumber,paymentterms,productshortdesc,quantity,title,unitprice,whatyouget,paymenttermid,categoryid,flatcommission,exclusions,nearbuymenu,termsandconditions,ispaidtomerchant,vertical,cashbackamount,bookingdate,bookingtimeslot,bannerimage,bookingamount,discountdetail,discountdetailafterpromo,discountbymerchant,cancellationcharges,cancellationpolicy,checkintime,checkouttime,updatedforgst from oms_data.orderbom where createdAt > $LAST_OB_CREATEDTIME or updatedAt> $LAST_OB_UPDATEDTIME ) to /home/ubuntu/modular_ETL/RT/oBOMExport.csv with DELIMITER ',' CSV HEADER;
 \copy (select * from oms_data.product where createdAt > $LAST_PR_CREATEDTIME or updatedAt> $LAST_PR_UPDATEDTIME ) to /home/ubuntu/modular_ETL/RT/productExport.csv with DELIMITER ',' CSV HEADER;
 EOF
 

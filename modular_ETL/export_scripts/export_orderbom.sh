@@ -112,7 +112,7 @@ export PGPASSWORD='0mspr0d$'
 
 v_extract_filename="$v_data_dump_dir/$v_data_object.csv";
 
-v_command="\copy (select * from oms_data.orderbom where createdat>$v_incremental_epoch or updatedat>$v_incremental_epoch)  to $v_extract_filename with DELIMITER ',' CSV HEADER"
+v_command="\copy (select orderbomid,orderid,productid,createdat,createdby,updatedby,updatedat,dealid,finalprice,fineprint,highlightsection,imageurl,marginpercentage,merchantid,merchantname,offerdescription,offerid,offertitle,partnernumber,paymentterms,productshortdesc,quantity,title,unitprice,whatyouget,paymenttermid,categoryid,flatcommission,exclusions,nearbuymenu,termsandconditions,ispaidtomerchant,vertical,cashbackamount,bookingdate,bookingtimeslot,bannerimage,bookingamount,discountdetail,discountdetailafterpromo,discountbymerchant,cancellationcharges,cancellationpolicy,checkintime,checkouttime,updatedforgst from oms_data.orderbom where createdat>$v_incremental_epoch or updatedat>$v_incremental_epoch)  to $v_extract_filename with DELIMITER ',' CSV HEADER"
 
 
 #psql -d $DBNAME -h $DBHOST -p $DBPORT -U $DBUSER --log-file=$v_query_logfile -A --field-separator=, -f "query_$v_data_object.txt" -o "$v_extract_filename" &

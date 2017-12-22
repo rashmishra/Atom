@@ -53,5 +53,10 @@
         "mode": "NULLABLE",
         "name": "isDeleted",
         "type": "BOOLEAN"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "isPrepaymentAllowed",
+        "type": "BOOLEAN"
     }
 ]

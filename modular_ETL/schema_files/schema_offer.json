@@ -754,6 +754,77 @@
                         "name": "isEarlyBird",
                         "type": "BOOLEAN",
                         "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "cancellationRanges",
+                        "type": "RECORD",
+                        "mode": "REPEATED",
+                        "fields": [
+                            {
+                                "name": "checkInDate",
+                                "type": "INTEGER",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "level",
+                                "type": "INTEGER",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "cancellationPolicy",
+                                "type": "RECORD",
+                                "mode": "NULLABLE",
+                                "fields": [
+                                    {
+                                        "name": "policyId",
+                                        "type": "INTEGER",
+                                        "mode": "NULLABLE"
+                                    },
+                                    {
+                                        "name": "hoursBasedRules",
+                                        "type": "RECORD",
+                                        "mode": "REPEATED",
+                                        "fields": [
+                                            {
+                                                "name": "hoursBeforeCheckin",
+                                                "type": "INTEGER",
+                                                "mode": "NULLABLE"
+                                            },
+                                            {
+                                                "name": "refundCharge",
+                                                "type": "RECORD",
+                                                "mode": "NULLABLE",
+                                                "fields": [
+                                                    {
+                                                        "name": "percentage",
+                                                        "type": "FLOAT",
+                                                        "mode": "NULLABLE"
+                                                    },
+                                                    {
+                                                        "name": "numberOfNights",
+                                                        "type": "INTEGER",
+                                                        "mode": "NULLABLE"
+                                                        
+                                                    },
+                                                    {
+                                                        "name": "fixedCharge",
+                                                        "type": "INTEGER",
+                                                        "mode": "NULLABLE"
+                                                        
+                                                    }
+                                            
+                                                ]
+                                                
+                                            }
+                                    
+                                        ]
+
+                                    }
+                            
+                                ]
+                            }
+                    
+                        ]
                     }
                 ]
             },

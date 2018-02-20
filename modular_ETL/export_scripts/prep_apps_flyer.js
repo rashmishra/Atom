@@ -65,8 +65,17 @@ db.app_flier.find().forEach(function(doc){
 		newdoc.click_time_epoch = 0;
 
 	}
+	
+	 if (newdoc.af_ad != null ){
+           newdoc.af_ad = String(newdoc.af_ad);
+    }
+
+    if (newdoc.af_ad_id != null ){
+           newdoc.af_ad_id = String(newdoc.af_ad_id);
+    }
 
     db.apps_flyer.save(newdoc);
+	
 })
 
 db.apps_flyer.createIndex({"createdAt": 1})

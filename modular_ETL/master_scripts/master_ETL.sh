@@ -456,7 +456,7 @@ sleep 1;
 # send the email with the overall Extract status
 #mail -a $LOGS_DIR/log_ETL_tasks.csv -s "Atom Refresh: All Extracts status:  $v_all_extracts_status`date` "  sairanganath.v@nearbuy.com < /dev/null
 # cat sample_text.txt | mutt -a $LOGS_DIR/log_ETL_tasks.csv -s "Atom Refresh: All Extracts status:  $v_all_extracts_status`date` "  -- sairanganath.v@nearbuy.com < /dev/null
-mutt -a $LOGS_DIR/log_ETL_tasks.csv -s "Atom Refresh: All Extracts status:  $v_all_extracts_status`date` "  --   snehesh.mitra@nearbuy.com sanyog.sharma@nearbuy.com geetanjali.tripathi@nearbuy.com  sairanganath.v@nearbuy.com rashmi.mishra@nearbuy.com < /dev/null
+mutt -a $LOGS_DIR/log_ETL_tasks.csv -s "Atom Refresh: All Extracts status:  $v_all_extracts_status`date` "     snehesh.mitra@nearbuy.com abhishek.manocha@nearbuy.com harsh.choudhary@nearbuy.com  rashmi.mishra@nearbuy.com < /dev/null
 
 #-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
 
@@ -754,7 +754,7 @@ sleep 1;
 # send the email with the overall Transform status
 #mail -a $LOGS_DIR/log_ETL_tasks.csv -s "Atom Refresh: All Transformations status:  $v_all_transformations_status. `date` "  sairanganath.v@nearbuy.com < /dev/null
 # mutt -a $LOGS_DIR/log_ETL_tasks.csv -s "Atom Refresh: All Transformations status:  $v_all_transformations_status. `date` "  -- sairanganath.v@nearbuy.com < /dev/null
-mutt -a $LOGS_DIR/log_ETL_tasks.csv -s "Atom Refresh: All Transformations status:  $v_all_transformations_status. `date` "  -- sairanganath.v@nearbuy.com rashmi.mishra@nearbuy.com < /dev/null
+mutt -a $LOGS_DIR/log_ETL_tasks.csv -s "Atom Refresh: All Transformations status:  $v_all_transformations_status. `date` "   rashmi.mishra@nearbuy.com < /dev/null
 
 #-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
 
@@ -1030,7 +1030,7 @@ echo "ALL loads status: $v_all_loads_status";
 ## Mailing part
 # send the email with the overall load status
 #mail -a $LOGS_DIR/log_ETL_tasks.csv -s "Atom Refresh: All loads status:  $v_all_loads_status. `date` "  sairanganath.v@nearbuy.com < /dev/null
-mutt -a $LOGS_DIR/log_ETL_tasks.csv -s "Atom Refresh: All loads status:  $v_all_loads_status. `date` "  --   snehesh.mitra@nearbuy.com sanyog.sharma@nearbuy.com geetanjali.tripathi@nearbuy.com  sairanganath.v@nearbuy.com rashmi.mishra@nearbuy.com < /dev/null
+mutt -a $LOGS_DIR/log_ETL_tasks.csv -s "Atom Refresh: All loads status:  $v_all_loads_status. `date` "    snehesh.mitra@nearbuy.com abhishek.manocha@nearbuy.com harsh.choudhary@nearbuy.com  rashmi.mishra@nearbuy.com < /dev/null
 
 #-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
 
@@ -1046,7 +1046,7 @@ if [ $v_all_loads_status == "success" -a  $v_all_extracts_status == "success" -a
     then v_email_text="All is Well :)\n Extract, Transform and Load were successful for all data objects";
 fi
 # Mailing all runs Status
-echo -e "$v_email_text" | mutt -a $LOGS_DIR/log_ETL_tasks.csv -s "Atom Refresh: All ETL runs status:  $v_ETL_job_run_status. `date` "  --  snehesh.mitra@nearbuy.com sanyog.sharma@nearbuy.com geetanjali.tripathi@nearbuy.com  sairanganath.v@nearbuy.com rashmi.mishra@nearbuy.com mahesh.sharma@nearbuy.com sunny.sharma@nearbuy.com abhishek.manocha@nearbuy.com alka.gupta@nearbuy.com;
+echo -e "$v_email_text" | mutt -a $LOGS_DIR/log_ETL_tasks.csv -s "Atom Refresh: All ETL runs status:  $v_ETL_job_run_status. `date` "    snehesh.mitra@nearbuy.com abhishek.manocha@nearbuy.com harsh.choudhary@nearbuy.com  rashmi.mishra@nearbuy.com mahesh.sharma@nearbuy.com sunny.sharma@nearbuy.com abhishek.manocha@nearbuy.com alka.gupta@nearbuy.com;
 
 # mutt -a $LOGS_DIR/log_ETL_tasks.csv -s "Atom Refresh: All ETL runs status:  $v_ETL_job_run_status. `date` "  -- sairanganath.v@nearbuy.com rashmi.mishra@nearbuy.com mahesh.sharma@nearbuy.com sunny.sharma@nearbuy.com < /dev/null
 

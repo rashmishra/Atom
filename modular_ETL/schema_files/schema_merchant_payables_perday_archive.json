@@ -101,7 +101,7 @@
         "name": "isCancelledOrder",
         "type": "BOOLEAN"
     },
-        {
+    {
         "mode": "NULLABLE",
         "name": "utrNumber",
         "type": "STRING"

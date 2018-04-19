@@ -803,8 +803,7 @@
                                                     {
                                                         "name": "numberOfNights",
                                                         "type": "INTEGER",
-                                                        "mode": "NULLABLE"
-                                                        
+                                                        "mode": "NULLABLE"                                                        
                                                     },
                                                     {
                                                         "name": "fixedCharge",

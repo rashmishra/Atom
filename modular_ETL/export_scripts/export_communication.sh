@@ -97,12 +97,13 @@ cd $v_mongo_dir
 # v_secondary_ip=`echo $v_secondary_ip | sed -e 's/,//g' | sed -e 's/-/./g' | sed -e 's/ip.//g' | head -n 1`;
 
 # 5 Oct 2016 | Ranganath | Using DNS alias for delivery manager
-v_secondary_ip="nb-prod-db-deliverymanager-secondary.nbtools.com";
+#v_secondary_ip="nb-prod-db-deliverymanager-secondary.nbtools.com";
+v_secondary_ip="nb-qa-db-deliverymanager.nbtools.com";
 
 echo "${v_data_object}: Secondary IP is $v_secondary_ip";
 
 
-./mongoexport --host "$v_secondary_ip" --db nb-delivery-manager -c communication -q $query --out $v_data_dump_dir/$v_data_object.json 2> $v_temp_dir/"$v_data_object"_extract_command_output.txt &
+./mongoexport --host "$v_secondary_ip" -u nbqa -p nearbuy --db nb-delivery-manager -c communication -q $query --out $v_data_dump_dir/$v_data_object.json 2> $v_temp_dir/"$v_data_object"_extract_command_output.txt &
 v_extract_pid=$!
 
 # Waiting for the process to complete and checking the status

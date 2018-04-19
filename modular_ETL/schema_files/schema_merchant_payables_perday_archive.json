@@ -100,6 +100,11 @@
         "mode": "NULLABLE",
         "name": "isCancelledOrder",
         "type": "BOOLEAN"
+    },
+        {
+        "mode": "NULLABLE",
+        "name": "utrNumber",
+        "type": "STRING"
     }
 
 ]

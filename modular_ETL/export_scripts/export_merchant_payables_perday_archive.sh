@@ -89,11 +89,13 @@ v_log_obj_txt+=`echo "\n$(date) Query is $query."`;
 
 cd $v_mongo_dir
 
-v_arbiter_ip="10.2.1.235"
+# v_arbiter_ip="10.2.1.235"
 
-v_primary_ip=`./mongo   --host $v_arbiter_ip:27017 --eval="printjson(rs.isMaster())" | tail -n+3 | grep -v ISODate | grep -v "Object" | jq .primary`;
-v_secondary_ip=`./mongo   --host $v_arbiter_ip --eval="printjson(rs.isMaster())" | tail -n+3 | grep -v ISODate | grep -v "Object" | jq .hosts | grep -v "$v_primary_ip" | grep -v  "\[" | grep -v "\]" | sed -e 's/\"//g' | sed -e 's/\ //g'`;
-v_secondary_ip=`echo $v_secondary_ip | sed -e 's/,//g' | sed -e 's/-/./g' | sed -e 's/ip.//g' | head -n 1`;
+# v_primary_ip=`./mongo   --host $v_arbiter_ip:27017 --eval="printjson(rs.isMaster())" | tail -n+3 | grep -v ISODate | grep -v "Object" | jq .primary`;
+# v_secondary_ip=`./mongo   --host $v_arbiter_ip --eval="printjson(rs.isMaster())" | tail -n+3 | grep -v ISODate | grep -v "Object" | jq .hosts | grep -v "$v_primary_ip" | grep -v  "\[" | grep -v "\]" | sed -e 's/\"//g' | sed -e 's/\ //g'`;
+# v_secondary_ip=`echo $v_secondary_ip | sed -e 's/,//g' | sed -e 's/-/./g' | sed -e 's/ip.//g' | head -n 1`;
+
+v_secondary_ip="nb-qa-db-aps-payable.nbtools.com";
 echo "${v_data_object}: Secondary IP is $v_secondary_ip";
 
 

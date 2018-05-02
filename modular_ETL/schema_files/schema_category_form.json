@@ -1,0 +1,98 @@
+[
+    {
+        "mode": "NULLABLE",
+        "name": "_id",
+        "type": "STRING"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "_class",
+        "type": "STRING"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "layout",
+        "type": "STRING"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "label",
+        "type": "STRING"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "isDeleted",
+        "type": "BOOLEAN"
+    },
+    {
+        "mode": "REPEATED",
+        "name": "fieldModels",
+        "type": "RECORD",
+        "fields": [
+            {
+                "mode": "NULLABLE",
+                "name": "_id",
+                "type": "STRING"
+            },
+            {
+                "mode": "NULLABLE",
+                "name": "type",
+                "type": "STRING"
+            },
+            {
+                "mode": "NULLABLE",
+                "name": "multiple",
+                "type": "BOOLEAN"
+            },
+            {
+                "mode": "NULLABLE",
+                "name": "label",
+                "type": "STRING"
+            },
+            {
+                "mode": "REPEATED",
+                "name": "optionModels",
+                "type": "RECORD",
+                "fields": [
+                    {
+                        "mode": "NULLABLE",
+                        "name": "_id",
+                        "type": "STRING"
+                    },
+                    {
+                        "mode": "NULLABLE",
+                        "name": "label",
+                        "type": "STRING"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "mode": "REPEATED",
+        "name": "imagesModels",
+        "type": "RECORD",
+        "fields": [
+            {
+                "mode": "NULLABLE",
+                "name": "_id",
+                "type": "STRING"
+            },
+            {
+                "mode": "NULLABLE",
+                "name": "max",
+                "type": "INTEGER"
+            },
+            {
+                "mode": "NULLABLE",
+                "name": "min",
+                "type": "INTEGER"
+            },
+            {
+                "mode": "NULLABLE",
+                "name": "label",
+                "type": "STRING"
+            }
+        ]
+    }
+]

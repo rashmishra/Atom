@@ -29,7 +29,7 @@ logging.getLogger('suds.transport').setLevel(logging.DEBUG)
 def main(client):
 
   # initializing the report_downloader object
-  report_downloader = client.GetReportDownloader(version='v201702')
+  report_downloader = client.GetReportDownloader(version='v201802')
 
   # generating report structure
   report = {}

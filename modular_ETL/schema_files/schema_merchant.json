@@ -636,5 +636,340 @@
        "name": "publishedId",
        "type": "INTEGER",
        "mode": "NULLABLE"
-   }
+   },
+   {
+    "mode": "NULLABLE",
+    "name": "policies",
+    "type": "RECORD",
+    "fields": [
+        {
+            "mode": "NULLABLE",
+            "name": "CHILD",
+            "type": "RECORD",
+            "fields": [
+                {
+                    "mode": "NULLABLE",
+                    "name": "age",
+                    "type": "RECORD",
+                    "fields": [
+                        {
+                            "mode": "NULLABLE",
+                            "name": "to",
+                            "type": "INTEGER"
+                        },
+                        {
+                            "mode": "NULLABLE",
+                            "name": "from",
+                            "type": "INTEGER"
+                        }
+                    ]
+                },
+                {
+                    "mode": "REPEATED",
+                    "name": "policyValidity",
+                    "type": "RECORD",
+                    "fields": [
+                        {
+                            "mode": "REPEATED",
+                            "name": "daysOfWeek",
+                            "type": "INTEGER"
+                        },
+                        {
+                            "mode": "REPEATED",
+                            "name": "timings",
+                            "type": "RECORD",
+                            "fields": [
+                                {
+                                    "mode": "NULLABLE",
+                                    "name": "startTimeStr",
+                                    "type": "STRING"
+                                },
+                                {
+                                    "mode": "NULLABLE",
+                                    "name": "endTimeStr",
+                                    "type": "STRING"
+                                },
+                                {
+                                    "mode": "NULLABLE",
+                                    "name": "startTime",
+                                    "type": "INTEGER"
+                                },
+                                {
+                                    "mode": "NULLABLE",
+                                    "name": "endTime",
+                                    "type": "INTEGER"
+                                },
+                                {
+                                    "mode": "NULLABLE",
+                                    "name": "startMeridian",
+                                    "type": "STRING"
+                                },
+                                {
+                                    "mode": "NULLABLE",
+                                    "name": "endMeridian",
+                                    "type": "STRING"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "mode": "NULLABLE",
+                    "name": "additionalPolicy",
+                    "type": "STRING"
+                }
+            ]
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "STAG",
+            "type": "RECORD",
+            "fields": [
+                {
+                    "mode": "NULLABLE",
+                    "name": "age",
+                    "type": "RECORD",
+                    "fields": [
+                        {
+                            "mode": "NULLABLE",
+                            "name": "to",
+                            "type": "INTEGER"
+                        },
+                        {
+                            "mode": "NULLABLE",
+                            "name": "from",
+                            "type": "INTEGER"
+                        }
+                    ]
+                },
+                {
+                    "mode": "REPEATED",
+                    "name": "policyValidity",
+                    "type": "RECORD",
+                    "fields": [
+                        {
+                            "mode": "REPEATED",
+                            "name": "daysOfWeek",
+                            "type": "INTEGER"
+                        },
+                        {
+                            "mode": "REPEATED",
+                            "name": "timings",
+                            "type": "RECORD",
+                            "fields": [
+                                {
+                                    "mode": "NULLABLE",
+                                    "name": "startTimeStr",
+                                    "type": "STRING"
+                                },
+                                {
+                                    "mode": "NULLABLE",
+                                    "name": "endTimeStr",
+                                    "type": "STRING"
+                                },
+                                {
+                                    "mode": "NULLABLE",
+                                    "name": "startTime",
+                                    "type": "INTEGER"
+                                },
+                                {
+                                    "mode": "NULLABLE",
+                                    "name": "endTime",
+                                    "type": "INTEGER"
+                                },
+                                {
+                                    "mode": "NULLABLE",
+                                    "name": "startMeridian",
+                                    "type": "STRING"
+                                },
+                                {
+                                    "mode": "NULLABLE",
+                                    "name": "endMeridian",
+                                    "type": "STRING"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "mode": "NULLABLE",
+                    "name": "additionalPolicy",
+                    "type": "STRING"
+                }
+            ]
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "TABLE_BOOKING",
+            "type": "RECORD",
+            "fields": [
+                {
+                    "mode": "NULLABLE",
+                    "name": "age",
+                    "type": "RECORD",
+                    "fields": [
+                        {
+                            "mode": "NULLABLE",
+                            "name": "to",
+                            "type": "INTEGER"
+                        },
+                        {
+                            "mode": "NULLABLE",
+                            "name": "from",
+                            "type": "INTEGER"
+                        }
+                    ]
+                },
+                {
+                    "mode": "REPEATED",
+                    "name": "policyValidity",
+                    "type": "RECORD",
+                    "fields": [
+                        {
+                            "mode": "REPEATED",
+                            "name": "daysOfWeek",
+                            "type": "INTEGER"
+                        },
+                        {
+                            "mode": "REPEATED",
+                            "name": "timings",
+                            "type": "RECORD",
+                            "fields": [
+                                {
+                                    "mode": "NULLABLE",
+                                    "name": "startTimeStr",
+                                    "type": "STRING"
+                                },
+                                {
+                                    "mode": "NULLABLE",
+                                    "name": "endTimeStr",
+                                    "type": "STRING"
+                                },
+                                {
+                                    "mode": "NULLABLE",
+                                    "name": "startTime",
+                                    "type": "INTEGER"
+                                },
+                                {
+                                    "mode": "NULLABLE",
+                                    "name": "endTime",
+                                    "type": "INTEGER"
+                                },
+                                {
+                                    "mode": "NULLABLE",
+                                    "name": "startMeridian",
+                                    "type": "STRING"
+                                },
+                                {
+                                    "mode": "NULLABLE",
+                                    "name": "endMeridian",
+                                    "type": "STRING"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "mode": "NULLABLE",
+                    "name": "additionalPolicy",
+                    "type": "STRING"
+                }
+            ]
+        }
+    ]
+},
+{
+    "mode": "NULLABLE",
+    "name": "duplicateDTO",
+    "type": "RECORD",
+    "fields": [
+        {
+            "mode": "NULLABLE",
+            "name": "duplicateOf",
+            "type": "STRING"
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "duplicateMarkedBy",
+            "type": "STRING"
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "duplicateMarkedAt",
+            "type": "INTEGER"
+        }
+    ]
+},
+{
+    "mode": "NULLABLE",
+    "name": "managerName",
+    "type": "STRING"
+},
+{
+    "mode": "REPEATED",
+    "name": "managerEmailId",
+    "type": "STRING"
+},
+{
+    "mode": "REPEATED",
+    "name": "managerNumber",
+    "type": "RECORD",
+    "fields": [
+        {
+            "mode": "NULLABLE",
+            "name": "type",
+            "type": "STRING"
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "contactNo",
+            "type": "STRING"
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "stdCode",
+            "type": "STRING"
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "countryCode",
+            "type": "STRING"
+        }
+    ]
+},
+{
+    "mode": "NULLABLE",
+    "name": "bestTimeToContact",
+    "type": "STRING"
+},
+{
+    "mode": "NULLABLE",
+    "name": "gstNumber",
+    "type": "STRING"
+},
+{
+    "mode": "REPEATED",
+    "name": "parking",
+    "type": "STRING"
+},
+{
+    "mode": "REPEATED",
+    "name": "accessibility",
+    "type": "STRING"
+},
+{
+    "mode": "NULLABLE",
+    "name": "nbVerified",
+    "type": "BOOLEAN"
+},
+{
+    "mode": "REPEATED",
+    "name": "ambienceTags",
+    "type": "STRING"
+},
+{
+    "mode": "NULLABLE",
+    "name": "permalink",
+    "type": "STRING"
+}
 ]

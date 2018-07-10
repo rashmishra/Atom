@@ -200,3 +200,18 @@ PATH=/home/ubuntu/google-cloud-sdk/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:
 00 03 * * * bash /home/ubuntu/nb_reports/master_appsflyer.sh > /home/ubuntu/nb_reports/logs/log_master_appsflyer`date "+\%F_\%X_\%Z"`.log 2>&1
 
 05 03 * * * bash /home/ubuntu/nb_reports/master_downstream.sh > /home/ubuntu/nb_reports/logs/log_master_downstream`date "+\%F_\%X_\%Z"`.log 2>&1
+
+
+
+
+## user attributes
+
+30 3 * * * bash /home/ubuntu/user_attributes/ca_hotspots_daily.sh > /home/ubuntu/user_attributes/logs/log_ca_hotspots_daily`date "+\%F_\%X_\%Z"`.log 2>&1
+
+35 3 * * * bash /home/ubuntu/user_attributes/ca_ob_daily.sh > /home/ubuntu/user_attributes/logs/log_ca_ob_daily`date "+\%F_\%X_\%Z"`.log 2>&1
+
+40 3 * * * bash /home/ubuntu/user_attributes/ca_rating_daily.sh > /home/ubuntu/user_attributes/logs/log_ca_rating_daily`date "+\%F_\%X_\%Z"`.log 2>&1
+
+45 3 * * * bash /home/ubuntu/user_attributes/ca_ga_at_bo_co.sh > /home/ubuntu/user_attributes/logs/log_ca_ga_at_bo_co_daily`date "+\%F_\%X_\%Z"`.log 2>&1
+
+50 3 * * * bash /home/ubuntu/user_attributes/moduleQueries.sh > /home/ubuntu/user_attributes/logs/log_moduleQueries`date "+\%F_\%X_\%Z"`.log 2>&1

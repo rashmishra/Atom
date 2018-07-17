@@ -1,5 +1,4 @@
-[
-    {
+[{
         "name": "promoCodeId",
         "type": "STRING",
         "mode": "NULLABLE"
@@ -98,8 +97,7 @@
         "name": "promoCodeDiscount",
         "type": "RECORD",
         "mode": "NULLABLE",
-        "fields": [
-            {
+        "fields": [{
                 "name": "promoCodeType",
                 "type": "STRING",
                 "mode": "NULLABLE"
@@ -133,8 +131,7 @@
                 "name": "voucherQuantityRange",
                 "type": "RECORD",
                 "mode": "NULLABLE",
-                "fields": [
-                    {
+                "fields": [{
                         "name": "from",
                         "type": "INTEGER",
                         "mode": "NULLABLE"
@@ -155,8 +152,7 @@
                 "name": "offerPriceRange",
                 "type": "RECORD",
                 "mode": "NULLABLE",
-                "fields": [
-                    {
+                "fields": [{
                         "name": "from",
                         "type": "INTEGER",
                         "mode": "NULLABLE"
@@ -172,8 +168,7 @@
                 "name": "txnPriceRange",
                 "type": "RECORD",
                 "mode": "NULLABLE",
-                "fields": [
-                    {
+                "fields": [{
                         "name": "from",
                         "type": "INTEGER",
                         "mode": "NULLABLE"
@@ -194,6 +189,754 @@
                 "name": "marketingExpenseCap",
                 "type": "INTEGER",
                 "mode": "NULLABLE"
+            },
+            {
+                "name": "childPromoList",
+                "type": "RECORD",
+                "mode": "REPEATED",
+                "fields": [{
+                        "name": "promoCodeId",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "promoCodeGroup",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "lcPromoCodeId",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "collectionId",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "title",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "lcTitle",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "promoCode",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "lcPromoCode",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "description",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "lcDescription",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "internalDescription",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "status",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "lcStatus",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "defaultTermAndCondition",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "termsAndConditions",
+                        "type": "STRING",
+                        "mode": "REPEATED"
+                    },
+                    {
+                        "name": "createdAt",
+                        "type": "INTEGER",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "createdBy",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "lcCreatedBy",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "lastUserAction",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "promoCodeDiscount",
+                        "type": "RECORD",
+                        "mode": "NULLABLE",
+                        "fields": [{
+                                "name": "promoCodeType",
+                                "type": "STRING",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "discountAmount",
+                                "type": "INTEGER",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "discountPercent",
+                                "type": "INTEGER",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "maxCap",
+                                "type": "INTEGER",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "cashbackPercent",
+                                "type": "FLOAT",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "cashbackAmount",
+                                "type": "FLOAT",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "voucherQuantityRange",
+                                "type": "RECORD",
+                                "mode": "NULLABLE",
+                                "fields": [{
+                                        "name": "from",
+                                        "type": "INTEGER",
+                                        "mode": "NULLABLE"
+                                    },
+                                    {
+                                        "name": "to",
+                                        "type": "INTEGER",
+                                        "mode": "NULLABLE"
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "usesPerPerson",
+                                "type": "INTEGER",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "offerPriceRange",
+                                "type": "RECORD",
+                                "mode": "NULLABLE",
+                                "fields": [{
+                                        "name": "from",
+                                        "type": "INTEGER",
+                                        "mode": "NULLABLE"
+                                    },
+                                    {
+                                        "name": "to",
+                                        "type": "INTEGER",
+                                        "mode": "NULLABLE"
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "txnPriceRange",
+                                "type": "RECORD",
+                                "mode": "NULLABLE",
+                                "fields": [{
+                                        "name": "from",
+                                        "type": "INTEGER",
+                                        "mode": "NULLABLE"
+                                    },
+                                    {
+                                        "name": "to",
+                                        "type": "INTEGER",
+                                        "mode": "NULLABLE"
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "netMinimumMargin",
+                                "type": "INTEGER",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "marketingExpenseCap",
+                                "type": "INTEGER",
+                                "mode": "NULLABLE"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "locationHolder",
+                        "type": "RECORD",
+                        "mode": "REPEATED",
+                        "fields": [{
+                                "name": "state",
+                                "type": "RECORD",
+                                "mode": "NULLABLE",
+                                "fields": [{
+                                        "name": "id",
+                                        "type": "STRING",
+                                        "mode": "NULLABLE"
+                                    },
+                                    {
+                                        "name": "name",
+                                        "type": "STRING",
+                                        "mode": "NULLABLE"
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "city",
+                                "type": "RECORD",
+                                "mode": "NULLABLE",
+                                "fields": [{
+                                        "name": "id",
+                                        "type": "STRING",
+                                        "mode": "NULLABLE"
+                                    },
+                                    {
+                                        "name": "name",
+                                        "type": "STRING",
+                                        "mode": "NULLABLE"
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "subCity",
+                                "type": "RECORD",
+                                "mode": "NULLABLE",
+                                "fields": [{
+                                        "name": "id",
+                                        "type": "STRING",
+                                        "mode": "NULLABLE"
+                                    },
+                                    {
+                                        "name": "name",
+                                        "type": "STRING",
+                                        "mode": "NULLABLE"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "lastUpdatedBy",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "lastUpdatedAt",
+                        "type": "INTEGER",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "live",
+                        "type": "BOOLEAN",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "users",
+                        "type": "RECORD",
+                        "mode": "NULLABLE",
+                        "fields": [{
+                                "name": "usersRegistrationDateRange",
+                                "type": "RECORD",
+                                "mode": "NULLABLE",
+                                "fields": [{
+                                        "name": "from",
+                                        "type": "STRING",
+                                        "mode": "NULLABLE"
+                                    },
+                                    {
+                                        "name": "to",
+                                        "type": "STRING",
+                                        "mode": "NULLABLE"
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "usersFirstPurchaseDateRange",
+                                "type": "RECORD",
+                                "mode": "NULLABLE",
+                                "fields": [{
+                                        "name": "from",
+                                        "type": "STRING",
+                                        "mode": "NULLABLE"
+                                    },
+                                    {
+                                        "name": "to",
+                                        "type": "STRING",
+                                        "mode": "NULLABLE"
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "usersLastPurchaseDateRange",
+                                "type": "RECORD",
+                                "mode": "NULLABLE",
+                                "fields": [{
+                                        "name": "from",
+                                        "type": "STRING",
+                                        "mode": "NULLABLE"
+                                    },
+                                    {
+                                        "name": "to",
+                                        "type": "STRING",
+                                        "mode": "NULLABLE"
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "platforms",
+                                "type": "STRING",
+                                "mode": "REPEATED"
+                            },
+                            {
+                                "name": "usersLastPurchasedCategory",
+                                "type": "RECORD",
+                                "mode": "REPEATED",
+                                "fields": [{
+                                        "name": "category",
+                                        "type": "RECORD",
+                                        "mode": "NULLABLE",
+                                        "fields": [{
+                                                "name": "id",
+                                                "type": "STRING",
+                                                "mode": "NULLABLE"
+                                            },
+                                            {
+                                                "name": "name",
+                                                "type": "STRING",
+                                                "mode": "NULLABLE"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "subCategory",
+                                        "type": "RECORD",
+                                        "mode": "NULLABLE",
+                                        "fields": [{
+                                                "name": "id",
+                                                "type": "STRING",
+                                                "mode": "NULLABLE"
+                                            },
+                                            {
+                                                "name": "name",
+                                                "type": "STRING",
+                                                "mode": "NULLABLE"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "offering",
+                                        "type": "RECORD",
+                                        "mode": "NULLABLE",
+                                        "fields": [{
+                                                "name": "id",
+                                                "type": "STRING",
+                                                "mode": "NULLABLE"
+                                            },
+                                            {
+                                                "name": "name",
+                                                "type": "STRING",
+                                                "mode": "NULLABLE"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "cuisine",
+                                        "type": "RECORD",
+                                        "mode": "NULLABLE",
+                                        "fields": [{
+                                                "name": "id",
+                                                "type": "STRING",
+                                                "mode": "NULLABLE"
+                                            },
+                                            {
+                                                "name": "name",
+                                                "type": "STRING",
+                                                "mode": "NULLABLE"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "usersLocationsTarget",
+                                "type": "RECORD",
+                                "mode": "REPEATED",
+                                "fields": [{
+                                        "name": "state",
+                                        "type": "RECORD",
+                                        "mode": "NULLABLE",
+                                        "fields": [{
+                                                "name": "id",
+                                                "type": "STRING",
+                                                "mode": "NULLABLE"
+                                            },
+                                            {
+                                                "name": "name",
+                                                "type": "STRING",
+                                                "mode": "NULLABLE"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "city",
+                                        "type": "RECORD",
+                                        "mode": "NULLABLE",
+                                        "fields": [{
+                                                "name": "id",
+                                                "type": "STRING",
+                                                "mode": "NULLABLE"
+                                            },
+                                            {
+                                                "name": "name",
+                                                "type": "STRING",
+                                                "mode": "NULLABLE"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "subCity",
+                                        "type": "RECORD",
+                                        "mode": "NULLABLE",
+                                        "fields": [{
+                                                "name": "id",
+                                                "type": "STRING",
+                                                "mode": "NULLABLE"
+                                            },
+                                            {
+                                                "name": "name",
+                                                "type": "STRING",
+                                                "mode": "NULLABLE"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "usersList",
+                                "type": "STRING",
+                                "mode": "REPEATED"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "hasUserTransacted",
+                        "type": "BOOLEAN",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "validityRange",
+                        "type": "RECORD",
+                        "mode": "NULLABLE",
+                        "fields": [{
+                                "name": "endDate",
+                                "type": "INTEGER",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "startDate",
+                                "type": "INTEGER",
+                                "mode": "NULLABLE"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "noOfCouponsGenerated",
+                        "type": "INTEGER",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "ifCoupon",
+                        "type": "BOOLEAN",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "couponCodeRange",
+                        "type": "RECORD",
+                        "mode": "NULLABLE",
+                        "fields": [{
+                                "name": "from",
+                                "type": "INTEGER",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "to",
+                                "type": "INTEGER",
+                                "mode": "NULLABLE"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "visible",
+                        "type": "BOOLEAN",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "isCashback",
+                        "type": "BOOLEAN",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "applicablePromoCodeDiscount",
+                        "type": "RECORD",
+                        "mode": "NULLABLE",
+                        "fields": [{
+                                "name": "APP",
+                                "type": "RECORD",
+                                "mode": "NULLABLE",
+                                "fields": [{
+                                        "name": "promoCodeType",
+                                        "type": "STRING",
+                                        "mode": "NULLABLE"
+                                    },
+                                    {
+                                        "name": "discountAmount",
+                                        "type": "INTEGER",
+                                        "mode": "NULLABLE"
+                                    },
+                                    {
+                                        "name": "discountPercent",
+                                        "type": "INTEGER",
+                                        "mode": "NULLABLE"
+                                    },
+                                    {
+                                        "name": "maxCap",
+                                        "type": "INTEGER",
+                                        "mode": "NULLABLE"
+                                    },
+                                    {
+                                        "name": "cashbackPercent",
+                                        "type": "FLOAT",
+                                        "mode": "NULLABLE"
+                                    },
+                                    {
+                                        "name": "cashbackAmount",
+                                        "type": "FLOAT",
+                                        "mode": "NULLABLE"
+                                    },
+                                    {
+                                        "name": "voucherQuantityRange",
+                                        "type": "RECORD",
+                                        "mode": "NULLABLE",
+                                        "fields": [{
+                                                "name": "from",
+                                                "type": "INTEGER",
+                                                "mode": "NULLABLE"
+                                            },
+                                            {
+                                                "name": "to",
+                                                "type": "INTEGER",
+                                                "mode": "NULLABLE"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "usesPerPerson",
+                                        "type": "INTEGER",
+                                        "mode": "NULLABLE"
+                                    },
+                                    {
+                                        "name": "offerPriceRange",
+                                        "type": "RECORD",
+                                        "mode": "NULLABLE",
+                                        "fields": [{
+                                                "name": "from",
+                                                "type": "INTEGER",
+                                                "mode": "NULLABLE"
+                                            },
+                                            {
+                                                "name": "to",
+                                                "type": "INTEGER",
+                                                "mode": "NULLABLE"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "txnPriceRange",
+                                        "type": "RECORD",
+                                        "mode": "NULLABLE",
+                                        "fields": [{
+                                                "name": "from",
+                                                "type": "INTEGER",
+                                                "mode": "NULLABLE"
+                                            },
+                                            {
+                                                "name": "to",
+                                                "type": "INTEGER",
+                                                "mode": "NULLABLE"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "netMinimumMargin",
+                                        "type": "INTEGER",
+                                        "mode": "NULLABLE"
+                                    },
+                                    {
+                                        "name": "marketingExpenseCap",
+                                        "type": "INTEGER",
+                                        "mode": "NULLABLE"
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "WEB",
+                                "type": "RECORD",
+                                "mode": "NULLABLE",
+                                "fields": [{
+                                        "name": "promoCodeType",
+                                        "type": "STRING",
+                                        "mode": "NULLABLE"
+                                    },
+                                    {
+                                        "name": "discountAmount",
+                                        "type": "INTEGER",
+                                        "mode": "NULLABLE"
+                                    },
+                                    {
+                                        "name": "discountPercent",
+                                        "type": "INTEGER",
+                                        "mode": "NULLABLE"
+                                    },
+                                    {
+                                        "name": "maxCap",
+                                        "type": "INTEGER",
+                                        "mode": "NULLABLE"
+                                    },
+                                    {
+                                        "name": "cashbackPercent",
+                                        "type": "FLOAT",
+                                        "mode": "NULLABLE"
+                                    },
+                                    {
+                                        "name": "cashbackAmount",
+                                        "type": "FLOAT",
+                                        "mode": "NULLABLE"
+                                    },
+                                    {
+                                        "name": "voucherQuantityRange",
+                                        "type": "RECORD",
+                                        "mode": "NULLABLE",
+                                        "fields": [{
+                                                "name": "from",
+                                                "type": "INTEGER",
+                                                "mode": "NULLABLE"
+                                            },
+                                            {
+                                                "name": "to",
+                                                "type": "INTEGER",
+                                                "mode": "NULLABLE"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "usesPerPerson",
+                                        "type": "INTEGER",
+                                        "mode": "NULLABLE"
+                                    },
+                                    {
+                                        "name": "offerPriceRange",
+                                        "type": "RECORD",
+                                        "mode": "NULLABLE",
+                                        "fields": [{
+                                                "name": "from",
+                                                "type": "INTEGER",
+                                                "mode": "NULLABLE"
+                                            },
+                                            {
+                                                "name": "to",
+                                                "type": "INTEGER",
+                                                "mode": "NULLABLE"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "txnPriceRange",
+                                        "type": "RECORD",
+                                        "mode": "NULLABLE",
+                                        "fields": [{
+                                                "name": "from",
+                                                "type": "INTEGER",
+                                                "mode": "NULLABLE"
+                                            },
+                                            {
+                                                "name": "to",
+                                                "type": "INTEGER",
+                                                "mode": "NULLABLE"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "netMinimumMargin",
+                                        "type": "INTEGER",
+                                        "mode": "NULLABLE"
+                                    },
+                                    {
+                                        "name": "marketingExpenseCap",
+                                        "type": "INTEGER",
+                                        "mode": "NULLABLE"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "isUserSpecificCode",
+                        "type": "BOOLEAN",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "purposeCode",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "applicableOnCollections",
+                        "type": "STRING",
+                        "mode": "REPEATED"
+                    },
+                    {
+                        "name": "promoCount",
+                        "type": "INTEGER",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "childParentLinkPercentage",
+                        "type": "FLOAT",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "daysValidFor",
+                        "type": "INTEGER",
+                        "mode": "NULLABLE"
+                    }
+                ]
             }
         ]
     },
@@ -201,13 +944,11 @@
         "name": "locationHolder",
         "type": "RECORD",
         "mode": "REPEATED",
-        "fields": [
-            {
+        "fields": [{
                 "name": "state",
                 "type": "RECORD",
                 "mode": "NULLABLE",
-                "fields": [
-                    {
+                "fields": [{
                         "name": "id",
                         "type": "STRING",
                         "mode": "NULLABLE"
@@ -223,8 +964,7 @@
                 "name": "city",
                 "type": "RECORD",
                 "mode": "NULLABLE",
-                "fields": [
-                    {
+                "fields": [{
                         "name": "id",
                         "type": "STRING",
                         "mode": "NULLABLE"
@@ -240,8 +980,7 @@
                 "name": "subCity",
                 "type": "RECORD",
                 "mode": "NULLABLE",
-                "fields": [
-                    {
+                "fields": [{
                         "name": "id",
                         "type": "STRING",
                         "mode": "NULLABLE"
@@ -274,13 +1013,11 @@
         "name": "users",
         "type": "RECORD",
         "mode": "NULLABLE",
-        "fields": [
-            {
+        "fields": [{
                 "name": "usersRegistrationDateRange",
                 "type": "RECORD",
                 "mode": "NULLABLE",
-                "fields": [
-                    {
+                "fields": [{
                         "name": "from",
                         "type": "STRING",
                         "mode": "NULLABLE"
@@ -296,8 +1033,7 @@
                 "name": "usersFirstPurchaseDateRange",
                 "type": "RECORD",
                 "mode": "NULLABLE",
-                "fields": [
-                    {
+                "fields": [{
                         "name": "from",
                         "type": "STRING",
                         "mode": "NULLABLE"
@@ -313,8 +1049,7 @@
                 "name": "usersLastPurchaseDateRange",
                 "type": "RECORD",
                 "mode": "NULLABLE",
-                "fields": [
-                    {
+                "fields": [{
                         "name": "from",
                         "type": "STRING",
                         "mode": "NULLABLE"
@@ -335,13 +1070,11 @@
                 "name": "usersLastPurchasedCategory",
                 "type": "RECORD",
                 "mode": "REPEATED",
-                "fields": [
-                    {
+                "fields": [{
                         "name": "category",
                         "type": "RECORD",
                         "mode": "NULLABLE",
-                        "fields": [
-                            {
+                        "fields": [{
                                 "name": "id",
                                 "type": "STRING",
                                 "mode": "NULLABLE"
@@ -357,8 +1090,7 @@
                         "name": "subCategory",
                         "type": "RECORD",
                         "mode": "NULLABLE",
-                        "fields": [
-                            {
+                        "fields": [{
                                 "name": "id",
                                 "type": "STRING",
                                 "mode": "NULLABLE"
@@ -374,8 +1106,7 @@
                         "name": "offering",
                         "type": "RECORD",
                         "mode": "NULLABLE",
-                        "fields": [
-                            {
+                        "fields": [{
                                 "name": "id",
                                 "type": "STRING",
                                 "mode": "NULLABLE"
@@ -391,8 +1122,7 @@
                         "name": "cuisine",
                         "type": "RECORD",
                         "mode": "NULLABLE",
-                        "fields": [
-                            {
+                        "fields": [{
                                 "name": "id",
                                 "type": "STRING",
                                 "mode": "NULLABLE"
@@ -410,13 +1140,11 @@
                 "name": "usersLocationsTarget",
                 "type": "RECORD",
                 "mode": "REPEATED",
-                "fields": [
-                    {
+                "fields": [{
                         "name": "state",
                         "type": "RECORD",
                         "mode": "NULLABLE",
-                        "fields": [
-                            {
+                        "fields": [{
                                 "name": "id",
                                 "type": "STRING",
                                 "mode": "NULLABLE"
@@ -432,8 +1160,7 @@
                         "name": "city",
                         "type": "RECORD",
                         "mode": "NULLABLE",
-                        "fields": [
-                            {
+                        "fields": [{
                                 "name": "id",
                                 "type": "STRING",
                                 "mode": "NULLABLE"
@@ -449,8 +1176,7 @@
                         "name": "subCity",
                         "type": "RECORD",
                         "mode": "NULLABLE",
-                        "fields": [
-                            {
+                        "fields": [{
                                 "name": "id",
                                 "type": "STRING",
                                 "mode": "NULLABLE"
@@ -480,8 +1206,7 @@
         "name": "validityRange",
         "type": "RECORD",
         "mode": "NULLABLE",
-        "fields": [
-            {
+        "fields": [{
                 "name": "endDate",
                 "type": "INTEGER",
                 "mode": "NULLABLE"
@@ -507,8 +1232,7 @@
         "name": "couponCodeRange",
         "type": "RECORD",
         "mode": "NULLABLE",
-        "fields": [
-            {
+        "fields": [{
                 "name": "from",
                 "type": "INTEGER",
                 "mode": "NULLABLE"
@@ -534,13 +1258,11 @@
         "name": "applicablePromoCodeDiscount",
         "type": "RECORD",
         "mode": "NULLABLE",
-        "fields": [
-            {
+        "fields": [{
                 "name": "APP",
                 "type": "RECORD",
                 "mode": "NULLABLE",
-                "fields": [
-                    {
+                "fields": [{
                         "name": "promoCodeType",
                         "type": "STRING",
                         "mode": "NULLABLE"
@@ -574,8 +1296,7 @@
                         "name": "voucherQuantityRange",
                         "type": "RECORD",
                         "mode": "NULLABLE",
-                        "fields": [
-                            {
+                        "fields": [{
                                 "name": "from",
                                 "type": "INTEGER",
                                 "mode": "NULLABLE"
@@ -596,8 +1317,7 @@
                         "name": "offerPriceRange",
                         "type": "RECORD",
                         "mode": "NULLABLE",
-                        "fields": [
-                            {
+                        "fields": [{
                                 "name": "from",
                                 "type": "INTEGER",
                                 "mode": "NULLABLE"
@@ -613,8 +1333,7 @@
                         "name": "txnPriceRange",
                         "type": "RECORD",
                         "mode": "NULLABLE",
-                        "fields": [
-                            {
+                        "fields": [{
                                 "name": "from",
                                 "type": "INTEGER",
                                 "mode": "NULLABLE"
@@ -642,8 +1361,7 @@
                 "name": "WEB",
                 "type": "RECORD",
                 "mode": "NULLABLE",
-                "fields": [
-                    {
+                "fields": [{
                         "name": "promoCodeType",
                         "type": "STRING",
                         "mode": "NULLABLE"
@@ -677,8 +1395,7 @@
                         "name": "voucherQuantityRange",
                         "type": "RECORD",
                         "mode": "NULLABLE",
-                        "fields": [
-                            {
+                        "fields": [{
                                 "name": "from",
                                 "type": "INTEGER",
                                 "mode": "NULLABLE"
@@ -699,8 +1416,7 @@
                         "name": "offerPriceRange",
                         "type": "RECORD",
                         "mode": "NULLABLE",
-                        "fields": [
-                            {
+                        "fields": [{
                                 "name": "from",
                                 "type": "INTEGER",
                                 "mode": "NULLABLE"
@@ -716,8 +1432,7 @@
                         "name": "txnPriceRange",
                         "type": "RECORD",
                         "mode": "NULLABLE",
-                        "fields": [
-                            {
+                        "fields": [{
                                 "name": "from",
                                 "type": "INTEGER",
                                 "mode": "NULLABLE"

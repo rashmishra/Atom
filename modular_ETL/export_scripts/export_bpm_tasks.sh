@@ -1,6 +1,6 @@
 #!/bin/bash
 
-## Script Name: export_account_users.sh
+## Script Name: export_bpm_tasks.sh
 ## Purpose: Modular ETL flow of Atom.
 
 ##### $1: Data Object. ####
@@ -75,7 +75,7 @@ p_exit_upon_error(){
         echo -e "$v_log_obj_txt" > $v_arch_dir/logs/"$v_data_object""_extract_"$v_task_datetime.log
 
 
-        # Creating new file for account_users's ETL run. Content will be appended in further tasks of T and L.
+        # Creating new file for bpm_tasks's ETL run. Content will be appended in further tasks of T and L.
         echo -e "$v_log_obj_txt" > $v_temp_dir/"$v_data_object"_log.log
 
         chmod 0777 $v_temp_dir/"$v_data_object"_log.log;
@@ -92,14 +92,14 @@ p_exit_upon_error(){
 echo "OMS data export start time is : $taskStartTime "
 DBHOST=nb-qa-oms-db.c6vqep7kcqpl.ap-southeast-1.rds.amazonaws.com
 DBPORT=5432
-DBNAME=merchantuserprofile
-DBUSER=merusepro
+DBNAME=bpm
+DBUSER=oms
 DATE=`date +%Y-%m-%d`
-export PGPASSWORD='skywa1k3r'
+export PGPASSWORD='nearbuyoms'
 
 v_extract_filename="$v_data_dump_dir/$v_data_object.csv";
 
-v_command="\copy merusepro.users to $v_extract_filename with DELIMITER ',' CSV HEADER"
+v_command="\copy act_hi_taskinst to $v_extract_filename with DELIMITER ',' CSV HEADER"
 
 
 #psql -d $DBNAME -h $DBHOST -p $DBPORT -U $DBUSER --log-file=$v_query_logfile -A --field-separator=, -f "query_$v_data_object.txt" -o "$v_extract_filename" &
@@ -107,7 +107,7 @@ v_command="\copy merusepro.users to $v_extract_filename with DELIMITER ',' CSV H
 psql -d $DBNAME -h $DBHOST -p $DBPORT -U $DBUSER -A --field-separator=, -c "$v_command"  &
 v_extract_pid=$!
 
-echo -e "\n\nThe PID for account_users data export is $v_extract_pid\n\n";
+echo -e "\n\nThe PID for bpm_taks data export is $v_extract_pid\n\n";
 
 # Waiting for the process to complete
 if wait $v_extract_pid; then
@@ -179,7 +179,7 @@ echo -e "$v_log_obj_txt" > $v_temp_dir/"$v_data_object""_extract_"$v_task_dateti
 # Removing the previous run's file from the directory
 v_log_obj_txt+=`rm $v_logs_dir/"$v_data_object"_log.log`;
 
-# Creating new file for account_users's ETL run. Content will be appended in further tasks of T and L.
+# Creating new file for bpm_tasks's ETL run. Content will be appended in further tasks of T and L.
 echo -e "$v_log_obj_txt" > $v_logs_dir/"$v_data_object"_log.log
 ##############################################################################
 
@@ -187,5 +187,5 @@ echo -e "$v_log_obj_txt" > $v_logs_dir/"$v_data_object"_log.log
 echo -e "Log text is: \n"
 echo -e "$v_log_obj_txt";
 
-echo "account_users data export end time is : $taskEndTime "
+echo "bpm_tasks data export end time is : $taskEndTime "
 exit 0

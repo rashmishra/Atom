@@ -1,0 +1,53 @@
+[
+    {
+        "name": "id_",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "proc_def_id_",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "proc_inst_id_",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "act_id_",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "task_id_",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "act_name_",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "act_type_",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "assignee_",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "start_time_",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "end_time_",
+        "type": "STRING",
+        "mode": "nullable"
+    }
+]
+

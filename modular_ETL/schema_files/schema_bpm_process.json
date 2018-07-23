@@ -3,7 +3,7 @@
         "name": "id_",
         "type": "STRING",
         "mode": "nullable"
-    },   
+    },
     {
         "name": "proc_inst_id_",
         "type": "STRING",
@@ -21,13 +21,12 @@
     },
     {
         "name": "start_time_",
-        "type": "INTEGER",
+        "type": "STRING",
         "mode": "nullable"
     },
     {
         "name": "end_time_",
-        "type": "INTEGER",
+        "type": "STRING",
         "mode": "nullable"
     }
 ]
-

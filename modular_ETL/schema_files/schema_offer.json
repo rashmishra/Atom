@@ -40,6 +40,11 @@
                         "mode": "NULLABLE"
                     },
                     {
+                        "name": "isPriceInternallyManaged",
+                        "type": "BOOLEAN",
+                        "mode": "NULLABLE"
+                    },
+                    {
                         "name": "otype",
                         "type": "STRING",
                         "mode": "NULLABLE"

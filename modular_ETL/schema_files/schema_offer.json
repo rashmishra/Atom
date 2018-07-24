@@ -40,6 +40,11 @@
                         "mode": "NULLABLE"
                     },
                     {
+                        "name": "isPriceInternallyManaged",
+                        "type": "BOOLEAN",
+                        "mode": "NULLABLE"
+                    },
+                    {
                         "name": "otype",
                         "type": "STRING",
                         "mode": "NULLABLE"
@@ -604,6 +609,11 @@
                             {
                                 "name": "tableAvailability",
                                 "type": "STRING",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "validityInDays",
+                                "type": "INTEGER",
                                 "mode": "NULLABLE"
                             }
                         ]

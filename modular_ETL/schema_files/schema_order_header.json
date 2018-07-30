@@ -343,5 +343,10 @@
         "name": "totalcancellationcharges",
         "type": "INTEGER",
         "mode": "NULLABLE"
+    },
+    {
+        "name": "promoCodeType",
+        "type": "STRING",
+        "mode": "NULLABLE"
     }
 ]

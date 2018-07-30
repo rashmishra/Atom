@@ -218,8 +218,7 @@
         "name": "redemptiontype",
         "type": "STRING",
         "mode": "NULLABLE"
-    },
-    ,
+    },    
     {
         "name": "cancellationRequestedAt",
         "type": "INTEGER",

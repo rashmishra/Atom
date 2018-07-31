@@ -145,7 +145,8 @@ v_query="SELECT
   acceptedat,
   ispaidtomerchant,
   cashbackamount,
-  workflowtype
+  workflowtype,
+  cancellationRequestedAt
 FROM [Atom.order_bom]   tbl1
 INNER JOIN [Atom.order_line_new]  tbl2
          ON tbl1.productId = tbl2.productId

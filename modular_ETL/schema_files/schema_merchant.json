@@ -1026,6 +1026,11 @@
                     "name": "landscape",
                     "type": "STRING",
                     "mode": "NULLABLE"
+                },
+                {
+                    "name": "isAccepted",
+                    "type": "BOOLEAN",
+                    "mode": "NULLABLE"
                 }
             ]
         }

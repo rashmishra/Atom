@@ -830,11 +830,6 @@
                                 ]
                             },
                             {
-                                "name": "validForPeople",
-                                "type": "STRING",
-                                "mode": "NULLABLE"
-                            },
-                            {
                                 "name": "expiryDate",
                                 "type": "INTEGER",
                                 "mode": "NULLABLE"

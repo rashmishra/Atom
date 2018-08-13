@@ -351,21 +351,6 @@
                 "name": "street",
                 "type": "INTEGER",
                 "mode": "NULLABLE"
-            },
-            {
-                "name": "nearestMetroStation",
-                "type": "STRING",
-                "mode": "NULLABLE"
-            },
-            {
-                "name": "businessPark",
-                "type": "STRING",
-                "mode": "NULLABLE"
-            },
-            {
-                "name": "residentialArea",
-                "type": "STRING",
-                "mode": "NULLABLE"
             }
         ]
     },

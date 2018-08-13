@@ -971,5 +971,69 @@
     "mode": "NULLABLE",
     "name": "permalink",
     "type": "STRING"
+},
+{
+    "name": "images",
+    "type": "RECORD",
+    "mode": "REPEATED",
+    "fields": [
+        {
+            "name": "key",
+            "type": "STRING",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "max",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "min",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+        },
+        {
+            "name": "values",
+            "type": "RECORD",
+            "mode": "REPEATED",
+            "fields": [
+                {
+                    "name": "default",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "portrait",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "landscape",
+                    "type": "STRING",
+                    "mode": "NULLABLE"
+                },
+                {
+                    "name": "isAccepted",
+                    "type": "BOOLEAN",
+                    "mode": "NULLABLE"
+                }
+            ]
+        }
+    ]
+},
+{
+    "mode": "NULLABLE",
+    "name": "nbVerifiedOn",
+    "type": "INTEGER"
+},
+{
+    "mode": "NULLABLE",
+    "name": "firebaseLink",
+    "type": "STRING"
+},
+{
+    "mode": "NULLABLE",
+    "name": "additionalInfo",
+    "type": "STRING"
 }
 ]

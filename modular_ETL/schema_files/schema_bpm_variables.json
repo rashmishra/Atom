@@ -1,0 +1,73 @@
+[
+     {
+        "name": "id_",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "proc_inst_id_",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "execution_id_",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "task_id_",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "name_",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+	{
+        "name": "var_type_",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "rev_",
+        "type": "INTEGER",
+        "mode": "nullable"
+    },
+    {
+        "name": "bytearray_id_",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "double_",
+        "type": "FLOAT",
+        "mode": "nullable"
+    },
+    {
+        "name": "long_",
+        "type": "INTEGER",
+        "mode": "nullable"
+    },
+    {
+        "name": "text_",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "text2_",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "create_time_",
+        "type": "INTEGER",
+        "mode": "nullable"
+    },
+    {
+        "name": "last_updated_time_",
+        "type": "INTEGER",
+        "mode": "nullable"
+    }
+]
+

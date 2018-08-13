@@ -1,0 +1,69 @@
+[
+     {
+        "name": "id_",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "proc_def_id_",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "task_def_key_",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "proc_inst_id_",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "execution_id_",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "name_",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+	{
+        "name": "parent_task_id_",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "description_",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "owner_",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "assignee_",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "start_time_",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "claim_time_",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "end_time_",
+        "type": "STRING",
+        "mode": "nullable"
+    }
+]
+
+`

@@ -182,40 +182,48 @@ PATH=/home/ubuntu/google-cloud-sdk/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:
 ## nb_reports
 
 
-30 02 * * * bash /home/ubuntu/nb_reports/master_transactions.sh > /home/ubuntu/nb_reports/logs/log_master_transactions`date "+\%F_\%X_\%Z"`.log 2>&1
+00 03 * * * bash /home/ubuntu/nb_reports/master_transactions.sh > /home/ubuntu/nb_reports/logs/log_master_transactions`date "+\%F_\%X_\%Z"`.log 2>&1
 
 0 1 * * 5 bash /home/ubuntu/nb_reports/sold_out_deals.sh > /home/ubuntu/nb_reports/logs/sold_out_deals`date "+\%F_\%X_\%Z"`.log 2>&1
 
 
-45 02 * * * bash /home/ubuntu/nb_reports/cancellation.sh > /home/ubuntu/nb_reports/logs/log_cancellation`date "+\%F_\%X_\%Z"`.log 2>&1
+05 03 * * * bash /home/ubuntu/nb_reports/cancellation.sh > /home/ubuntu/nb_reports/logs/log_cancellation`date "+\%F_\%X_\%Z"`.log 2>&1
 
-47 02 * * * bash /home/ubuntu/nb_reports/live_merchant_outlets.sh > /home/ubuntu/nb_reports/logs/log_live_merchant_outlets_`date "+\%F_\%X_\%Z"`.log 2>&1
-
-
-50 02 * * * bash /home/ubuntu/nb_reports/redemption.sh > /home/ubuntu/nb_reports/logs/log_redemption`date "+\%F_\%X_\%Z"`.log 2>&1
+07 03 * * * bash /home/ubuntu/nb_reports/live_merchant_outlets.sh > /home/ubuntu/nb_reports/logs/log_live_merchant_outlets_`date "+\%F_\%X_\%Z"`.log 2>&1
 
 
-55 02 * * * bash /home/ubuntu/nb_reports/refund.sh > /home/ubuntu/nb_reports/logs/log_refund`date "+\%F_\%X_\%Z"`.log 2>&1
+10 03 * * * bash /home/ubuntu/nb_reports/redemption.sh > /home/ubuntu/nb_reports/logs/log_redemption`date "+\%F_\%X_\%Z"`.log 2>&1
 
-00 03 * * * bash /home/ubuntu/nb_reports/master_appsflyer.sh > /home/ubuntu/nb_reports/logs/log_master_appsflyer`date "+\%F_\%X_\%Z"`.log 2>&1
 
-05 03 * * * bash /home/ubuntu/nb_reports/master_downstream.sh > /home/ubuntu/nb_reports/logs/log_master_downstream`date "+\%F_\%X_\%Z"`.log 2>&1
+13 03 * * * bash /home/ubuntu/nb_reports/refund.sh > /home/ubuntu/nb_reports/logs/log_refund`date "+\%F_\%X_\%Z"`.log 2>&1
+
+17 03 * * * bash /home/ubuntu/nb_reports/master_appsflyer.sh > /home/ubuntu/nb_reports/logs/log_master_appsflyer`date "+\%F_\%X_\%Z"`.log 2>&1
+
+25 03 * * * bash /home/ubuntu/nb_reports/master_downstream.sh > /home/ubuntu/nb_reports/logs/log_master_downstream`date "+\%F_\%X_\%Z"`.log 2>&1
 
 
 
 
 ## user attributes
 
-30 3 * * * bash /home/ubuntu/user_attributes/ca_hotspots_daily.sh > /home/ubuntu/user_attributes/logs/log_ca_hotspots_daily`date "+\%F_\%X_\%Z"`.log 2>&1
+30 03 * * * bash /home/ubuntu/user_attributes/ca_hotspots_daily.sh > /home/ubuntu/user_attributes/logs/log_ca_hotspots_daily`date "+\%F_\%X_\%Z"`.log 2>&1
 
-35 3 * * * bash /home/ubuntu/user_attributes/ca_ob_daily.sh > /home/ubuntu/user_attributes/logs/log_ca_ob_daily`date "+\%F_\%X_\%Z"`.log 2>&1
+35 03 * * * bash /home/ubuntu/user_attributes/ca_ob_daily.sh > /home/ubuntu/user_attributes/logs/log_ca_ob_daily`date "+\%F_\%X_\%Z"`.log 2>&1
 
-40 3 * * * bash /home/ubuntu/user_attributes/ca_rating_daily.sh > /home/ubuntu/user_attributes/logs/log_ca_rating_daily`date "+\%F_\%X_\%Z"`.log 2>&1
+40 03 * * * bash /home/ubuntu/user_attributes/ca_rating_daily.sh > /home/ubuntu/user_attributes/logs/log_ca_rating_daily`date "+\%F_\%X_\%Z"`.log 2>&1
 
-45 3 * * * bash /home/ubuntu/user_attributes/ca_ga_at_bo_co.sh > /home/ubuntu/user_attributes/logs/log_ca_ga_at_bo_co_daily`date "+\%F_\%X_\%Z"`.log 2>&1
+45 03 * * * bash /home/ubuntu/user_attributes/ca_ga_at_bo_co.sh > /home/ubuntu/user_attributes/logs/log_ca_ga_at_bo_co_daily`date "+\%F_\%X_\%Z"`.log 2>&1
 
-45 3 * * * bash /home/ubuntu/user_attributes/ca_ga_at_bo_co.sh > /home/ubuntu/user_attributes/logs/log_ca_ga_at_bo_co_daily`date "+\%F_\%X_\%Z"`.log 2>&1
+45 03 * * * bash /home/ubuntu/user_attributes/ca_ga_at_bo_co.sh > /home/ubuntu/user_attributes/logs/log_ca_ga_at_bo_co_daily`date "+\%F_\%X_\%Z"`.log 2>&1
 
-50 3 * * * bash /home/ubuntu/user_attributes/ca_ol_oh_daily.sh > /home/ubuntu/user_attributes/logs/log_ca_ol_oh_daily`date "+\%F_\%X_\%Z"`.log 2>&1
+50 03 * * * bash /home/ubuntu/user_attributes/ca_ol_oh_daily.sh > /home/ubuntu/user_attributes/logs/log_ca_ol_oh_daily`date "+\%F_\%X_\%Z"`.log 2>&1
 
-55 3 * * * bash /home/ubuntu/user_attributes/moduleQueries.sh > /home/ubuntu/user_attributes/logs/log_moduleQueries`date "+\%F_\%X_\%Z"`.log 2>&1
+55 03 * * * bash /home/ubuntu/user_attributes/moduleQueries.sh > /home/ubuntu/user_attributes/logs/log_moduleQueries`date "+\%F_\%X_\%Z"`.log 2>&1
+
+
+
+## product metrics
+
+30 03 * * * bash /home/ubuntu/product_metrics/product_metrics_daily_query.sh > /home/ubuntu/product_metrics/logs/log_product_metrics_daily_query`date "+\%F_\%X_\%Z"`.log 2>&1
+
+40 03 * * * bash /home/ubuntu/product_metrics/search_funnel_dump2.sh > /home/ubuntu/product_metrics/logs/log_search_funnel_dump2`date "+\%F_\%X_\%Z"`.log 2>&1

@@ -351,6 +351,21 @@
                 "name": "street",
                 "type": "INTEGER",
                 "mode": "NULLABLE"
+            },
+            {
+                "name": "nearestMetroStation",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "businessPark",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "residentialArea",
+                "type": "STRING",
+                "mode": "NULLABLE"
             }
         ]
     },
@@ -1025,11 +1040,6 @@
     "mode": "NULLABLE",
     "name": "nbVerifiedOn",
     "type": "INTEGER"
-},
-{
-    "mode": "NULLABLE",
-    "name": "firebaseLink",
-    "type": "STRING"
 },
 {
     "mode": "NULLABLE",

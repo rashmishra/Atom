@@ -83,5 +83,5 @@
         "name": "source",
         "type": "STRING",
         "mode": "NULLABLE"
-    },
+    }
 ]

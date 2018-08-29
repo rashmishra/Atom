@@ -1,0 +1,159 @@
+[
+    {
+        "name": "orderId",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "customerId",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "status",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "deliveryStatus",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "statusDesc",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "deliveryStatusDesc",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "merchantId",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "merchantName",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "merchantLocality",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "merchantLocalityVerbose",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "merchantImageUrl",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "deliveryAddress",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "deliveryLat",
+        "type": "DOUBLE",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "deliveryLng",
+        "type": "DOUBLE",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "userLat",
+        "type": "DOUBLE",
+        "mode": "REPEATED"
+    },
+    {
+        "name": "userLng",
+        "type": "DOUBLE",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "deliveredAt",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "statusChangeLogs",
+        "type": "RECORD",
+        "mode": "NULLABLE",
+        "fields": [
+            {
+                "name": "status",
+                "type": "INTEGER",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "updatedAt",
+                "type": "INTEGER",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "updatedBy",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            }
+        ]
+    },
+    {
+        "name": "createdAt",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "updatedAt",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "createdBy",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "updatedBy",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "appVersion",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "city",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "orderedAt",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "totalCost",
+        "type": "DOUBLE",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "partnerPromoCodeId",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "partnerPromocode",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    }
+]

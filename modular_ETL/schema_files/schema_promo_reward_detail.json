@@ -1,0 +1,87 @@
+[
+    {
+        "name": "id",
+        "type": "INTEGER",
+        "mode": "REQUIRED"
+    },
+    {
+        "name": "orderid",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "status",
+        "type": "STRING",
+        "mode": "INTEGER"
+    },
+    {
+        "name": "customerid",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "emailid",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "pcids",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "parentpcid",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "customerphone",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "customername",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "processat",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "istravel",
+        "type": "BOOLEAN",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "createdat",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "createdby",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "updatedat",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "updatedby",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "merchantname",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },    
+    {
+        "name": "source",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+]

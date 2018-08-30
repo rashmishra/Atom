@@ -61,22 +61,22 @@
     },
     {
         "name": "deliveryLat",
-        "type": "DOUBLE",
+        "type": "FLOAT",
         "mode": "NULLABLE"
     },
     {
         "name": "deliveryLng",
-        "type": "DOUBLE",
+        "type": "FLOAT",
         "mode": "NULLABLE"
     },
     {
         "name": "userLat",
-        "type": "DOUBLE",
+        "type": "FLOAT",
         "mode": "NULLABLE"
     },
     {
         "name": "userLng",
-        "type": "DOUBLE",
+        "type": "FLOAT",
         "mode": "NULLABLE"
     },
     {
@@ -113,7 +113,7 @@
     },
     {
         "name": "updatedAt",
-        "type": "STRING",
+        "type": "INTEGER",
         "mode": "NULLABLE"
     },
     {
@@ -143,7 +143,7 @@
     },
     {
         "name": "totalCost",
-        "type": "DOUBLE",
+        "type": "FLOAT",
         "mode": "NULLABLE"
     },
     {

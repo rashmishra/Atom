@@ -147,7 +147,7 @@
         "mode": "NULLABLE"
     },
     {
-        "name": "partnerPromoCodeId",
+        "name": "partnerPromocodeId",
         "type": "STRING",
         "mode": "NULLABLE"
     },

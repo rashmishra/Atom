@@ -72,7 +72,7 @@
     {
         "name": "userLat",
         "type": "DOUBLE",
-        "mode": "REPEATED"
+        "mode": "NULLABLE"
     },
     {
         "name": "userLng",
@@ -87,7 +87,7 @@
     {
         "name": "statusChangeLogs",
         "type": "RECORD",
-        "mode": "NULLABLE",
+        "mode": "REPEATED",
         "fields": [
             {
                 "name": "status",

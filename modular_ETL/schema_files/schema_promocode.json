@@ -740,6 +740,109 @@
                         "mode": "NULLABLE"
                     }
                 ]
+            },
+            {
+                "name": "MWEB",
+                "type": "RECORD",
+                "mode": "NULLABLE",
+                "fields": [
+                    {
+                        "name": "promoCodeType",
+                        "type": "STRING",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "discountAmount",
+                        "type": "INTEGER",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "discountPercent",
+                        "type": "INTEGER",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "maxCap",
+                        "type": "INTEGER",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "cashbackPercent",
+                        "type": "FLOAT",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "cashbackAmount",
+                        "type": "FLOAT",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "voucherQuantityRange",
+                        "type": "RECORD",
+                        "mode": "NULLABLE",
+                        "fields": [
+                            {
+                                "name": "from",
+                                "type": "INTEGER",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "to",
+                                "type": "INTEGER",
+                                "mode": "NULLABLE"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "usesPerPerson",
+                        "type": "INTEGER",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "offerPriceRange",
+                        "type": "RECORD",
+                        "mode": "NULLABLE",
+                        "fields": [
+                            {
+                                "name": "from",
+                                "type": "INTEGER",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "to",
+                                "type": "INTEGER",
+                                "mode": "NULLABLE"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "txnPriceRange",
+                        "type": "RECORD",
+                        "mode": "NULLABLE",
+                        "fields": [
+                            {
+                                "name": "from",
+                                "type": "INTEGER",
+                                "mode": "NULLABLE"
+                            },
+                            {
+                                "name": "to",
+                                "type": "INTEGER",
+                                "mode": "NULLABLE"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "netMinimumMargin",
+                        "type": "INTEGER",
+                        "mode": "NULLABLE"
+                    },
+                    {
+                        "name": "marketingExpenseCap",
+                        "type": "INTEGER",
+                        "mode": "NULLABLE"
+                    }
+                ]
             }
         ]
     },
@@ -757,5 +860,25 @@
         "name": "applicableOnCollections",
         "type": "STRING",
         "mode": "REPEATED"
+    },
+    {
+        "name": "partnerPromoId",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "partnerId",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "partnerName",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "processIncentive",
+        "type": "BOOLEAN",
+        "mode": "NULLABLE"
     }
 ]

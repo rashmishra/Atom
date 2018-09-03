@@ -95,6 +95,11 @@
                 "mode": "NULLABLE"
             },
             {
+                "name": "deliveryStatus",
+                "type": "INTEGER",
+                "mode": "NULLABLE"
+            },
+            {
                 "name": "updatedAt",
                 "type": "INTEGER",
                 "mode": "NULLABLE"
@@ -155,5 +160,11 @@
         "name": "partnerPromocode",
         "type": "STRING",
         "mode": "NULLABLE"
+    },
+    {
+        "name": "paymentMethod",
+        "type": "STRING",
+        "mode": "NULLABLE"
     }
+
 ]

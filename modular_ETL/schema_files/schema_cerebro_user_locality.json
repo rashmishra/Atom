@@ -23,5 +23,10 @@
         "name": "lastChecked",
         "type": "INTEGER",
         "mode": "NULLABLE"
+    },
+    {
+        "name": "isUserLocationOn",
+        "type": "BOOLEAN",
+        "mode": "NULLABLE"
     }
 ]

@@ -1045,5 +1045,15 @@
     "mode": "NULLABLE",
     "name": "additionalInfo",
     "type": "STRING"
+},
+{
+    "mode": "NULLABLE",
+    "name": "isMenuComplete",
+    "type": "BOOLEAN"
+},
+{
+    "mode": "NULLABLE",
+    "name": "shutdownComment",
+    "type": "STRING"
 }
 ]

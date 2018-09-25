@@ -1,0 +1,77 @@
+[
+    {
+        "name": "id",
+        "type": "INTEGER",
+        "mode": "REQUIRED"
+    },
+    {
+        "name": "partnerorderid",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "customerid",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "partnerrewardid",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "partnerid",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "status",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "cashbackamount",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "processat",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "rewardvalidityindays",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "deliverytime",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "createdat",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "createdby",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "updatedat",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "updatedby",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "merchantname",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    }
+]

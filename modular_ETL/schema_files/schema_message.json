@@ -288,5 +288,10 @@
         "name": "parentCommunicationId",
         "type": "INTEGER",
         "mode": "NULLABLE"
+    },
+    {
+        "name": "isSilentPN",
+        "type": "BOOLEAN",
+        "mode": "NULLABLE"
     }
 ]

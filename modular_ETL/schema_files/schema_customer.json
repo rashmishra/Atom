@@ -468,6 +468,11 @@
                 "name": "deviceDensity",
                 "type": "STRING",
                 "mode": "NULLABLE"
+            },
+            {
+                "name": "firstEndpointErrorTimestamp",
+                "type": "INTEGER",
+                "mode": "NULLABLE"
             }
         ]
     }

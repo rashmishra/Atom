@@ -102,7 +102,7 @@ export PGPASSWORD='0mspr0d$'
 
 v_extract_filename="$v_data_dump_dir/$v_data_object.csv";
 
-v_command="\copy (select * from oms_data.orderheaderstatushistory where updatedat>$v_incremental_epoch)  to $v_extract_filename with DELIMITER ',' CSV HEADER"
+v_command="\copy (select * from oms_data.orderheaderstatushistory where updatedat>$v_incremental_epoch and status = 7)  to $v_extract_filename with DELIMITER ',' CSV HEADER"
 
 
 #psql -d $DBNAME -h $DBHOST -p $DBPORT -U $DBUSER --log-file=$v_query_logfile -A --field-separator=, -f "query_$v_data_object.txt" -o "$v_extract_filename" &

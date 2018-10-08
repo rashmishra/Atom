@@ -308,6 +308,14 @@ for ((i=0;i<$v_config_line_cnr; i++)); do
                 echo " Scripts Export path: $EXPORT_SCRIPTS_PATH ."
                 echo "Script Name is: $EXPORT_SCRIPTS_PATH/export_${v_arr_data_object[$i]}.sh "
 
+                if [ ${v_arr_data_object[$i]} == 'communication' ||  ${v_arr_data_object[$i]} == 'message' || ${v_arr_data_object[$i]} == 'message_status_history' || ${v_arr_data_object[$i]} == 'user_device_token_status' ]
+                    #3.5
+                    then export MONGO_PATH='/home/ubuntu/mongodb3-4-ssl/bin' 
+                
+                else 
+                    #2.4.9
+                    export MONGO_PATH='/home/ubuntu/mongo_cp/bin'
+                fi
                 #                                                                  $1                      $2               $3               $4                     $5                 $6
                 bash $EXPORT_SCRIPTS_PATH/export_${v_arr_data_object[$i]}.sh ${v_arr_data_object[$i]} $DAILY_DUMP_PATH $MONGO_PATH ${v_arr_incremental_epoch[$i]} $ETL_HOME_DIR  ${v_arr_ETL_mode[$i]} &
                 v_pid=$!

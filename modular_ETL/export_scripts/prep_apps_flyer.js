@@ -73,6 +73,10 @@ db.app_flier.find().forEach(function(doc){
     if (newdoc.af_ad_id != null ){
            newdoc.af_ad_id = String(newdoc.af_ad_id);
     }
+	
+	if (newdoc.af_adset_id != null ){
+           newdoc.af_adset_id = String(newdoc.af_adset_id);
+    }
 
     db.apps_flyer.save(newdoc);
 	

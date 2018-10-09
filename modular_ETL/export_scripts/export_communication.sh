@@ -97,7 +97,7 @@ cd $v_mongo_dir
 # v_secondary_ip=`echo $v_secondary_ip | sed -e 's/,//g' | sed -e 's/-/./g' | sed -e 's/ip.//g' | head -n 1`;
 
 # 5 Oct 2016 | Ranganath | Using DNS alias for delivery manager
-v_secondary_ip="mongodb://prod-crm-1-shard-00-00-adowb.mongodb.net:27017,prod-crm-1-shard-00-01-adowb.mongodb.net:27017,prod-crm-1-shard-00-02-adowb.mongodb.net:27017";
+v_secondary_ip="prod-crm-1-shard-00-00-adowb.mongodb.net:27017,prod-crm-1-shard-00-01-adowb.mongodb.net:27017,prod-crm-1-shard-00-02-adowb.mongodb.net:27017";
 
 echo "${v_data_object}: Secondary IP is $v_secondary_ip";
 

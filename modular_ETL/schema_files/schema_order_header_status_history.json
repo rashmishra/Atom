@@ -1,0 +1,32 @@
+[
+    {
+        "name": "ohshid",
+        "type": "INTEGER",
+        "mode": "REQUIRED"
+    },
+    {
+        "name": "changecomment",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "orderid",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "status",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "updatedat",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "updatedby",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    }
+]

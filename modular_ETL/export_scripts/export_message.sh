@@ -109,16 +109,13 @@ v_extract_pid=$!
 if wait $v_extract_pid; then
     echo "Process $v_extract_pid Status: success";
     v_task_status="success";
-    # Modifying format of mongo export to be same as version 2.4.9 required for atlas migration
-    sed -i -e 's/{"$numberLong":"\([0-9]*\)"}/\1/g' $v_data_dump_dir/$v_data_object.json
 else 
     echo "Process $v_extract_pid Status: failed";
     v_task_status="failed";
 fi
 
-
-
-
+# Modifying format of mongo export to be same as version 2.4.9 required for atlas migration
+sed -i -e 's/{"$numberLong":"\([0-9]*\)"}/\1/g' $v_data_dump_dir/$v_data_object.json
 
 v_log_obj_txt+=`echo "\n$(date) $v_task_status is the task status. \n"`;
 

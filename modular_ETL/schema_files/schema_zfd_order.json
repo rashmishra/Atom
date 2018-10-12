@@ -165,6 +165,21 @@
         "name": "paymentMethod",
         "type": "STRING",
         "mode": "NULLABLE"
+    },
+    {
+        "name": "merchantCity",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "merchantCityId",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "deliveryCharge",
+        "type": "FLOAT",
+        "mode": "NULLABLE"
     }
 
 ]

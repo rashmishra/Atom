@@ -1,0 +1,190 @@
+[
+    {
+        "name": "id",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "assignee",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+    {
+        "name": "category",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+        {
+        "name": "city",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+        {
+        "name": "end_time",
+        "type": "INTEGER",
+        "mode": "nullable"
+    },
+        {
+        "name": "execution_source",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+        {
+        "name": "executor",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+        {
+        "name": "image_added",
+        "type": "BOOLEAN",
+        "mode": "nullable"
+    },
+        {
+        "name": "is_chain",
+        "type": "BOOLEAN",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+        {
+        "name": "is_completed",
+        "type": "BOOLEAN",
+        "mode": "nullable"
+    },
+       {
+        "name": "is_duplicate",
+        "type": "BOOLEAN",
+        "mode": "nullable"
+    },
+      {
+        "name": "is_edit_published_merchant",
+        "type": "BOOLEAN",
+        "mode": "nullable"
+    },
+        {
+        "name": "is_edit_request",
+        "type": "BOOLEAN",
+        "mode": "nullable"
+    },
+        {
+        "name": "is_permanently_closed",
+        "type": "BOOLEAN",
+        "mode": "nullable"
+    },
+        {
+        "name": "is_rejected",
+        "type": "BOOLEAN",
+        "mode": "nullable"
+    },
+        {
+        "name": "is_task_rejected",
+        "type": "BOOLEAN",
+        "mode": "nullable"
+    },
+
+    {
+        "name": "is_task_rejected_byie",
+        "type": "BOOLEAN",
+        "mode": "nullable"
+    },
+    {
+        "name": "is_task_rejected_byqa",
+        "type": "BOOLEAN",
+        "mode": "nullable"
+    },
+        {
+        "name": "is_temporary_closed",
+        "type": "BOOLEAN",
+        "mode": "nullable"
+    },
+       {
+        "name": "key",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+       {
+        "name": "last_updated_at",
+        "type": "INTEGER",
+        "mode": "nullable"
+    },
+     {
+        "name": "locality",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+
+    {
+        "name": "locality_id",
+        "type": "INTEGER",
+        "mode": "nullable"
+    },
+
+    {
+        "name": "merchant_id",
+        "type": "INTEGER",
+        "mode": "nullable"
+    },
+    {
+        "name": "merchant_name",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+       {
+        "name": "name",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+        {
+        "name": "process_end_time",
+        "type": "INTEGER",
+        "mode": "nullable"
+    },
+ 
+    {
+        "name": "process_id",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+       {
+        "name": "process_start_time",
+        "type": "INTEGER",
+        "mode": "nullable"
+    },
+        {
+        "name": "resend_byie",
+        "type": "BOOLEAN",
+        "mode": "nullable"
+    },
+    {
+        "name": "resend_byqa",
+        "type": "BOOLEAN",
+        "mode": "nullable"
+    },
+    {
+        "name": "source",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+
+    {
+        "name": "start_time",
+        "type": "INTEGER",
+        "mode": "nullable"
+    },
+    {
+        "name": "state",
+        "type": "INTEGER",
+        "mode": "nullable"
+    },
+
+    {
+        "name": "task_rejected_by",
+        "type": "STRING",
+        "mode": "nullable"
+    },
+     {
+        "name": "task_rejection_reason",
+        "type": "STRING",
+        "mode": "nullable"
+    }
+
+]

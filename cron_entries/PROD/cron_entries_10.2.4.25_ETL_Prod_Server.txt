@@ -48,16 +48,16 @@ PATH=/home/ubuntu/google-cloud-sdk/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:
 40 * * * * bash /home/ubuntu/ETL/engg_reporting/CB_Expiry_World/refresh_CB_credit_expiry_reminder.sh > /dev/null
 38 05,10  * * * bash /home/ubuntu/ETL/engg_reporting/Referral/generate_Referral_Funnels.sh > /home/ubuntu/ETL/engg_reporting/Referral/logs/log_generate_Referral_Funnels_`date "+\%F_\%X_\%Z"`.log 2>&1
 
-25 03 * * * bash /home/ubuntu/ETL/engg_reporting/CB_Expiry_World/wrapper_refresh_CB_GB_world.sh > /dev/null
+25 04 * * * bash /home/ubuntu/ETL/engg_reporting/CB_Expiry_World/wrapper_refresh_CB_GB_world.sh > /dev/null
 
 
-15 02 * * * bash /home/ubuntu/ETL/engg_reporting/refresh_DM_funnel_with_GB.sh > /home/ubuntu/ETL/engg_reporting/logs/refresh_DM_funnel_with_GB_`date "+\%F_\%X_\%Z"`.log 2>&1
+45 04 * * * bash /home/ubuntu/ETL/engg_reporting/refresh_DM_funnel_with_GB.sh > /home/ubuntu/ETL/engg_reporting/logs/refresh_DM_funnel_with_GB_`date "+\%F_\%X_\%Z"`.log 2>&1
 
-52 01 * * * bash /home/ubuntu/ETL/cerebro_revenue/refresh_cerebro_revenue.sh > /home/ubuntu/ETL/cerebro_revenue/logs/log_cerebro_revenue_`date "+\%F_\%X_\%Z"`.log
+52 04 * * * bash /home/ubuntu/ETL/cerebro_revenue/refresh_cerebro_revenue.sh > /home/ubuntu/ETL/cerebro_revenue/logs/log_cerebro_revenue_`date "+\%F_\%X_\%Z"`.log
 
-50 01 * * * bash /home/ubuntu/ETL/cerebro_revenue/refresh_geo_fence_revenue.sh > /home/ubuntu/ETL/cerebro_revenue/logs/log_geo_fence_revenue_`date "+\%F_\%X_\%Z"`.log
+50 04 * * * bash /home/ubuntu/ETL/cerebro_revenue/refresh_geo_fence_revenue.sh > /home/ubuntu/ETL/cerebro_revenue/logs/log_geo_fence_revenue_`date "+\%F_\%X_\%Z"`.log
 
-45 02 * * * bash /home/ubuntu/ETL/atom_simplified/refresh_atom_simplified.sh > /home/ubuntu/ETL/atom_simplified/logs/log_atom_simplified_`date "+\%F_\%X_\%Z"`.log 2>&1
+45 01 * * * bash /home/ubuntu/ETL/atom_simplified/refresh_atom_simplified.sh > /home/ubuntu/ETL/atom_simplified/logs/log_atom_simplified_`date "+\%F_\%X_\%Z"`.log 2>&1
 
 30 05  * * * bash /home/ubuntu/ETL/mixpanel_daily_notifications/get_new_customer_list.sh  > /home/ubuntu/ETL/mixpanel_daily_notifications/logs/log_get_new_customers_`date "+\%F_\%X_\%Z"`.log 2>&1
 
@@ -227,3 +227,10 @@ PATH=/home/ubuntu/google-cloud-sdk/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:
 30 04 * * * bash /home/ubuntu/product_metrics/product_metrics_daily_query.sh > /home/ubuntu/product_metrics/logs/log_product_metrics_daily_query`date "+\%F_\%X_\%Z"`.log 2>&1
 
 40 04 * * * bash /home/ubuntu/product_metrics/search_funnel_dump2.sh > /home/ubuntu/product_metrics/logs/log_search_funnel_dump2`date "+\%F_\%X_\%Z"`.log 2>&1
+
+
+## Little 
+
+00 05 * * * bash /home/ubuntu/BI_automation/Little_database/load/load.sh > /home/ubuntu/BI_automation/logs/log_load_little`date "+\%F_\%X_\%Z"`.log 2>&1
+
+10 05 * * * bash /home/ubuntu/BI_automation/Little_database/load/little_master_transaction.sh > /home/ubuntu/BI_automation/logs/log_load_little_master_transaction`date "+\%F_\%X_\%Z"`.log 2>&1
